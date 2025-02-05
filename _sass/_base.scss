@@ -140,9 +140,7 @@ p {
     }
   }
 
-  .section {
-    margin-bottom: 50px;
-  }
+  
 
   .item {
     margin-bottom: 30px;
@@ -168,12 +166,15 @@ p {
     font-size: 14px;
     color: $text-grey;
   }
-
-  .company, .university {
-    font-size: 15px;
+  .company, .university ,.cert-title, .degree,.job-title ,.upper-row{
+    font-size: 15px; // Increased font size for better visibility
+    font-weight: bold; // Added bold weight to emphasize the text
     color: $text-color-secondary;
+    text-transform: uppercase; // Added uppercase transformation for prominence
   }
+  
 }
+
 
 .skills-section {
     padding-left: 30px;
@@ -185,7 +186,6 @@ p {
     margin-bottom: 20px;
     flex-direction: column;
     display: flex;
-    padding-left: 30px;
     
 
 
@@ -267,3 +267,22 @@ p {
 .list-unstyled {
   padding-left: 10px;
  }
+
+.recommendation-person {
+  font-size: 15px;
+  font-weight: bold;
+  color: $text-color-secondary;
+  text-transform: uppercase;
+}
+.details{
+  margin: 0px;
+}
+
+.recommendations-section .item{
+  margin-bottom: 30px;
+}
+
+.recommendations-section .item:last-child{
+  margin-bottom: 0px;
+}
+

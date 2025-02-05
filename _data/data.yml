@@ -133,7 +133,7 @@ experiences:
         - Assisted in the training of **bootcamps** focused on **API Testing** using **Postman**, contributing to the skill development of new team members.
         - Played a key role in the development of automated QA processes utilizing **Generative AI**, which streamlined test case generation and significantly enhanced test coverage for complex healthcare workflows.
         - Mentored junior QA engineers on **automation best practices** and **quality assurance methodologies**, fostering a collaborative learning environment and making substantial contributions to the professional growth of the team.
-        - Initiated and led a project to automate the conversion of JSON data to XLSX format, improving data handling efficiency and accuracy for client therapy data management.
+        - **Initiated and led** a project to **automate the conversion** of **JSON data** to **XLSX format**, improving **data handling efficiency** and **accuracy** for **client therapy data management**.
     tags: ["Professional Development", "Regulatory Compliance", "Quality Assurance Best Practices", "Cross-Cultural Collaboration", "Healthcare Technology Solutions", "Automation"]
     icon: "briefcase"
 
@@ -173,19 +173,19 @@ certifications:
     start: 2022  
     organization: International Software Testing Qualifications Board (ISTQB)  
     details: | 
-      Achieved an industry-recognized certification in core software testing principles, covering test design techniques, execution strategies, and reporting methodologies. This certification highlights proficiency in both manual and automated testing, ensuring software quality through structured processes and best practices.
+      Achieved an **industry-recognized certification** in core software testing principles, covering **test design techniques**, **execution strategies**, and **reporting methodologies**. This certification highlights **proficiency** in both **manual and automated testing**, ensuring software quality through **structured processes** and **best practices**.
 
   - name: "NASA Galactic Problem Solver"  
     start: 2023  
     organization: NASA International Space Apps Challenge  
     details: |
-      Awarded the Galactic Problem Solver title at the NASA International Space Apps Challenge 2023 for pioneering solutions utilizing AI and automation. Recognized for addressing complex challenges in space exploration through innovative technological applications, contributing to NASA's global open innovation initiatives.
+      Awarded the **Galactic Problem Solver** title at the **NASA International Space Apps Challenge 2023** for pioneering solutions utilizing **AI** and **automation**. Recognized for addressing **complex challenges** in space exploration through **innovative technological applications**, contributing to NASA's **global open innovation initiatives**.
 
   - name: "Advanced English Proficiency (BECAL Scholarship Recipient)"  
     start: 2021  
     organization: BECAL Scholarship Program  
     details: |
-      Awarded the prestigious BECAL Scholarship, a merit-based program funded by the Paraguayan government, to pursue advanced English studies. This scholarship provided an opportunity to enhance my professional communication skills and strengthen global collaboration abilities. As part of the program, I attended Wichita State University in the USA, further refining my language proficiency and participating in academic initiatives that broadened my international perspective.
+      Awarded the **prestigious BECAL Scholarship**, a **merit-based program** funded by the **Paraguayan government**, to pursue **advanced English studies**. This scholarship provided an opportunity to enhance my **professional communication skills** and strengthen **global collaboration abilities**. As part of the program, I attended **Wichita State University** in the USA, further refining my **language proficiency** and participating in **academic initiatives** that broadened my **international perspective**.
 
   - name: "TAU Test Automation Certifications"
     start: 2022
@@ -215,7 +215,7 @@ recommendations:
       Ivan demonstrates a proactive approach to problem-solving, preferring to tackle challenges independently while actively incorporating AI tools to enhance workflow efficiency. He shows enthusiasm in training sessions and coding, strives for knowledge, and is always willing to assist his team, including creating helpful scripts. For his level, he excels technically and is unafraid to use generative AI, which has also helped me learn new techniques for my day-to-day testing.
 
   - person: Sarah Johnson
-    role: Business Analyst at Example.com
+    role: Business Analyst at MentorMate
     recommendation: |
       I think Ivan is INCREDIBLY smart and talented. He thinks things through, has some automation and electrical/mechanical skills, and can analyze things well. 
       I really enjoyed working with Ivan. As part of the Pelvital project team, he has demonstrated that he is really attentive to details, willing to help and support team members, always positive and polite, and has never been late to meetings. 
@@ -227,11 +227,10 @@ recommendations:
       He worked with his tickets quickly and efficiently. He always maintained direct, fluid, and cordial communication with the author of the ticket.
       Ivan has a never-ending amount of energy and desire to learn and improve. When he finds a task interesting, he can go above and beyond to deliver. He is a techie with a preference for all back-end related things, and if there is a chance Python or anything related to automation can be used, he is on it, and you know he will deliver.
 
-  - person: Katrin Ka
+  - person: Kalina Petrova
     role: Quality Assurance Specialist at MentorMate
     recommendation: |
       In the project, Ivan took the initiative to help with the testing of the controller data, which wasn't an easy task to do. He had a lot of insights about that and helped the team a lot.
-
 skills:
   title: Skills & Proficiency
 

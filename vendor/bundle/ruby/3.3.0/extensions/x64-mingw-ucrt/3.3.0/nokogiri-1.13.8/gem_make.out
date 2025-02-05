@@ -1,0 +1,1374 @@
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri
+C:/Ruby33-x64/bin/ruby.exe extconf.rb
+checking for whether -std=c99 is accepted as CFLAGS... yes
+checking for whether -Wno-declaration-after-statement is accepted as CFLAGS... yes
+checking for whether -g is accepted as CFLAGS... yes
+checking for whether -Winline is accepted as CFLAGS... yes
+checking for whether -Wmissing-noreturn is accepted as CFLAGS... yes
+checking for whether  "-Idummypath" is accepted as CPPFLAGS... yes
+Building nokogiri using packaged libraries.
+Static linking is enabled.
+Cross build is disabled.
+Using mini_portile version 2.8.4
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of zlib-1.2.12.
+Configuration options: --host\=x86_64-w64-mingw32 --enable-static --disable-shared --libdir\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/zlib/1.2.12/lib --disable-shared --enable-static CFLAGS\=-fPIC
+
+The Nokogiri maintainers intend to provide timely security updates, but if
+this is a concern for you and want to use your OS/distro system library
+instead, then abort this installation process and install nokogiri as
+instructed at:
+
+  https://nokogiri.org/tutorials/installing_nokogiri.html#installing-using-standard-system-libraries
+
+[{:url=>"https://zlib.net/fossils/zlib-1.2.12.tar.gz",
+  :sha256=>"91844808532e5ce316b3c010929493c0244f3d37593afd6de04f71821d5136d9"}]
+
+Downloading zlib-1.2.12.tar.gz (  0%) 
+Downloading zlib-1.2.12.tar.gz (  1%) 
+Downloading zlib-1.2.12.tar.gz (  1%) 
+Downloading zlib-1.2.12.tar.gz (  2%) 
+Downloading zlib-1.2.12.tar.gz (  2%) 
+Downloading zlib-1.2.12.tar.gz (  3%) 
+Downloading zlib-1.2.12.tar.gz (  3%) 
+Downloading zlib-1.2.12.tar.gz (  4%) 
+Downloading zlib-1.2.12.tar.gz (  4%) 
+Downloading zlib-1.2.12.tar.gz (  5%) 
+Downloading zlib-1.2.12.tar.gz (  5%) 
+Downloading zlib-1.2.12.tar.gz (  6%) 
+Downloading zlib-1.2.12.tar.gz (  6%) 
+Downloading zlib-1.2.12.tar.gz (  7%) 
+Downloading zlib-1.2.12.tar.gz (  8%) 
+Downloading zlib-1.2.12.tar.gz (  8%) 
+Downloading zlib-1.2.12.tar.gz (  9%) 
+Downloading zlib-1.2.12.tar.gz (  9%) 
+Downloading zlib-1.2.12.tar.gz ( 10%) 
+Downloading zlib-1.2.12.tar.gz ( 10%) 
+Downloading zlib-1.2.12.tar.gz ( 11%) 
+Downloading zlib-1.2.12.tar.gz ( 11%) 
+Downloading zlib-1.2.12.tar.gz ( 12%) 
+Downloading zlib-1.2.12.tar.gz ( 12%) 
+Downloading zlib-1.2.12.tar.gz ( 13%) 
+Downloading zlib-1.2.12.tar.gz ( 13%) 
+Downloading zlib-1.2.12.tar.gz ( 14%) 
+Downloading zlib-1.2.12.tar.gz ( 15%) 
+Downloading zlib-1.2.12.tar.gz ( 15%) 
+Downloading zlib-1.2.12.tar.gz ( 16%) 
+Downloading zlib-1.2.12.tar.gz ( 16%) 
+Downloading zlib-1.2.12.tar.gz ( 17%) 
+Downloading zlib-1.2.12.tar.gz ( 17%) 
+Downloading zlib-1.2.12.tar.gz ( 18%) 
+Downloading zlib-1.2.12.tar.gz ( 18%) 
+Downloading zlib-1.2.12.tar.gz ( 19%) 
+Downloading zlib-1.2.12.tar.gz ( 19%) 
+Downloading zlib-1.2.12.tar.gz ( 20%) 
+Downloading zlib-1.2.12.tar.gz ( 20%) 
+Downloading zlib-1.2.12.tar.gz ( 21%) 
+Downloading zlib-1.2.12.tar.gz ( 21%) 
+Downloading zlib-1.2.12.tar.gz ( 22%) 
+Downloading zlib-1.2.12.tar.gz ( 23%) 
+Downloading zlib-1.2.12.tar.gz ( 23%) 
+Downloading zlib-1.2.12.tar.gz ( 24%) 
+Downloading zlib-1.2.12.tar.gz ( 24%) 
+Downloading zlib-1.2.12.tar.gz ( 25%) 
+Downloading zlib-1.2.12.tar.gz ( 25%) 
+Downloading zlib-1.2.12.tar.gz ( 26%) 
+Downloading zlib-1.2.12.tar.gz ( 26%) 
+Downloading zlib-1.2.12.tar.gz ( 27%) 
+Downloading zlib-1.2.12.tar.gz ( 27%) 
+Downloading zlib-1.2.12.tar.gz ( 28%) 
+Downloading zlib-1.2.12.tar.gz ( 28%) 
+Downloading zlib-1.2.12.tar.gz ( 29%) 
+Downloading zlib-1.2.12.tar.gz ( 30%) 
+Downloading zlib-1.2.12.tar.gz ( 30%) 
+Downloading zlib-1.2.12.tar.gz ( 31%) 
+Downloading zlib-1.2.12.tar.gz ( 31%) 
+Downloading zlib-1.2.12.tar.gz ( 32%) 
+Downloading zlib-1.2.12.tar.gz ( 32%) 
+Downloading zlib-1.2.12.tar.gz ( 33%) 
+Downloading zlib-1.2.12.tar.gz ( 33%) 
+Downloading zlib-1.2.12.tar.gz ( 34%) 
+Downloading zlib-1.2.12.tar.gz ( 34%) 
+Downloading zlib-1.2.12.tar.gz ( 35%) 
+Downloading zlib-1.2.12.tar.gz ( 35%) 
+Downloading zlib-1.2.12.tar.gz ( 36%) 
+Downloading zlib-1.2.12.tar.gz ( 37%) 
+Downloading zlib-1.2.12.tar.gz ( 37%) 
+Downloading zlib-1.2.12.tar.gz ( 38%) 
+Downloading zlib-1.2.12.tar.gz ( 38%) 
+Downloading zlib-1.2.12.tar.gz ( 39%) 
+Downloading zlib-1.2.12.tar.gz ( 39%) 
+Downloading zlib-1.2.12.tar.gz ( 40%) 
+Downloading zlib-1.2.12.tar.gz ( 40%) 
+Downloading zlib-1.2.12.tar.gz ( 41%) 
+Downloading zlib-1.2.12.tar.gz ( 41%) 
+Downloading zlib-1.2.12.tar.gz ( 42%) 
+Downloading zlib-1.2.12.tar.gz ( 42%) 
+Downloading zlib-1.2.12.tar.gz ( 43%) 
+Downloading zlib-1.2.12.tar.gz ( 44%) 
+Downloading zlib-1.2.12.tar.gz ( 44%) 
+Downloading zlib-1.2.12.tar.gz ( 45%) 
+Downloading zlib-1.2.12.tar.gz ( 45%) 
+Downloading zlib-1.2.12.tar.gz ( 46%) 
+Downloading zlib-1.2.12.tar.gz ( 46%) 
+Downloading zlib-1.2.12.tar.gz ( 47%) 
+Downloading zlib-1.2.12.tar.gz ( 47%) 
+Downloading zlib-1.2.12.tar.gz ( 48%) 
+Downloading zlib-1.2.12.tar.gz ( 48%) 
+Downloading zlib-1.2.12.tar.gz ( 49%) 
+Downloading zlib-1.2.12.tar.gz ( 49%) 
+Downloading zlib-1.2.12.tar.gz ( 50%) 
+Downloading zlib-1.2.12.tar.gz ( 50%) 
+Downloading zlib-1.2.12.tar.gz ( 51%) 
+Downloading zlib-1.2.12.tar.gz ( 52%) 
+Downloading zlib-1.2.12.tar.gz ( 52%) 
+Downloading zlib-1.2.12.tar.gz ( 53%) 
+Downloading zlib-1.2.12.tar.gz ( 53%) 
+Downloading zlib-1.2.12.tar.gz ( 54%) 
+Downloading zlib-1.2.12.tar.gz ( 54%) 
+Downloading zlib-1.2.12.tar.gz ( 55%) 
+Downloading zlib-1.2.12.tar.gz ( 55%) 
+Downloading zlib-1.2.12.tar.gz ( 56%) 
+Downloading zlib-1.2.12.tar.gz ( 56%) 
+Downloading zlib-1.2.12.tar.gz ( 57%) 
+Downloading zlib-1.2.12.tar.gz ( 57%) 
+Downloading zlib-1.2.12.tar.gz ( 58%) 
+Downloading zlib-1.2.12.tar.gz ( 59%) 
+Downloading zlib-1.2.12.tar.gz ( 59%) 
+Downloading zlib-1.2.12.tar.gz ( 60%) 
+Downloading zlib-1.2.12.tar.gz ( 60%) 
+Downloading zlib-1.2.12.tar.gz ( 61%) 
+Downloading zlib-1.2.12.tar.gz ( 61%) 
+Downloading zlib-1.2.12.tar.gz ( 62%) 
+Downloading zlib-1.2.12.tar.gz ( 62%) 
+Downloading zlib-1.2.12.tar.gz ( 63%) 
+Downloading zlib-1.2.12.tar.gz ( 63%) 
+Downloading zlib-1.2.12.tar.gz ( 64%) 
+Downloading zlib-1.2.12.tar.gz ( 64%) 
+Downloading zlib-1.2.12.tar.gz ( 65%) 
+Downloading zlib-1.2.12.tar.gz ( 66%) 
+Downloading zlib-1.2.12.tar.gz ( 66%) 
+Downloading zlib-1.2.12.tar.gz ( 67%) 
+Downloading zlib-1.2.12.tar.gz ( 67%) 
+Downloading zlib-1.2.12.tar.gz ( 68%) 
+Downloading zlib-1.2.12.tar.gz ( 68%) 
+Downloading zlib-1.2.12.tar.gz ( 69%) 
+Downloading zlib-1.2.12.tar.gz ( 69%) 
+Downloading zlib-1.2.12.tar.gz ( 70%) 
+Downloading zlib-1.2.12.tar.gz ( 70%) 
+Downloading zlib-1.2.12.tar.gz ( 71%) 
+Downloading zlib-1.2.12.tar.gz ( 71%) 
+Downloading zlib-1.2.12.tar.gz ( 72%) 
+Downloading zlib-1.2.12.tar.gz ( 73%) 
+Downloading zlib-1.2.12.tar.gz ( 73%) 
+Downloading zlib-1.2.12.tar.gz ( 74%) 
+Downloading zlib-1.2.12.tar.gz ( 74%) 
+Downloading zlib-1.2.12.tar.gz ( 75%) 
+Downloading zlib-1.2.12.tar.gz ( 75%) 
+Downloading zlib-1.2.12.tar.gz ( 76%) 
+Downloading zlib-1.2.12.tar.gz ( 76%) 
+Downloading zlib-1.2.12.tar.gz ( 77%) 
+Downloading zlib-1.2.12.tar.gz ( 77%) 
+Downloading zlib-1.2.12.tar.gz ( 78%) 
+Downloading zlib-1.2.12.tar.gz ( 78%) 
+Downloading zlib-1.2.12.tar.gz ( 79%) 
+Downloading zlib-1.2.12.tar.gz ( 79%) 
+Downloading zlib-1.2.12.tar.gz ( 80%) 
+Downloading zlib-1.2.12.tar.gz ( 81%) 
+Downloading zlib-1.2.12.tar.gz ( 81%) 
+Downloading zlib-1.2.12.tar.gz ( 82%) 
+Downloading zlib-1.2.12.tar.gz ( 82%) 
+Downloading zlib-1.2.12.tar.gz ( 83%) 
+Downloading zlib-1.2.12.tar.gz ( 83%) 
+Downloading zlib-1.2.12.tar.gz ( 84%) 
+Downloading zlib-1.2.12.tar.gz ( 84%) 
+Downloading zlib-1.2.12.tar.gz ( 85%) 
+Downloading zlib-1.2.12.tar.gz ( 85%) 
+Downloading zlib-1.2.12.tar.gz ( 86%) 
+Downloading zlib-1.2.12.tar.gz ( 86%) 
+Downloading zlib-1.2.12.tar.gz ( 87%) 
+Downloading zlib-1.2.12.tar.gz ( 88%) 
+Downloading zlib-1.2.12.tar.gz ( 88%) 
+Downloading zlib-1.2.12.tar.gz ( 89%) 
+Downloading zlib-1.2.12.tar.gz ( 89%) 
+Downloading zlib-1.2.12.tar.gz ( 90%) 
+Downloading zlib-1.2.12.tar.gz ( 90%) 
+Downloading zlib-1.2.12.tar.gz ( 91%) 
+Downloading zlib-1.2.12.tar.gz ( 91%) 
+Downloading zlib-1.2.12.tar.gz ( 92%) 
+Downloading zlib-1.2.12.tar.gz ( 92%) 
+Downloading zlib-1.2.12.tar.gz ( 93%) 
+Downloading zlib-1.2.12.tar.gz ( 93%) 
+Downloading zlib-1.2.12.tar.gz ( 94%) 
+Downloading zlib-1.2.12.tar.gz ( 95%) 
+Downloading zlib-1.2.12.tar.gz ( 95%) 
+Downloading zlib-1.2.12.tar.gz ( 96%) 
+Downloading zlib-1.2.12.tar.gz ( 96%) 
+Downloading zlib-1.2.12.tar.gz ( 97%) 
+Downloading zlib-1.2.12.tar.gz ( 97%) 
+Downloading zlib-1.2.12.tar.gz ( 98%) 
+Downloading zlib-1.2.12.tar.gz ( 98%) 
+Downloading zlib-1.2.12.tar.gz ( 99%) 
+Downloading zlib-1.2.12.tar.gz ( 99%) 
+Downloading zlib-1.2.12.tar.gz (100%) 
+Extracting zlib-1.2.12.tar.gz into tmp/x86_64-w64-mingw32/ports/zlib/1.2.12... OK
+Running 'compile' for zlib 1.2.12... OK
+Running 'install' for zlib 1.2.12... OK
+Activating zlib 1.2.12 (from C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/zlib/1.2.12)...
+Using mini_portile version 2.8.4
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libiconv-1.16.
+Configuration options: --host\=x86_64-w64-mingw32 --enable-static --disable-shared --libdir\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libiconv/1.16/lib --disable-dependency-tracking --disable-shared --enable-static CPPFLAGS\=-Wall CFLAGS\=-O2\ -U_FORTIFY_SOURCE\ -g\ -fPIC CXXFLAGS\=-O2\ -U_FORTIFY_SOURCE\ -g LDFLAGS\=
+
+The Nokogiri maintainers intend to provide timely security updates, but if
+this is a concern for you and want to use your OS/distro system library
+instead, then abort this installation process and install nokogiri as
+instructed at:
+
+  https://nokogiri.org/tutorials/installing_nokogiri.html#installing-using-standard-system-libraries
+
+[{:url=>"https://ftp.gnu.org/pub/gnu/libiconv/libiconv-1.16.tar.gz",
+  :sha256=>"e6a1b1b589654277ee790cce3734f07876ac4ccfaecbee8afa0b649cf529cc04"}]
+
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  0%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  1%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  2%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  3%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  4%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  5%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  6%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  7%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  8%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz (  9%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 10%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 11%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 12%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 13%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 14%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 15%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 16%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 17%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 18%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 19%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 20%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 21%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 22%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 23%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 24%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 25%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 26%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 27%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 28%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 29%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 30%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 31%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 32%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 33%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 34%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 35%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 36%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 37%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 38%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 39%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 40%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 41%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 42%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 43%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 44%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 45%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 46%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 47%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 48%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 49%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 50%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 51%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 52%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 53%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 54%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 55%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 56%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 57%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 58%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 59%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 60%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 61%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 62%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 63%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 64%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 65%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 66%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 67%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 68%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 69%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 70%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 71%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 72%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 73%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 74%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 75%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 76%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 77%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 78%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 79%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 80%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 81%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 82%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 83%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 84%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 85%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 86%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 87%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 88%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 89%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 90%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 91%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 92%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 93%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 94%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 95%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 96%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 97%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 98%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz ( 99%) 
+Downloading libiconv-1.16.tar.gz (100%) 
+Extracting libiconv-1.16.tar.gz into tmp/x86_64-w64-mingw32/ports/libiconv/1.16... OK
+Running 'configure' for libiconv 1.16... OK
+Running 'compile' for libiconv 1.16... OK
+Running 'install' for libiconv 1.16... OK
+Activating libiconv 1.16 (from C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libiconv/1.16)...
+checking for whether -IC:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/zlib/1.2.12/include is accepted as CPPFLAGS... yes
+checking for gzdopen() in -lz... yes
+checking for whether -IC:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libiconv/1.16/include is accepted as CPPFLAGS... yes
+checking for iconv_open() in -liconv... yes
+Using mini_portile version 2.8.4
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libxml2-2.9.14.
+Configuration options: --host\=x86_64-w64-mingw32 --enable-static --disable-shared --libdir\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libxml2/2.9.14/lib --with-zlib\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/zlib/1.2.12 --with-iconv\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libiconv/1.16 --disable-dependency-tracking --without-python --without-readline --with-c14n --with-debug --with-threads --disable-shared --enable-static CFLAGS\=-O2\ -U_FORTIFY_SOURCE\ -g\ -ULIBXML_STATIC\ -DIN_LIBXML\ -fPIC
+The following patches are being applied:
+  - 0001-Remove-script-macro-support.patch
+  - 0002-Update-entities-to-remove-handling-of-ssi.patch
+  - 0003-libxml2.la-is-in-top_builddir.patch
+  - 0004-use-glibc-strlen.patch
+  - 0005-avoid-isnan-isinf.patch
+  - 0006-update-automake-files-for-arm64.patch
+  - 0008-htmlParseComment-handle-abruptly-closed-comments.patch
+  - 0009-allow-wildcard-namespaces.patch
+
+The Nokogiri maintainers intend to provide timely security updates, but if
+this is a concern for you and want to use your OS/distro system library
+instead, then abort this installation process and install nokogiri as
+instructed at:
+
+  https://nokogiri.org/tutorials/installing_nokogiri.html#installing-using-standard-system-libraries
+
+Note, however, that nokogiri cannot guarantee compatibility with every
+version of libxml2 that may be provided by OS/package vendors.
+
+[{:url=>
+   "https://mirror.csclub.uwaterloo.ca/gnome/sources/libxml2/2.9/libxml2-2.9.14.tar.xz",
+  :sha256=>"60d74a257d1ccec0475e749cba2f21559e48139efba6ff28224357c7c798dfee"}]
+Extracting libxml2-2.9.14.tar.xz into tmp/x86_64-w64-mingw32/ports/libxml2/2.9.14... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0001-Remove-script-macro-support.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0002-Update-entities-to-remove-handling-of-ssi.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0003-libxml2.la-is-in-top_builddir.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0004-use-glibc-strlen.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0005-avoid-isnan-isinf.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0006-update-automake-files-for-arm64.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0008-htmlParseComment-handle-abruptly-closed-comments.patch... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxml2/0009-allow-wildcard-namespaces.patch... OK
+Running 'configure' for libxml2 2.9.14... OK
+Running 'compile' for libxml2 2.9.14... OK
+Running 'install' for libxml2 2.9.14... OK
+Activating libxml2 2.9.14 (from C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libxml2/2.9.14)...
+Using mini_portile version 2.8.4
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libxslt-1.1.35.
+Configuration options: --host\=x86_64-w64-mingw32 --enable-static --disable-shared --libdir\=C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libxslt/1.1.35/lib --disable-dependency-tracking --without-python --without-crypto --with-debug --with-libxml-prefix\=/C/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libxml2/2.9.14 --disable-shared --enable-static CFLAGS\=-O2\ -U_FORTIFY_SOURCE\ -g\ -fPIC
+The following patches are being applied:
+  - 0001-update-automake-files-for-arm64.patch
+
+The Nokogiri maintainers intend to provide timely security updates, but if
+this is a concern for you and want to use your OS/distro system library
+instead, then abort this installation process and install nokogiri as
+instructed at:
+
+  https://nokogiri.org/tutorials/installing_nokogiri.html#installing-using-standard-system-libraries
+
+[{:url=>
+   "https://mirror.csclub.uwaterloo.ca/gnome/sources/libxslt/1.1/libxslt-1.1.35.tar.xz",
+  :sha256=>"8247f33e9a872c6ac859aa45018bc4c4d00b97e2feac9eebc10c93ce1f34dd79"}]
+Extracting libxslt-1.1.35.tar.xz into tmp/x86_64-w64-mingw32/ports/libxslt/1.1.35... OK
+Running git apply with C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/patches/libxslt/0001-update-automake-files-for-arm64.patch... OK
+Running 'configure' for libxslt 1.1.35... OK
+Running 'compile' for libxslt 1.1.35... OK
+Running 'install' for libxslt 1.1.35... OK
+Activating libxslt 1.1.35 (from C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ports/x64-mingw-ucrt/libxslt/1.1.35)...
+checking for whether -DNOKOGIRI_PACKAGED_LIBRARIES is accepted as CPPFLAGS... yes
+checking for whether -DNOKOGIRI_LIBXML2_PATCHES="\"0001-Remove-script-macro-support.patch 0002-Update-entities-to-remove-handling-of-ssi.patch 0003-libxml2.la-is-in-top_builddir.patch 0004-use-glibc-strlen.patch 0005-avoid-isnan-isinf.patch 0006-update-automake-files-for-arm64.patch 0008-htmlParseComment-handle-abruptly-closed-comments.patch 0009-allow-wildcard-namespaces.patch\"" is accepted as CPPFLAGS... yes
+checking for -llzma... yes
+checking for whether -DNOKOGIRI_LIBXSLT_PATCHES="\"0001-update-automake-files-for-arm64.patch\"" is accepted as CPPFLAGS... yes
+checking for xmlParseDoc() in libxml/parser.h... yes
+checking for xsltParseStylesheetDoc() in libxslt/xslt.h... yes
+checking for exsltFuncRegister() in libexslt/exslt.h... yes
+Using mini_portile version 2.8.4
+---------- IMPORTANT NOTICE ----------
+Building Nokogiri with a packaged version of libgumbo-1.0.0-nokogiri.
+Configuration options: --disable-shared --enable-static CFLAGS\=-fPIC
+[]
+Copying gumbo-parser files into tmp/x86_64-w64-mingw32/ports/libgumbo/1.0.0-nokogiri/gumbo-parser...
+Running 'compile' for libgumbo 1.0.0-nokogiri... OK
+Activating libgumbo 1.0.0-nokogiri (from ports/x64-mingw-ucrt/libgumbo/1.0.0-nokogiri)...
+checking for whether -IC:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri/ports/x64-mingw-ucrt/libgumbo/1.0.0-nokogiri/include is accepted as CPPFLAGS... yes
+checking for gumbo_parse_with_options() in gumbo.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+checking for rb_gc_location()... yes
+checking for rb_category_warning()... yes
+checking for vasprintf()... yes
+checking for whether -DNOKOGIRI_OTHER_LIBRARY_VERSIONS="\"zlib:1.2.12,libiconv:1.16,libgumbo:1.0.0-nokogiri\"" is accepted as CPPFLAGS... yes
+creating Makefile
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-e3gvek sitelibdir\=./.gem.20250202-25560-e3gvek clean
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-e3gvek sitelibdir\=./.gem.20250202-25560-e3gvek
+generating nokogiri-x64-mingw-ucrt.def
+compiling gumbo.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from gumbo.c:30:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling html4_document.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from html4_document.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling html4_element_description.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from html4_element_description.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling html4_entity_lookup.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from html4_entity_lookup.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling html4_sax_parser_context.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from html4_sax_parser_context.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling html4_sax_push_parser.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from html4_sax_push_parser.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling libxml2_backwards_compat.c
+compiling nokogiri.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from nokogiri.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling test_global_handlers.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from test_global_handlers.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_attr.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_attr.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_attribute_decl.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_attribute_decl.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_cdata.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_cdata.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_comment.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_comment.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_document.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_document.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_document_fragment.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_document_fragment.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_dtd.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_dtd.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_element_content.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_element_content.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_element_decl.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_element_decl.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_encoding_handler.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_encoding_handler.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_entity_decl.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_entity_decl.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_entity_reference.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_entity_reference.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_namespace.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_namespace.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_node.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_node.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+xml_node.c: In function 'rb_xml_node_pointer_id':
+xml_node.c:812:18: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+  812 |   return INT2NUM((long)(node));
+      |                  ^
+compiling xml_node_set.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_node_set.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_processing_instruction.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_processing_instruction.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_reader.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_reader.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_relax_ng.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_relax_ng.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_sax_parser.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_sax_parser.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_sax_parser_context.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_sax_parser_context.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_sax_push_parser.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_sax_push_parser.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_schema.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_schema.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_syntax_error.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_syntax_error.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_text.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_text.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xml_xpath_context.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xml_xpath_context.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+compiling xslt_stylesheet.c
+In file included from C:/Ruby33-x64/include/ruby-3.3.0/ruby/win32.h:36,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/internal/dosish.h:38,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/defines.h:78,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby/ruby.h:25,
+                 from C:/Ruby33-x64/include/ruby-3.3.0/ruby.h:38,
+                 from ./nokogiri.h:68,
+                 from xslt_stylesheet.c:1:
+C:/Ruby33-x64/msys64/ucrt64/include/winsock2.h:15:2: warning: #warning Please include winsock2.h before windows.h [-Wcpp]
+   15 | #warning Please include winsock2.h before windows.h
+      |  ^~~~~~~
+linking shared-object nokogiri/nokogiri.so
+Cleaning files only used during build.
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-e3gvek sitelibdir\=./.gem.20250202-25560-e3gvek install
+/usr/bin/install -c -m 0755 nokogiri.so ./.gem.20250202-25560-e3gvek/nokogiri
+installing nokogiri libraries
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/nokogiri-1.13.8/ext/nokogiri
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-e3gvek sitelibdir\=./.gem.20250202-25560-e3gvek clean

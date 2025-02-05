@@ -6,7 +6,7 @@
 
   .sidebar-wrapper {
     position: static;
-    width: inherit;
+    width: 100%; // Ensures full-width display on small devices
   }
 
   .wrapper {
@@ -14,21 +14,26 @@
   }
 
   .main-wrapper {
-    padding: 30px;
+    padding: 20px; // Reduced padding for smaller screens
   }
 
   .main-wrapper .time {
     position: static;
     display: block;
     margin-top: 5px;
+    color: $text-grey; // Maintain color consistency for time display
   }
 
   .main-wrapper .upper-row {
     margin-bottom: 0;
   }
 }
+
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .main-wrapper {
+    padding: 40px; // Slightly more padding for tablets
+  }
 }
 
 /* Medium devices (desktops, 992px and up) */
@@ -47,18 +52,23 @@
   }
 }
 
-.skillset .level-bar-inner {
-  width: auto;
-  -webkit-transition: width 2s ease-in-out;
-  -moz-transition: width 2s ease-in-out;
-  -o-transition: width 2s ease-in-out;
-  transition: width 2s ease-in-out;
-}
-
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
+  .main-wrapper {
+    padding: 60px; // Standard padding for larger screens
+  }
 }
 
-/* Ex-Large devices (large desktops, 1200px and up) */
+/* Extra-Large devices (1400px and up) */
 @media (min-width: 1400px) {
+  .wrapper {
+    max-width: 1400px; // Maximizing layout for very large screens
+    margin: 0 auto;
+  }
+}
+
+/* Skillset Transition Animation */
+.skillset .level-bar-inner {
+  width: auto;
+  transition: width 2s ease-in-out; // Removed unnecessary vendor prefixes
 }

@@ -1,0 +1,20 @@
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+C:/Ruby33-x64/bin/ruby.exe extconf.rb
+checking for -lstdc++... yes
+creating Makefile
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-c9pkz9 sitelibdir\=./.gem.20250202-25560-c9pkz9 clean
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-c9pkz9 sitelibdir\=./.gem.20250202-25560-c9pkz9
+generating unf_ext-x64-mingw-ucrt.def
+compiling unf.cc
+linking shared-object unf_ext.so
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-c9pkz9 sitelibdir\=./.gem.20250202-25560-c9pkz9 install
+/usr/bin/install -c -m 0755 unf_ext.so ./.gem.20250202-25560-c9pkz9
+
+current directory: C:/Users/weiss/Github/online-cv/vendor/bundle/ruby/3.3.0/gems/unf_ext-0.0.8.2/ext/unf_ext
+make DESTDIR\= sitearchdir\=./.gem.20250202-25560-c9pkz9 sitelibdir\=./.gem.20250202-25560-c9pkz9 clean

@@ -2,297 +2,268 @@
 body {
   font-family: "Roboto", sans-serif;
   color: $text-color-secondary;
-  background: $smoky-white;
-  font-size: 14px;
+  background: $background-color-light;
+  font-size: 15px;
   padding: 30px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
+  color: $text-color;
 }
 
 a {
-  color: darken($theme-color, 15%);
+  color: $accent-color;
+  text-decoration: none;
+
   &:hover {
     text-decoration: underline;
-    color: darken($theme-color, 30%);
+    color: $accent-color-dark;
   }
+
   &:focus {
-    text-decoration: none;
+    outline: none;
+    color: $accent-color-secondary;
   }
 }
 
 p {
-  line-height: 1.5;
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .wrapper {
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  background: $theme-color;
-  max-width: 1000px;
+  grid-template-columns: repeat(12, 1fr);
+  background: $background-color;
+  max-width: 1200px;
   margin: 0 auto;
-  position: relative;
-  @include box-shadow(0px 2px 4px rgba(0, 0, 0, 0.1));
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .sidebar-wrapper {
-  grid-column: span 3;
+  grid-column: span 4;
   order: $sidebar-order;
-  background: $theme-color;
+  background: $theme-color-dark;
   color: #fff;
+
   a {
     color: #fff;
   }
+
   .profile-container {
-    padding: 30px;
-    //background: darken($theme-color, 10%);
-    background: rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    background: rgba(0, 0, 0, 0.3);
     text-align: center;
-    color: #fff;
   }
+
   .name {
     font-size: 32px;
     font-weight: 900;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
+    color: #fff;
   }
+
   .tagline {
-    color: rgba(256, 256, 256, 0.6);
+    color: rgba(255, 255, 255, 0.7);
     font-size: 16px;
     font-weight: 400;
-    margin-top: 0;
-    margin-bottom: 0;
-  }
-  .profile {
-    margin-bottom: 15px;
   }
 
   .avatar {
-    //used for profile image
-    max-width: 100px;
-    margin-bottom: 15px;
-    border: 0px solid #fff;
-    border-radius: 100%;
-    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+    max-width: 120px;
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   }
+
   .contact-list {
-    .fas,
-    .fab,
-    .far {
-      margin-right: 5px;
-      font-size: 18px;
-      vertical-align: middle;
-    }
+    padding: 20px;
+
     li {
       margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+
       &:last-child {
         margin-bottom: 0;
       }
+
+      .fas, .fab, .far {
+        margin-right: 10px;
+        font-size: 18px;
+        text-align: center; // Center text
+      
+      }
     }
   }
+
   .container-block {
     padding: 30px;
   }
+
   .container-block-title {
     text-transform: uppercase;
     font-size: 16px;
     font-weight: 700;
-    margin-top: 0;
     margin-bottom: 15px;
-  }
-  .degree {
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 5px;
-  }
-  .education-container {
-    .item {
-      margin-bottom: 15px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-    .meta {
-      color: rgba(256, 256, 256, 0.6);
-      font-weight: 500;
-      margin-bottom: 0px;
-      margin-top: 0;
-    }
-    .time {
-      color: rgba(256, 256, 256, 0.6);
-      font-weight: 500;
-      margin-bottom: 0px;
-    }
-  }
-  .languages-container {
-    .lang-desc {
-      color: rgba(256, 256, 256, 0.6);
-    }
-  }
-
-  .languages-list {
-    margin-bottom: 0;
-    li {
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-
-  .interests-list {
-    margin-bottom: 0;
-    li {
-      margin-bottom: 10px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 }
 
 .main-wrapper {
-  grid-column: span 7;
+  grid-column: span 8;
   order: $resume-order;
-  background: #fff;
+  background: $background-color;
   padding: 60px;
+
   .section-title {
     text-transform: uppercase;
-    font-size: 20px;
-    font-weight: 500;
-    color: darken($theme-color, 15%);
+    font-size: 22px;
+    font-weight: 600;
+    color: $theme-color-dark;
+    margin-bottom: 25px;
     position: relative;
-    margin-top: 0;
-    margin-bottom: 20px;
+    padding-left: 30px;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: $accent-color;
+      margin-top: 8px;
+    }
   }
+
   .section {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   }
 
-  .experiences-section,
-  .recommendations-section,
-  .educations-section {
-    .item {
-      margin-bottom: 30px;
+  .item {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
-  .upper-row,
-  .second-upper-row {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2px;
+
+  .upper-row {
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
   }
-  .job-title,
-  .degree,
-  .cert-title,
-  .recommendation-person {
+
+  .job-title, .degree, .cert-title {
+    font-size: 18px;
+    font-weight: 600;
     color: $text-color;
-    font-size: 16px;
-    margin-top: 0;
-    margin-bottom: 0;
-    font-weight: 500;
-    flex: 75%;
   }
- 
-  .time,
-  .cert-url {
-    position: absolute;
-    right: 0;
-    top: 0;
-    color: $text-grey;
-    flex: 25%;
-  }
-  .company,
-  .recommendation-role,
-  .university,
-  .cert-org {
-    margin-bottom: 10px;
+
+  .time {
+    font-size: 14px;
     color: $text-grey;
   }
 
-  .project-title {
-    font-size: 16px;
-    font-weight: 400;
-    margin-top: 0;
-    margin-bottom: 5px;
-    color: darken($theme-color, 15%);
+  .company, .university {
+    font-size: 15px;
+    color: $text-color-secondary;
   }
-  .projects-section {
-    .intro {
-      margin-bottom: 30px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-  }
-  .oss-section {
-    .intro {
-      margin-bottom: 30px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-  }
+}
 
-  .publication-title {
-    font-size: 16px;
-    font-weight: 400;
-    color: $text-color;
-    margin-bottom: 1px;
-  }
-  .publication-authors {
-    font-style: italic;
-    color: $text-grey;
-    margin-bottom: 1px;
-  }
-  .publications-section {
-    .intro {
-      margin-bottom: 30px;
-    }
-    .item {
-      margin-bottom: 15px;
-    }
-  }
+.skills-section {
+    padding-left: 30px;
+    
 }
 
 .skillset {
   .item {
-    margin-bottom: 15px;
-    overflow: hidden;
-  }
-  .level-title {
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 12px;
-  }
-  .level-bar {
-    height: 12px;
-    background: $smoky-white;
-  }
-  .level-bar-inner {
-    height: 12px;
-    background: lighten($theme-color, 15%);
+    margin-bottom: 20px;
+    flex-direction: column;
+    display: flex;
+    padding-left: 30px;
+    
+
+
+    .level-title {
+      font-size: 16px;
+      margin: 0; // Remove margin to keep it in one line
+      text-align: center;
+      white-space: nowrap; // Prevent text from wrapping to a new line  
+      padding-left: 30px;
+      
+    }
+
+    .level-bar {
+      height: 10px;
+      background: $divider-color;
+      border-radius: 5px;
+
+      .level-bar-inner {
+        height: 100%;
+        background: $theme-color;
+        border-radius: 5px;
+      }
+    }
   }
 }
 
 .footer {
-  padding-top: 30px;
+  padding: 20px;
+  text-align: center;
+
   .copyright {
-    line-height: 1.6;
+    font-size: 14px;
     color: $text-color-secondary;
-    font-size: 13px;
   }
 
   .fa-heart {
     color: $heart;
   }
 }
+
+.tag {
+  display: inline-block;
+  background-color: lighten($theme-color, 30%);
+  color: $text-color;
+  padding: 4px 10px;
+  font-size: 13px;
+  border-radius: 5px;
+  margin-right: 8px;
+  margin-bottom: 5px;
+
+  &:hover {
+    background-color: darken($theme-color, 10%);
+    color: $background-color;
+  }
+}
+
+.tags {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 13px;
+
+  span {
+    background-color: $background-color;
+    color: $theme-color-dark;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $theme-color-darker;
+      color: $background-color;
+    }
+  }
+}
+
+.list-unstyled {
+  padding-left: 10px;
+ }

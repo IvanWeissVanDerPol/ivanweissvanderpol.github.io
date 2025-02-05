@@ -1,45 +1,73 @@
-@media print
-   {
-    @page {
-        size: A4;
-    }
-    body {
-       font-size: 12pt;
-    }
-
-    img.avatar {
-        filter: grayscale(1);
-        -webkit-filter: greyscale(1);
-    }
+@media print {
+   @page {
+     size: A4;
+     margin: 1cm; // Adding margin for better readability on printed pages
+   }
+ 
+   body {
+     font-size: 12pt;
+     line-height: 1.4; // Improves text readability when printed
+     color: black;
+   }
+ 
+   img.avatar {
+     filter: grayscale(100%); // Standardized grayscale property
+   }
+ 
    .main-wrapper .time {
-       float: right;
-        color: black !important;
-        -webkit-print-color-adjust: exact; 
+     float: right;
+     color: black !important;
+     print-color-adjust: exact; // Modern property replacing -webkit-print-color-adjust
    }
-    .sidebar-wrapper {
-        position: static;
-        float: right;
-        width: 40%;
-        -webkit-print-color-adjust: exact; 
-    }
-
-    .remove-container.container-block {
-       display: none;
-    }
-
-    footer {
-       display: none;
-    }
-
-    .skillset .level-bar-inner {
-       background-color: black !important;
-       -webkit-print-color-adjust: exact; 
-    }
-
+ 
+   .sidebar-wrapper {
+     position: static;
+     float: right;
+     width: 40%;
+     print-color-adjust: exact;
+   }
+ 
+   .remove-container.container-block,
+   footer {
+     display: none; // Hides unnecessary sections for print
+   }
+ 
+   .skillset .level-bar-inner {
+     background-color: black !important;
+     print-color-adjust: exact;
+   }
+ 
+   .skillset .tags .tag {
+     background-color: #e0e0e0 !important;
+     color: black !important;
+     border: 1px solid black !important;
+     print-color-adjust: exact;
+   }
+ 
    .fa-inverse,
-   .fa-inverse:after,
-   .fa-inverse:before {
-     color: #ffffff !important;
+   .fa-inverse::after,
+   .fa-inverse::before {
+     color: #ffffff !important; // Ensuring inverse icons remain visible
    }
-
-}
+ 
+   // Additional enhancements
+   a {
+     color: black !important;
+     text-decoration: underline;
+   }
+ 
+   h1, h2, h3, h4, h5, h6 {
+     color: black !important;
+     page-break-after: avoid; // Prevent headings from being orphaned at page bottoms
+   }
+ 
+   .wrapper {
+     box-shadow: none; // Removing shadows for clean printing
+     border: 1px solid #ccc; // Adding a light border for structure
+   }
+ 
+   .tagline, .meta, .time {
+     color: #333 !important; // Uniform color for less prominent text
+   }
+ }
+ 

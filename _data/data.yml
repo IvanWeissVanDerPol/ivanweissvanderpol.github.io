@@ -112,7 +112,7 @@ experiences:
   title: Experiences
   info:
   - role: Technical Lead - Sturgeon County Project
-    time: Oct 2024 - Jan 2024
+    time: Oct 2024 - Present
     company: Stoic Finch
     details: |
       Successfully led a **cross-functional team** of developers, analysts, and stakeholders to deliver a robust and innovative **Power Apps solution** tailored for Sturgeon County's unique operational needs. 
@@ -124,7 +124,7 @@ experiences:
     icon: "briefcase"
 
   - role: Quality Engineer II - Professional Development
-    time: Aug 2023 - Feb 2024
+    time: Aug 2023 - Oct 2024
     company: MentorMate
     details: |
       Engaged in a comprehensive **professional development program**, significantly enhancing expertise in **QA methodologies**, **compliance standards**, and **automation techniques**.
@@ -138,7 +138,7 @@ experiences:
     icon: "briefcase"
 
   - role: Quality Specialist II - Flyte Project
-    time: Aug 2023 - Present
+    time: Aug 2023 - Oct 2024
     company: MentorMate
     details: |
       Oversaw **quality assurance** for the **Flyte Project**, focusing on a **website**, a **mobile application**, and an **FDA-cleared device** to improve women's pelvic health.

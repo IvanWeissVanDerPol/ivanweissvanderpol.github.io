@@ -1,0 +1,64 @@
+---
+layout: default
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.title }} - PDF Export</title>
+  <link rel="stylesheet" href="{{ '/assets/css/print.css' | relative_url }}" media="print">
+  <style>
+    /* Additional print-specific styles */
+    @page {
+      margin: 1.5cm 1cm;
+      size: A4 portrait;
+    }
+    
+    body {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      line-height: 1.5;
+      color: #333;
+      background: #fff !important;
+    }
+    
+    a {
+      color: #2d5e8b;
+      text-decoration: none;
+    }
+    
+    .container {
+      max-width: 100%;
+      padding: 0 15px;
+    }
+    
+    /* Hide elements not needed in PDF */
+    .no-print,
+    .pdf-download-container,
+    .social-links,
+    footer {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wrapper">
+      {% include sidebar.html %}
+      <div class="main-wrapper">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    // Close the window after printing (will be triggered by html2pdf)
+    window.onload = function() {
+      setTimeout(function() {
+        window.close();
+      }, 1000);
+    };
+  </script>
+</body>
+</html>

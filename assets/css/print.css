@@ -1,0 +1,175 @@
+/* Print-specific styles */
+@media print {
+  /* Reset margins and padding */
+  @page {
+    margin: 0.5cm 0.5cm;
+    size: A4 portrait;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body, html {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 11pt;
+    line-height: 1.3;
+    width: 100% !important;
+  }
+
+  /* Layout adjustments */
+  .wrapper {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    float: none !important;
+  }
+
+  .sidebar-wrapper {
+    width: 30% !important;
+    float: left !important;
+    position: relative !important;
+    height: 100% !important;
+    page-break-after: avoid;
+    break-after: avoid;
+  }
+
+  .main-wrapper {
+    width: 65% !important;
+    float: right !important;
+    padding: 0 15px 0 0 !important;
+    margin: 0 !important;
+  }
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Typography */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid;
+    color: #2d5e8b !important;
+  }
+
+  h1 { font-size: 1.6em !important; }
+  h2 { font-size: 1.4em !important; }
+  h3 { font-size: 1.2em !important; }
+
+  /* Links */
+  a {
+    color: #2d5e8b !important;
+    text-decoration: none !important;
+    word-wrap: break-word;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+    font-weight: normal;
+    color: #666 !important;
+  }
+
+  /* Hide elements */
+  .no-print,
+  .print-hide,
+  .btn,
+  .download-pdf,
+  .social-links,
+  footer,
+  .page-actions,
+  .pdf-download-container {
+    display: none !important;
+  }
+
+  /* Profile section */
+  .profile-container {
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .avatar {
+    max-width: 150px !important;
+    height: auto !important;
+    margin: 0 auto 15px !important;
+    border: 2px solid #2d5e8b;
+    border-radius: 50%;
+  }
+
+  /* Sections */
+  .section {
+    margin-bottom: 1.5em;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+
+  .section-title {
+    border-bottom: 2px solid #2d5e8b;
+    padding-bottom: 5px;
+    margin: 1em 0 0.75em 0;
+    color: #2d5e8b !important;
+  }
+
+  /* Experience & Education */
+  .item {
+    margin-bottom: 1em;
+    page-break-inside: avoid;
+  }
+
+  .upper-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25em;
+  }
+
+  /* Skills */
+  .level-title {
+    margin-bottom: 0.25em;
+  }
+
+  .level-bar {
+    height: 12px;
+    background: #f5f5f5;
+    margin-bottom: 1em;
+  }
+
+  .level-bar-inner {
+    height: 100%;
+    background: #2d5e8b;
+  }
+
+  /* Contact info */
+  .contact-container {
+    margin-top: 1.5em;
+  }
+
+  .contact-item {
+    margin-bottom: 0.5em;
+    font-size: 0.9em;
+  }
+
+  /* Page breaks */
+  .page-break {
+    page-break-before: always;
+    break-before: page;
+  }
+
+  /* Fix for print dialog */
+  @page :first {
+    margin-top: 0;
+  }
+
+  /* Ensure proper scaling */
+  body {
+    zoom: 0.85;
+  }
+}

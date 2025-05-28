@@ -13,34 +13,60 @@
   $sidebar-order: 2;
 {% endif %}
 
-// Import core SCSS (VARIABLES, MIXINS, FUNCTIONS FIRST)
-@import "core";
+// Global abstracts
+@import "abstracts/variables";
+@import "abstracts/mixins";
 
 // --- Theme Handling ---
-{% if jekyll.environment == "development" %}
-  // DEVELOPMENT: Load all skins, scoped by class
-  // This allows live theme switching via JavaScript
+{% assign default_skin = site.theme_skin | default: 'blue' %}
 
-  {% assign default_skin = site.theme_skin | default: 'blue' %}
+// Default theme styles for body
+body {
+  @import "skins/{{ default_skin }}";
+  // Now import all other structural/component SCSS that uses these variables
+  @import "base/base";
+  @import "layout/grid";
+  @import "layout/sidebar";
+  @import "layout/main";
+  @import "layout/footer";
+  @import "components/buttons";
+  @import "components/contact-list";
+  @import "components/section-title";
+  @import "components/skills";
+  @import "components/tags";
+  @import "components/recommendations";
+  @import "components/certifications";
+  @import "components/education";
+  @import "components/experiences";
+  @import "components/showcase";
+}
 
-  // Import the default skin globally first for base styles if not otherwise themed
-  body {
-    @import "skins/{{ default_skin }}";
+// Loop for other themes
+{% for skin_name in site.data.theme_skins %}
+  body.theme-{{ skin_name }} {
+    @import "skins/{{ skin_name }}";
+    // Re-import all structural/component SCSS to generate rules with this skin's variables
+    @import "base/base";
+    @import "layout/grid";
+    @import "layout/sidebar";
+    @import "layout/main";
+    @import "layout/footer";
+    @import "components/buttons";
+    @import "components/contact-list";
+    @import "components/section-title";
+    @import "components/skills";
+    @import "components/tags";
+    @import "components/recommendations";
+    @import "components/certifications";
+    @import "components/education";
+    @import "components/experiences";
+    @import "components/showcase";
   }
-
-  {% for skin_name in site.data.theme_skins %}
-    .theme-{{ skin_name }} {
-      @import "skins/{{ skin_name }}";
-    }
-  {% endfor %}
-
-{% else %}
-  // PRODUCTION (or other environments): Load only the configured skin
-  @import "skins/{{ site.theme_skin | default: 'blue' }}";
-{% endif %}
+{% endfor %}
 // --- End Theme Handling ---
 
-// Core SCSS (variables, mixins, functions) now imported at the top.
-
-// Import responsive SCSS
+// Import utilities, responsive, and print styles globally, as they usually don't change per theme
+// or are additive.
+@import "utilities";
 @import "responsive";
+@import "print";

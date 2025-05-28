@@ -18,10 +18,8 @@
 
   {% include footer.html %}
 
-{% if jekyll.environment == "development" %}
   {% include theme_selector.html %}
   <script src="{{ '/assets/js/theme-selector.js' | relative_url }}"></script>
-{% endif %}
 
 {% include scripts.html %}
 </body>

@@ -1,10 +1,6 @@
 // assets/js/theme-selector.js
 document.addEventListener('DOMContentLoaded', () => {
   const themeSelectorWrapper = document.getElementById('theme-selector-wrapper');
-  if (!themeSelectorWrapper) {
-    // Not in development mode or theme selector not present
-    return;
-  }
 
   const body = document.body;
   const themeButtons = document.querySelectorAll('.theme-button');

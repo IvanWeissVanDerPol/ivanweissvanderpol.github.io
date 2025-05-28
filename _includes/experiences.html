@@ -14,6 +14,8 @@
 
     <div class="meta">
 
+      
+      <div class="company">{{ experience.company }}</div>
       <div class="upper-row">
         {% if experience.logo %}
           <img src="{{ experience.logo | relative_url }}" alt="{{ experience.company }} logo" class="experience-logo" />
@@ -21,9 +23,7 @@
         <h3 class="job-title">{{ experience.role }}</h3>
         <div class="time">{{ experience.time }}</div>
       </div><!--//upper-row-->
-
-      <div class="company">{{ experience.company }}</div>
-
+      
     </div><!--//meta-->
 
     {% if experience.details %}

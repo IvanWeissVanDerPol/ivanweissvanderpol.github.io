@@ -1,7 +1,7 @@
 @import "abstracts/variables";
 
 /* Extra small devices (phones, less than 768px) */
-@media (max-width: $breakpoint-xs-max) {
+@media (max-width: #{$screen-sm-min - 1px}) {
   body {
     padding: 0;
   }
@@ -32,14 +32,14 @@
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: $breakpoint-sm-min) {
+@media (min-width: $screen-sm-min) {
   .main-wrapper {
     padding: 40px; // Slightly more padding for tablets
   }
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: $breakpoint-md-min) {
+@media (min-width: $screen-md-min) {
   .skillset .level-title {
     float: left;
     width: 30%;
@@ -55,16 +55,16 @@
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: $breakpoint-lg-min) {
+@media (min-width: $screen-lg-min) {
   .main-wrapper {
     padding: 60px; // Standard padding for larger screens
   }
 }
 
 /* Extra-Large devices (1400px and up) */
-@media (min-width: $breakpoint-xl-min) {
+@media (min-width: $screen-xl-min) {
   .wrapper {
-    max-width: $breakpoint-xl-min; // Use variable for consistency, was 1400px
+    max-width: $screen-xl-min; // Use variable for consistency, was 1400px
     margin: 0 auto;
   }
 }

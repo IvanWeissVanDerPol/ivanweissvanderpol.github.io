@@ -1,0 +1,15 @@
+// _sass/components/_card.scss
+
+.card {
+  background-color: $color-surface;
+  border-radius: 12px; // Consistent with your existing experience card radius
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: $card-padding;
+  margin-bottom: $card-margin-bottom; // Consistent with your existing experience card margin
+  transition: box-shadow 0.3s ease, transform 0.3s ease; // Added transition for hover
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+}

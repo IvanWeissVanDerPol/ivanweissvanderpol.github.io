@@ -1,4 +1,4 @@
-{% assign experiences = site.data.data.experiences %}
+{% assign experiences = site.data.experiences %}
 {% if experiences %}
 <section class="section experiences-section">
   <h2 class="section-title">
@@ -12,25 +12,66 @@
   {% for experience in experiences.info %}
   <div class="item">
 
-    <div class="meta">
-
-      
-      <div class="company">{{ experience.company }}</div>
-      <div class="upper-row">
-        {% if experience.logo %}
-          <img src="{{ experience.logo | relative_url }}" alt="{{ experience.company }} logo" class="experience-logo" />
+    <article class="experience-item-horizontal">
+      <div class="experience-logos-column">
+        {% if experience.logos %}
+          {% for logo_item in experience.logos %}
+            <a href="{{ logo_item.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ logo_item.name }} website">
+              <div class="logo-background-circle">
+                <img src="{{ logo_item.path | relative_url }}" alt="{{ logo_item.name }} logo" />
+              </div>
+            </a>
+          {% endfor %}
         {% endif %}
-        <h3 class="job-title">{{ experience.role }}</h3>
-        <div class="time">{{ experience.time }}</div>
-      </div><!--//upper-row-->
-      
-    </div><!--//meta-->
+      </div>
+
+      <div class="experience-info-column">
+        <div class="company-role">
+          <div class="company">{{ experience.company }}</div>
+          <h3 class="job-title">
+          {% if experience.icon %}<i class="fas fa-{{ experience.icon }} experience-role-icon" aria-hidden="true"></i>{% endif %}
+          {{ experience.role }}
+        </h3>
+        </div>
+      </div>
+
+      <div class="experience-dates-column">
+        {% assign time_parts = experience.time | split: " - " %}
+        {% assign start_date_str = time_parts[0] %}
+        {% assign end_date_str = time_parts[1] %}
+        
+        {% assign start_year = start_date_str | split: " " | last %}
+        {% assign start_month_name = start_date_str | split: " " | first %}
+        {% assign end_year = end_date_str | split: " " | last %}
+        {% assign end_month_name = end_date_str | split: " " | first %}
+
+        {% include month_to_num.liquid month_name=start_month_name %}
+        {% assign start_month_num = month_number %}
+        {% include month_to_num.liquid month_name=end_month_name %}
+        {% assign end_month_num = month_number %}
+
+        <div class="job-duration">
+          <time datetime="{{ start_year }}-{{ start_month_num }}">{{ start_date_str }}</time>
+          <span class="date-separator"> – </span>
+          <time datetime="{{ end_year }}-{{ end_month_num }}">{{ end_date_str }}</time>
+        </div>
+      </div>
+    </article><!--//experience-item-horizontal-->
 
     {% if experience.details %}
     <div class="details">
       {{ experience.details | markdownify }}
     </div><!--//details-->
     {% endif %}
+
+        {% if experience.tags and experience.tags.size > 0 %}
+          <div class="experience-tags">
+            <strong class="tags-title">Skills:</strong> 
+            {% for tag in experience.tags %}
+              <span class="tag-badge">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
 
   </div><!--//item-->
   {% endfor %}

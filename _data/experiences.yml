@@ -1,0 +1,74 @@
+title: Experiences
+info:
+- role: Technical Lead - Sturgeon County Project
+  time: Oct 2024 - Present
+  company: Stoic Finch
+  logos:
+    - path: /assets/images/Logo/Stoic_Finch_logo.jpg
+      url: "#" # TODO: Add Stoic Finch website URL
+      name: "Stoic Finch"
+    - path: "assets/images/Logo/Sturgeon_County_logo.png"
+      url: "#" # TODO: Add Sturgeon County website URL
+      name: "Sturgeon County"
+  details: |
+    Successfully led a **cross-functional team** of developers, analysts, and stakeholders to deliver a robust and innovative **Power Apps solution** tailored for Sturgeon County's unique operational needs. 
+      - **Architected and implemented** essential core functionalities, including **task management**, **case handling**, and **role-based access control**, which significantly enhanced operational efficiency and user experience across departments.
+      - Developed and optimized **backend automation workflows** using **Power Automate**, which streamlined critical processes such as **case creation**, **task assignments**, and **resolution tracking**.
+      - Seamlessly integrated **SharePoint** for centralized document management, ensuring secure, efficient handling of attachments and case records while facilitating easy access and collaboration among team members.
+      - Collaborated closely with a **UI/UX developer** to enhance the application's design, resulting in an intuitive, visually appealing user interface that improved user engagement and satisfaction.
+  tags: ["Power Apps Development", "Workflow Automation", "Power BI Dashboards", "SharePoint Integration", "Technical Leadership"]
+
+- role: Quality Engineer II - Professional Development
+  time: Aug 2023 - Oct 2024
+  company: MentorMate
+  logos:
+    - path: /assets/images/Logo/mentormate_logo.jpeg
+      url: "#" # TODO: Add MentorMate website URL
+      name: "MentorMate"
+  details: |
+    Engaged in a comprehensive **professional development program**, significantly enhancing expertise in **QA methodologies**, **compliance standards**, and **automation techniques**.
+      - Participated in various **training programs** and **workshops**, achieving proficiency in advanced tools and technologies including **Postman**, **Charles Proxy**, **MongoDB**, and **TestRail**.
+      - Actively collaborated with **global teams** across **Paraguay**, **USA**, and **Bulgaria**, improving cross-functional and cross-cultural collaboration skills while fostering a unified team environment.
+      - Assisted in the training of **bootcamps** focused on **API Testing** using **Postman**, contributing to the skill development of new team members.
+      - Played a key role in the development of automated QA processes utilizing **Generative AI**, which streamlined test case generation and significantly enhanced test coverage for complex healthcare workflows.
+      - Mentored junior QA engineers on **automation best practices** and **quality assurance methodologies**, fostering a collaborative learning environment and making substantial contributions to the professional growth of the team.
+      - **Initiated and led** a project to **automate the conversion** of **JSON data** to **XLSX format**, improving **data handling efficiency** and **accuracy** for **client therapy data management**.
+  tags: ["Professional Development", "Regulatory Compliance", "Quality Assurance Best Practices", "Cross-Cultural Collaboration", "Healthcare Technology Solutions", "Automation"]
+
+- role: Quality Specialist II - Flyte Project
+  time: Aug 2023 - Oct 2024
+  company: MentorMate
+  logos:
+    - path: /assets/images/Logo/mentormate_logo.jpeg
+      url: "#" # TODO: Add MentorMate website URL
+      name: "MentorMate"
+    - path: "assets/images/Logo/Flyte_logo.jpeg"
+      url: "#" # TODO: Add Flyte website URL
+      name: "Flyte"
+  details: |
+    Oversaw **quality assurance** for the **Flyte Project**, focusing on a **website**, a **mobile application**, and an **FDA-cleared device** to improve women's pelvic health.
+      - Collaborated with **developers** and **project managers** to ensure seamless integration of new features, maintaining high-quality user experiences.
+      - Managed detailed **documentation efforts** to ensure compliance with industry standards and facilitated effective team and stakeholder communication.
+      - Developed **test plans** and **strategies** that ensured product reliability.
+      - Engaged in **regular team meetings** to discuss project progress, address challenges, and align on goals, fostering a collaborative work environment.
+      - Participated in **risk assessment** activities to identify potential project risks and develop mitigation strategies, enhancing project resilience.
+      - Contributed to the development of **training materials** for end-users, ensuring a smooth transition and adoption of new features.
+      - Maintained up-to-date knowledge of industry trends and emerging technologies, applying insights to improve testing processes and product quality.
+      - Developed and executed test cases using **Postman** to ensure seamless API interactions between the mobile app and backend services.
+      - Generated test data in **MongoDB** to simulate various patient scenarios, enhancing the robustness of the testing process.
+      - Tested a **mobile application** that connects via **Bluetooth** with a wand, as well as a **website** for physicians to keep track of patient progress.
+  tags: ["Flyte Project", "FDA Compliance", "Quality Assurance", "Test Automation", "Project Documentation"]
+
+- role: QA Engineer and Software Developer
+  time: Oct 2018 - Dec 2022
+  company: WPG.srl
+  logos:
+    - path: /assets/images/Logo/wpg_logo.jpeg
+      url: "#" # TODO: Add WPG.srl website URL
+      name: "WPG.srl"
+  details: |
+    Performed comprehensive **manual and automated testing**, ensuring all new software features met quality standards before release.
+      - Actively participated in multiple stages of the **software development lifecycle**, driving enhancements in system architecture and functionality through creative and effective solutions.
+      - Created and updated essential **documentation** for testing protocols and software features, greatly facilitating future maintenance and upgrades.
+      - **Automation Development**: Developed robust **Python tools** to optimize test data generation, streamline XML processing, and automate report generation, significantly minimizing manual effort and boosting overall efficiency.
+  tags: ["Software Testing", "Software Development", "Automation", "Machine Learning", "Documentation"]

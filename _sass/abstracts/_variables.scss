@@ -30,14 +30,17 @@ $font-size-lg: $font-size-base * 1.25 !default; // 20px
 $font-size-xl: $font-size-base * 1.5 !default;  // 24px
 
 // Heading font sizes
-$font-size-h1: 2rem !default;    // 32px
-$font-size-h2: 1.5rem !default;   // 24px
-$font-size-h3: 1.25rem !default;  // 20px
+$font-size-h1: clamp(2rem, 5vw, 3rem) !default;       // Fluid H1: min 32px (2rem), preferred 5vw, max 48px (3rem)
+$font-size-h2: clamp(1.75rem, 4vw, 2.5rem) !default;  // Fluid H2: min 28px (1.75rem), preferred 4vw, max 40px (2.5rem)
+$font-size-h3: clamp(1.5rem, 3vw, 2rem) !default;     // Fluid H3: min 24px (1.5rem), preferred 3vw, max 32px (2rem)
 $font-size-h4: 1.125rem !default; // 18px (same as $font-size-lg)
 $font-size-h5: 1rem !default;     // 16px (same as $font-size-base)
 $font-size-h6: 0.875rem !default; // 14px (same as $font-size-sm)
 
 $line-height-base: 1.6 !default; // Remains 1.6
+$line-height-1: 1 !default;                  // For tight line heights, e.g., headings or specific components
+$line-height-sm: 1.25 !default;               // Smaller line height for dense text or UI elements
+$line-height-lg: 2 !default;                  // Larger line height for more spacious text, e.g., introductory paragraphs
 
 $font-weight-normal: 400 !default;
 $font-weight-bold: 700 !default;
@@ -45,10 +48,23 @@ $font-weight-semibold: 600 !default; // This will be our 'medium' weight
 $font-weight-black: 900 !default;
 
 // Layout & Spacing
-$base-padding: 30px !default;
+$base-padding: 15px !default;
 $sidebar-width-ratio: 4 !default;
 $main-content-width-ratio: 8 !default;
-$max-wrapper-width: 1200px !default; // Default max width
+$max-wrapper-width: 1200px !default; // Default max width for the main page wrapper
+
+// Spacing
+// Base spacer unit, used for generating spacing utilities.
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * .25, // 0.25rem
+  2: $spacer * .5,  // 0.5rem
+  3: $spacer,       // 1rem
+  4: $spacer * 1.5, // 1.5rem
+  5: $spacer * 3    // 3rem
+) !default;
+$container-max-width: 1140px !default; // Max width for general content containers
 $border-radius-base: 10px !default;
 $border-radius-small: 5px !default;
 $border-radius-lg: 15px !default; // Larger border radius for prominent elements
@@ -57,14 +73,37 @@ $border-radius-lg: 15px !default; // Larger border radius for prominent elements
 $item-padding-y: $base-padding / 2 !default; // Vertical padding for items
 $item-padding-x: $base-padding !default;     // Horizontal padding for items
 
+// Badge Specific Paddings
+$badge-padding-y: 0.3em !default;            // Vertical padding for badges (scales with font-size)
+$badge-padding-x: 0.6em !default;            // Horizontal padding for badges (scales with font-size)
+
+// Badge Text Colors for Stateful Badges (ensure contrast)
+$badge-secondary-text-color: $white !default;
+$badge-success-text-color: $white !default;
+$badge-error-text-color: $white !default;
+$badge-warning-text-color: $text-color !default; // Dark text on yellow for better readability
+$badge-info-text-color: $white !default;
+
+// Card Specific Variables
+$card-padding: 1.5rem !default;              // Default padding for card components
+$card-margin-bottom: 2rem !default;          // Default bottom margin for card components
+
 // Shadows
 $box-shadow-base: 0px 4px 12px rgba(0, 0, 0, 0.1) !default;
 
 // Background Colors
 $background-color: $white !default; // Default main background color
 $background-color-light: #f8f9fa !default; // Light background for cards or distinct sections
+$light-background: $background-color-light !default; // Alias for experience card background, can be overridden by skins
 $smoky-white: #f5f5f5 !default; // A light, off-white color for card backgrounds
 $background-color-muted: $smoky-white !default; // Muted background color, often for tags or less prominent elements
+
+// Badge Styling Variables (moved here to ensure dependencies are defined)
+$badge-font-size: $font-size-sm !default;
+$badge-font-weight: $font-weight-semibold !default;
+$badge-border-radius: $border-radius-small !default;
+$badge-background-color: $background-color-muted !default;
+$badge-text-color: $text-color-muted !default;
 $background-light: $gray-100 !default;      // General light background, e.g., for cards or sections
 $accent-color: #007bff !default; // Default accent color (e.g., Bootstrap blue)
 $accent-color-light: lighten($accent-color, 15%) !default;
@@ -80,15 +119,86 @@ $theme-color-light: lighten($theme-color, 15%) !default;
 $theme-color-dark: darken($theme-color, 15%) !default;
 $theme-color-darker: darken($theme-color, 30%) !default;
 
+// Stateful Base Colors (defaults for semantic states)
+$color-red-base: #dc3545 !default;    // Standard red for errors
+$color-green-base: #28a745 !default;  // Standard green for success
+$color-yellow-base: #ffc107 !default; // Standard yellow for warnings
+$color-cyan-base: #17a2b8 !default;   // Standard cyan/teal for info
+
+// Semantic Color Tokens (map to theme or default colors)
+$color-primary: $theme-color !default;         // Used for primary actions, links, buttons
+$color-surface: $white !default;               // Background for cards, sections, etc.
+$color-text-on-surface: $text-color !default;  // Default text color on a light surface
+$color-muted: $text-color-secondary !default;  // Secondary or less prominent text
+$color-secondary: $accent-color-secondary !default; // For secondary actions or elements
+$color-accent: $accent-color !default;             // General accent color, often same as primary or a distinct highlight
+$color-background: $background-color-light !default; // Main page/body background color
+$color-border: $divider-color !default;            // For borders on elements like cards, inputs
+
+// Stateful Semantic Colors
+$color-error: $color-red-base !default;        // For error messages, invalid states
+$color-success: $color-green-base !default;    // For success messages, valid states
+$color-warning: $color-yellow-base !default;   // For warnings, alerts
+
+// Additional color definitions for utility maps
+$black: #000 !default;
+$color-dark: #212529 !default; // A common dark color, similar to Bootstrap's $dark
+$color-info: $color-cyan-base !default;     // For informational messages and alerts
+
+// Theme Color Maps for Utility Generation
+// Used to generate .text-{color} and .bg-{color} utility classes.
+$theme-colors-text: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "danger": $color-error,    // "danger" is a common alias for error states
+  "warning": $color-warning,
+  "info": $color-info,
+  "light": $color-text-on-surface, // Text color suitable for light backgrounds
+  "dark": $white,                  // Text color suitable for dark backgrounds
+  "body": $text-color,
+  "muted": $color-muted,
+  "white": $white,
+  "black-50": rgba($black, 0.5),   // 50% transparent black
+  "white-50": rgba($white, 0.5)    // 50% transparent white
+) !default;
+
+$theme-colors-bg: (
+  "primary": $color-primary,
+  "secondary": $color-secondary,
+  "success": $color-success,
+  "danger": $color-error,
+  "warning": $color-warning,
+  "info": $color-info,
+  "light": $color-background,      // Your site's light background color
+  "dark": $color-dark,
+  "body": $background-color,       // Your site's main body background color
+  "white": $white,
+  "black": $black,
+  "transparent": transparent
+) !default;
+
 // Specific Colors (Non-Theme)
 $heart-color: #fb866a !default; // Color for the heart icon in the footer
 
-// Breakpoints
-$breakpoint-xs-max: 767px !default;
-$breakpoint-sm-min: 768px !default;
-$breakpoint-md-min: 992px !default;
-$breakpoint-lg-min: 1200px !default;
-$breakpoint-xl-min: 1400px !default; // Used for .wrapper max-width increase
+// Screen Sizes
+$screen-xs-min: 480px !default;
+$screen-sm-min: 576px !default; // Small devices (landscape phones, 576px and up)
+$screen-md-min: 768px !default; // Medium devices (tablets, 768px and up)
+$screen-lg-min: 992px !default; // Large devices (desktops, 992px and up)
+$screen-xl-min: 1200px !default; // Extra large devices (large desktops, 1200px and up)
+$screen-xxl-min: 1400px !default; // Extra extra large devices (larger desktops, 1400px and up)
+
+// Grid Breakpoints Map
+// Used to generate responsive utilities. 'xs' is the default, non-prefixed utility class.
+$grid-breakpoints: (
+  xs: 0, // Mobile-first: xs is the default, so utilities like .mt-1 apply from xs up.
+  sm: $screen-sm-min,
+  md: $screen-md-min,
+  lg: $screen-lg-min,
+  xl: $screen-xl-min,
+  xxl: $screen-xxl-min
+) !default;
 
 // Transitions (Example, if needed for general use)
 $transition-base: all 0.3s ease-in-out !default;

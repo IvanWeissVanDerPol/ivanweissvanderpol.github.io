@@ -7,11 +7,11 @@ layout: default
 
 {% include experiences.html %}
 
-{% unless site.data.data.sidebar.education %}
+{% unless site.data.sidebar.education %}
   {% include education.html %}
 {% endunless %}
 
-{% include certifications.html %}
+{% include sections/certifications.html %}
 
 {% include projects.html %}
 

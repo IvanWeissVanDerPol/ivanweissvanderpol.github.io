@@ -1,4 +1,5 @@
-{% assign certifications = site.data.data.certifications %}
+<!-- CERTIFICATIONS TEMPLATE VERSION 3 - VERY OBVIOUS CHANGE -->
+{% assign certifications = site.data.certifications %}
 {% if certifications %}
 <section class="section certifications-section">
   <h2 class="section-title">
@@ -8,18 +9,14 @@
     </span>
     Certifications
   </h2>
-  {% if site.data.data.sidebar.education-title %}
-  <div class="intro">
-      <p>{{ site.data.data.sidebar.education-title }}</p>
-  </div><!--//intro-->
-  {% endif %}
+  <!-- Removed problematic intro block that assumed site.data.certifications.title -->
 
   <div class="certification-cards-container">
-    {% for cert_item in certifications %}
+    {% for cert_item in site.data.certifications %}
     <div class="certification-card item">
       <div class="card-header">
         {% if cert_item.issuer_logo_path %}
-          <img src="{{ cert_item.issuer_logo_path | relative_url }}" alt="{{ cert_item.organization }} logo" class="issuer-logo">
+          <img src="{{ cert_item.issuer_logo_path | relative_url }}" alt="{{ cert_item.organization }} logo" class="logo">
         {% endif %}
         <h3 class="certification-title">{{ cert_item.name }}</h3>
         {% if cert_item.badge_icon_class %}
@@ -29,20 +26,32 @@
       <div class="card-body">
         <div class="meta">
           <div class="organization">{{ cert_item.organization }}</div>
-          {% if cert_item.date_earned %}
-            <div class="date-earned">Earned: <time datetime="{{ cert_item.date_earned }}">{{ cert_item.date_earned | date: "%B %Y" }}</time></div>
-          {% elsif cert_item.start %}
-             <div class="date-earned">Ongoing since: {{ cert_item.start }}</div>
+          {% if cert_item.display_year_status %}
+            <div class="date-earned"> {# Keeping class for potential existing styling #}
+              {% if cert_item.display_year_status == "Ongoing" %}
+                Status: {{ cert_item.display_year_status }}
+              {% else %}
+                Completed: {{ cert_item.display_year_status }}
+              {% endif %}
+            </div>
           {% endif %}
           {% if cert_item.category %}
             <div class="category">Category: {{ cert_item.category }}</div>
           {% endif %}
         </div><!--//meta-->
-        {% if cert_item.details %}
         <div class="details">
-          {{ cert_item.details | markdownify }}
+          {% if cert_item.details_intro %}
+            <p class="details-intro">{{ cert_item.details_intro | markdownify }}</p>
+          {% endif %}
+
+          {% if cert_item.details_courses and cert_item.details_courses.size > 0 %}
+            <ul class="details-courses-list">
+              {% for course in cert_item.details_courses %}
+                <li>{{ course | markdownify }}</li>
+              {% endfor %}
+            </ul>
+          {% endif %}
         </div><!--//details-->
-        {% endif %}
       </div><!--//card-body-->
       <div class="card-footer">
         {% if cert_item.file %}

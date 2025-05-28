@@ -12,10 +12,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $font-weight-bold; // Use variable
-  color: $text-color-secondary; // Changed from $text-color for better default contrast
-  margin-top: $base-padding * 1.5;
-  margin-bottom: $base-padding;
+  font-family: 'Inter', sans-serif; // Ensure 'Inter' font is linked in your HTML
+  font-weight: $font-weight-semibold; // Use variable (600 weight)
+  color: $headings-color; // Use variable (defaults to $text-color)
+  line-height: 1.3;
+  margin-bottom: 0.5rem; // Consistent bottom margin for headings
 }
 
 h1 { font-size: $font-size-h1; }
@@ -43,6 +44,8 @@ a {
 }
 
 p {
-  line-height: $line-height-base; // Use variable
-  margin-bottom: 1rem; // Consider making this a variable if used often
+  font-size: $font-size-base; // Explicitly set base font size
+  line-height: 1.7; // Updated line height for readability
+  color: $text-color; // Explicitly set base text color
+  margin-bottom: 1rem; // Consistent bottom margin for paragraphs
 }

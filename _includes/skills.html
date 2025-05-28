@@ -1,4 +1,4 @@
-{% assign skills_data = site.data.data.skills %}
+{% assign skills_data = site.data.skills %}
 {% if skills_data %}
 <section class="skills-section section">
   <h2 class="section-title">
@@ -15,15 +15,6 @@
       </h2>
       <div id="collapse{{ forloop.index }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.index }}" data-bs-parent="#skillsAccordion">
         <div class="accordion-body">
-          {% if skill_category.level %}
-          {% assign skill_level_width = 'width: ' | append: skill_category.level %}
-          <div class="progress-container mb-3">
-             <div class="progress" style="height: 20px;" title="Proficiency: {{ skill_category.level }}">
-                <div class="progress-bar" role="progressbar" style="{{ skill_level_width }}" aria-valuenow="{{ skill_category.level | remove: '%' }}" aria-valuemin="0" aria-valuemax="100">{{ skill_category.level }}</div>
-             </div>
-          </div>
-          {% endif %}
-
           <div class="tags-container" id="tags-list-{{ forloop.index }}">
             {% assign tags_limit = 6 %}
             {% assign total_tags = skill_category.tags | size %}

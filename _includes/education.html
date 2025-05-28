@@ -1,6 +1,6 @@
-{% assign education = site.data.data.education %}
+{% assign education = site.data.education %}
 {% if education %}
-  {% if site.data.data.sidebar.education %}
+  {% if site.data.sidebar.education %}
   <div class="education-container container-block">
 
     <h2 class="container-block-title">
@@ -12,7 +12,9 @@
       <h4 class="degree">{{ graduation.degree }}</h4>
       <h5 class="meta">{{ graduation.university }}</h5>
       {% if graduation.logo %}
-        <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" class="education-logo" />
+        <div class="logo-background-circle">
+          <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" />
+        </div>
       {% endif %}
       <div class="time">{{ graduation.time }}</div>
     </div><!--//item-->
@@ -31,20 +33,26 @@
     </h2>
 
     {% for graduation in education.info %}
-    <div class="item">
-
-      <div class="meta">
-
-        <div class="upper-row">
+    <div class="item education-item-horizontal"> <!-- New class for specific styling -->
+      <div class="education-header-row"> <!-- Similar to company-and-logos-row -->
+        <div class="education-logo-column"> <!-- Similar to experience-logos-column -->
           {% if graduation.logo %}
-            <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" class="education-logo education-logo-main" />
+            <div class="logo-background-circle">
+              <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" />
+            </div>
           {% endif %}
-          <h3 class="degree">{{ graduation.degree }}</h3>
+        </div>
+        <div class="education-info-column"> <!-- Similar to experience-info-column -->
+          <h3 class="degree">
+            {% if graduation.icon %} <!-- Placeholder for potential future icon field -->
+              <i class="fas fa-{{ graduation.icon }} education-degree-icon" aria-hidden="true"></i>
+            {% endif %}
+            {{ graduation.degree }}
+          </h3>
+          <div class="university">{{ graduation.university }}</div>
           <div class="time">{{ graduation.time }}</div>
-        </div><!--//upper-row-->
-
-        <div class="university">{{ graduation.university }}</div>
-      </div><!--//meta-->
+        </div>
+      </div><!--//education-header-row-->
 
       {% if graduation.details %}
       <div class="details">
@@ -52,7 +60,7 @@
       </div><!--//details-->
       {% endif %}
 
-    </div><!--//item-->
+    </div><!--//item education-item-horizontal-->
     {% endfor %}
 
   </section><!--//section-->

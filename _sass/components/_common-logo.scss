@@ -1,0 +1,29 @@
+// _sass/components/_common-logo.scss
+
+// _sass/components/_common-logo.scss
+
+// Styles for logos with a theme-colored circular background
+.logo-background-circle {
+  display: inline-flex; // Behaves like an image in flow, but allows flex centering for child
+  align-items: center;
+  justify-content: center;
+  width: 40px;  // Defines the uniform outer size for all logos
+  height: 40px; // Same as width for a circle
+  background-color: $theme-color; // Uses the site's primary theme color
+  border-radius: 50%; // Makes the wrapper circular
+  padding: 5px; // Creates space for the inner logo (image area becomes 30x30)
+  box-sizing: border-box; // Ensures padding is included in the 40x40 dimensions
+  // Consider adding a subtle shadow for depth if desired:
+  // box-shadow: 0 1px 3px rgba($black, 0.12), 0 1px 2px rgba($black, 0.24);
+
+  img {
+    display: block;
+    width: 100%; // Takes full width of the padded area (e.g., 30px)
+    height: 100%; // Takes full height of the padded area (e.g., 30px)
+    object-fit: contain; // Ensures the logo fits well and maintains aspect ratio
+    border-radius: 50%;  // Makes the actual logo image circular
+    // Provide a default background for logos with transparency, especially if theme color is dark.
+    // If logos are guaranteed to be opaque or look good on theme color, this can be removed.
+    background-color: $white; 
+  }
+}

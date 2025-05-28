@@ -27,89 +27,185 @@
   align-items: flex-end;
 }
 
-/* Margin Utilities */
-.ml-auto {
-  margin-left: auto;
+// Spacing Utilities
+// Generated from the $spacers map in _variables.scss
+// Provides margin (m) and padding (p) utilities for all sides (t, r, b, l, x, y)
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $spacers {
+    // All sides: e.g., .m-1, .p-1
+    .#{$abbrev}-#{$size} { #{$prop}: $length !important; }
+
+    // Axis-specific: e.g., .mx-1, .py-1
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length !important;
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+      #{$prop}-bottom: $length !important;
+    }
+
+    // Individual sides: e.g., .mt-1, .pr-1
+    .#{$abbrev}t-#{$size} { #{$prop}-top: $length !important; }
+    .#{$abbrev}r-#{$size} { #{$prop}-right: $length !important; }
+    .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length !important; }
+    .#{$abbrev}l-#{$size} { #{$prop}-left: $length !important; }
+  }
 }
-.mr-auto {
-  margin-right: auto;
+
+// Auto Margins
+.m-auto {
+  margin: auto !important;
 }
 .mt-auto {
-  margin-top: auto;
+  margin-top: auto !important;
+}
+.mr-auto {
+  margin-right: auto !important;
 }
 .mb-auto {
-  margin-bottom: auto;
+  margin-bottom: auto !important;
+}
+.ml-auto {
+  margin-left: auto !important;
+}
+.mx-auto { // For centering block-level elements with a specified width
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.my-auto { // For vertical centering in flex containers
+  margin-top: auto !important;
+  margin-bottom: auto !important;
 }
 
-/* Specific Margin Sizes */
-.m-0 {
-  margin: 0 !important;
-}
-.mt-1 {
-  margin-top: 0.5rem;
-}
-.mb-1 {
-  margin-bottom: 0.5rem;
-}
-.ml-1 {
-  margin-left: 0.5rem;
-}
-.mr-1 {
-  margin-right: 0.5rem;
-}
 
-.mt-2 {
-  margin-top: 1rem;
-}
-.mb-2 {
-  margin-bottom: 1rem;
-}
-.ml-2 {
-  margin-left: 1rem;
-}
-.mr-2 {
-  margin-right: 1rem;
-}
+// Responsive Spacing Utilities
+// Generates responsive margin (m) and padding (p) utilities for each breakpoint defined in $grid-breakpoints.
+// Classes are in the format: .[m|p][t|r|b|l|x|y]-[breakpoint]-[size]
+// Example: .mt-md-3 (margin-top of size 3 from medium breakpoint and up)
 
-/* Padding Utilities */
-.p-0 {
-  padding: 0 !important;
-}
-.pt-1 {
-  padding-top: 0.5rem;
-}
-.pb-1 {
-  padding-bottom: 0.5rem;
-}
-.pl-1 {
-  padding-left: 0.5rem;
-}
-.pr-1 {
-  padding-right: 0.5rem;
-}
+@each $breakpoint_name, $min_width in $grid-breakpoints {
+  @if $breakpoint_name != xs { // 'xs' is the default, non-prefixed utility (e.g., .mt-1)
+    @media (min-width: $min_width) {
+      @each $prop, $abbrev in (margin: m, padding: p) {
+        @each $size, $length in $spacers {
+          // All sides: e.g., .m-md-1, .p-lg-2
+          .#{$abbrev}-#{$breakpoint_name}-#{$size} { #{$prop}: $length !important; }
 
-.pt-2 {
-  padding-top: 1rem;
-}
-.pb-2 {
-  padding-bottom: 1rem;
-}
-.pl-2 {
-  padding-left: 1rem;
-}
-.pr-2 {
-  padding-right: 1rem;
-}
+          // Axis-specific: e.g., .mx-md-1, .py-lg-2
+          .#{$abbrev}x-#{$breakpoint_name}-#{$size} {
+            #{$prop}-left: $length !important;
+            #{$prop}-right: $length !important;
+          }
+          .#{$abbrev}y-#{$breakpoint_name}-#{$size} {
+            #{$prop}-top: $length !important;
+            #{$prop}-bottom: $length !important;
+          }
 
-/* Responsive Spacing (Example for Medium Devices and Up) */
-@media (min-width: 768px) {
-  .mt-md-1 {
-    margin-top: 0.5rem;
-  }
-  .mb-md-2 {
-    margin-bottom: 1rem;
-  }
-  .p-md-2 {
-    padding: 1rem;
+          // Individual sides: e.g., .mt-md-1, .pr-lg-2
+          .#{$abbrev}t-#{$breakpoint_name}-#{$size} { #{$prop}-top: $length !important; }
+          .#{$abbrev}r-#{$breakpoint_name}-#{$size} { #{$prop}-right: $length !important; }
+          .#{$abbrev}b-#{$breakpoint_name}-#{$size} { #{$prop}-bottom: $length !important; }
+          .#{$abbrev}l-#{$breakpoint_name}-#{$size} { #{$prop}-left: $length !important; }
+        }
+      }
+
+      // Responsive Auto Margins
+      .m-#{$breakpoint_name}-auto { margin: auto !important; }
+      .mt-#{$breakpoint_name}-auto { margin-top: auto !important; }
+      .mr-#{$breakpoint_name}-auto { margin-right: auto !important; }
+      .mb-#{$breakpoint_name}-auto { margin-bottom: auto !important; }
+      .ml-#{$breakpoint_name}-auto { margin-left: auto !important; }
+      .mx-#{$breakpoint_name}-auto { // For centering block-level elements
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+      .my-#{$breakpoint_name}-auto { // For vertical centering in flex containers
+        margin-top: auto !important;
+        margin-bottom: auto !important;
+      }
+    }
   }
 }
+
+
+
+// Text Utilities
+//------------------------------------------------------------------------------
+
+// Font Weight and Style
+.font-weight-light {
+  font-weight: $font-weight-normal !important; // Assuming $font-weight-normal is lighter than base, or define $font-weight-light
+}
+.font-weight-normal {
+  font-weight: $font-weight-normal !important;
+}
+.font-weight-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+.font-weight-bold {
+  font-weight: $font-weight-bold !important;
+}
+.font-italic {
+  font-style: italic !important;
+}
+
+// Text Transformation
+.text-lowercase {
+  text-transform: lowercase !important;
+}
+.text-uppercase {
+  text-transform: uppercase !important;
+}
+.text-capitalize {
+  text-transform: capitalize !important;
+}
+
+// Line Height
+.lh-1 { line-height: $line-height-1 !important; }
+.lh-sm { line-height: $line-height-sm !important; }
+.lh-base { line-height: $line-height-base !important; }
+.lh-lg { line-height: $line-height-lg !important; }
+
+// Text Alignment (Non-responsive and Responsive)
+@each $breakpoint_name, $min_width in $grid-breakpoints {
+  @if $breakpoint_name == xs {
+    // Non-responsive (default for xs and up)
+    .text-left { text-align: left !important; }
+    .text-center { text-align: center !important; }
+    .text-right { text-align: right !important; }
+  } @else {
+    // Responsive (e.g., .text-sm-left, .text-md-center)
+    @media (min-width: $min_width) {
+      .text-#{$breakpoint_name}-left { text-align: left !important; }
+      .text-#{$breakpoint_name}-center { text-align: center !important; }
+      .text-#{$breakpoint_name}-right { text-align: right !important; }
+    }
+  }
+}
+
+// Text Color Utilities
+@each $color_name, $color_value in $theme-colors-text {
+  .text-#{$color_name} {
+    color: $color_value !important;
+  }
+}
+
+// Background Color Utilities
+@each $color_name, $color_value in $theme-colors-bg {
+  .bg-#{$color_name} {
+    background-color: $color_value !important;
+  }
+}
+
+/* Container Utility */
+.container {
+  max-width: $container-max-width; // From _variables.scss
+  padding-left: 1rem;  // Or use a variable like $container-padding-x
+  padding-right: 1rem; // Or use a variable like $container-padding-x
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%; // Ensures it takes up available space up to max-width
+}
+

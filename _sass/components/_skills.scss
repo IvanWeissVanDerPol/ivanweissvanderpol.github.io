@@ -1,10 +1,22 @@
 // _sass/components/_skills.scss
 
 .skills-section {
+  .accordion-item {
+    border-radius: $border-radius-base; // Add rounding to the accordion item itself
+    margin-bottom: $base-padding / 2; // Add some space between accordion items
+    border: 1px solid transparent; // Prepare for potential border color on hover/focus
+    // Bootstrap typically handles rounding for first/last child buttons if the parent item has overflow:hidden and border-radius.
+  }
+
   .accordion-button {
+    // display: flex; // No longer needed
+    // justify-content: space-between; // No longer needed
+    // align-items: center; // No longer needed
+    padding-left: $base-padding * 1.5; // Add more horizontal padding
+    padding-right: $base-padding * 1.5; // Add more horizontal padding
     font-weight: $font-weight-bold;
-    color: $headings-color; 
-    background-color: $gray-100; // Use the renamed variable 
+    color: darken($theme-color, 10%); // Text color for collapsed state
+    background-color: lighten($theme-color, 40%); // Background for collapsed state 
 
     &:not(.collapsed) {
       color: $white;
@@ -22,14 +34,7 @@
     padding: $base-padding;
   }
 
-  .progress-container {
-    margin-bottom: $base-padding * 0.75; 
-  }
-  .progress-bar { 
-    background-color: $theme-color;
-    font-size: $font-size-sm; 
-    font-weight: $font-weight-semibold;
-  }
+  // .skill-level-percentage, .progress-container, .progress-bar styles removed.
 
   .tags-container {
     display: flex;

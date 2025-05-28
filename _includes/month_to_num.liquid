@@ -1,0 +1,15 @@
+{% assign m = include.month_name | downcase %}
+{% if m == "jan" or m == "january" %}{% assign month_number = "01" %}
+{% elsif m == "feb" or m == "february" %}{% assign month_number = "02" %}
+{% elsif m == "mar" or m == "march" %}{% assign month_number = "03" %}
+{% elsif m == "apr" or m == "april" %}{% assign month_number = "04" %}
+{% elsif m == "may" %}{% assign month_number = "05" %}
+{% elsif m == "jun" or m == "june" %}{% assign month_number = "06" %}
+{% elsif m == "jul" or m == "july" %}{% assign month_number = "07" %}
+{% elsif m == "aug" or m == "august" %}{% assign month_number = "08" %}
+{% elsif m == "sep" or m == "september" %}{% assign month_number = "09" %}
+{% elsif m == "oct" or m == "october" %}{% assign month_number = "10" %}
+{% elsif m == "nov" or m == "november" %}{% assign month_number = "11" %}
+{% elsif m == "dec" or m == "december" %}{% assign month_number = "12" %}
+{% else %}{% assign month_number = include.month_name %}{% comment %}Fallback if not found{% endcomment %}
+{% endif %}

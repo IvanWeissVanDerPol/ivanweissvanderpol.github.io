@@ -1,0 +1,90 @@
+title: "Skills & Proficiency"
+
+toolset:
+- name: Python Development
+  level: 98%
+  tags:
+    - Python
+    - Pandas
+    - Selenium
+    - PySpark
+    - NumPy
+    - Matplotlib
+
+- name: QA Automation
+  level: 95%
+  tags:
+    - Selenium WebDriver
+    - Hexawise
+    - QTest
+    - Test Automation
+    - BDD (Cucumber)
+    - Applitools
+    - Cypress
+    - WebdriverIO
+
+- name: Data Engineering
+  level: 90%
+  tags:
+    - Databricks
+    - Apache Spark
+    - Spark SQL
+    - Azure DevOps
+    - Data Pipelines
+    - ETL
+    - Big Data
+
+- name: Software Development
+  level: 90%
+  tags:
+    - Python
+    - Java
+    - Git
+    - RESTful APIs
+    - Postman
+    - API Automation
+    - Jenkins
+    - CI/CD
+    - Azure DevOps
+
+- name: Web Technologies
+  level: 85%
+  tags:
+    - HTML5
+    - CSS3
+    - JavaScript
+    - Responsive Design
+    - Web Development
+    - Bootstrap
+
+- name: Database Management
+  level: 80%
+  tags:
+    - MongoDB
+    - SQL
+    - Database Design
+    - Query Optimization
+    - Databricks
+    - Relational Databases
+    - Azure Data Lake
+    - Apache Spark
+    - PySpark
+
+- name: AI & Automation Tools
+  level: 75%
+  tags:
+    - Prompt Engineering
+    - Automation Scripts
+    - AI Agents 
+    - OpenAI
+
+- name: Project Management & DevOps
+  level: 70%
+  tags:
+    - JIRA
+    - CI/CD Practices
+    - Agile Methodologies
+    - Scrum
+    - Kanban
+    - Version Control
+    - DevOps Tools

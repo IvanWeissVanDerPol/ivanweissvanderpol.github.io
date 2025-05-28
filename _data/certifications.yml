@@ -1,0 +1,49 @@
+- name: "ISTQB Foundation Level Certification"
+  display_year_status: 2022
+  organization: International Software Testing Qualifications Board (ISTQB)
+  file: /PersonalData/Certifications/Certifications/Personal/Certificate-8e85e79dd27d41078da9908a53aaedb8.pdf
+  details_intro: "Achieved an **industry-recognized certification** in core software testing principles, covering **test design techniques**, **execution strategies**, and **reporting methodologies**. This certification highlights **proficiency** in both **manual and automated testing**, ensuring software quality through **structured processes** and **best practices**."
+  issuer_logo_path: "assets/images/Logo/ISTQB_logo.jpeg"
+  category: "Software Testing"
+  badge_icon_class: "fas fa-award"
+
+- name: "NASA Galactic Problem Solver"
+  display_year_status: 2023
+  organization: NASA International Space Apps Challenge
+  file: /PersonalData/Certifications/Certifications/Personal/NASA_International_Space_Apps_Challenge.jpg
+  details_intro: "Awarded the **Galactic Problem Solver** title at the **NASA International Space Apps Challenge 2023** for pioneering solutions utilizing **AI** and **automation**. Recognized for addressing **complex challenges** in space exploration through **innovative technological applications**, contributing to NASA's **global open innovation initiatives**."
+  issuer_logo_path: "assets/images/Logo/nasa_space_logo.webp"
+  category: "Innovation & AI"
+  badge_icon_class: "fas fa-rocket"
+
+- name: "Advanced English Proficiency (BECAL Scholarship Recipient)"
+  display_year_status: 2021
+  organization: BECAL Scholarship Program
+  file: /PersonalData/Certifications/Certifications/Personal/Ivan_Weiss_Advanced_English_Proficiency_Certificate_BECAL_Scholarship_2022.jpg
+  details_intro: "Awarded the **prestigious BECAL Scholarship**, a **merit-based program** funded by the **Paraguayan government**, to pursue **advanced English studies**. This scholarship provided an opportunity to enhance my **professional communication skills** and strengthen **global collaboration abilities**. As part of the program, I attended **Wichita State University** in the USA, further refining my **language proficiency** and participating in **academic initiatives** that broadened my **international perspective**."
+  issuer_logo_path: "assets/images/Logo/Becal_logo.jpg"
+  category: "Professional Development"
+  badge_icon_class: "fas fa-language"
+
+- name: "TAU Test Automation Certifications"
+  display_year_status: 2022
+  organization: Test Automation University
+  folder_link: /PersonalData/Certifications/Certifications/Mentormate/Test_Automation_University/
+  issuer_logo_path: "assets/images/Logo/Tau_logo.png"
+  category: "Test Automation"
+  badge_icon_class: "fas fa-cogs"
+  details_intro: "Comprehensive training in modern test automation techniques, frameworks, and best practices:"
+  details_courses:
+    - "**Test Automation University Foundations**: Core principles and methodologies in test automation."
+    - "**Python Programming for Automation**: Leveraging Python for automating web and API testing."
+    - "**Java Programming for Automation**: Leveraging Java for automating web and API testing."
+    - "**JavaScript Test Automation with WebdriverIO**: Automating browser tasks using JavaScript and WebdriverIO."
+    - "**Introduction to Cypress**: End-to-end testing for modern web applications using Cypress."
+    - "**Continuous Integration with Jenkins**: Implementing CI/CD pipelines to streamline automated testing."
+    - "**API Testing with Postman**: Automating RESTful API testing using Postman."
+    - "**Behavior-Driven Development (BDD) with Cucumber**: Integrating BDD practices into test automation."
+    - "**Web Element Locator Strategies**: Advanced techniques for locating dynamic web elements efficiently."
+    - "**Selenium WebDriver with Java**: Building robust browser-based automation tests using Java."
+    - "**Advanced Selenium Techniques**: Mastering complex automation scenarios with Selenium."
+    - "**AI in Test Automation**: Exploring how AI enhances test automation strategies."
+    - "**Visual Validation Testing with Applitools**: Implementing visual testing techniques for UI consistency."

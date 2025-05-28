@@ -1,0 +1,20 @@
+# title: Showcase
+# enabled: true
+# items:
+#   - type: project # or 'media' or 'testimonial'
+#     title: "Project Alpha"
+#     description: "A brief description of Project Alpha, highlighting key achievements and technologies used."
+#     thumbnail: "assets/images/showcase/project_alpha_thumb.jpg" # Path to thumbnail
+#     link: "https://example.com/project-alpha" # Link to live project or repo
+#     tags: ["Python", "Django", "JavaScript"] # Optional tags
+#   - type: media
+#     title: "Software Demo Video"
+#     description: "A short video showcasing the functionality of a key software component I developed."
+#     media_type: "video" # 'video' or 'gif'
+#     media_url: "https://www.youtube.com/embed/your_video_id" # Or path to local gif: assets/images/showcase/demo.gif
+#     thumbnail: "assets/images/showcase/video_thumb.jpg" # Optional: if you want a custom thumbnail for a video
+#   - type: testimonial
+#     quote: "Working with [Your Name] was a fantastic experience. Their expertise in [Skill] was invaluable to our project's success."
+#     author: "Satisfied Client"
+#     source: "LinkedIn" # Or "Email", "Upwork", etc.
+#     source_link: "https://linkedin.com/in/satisfiedclient" # Optional link to testimonial source

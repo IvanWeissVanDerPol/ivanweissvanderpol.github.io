@@ -15,6 +15,8 @@
 
     .details {
       line-height: 1.6; // Increase line height for readability
+      padding-left: 1.5rem; // Align with horizontal padding of other sections in the item
+      padding-right: 1.5rem; // Align with horizontal padding of other sections in the item
 
       p {
         margin-bottom: $base-padding / 2; // Add space after paragraphs
@@ -34,6 +36,63 @@
       }
     }
 
+    .logos-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center; // Vertically align items if they have different heights before image scaling
+      gap: $base-padding / 1.5; // Spacing between logo items (e.g., 1rem or 15px)
+
+      // Common styles for all logo links (primary and client)
+      a {
+        display: inline-flex; // Use inline-flex to allow alignment and sizing
+        align-items: center;
+        justify-content: center;
+        height: 50px;       // Define a consistent height for the logo 'slot'
+        width: auto;        // Allow width to be intrinsic to content up to max-width
+        max-width: 90px;   // Define a consistent max-width for the logo 'slot'
+        text-decoration: none;
+
+        // img styling within a.logo is now handled by the .logo-background-circle wrapper
+        // and its nested img style in _common-logo.scss.
+        // The <a> tag might still need specific styling for layout if it's not just a plain link.
+      }
+
+      // Specific styles for primary logo image (e.g., shadow)
+      // Specific styles like box-shadow or opacity might now apply to the
+      // .logo-background-circle itself if it has .primary or .client classes,
+      // or be removed if the new design doesn't require them.
+      // For now, removing these specific img styles as the core look is unified.
+      // a.logo.primary {}
+      // a.logo.client {}
+    }
+
+    .experience-tags {
+      padding-left: 1.5rem; 
+      padding-right: 1.5rem;
+      padding-bottom: 1.5rem; 
+      margin-top: 1rem; 
+
+      .tags-title {
+        font-weight: $font-weight-semibold;
+        margin-right: 0.5em;
+        display: block; 
+        margin-bottom: 0.5em;
+      }
+
+      .tag-badge {
+        display: inline-block;
+        background-color: #e9ecef; 
+        color: $text-color-secondary; 
+        padding: 0.3em 0.75em;
+        margin-right: 0.5em;
+        margin-bottom: 0.5em;
+        border-radius: $badge-border-radius; 
+        font-size: $font-size-sm; 
+        line-height: 1.4;
+        font-weight: $font-weight-normal; 
+      }
+    }
+
     .meta {
       .upper-row {
         display: flex;
@@ -41,11 +100,11 @@
         margin-bottom: 0.25rem; // Space between title row and company name
 
         .experience-logo {
-          width: 50px;
-          height: 50px;
-          object-fit: contain; // Ensures logo aspect ratio is maintained
-          margin-right: 15px;
-          flex-shrink: 0; // Prevents logo from shrinking
+          // All visual styling (size, shape, background) is now handled by the
+          // .logo-background-circle wrapper and its nested img style in _common-logo.scss.
+          margin-right: 15px; // Retain layout-specific margin
+          flex-shrink: 0; // Retain flex property
+          // Ensure the HTML for this logo is wrapped in <div class="logo-background-circle">...</div>
         }
 
         .job-title {
@@ -70,6 +129,158 @@
         margin-bottom: 0.5rem;
         padding-left: 65px; // Indent company name (50px logo width + 15px margin-right)
       }
+    }
+  }
+}
+.item {  
+  background: $light-background; // Define in variables, e.g., #f9f9fb or darken(white, 2%)
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+  }
+  
+}
+
+// Styles for the new horizontal experience item layout
+.experience-item-horizontal {
+  // VISUAL POLISH: Card Style
+  // background: $light-background; // Define in variables, e.g., #f9f9fb or darken(white, 2%)
+  // border-radius: 12px;
+  // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+  margin-bottom: 2rem; // Space below each experience item (was 30px)
+
+
+  // Optional: Left Border Accent
+  // border-left: 4px solid $primary-color; // Or use role-specific colors
+  // padding-left: calc(1.5rem - 4px); // Adjust padding if border is active
+
+
+
+  // OPTIONAL: Animation
+  // opacity: 0;
+  // transform: translateY(10px);
+  // animation: fadeInUp 0.4s ease forwards;
+  // animation-delay: 0.2s; // Stagger if multiple items load
+
+  display: flex;
+  align-items: center; // Vertically center columns
+  gap: 20px; // Space between the columns
+
+  .experience-logos-column {
+    flex: 0 0 70px; // Fixed width for logos (adjust from 60px if 70px primary logo is used)
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+
+    // .primary-logo-img-h and .client-logo-img-h styling (classes previously on <img> tags)
+    // is now handled by the .logo-background-circle wrapper and its nested img style.
+    // These classes can be removed from HTML or kept if needed as hooks for very specific adjustments,
+    // though they are currently unused. Ensure <img> tags are wrapped with <div class="logo-background-circle">.
+  }
+
+  .experience-info-column {
+    flex: 1 1 100%; // Takes available space
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Vertically center company-role if logo column is taller
+
+    .company-role {
+      .company {
+        font-size: $font-size-lg; // Approx 18px
+        font-weight: $font-weight-semibold; // Semibold
+        color: $theme-color-dark; // Ensure $theme-color-dark is defined
+        margin: 0; // User's previous update
+      }
+
+      .job-title {
+        font-size: $font-size-lg; // Approx 16px
+        color: $text-color-secondary; // Ensure $text-color-secondary is defined
+        margin-top: 0.15rem;
+        margin-bottom: 0; // User's previous update
+
+        .experience-role-icon {
+          margin-right: 0.5em;
+          color: $text-color-muted; // Or inherit, or a specific theme color
+          font-size: 0.9em; // Slightly smaller than the job title text
+        }
+      }
+    }
+  }
+
+  .experience-dates-column {
+    flex: 0 0 auto; // Takes only space it needs
+    margin-left: auto; // Pushes it to the right
+    text-align: right;
+    font-size: $font-size-lg;
+    color: $text-color-muted;
+
+    .job-duration {
+      white-space: nowrap;
+      &::before {
+        margin-right: 5px;
+        font-size: $font-size-base; // Relative to parent font-size
+      }
+    }
+  }
+}
+
+// OPTIONAL: Keyframes for animation
+// @keyframes fadeInUp {
+//   to {
+//     opacity: 1;
+//     transform: translateY(0);
+//   }
+// }
+
+// Responsive adjustments for smaller screens
+@media (max-width: #{$screen-sm-min - 1px}) { // Target screens *below* the sm breakpoint
+  .experience-item-horizontal {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    padding: 1rem; // Reduced padding for smaller screens
+
+    .experience-logos-column {
+      order: 1; // Logo first
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 10px;
+      gap: 15px;
+      flex: 0 0 auto; // Reset flex basis
+
+      .logo {
+        max-width: 60px;
+        max-height: 60px;
+      }
+      .logos {
+        justify-content: flex-start;
+        .logo {
+          max-width: 30px;
+          max-height: 30px;
+        }
+      }
+    }
+
+    .experience-info-column {
+      order: 2; // Info second
+      justify-content: flex-start; // Align to top when stacked
+    }
+
+    .experience-dates-column {
+      order: 3; // Dates last
+      text-align: left;
+      padding-top: 0;
+      margin-top: 0.5rem;
+      margin-left: 0; // Reset margin-left
+      align-self: flex-start; // Reset align-self
+      font-size: 0.85rem;
     }
   }
 }

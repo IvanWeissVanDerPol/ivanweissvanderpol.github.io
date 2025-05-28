@@ -1,5 +1,10 @@
 // _sass/layout/_main.scss
 
+//apply to details in item
+.item .details {
+  padding-left: 50px;
+}
+
 .main-wrapper {
   grid-column: span $main-content-width-ratio; // Variable
   order: $resume-order; // Liquid variable from assets/css/main.scss
@@ -8,10 +13,11 @@
 
   .item {
     margin-bottom: $base-padding; // Variable (30px)
-
     &:last-child {
       margin-bottom: 0;
     }
+
+   
   }
 
   .upper-row {

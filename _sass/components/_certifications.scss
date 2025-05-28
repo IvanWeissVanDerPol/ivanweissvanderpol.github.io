@@ -3,79 +3,110 @@
 .certifications-section {
   .certification-cards-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid
+    grid-template-columns: 1fr; // Force single column
     gap: $base-padding; // Using existing theme variable for gap
   }
 
   .certification-card {
-    background: $smoky-white; // Or another light card background from your theme
-    border: 1px solid $gray-300; // Using theme variables
-    border-radius: $border-radius-lg; // Using theme variables
-    padding: $base-padding;
+    background: $light-background; // Consistent with experiences
+    // border: 1px solid $gray-300; // Removing border, relying on shadow
+    border-radius: $border-radius-lg; // Using theme variables (15px)
+    padding: 0; // Card itself has no padding, content sections will manage it
     display: flex;
     flex-direction: column;
-    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // Consistent initial shadow
+    transition: box-shadow 0.2s ease, transform 0.2s ease; // Consistent transition
 
     &:hover {
-      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Subtle hover effect
+      box-shadow: $box-shadow-base; // Consistent hover shadow (0 4px 12px rgba(0,0,0,0.1))
+      transform: translateY(-3px); // Consistent hover lift
     }
 
-    .card-header {
+    .certification-header-row {
       display: flex;
-      align-items: center;
-      margin-bottom: $item-padding-y / 2;
-      border-bottom: 1px solid $gray-200;
-      padding-bottom: $item-padding-y / 2;
+      align-items: flex-start; // Align items to the top
+      padding: $base-padding; // Add padding around the header row content
+      padding-bottom: 0; // Details will have its own top margin or padding
+    }
 
-      .issuer-logo {
-        max-width: 50px; // Adjust as needed
-        max-height: 50px; // Adjust as needed
-        margin-right: $item-padding-x / 2;
-        object-fit: contain;
-      }
+    .certification-logo-column {
+      flex: 0 0 70px; // Fixed width for logo column
+      margin-right: $base-padding; // Space between logo and info
+      display: flex;
+      justify-content: center; // Center logo horizontally
+
+    }
+
+    .certification-info-column {
+      flex: 1; // Takes up remaining space
+      display: flex;
+      flex-direction: column;
 
       .certification-title {
-        font-size: $font-size-lg; // Using theme variables
-        font-weight: $font-weight-bold;
-        color: $headings-color; // Using theme variables
-        margin-bottom: 0;
-        flex-grow: 1;
+        font-size: $font-size-lg;
+        font-weight: $font-weight-semibold;
+        color: $headings-color;
+        margin-bottom: $item-padding-y / 4;
+      }
+
+      .organization,
+      .date-earned,
+      .category {
+        font-size: $font-size-sm;
+        color: $text-color-secondary;
+        margin-bottom: $item-padding-y / 4;
+      }
+      .date-earned time {
+        font-style: italic;
+      }
+      .category {
+        font-style: italic;
       }
 
       .badge-icon {
-        font-size: $font-size-xl; // Adjust as needed
-        color: $theme-color; // Or a specific accent color
+        font-size: $font-size-lg; // Adjusted size
+        color: $theme-color;
+        margin-top: $item-padding-y / 4; // Space above badge icon
       }
     }
 
     .card-body {
       flex-grow: 1; // Allows details to expand
-
-      .meta {
-        font-size: $font-size-sm; // Using theme variables
-        color: $text-color-secondary;
-        margin-bottom: $item-padding-y / 2;
-
-        div {
-          margin-bottom: $item-padding-y / 4;
-        }
-        .organization {
-          font-weight: $font-weight-semibold;
-        }
-        .date-earned time {
-          font-style: italic;
-        }
-        .category {
-          font-style: italic;
-        }
-      }
+      padding: 0 $base-padding $base-padding $base-padding; // Padding for card body, no top padding as header has bottom
 
       .details {
-        font-size: $font-size-base; // Using theme variables
+        font-size: $font-size-base;
         color: $text-color;
-        ul {
-          padding-left: 20px; // Indent bullet points
+        margin-top: $item-padding-y /2; // Space above details block if header row had padding-bottom:0
+        padding-left: 0; // Reset if needed
+
+        .details-intro {
+          margin-bottom: $item-padding-y / 1.5; // Space before course list or if it's the only detail
+          line-height: $line-height-base;
+
+          &:last-child { // If no course list follows
+            margin-bottom: 0;
+          }
+        }
+
+        .details-courses-list {
+          list-style-type: disc;
+          padding-left: 20px; // Indentation for bullet points
+          margin-top: 0; // No extra top margin if intro is present
           margin-bottom: 0;
+
+          li {
+            margin-bottom: $item-padding-y / 2; // Space between course items
+            line-height: $line-height-sm;
+
+            &:last-child {
+              margin-bottom: 0;
+            }
+
+            strong {
+              font-weight: $font-weight-semibold;
+            }
+          }
         }
       }
     }
@@ -101,3 +132,4 @@
     }
   }
 }
+

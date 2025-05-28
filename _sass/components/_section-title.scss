@@ -6,7 +6,7 @@
   color: $theme-color-dark; // Theme variable
   margin-bottom: 25px; // Consider spacing variable
   position: relative; // For the ::after pseudo-element
-  padding-left: $base-padding; // Variable (30px) - matches original skills-section padding
+  padding-left: 0; // Variable (30px) - matches original skills-section padding
 
   // The underline accent
   &::after {

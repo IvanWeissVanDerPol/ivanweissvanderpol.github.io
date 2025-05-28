@@ -5,7 +5,7 @@
 @charset "utf-8";
 
 // Define variable with front matter for sidebar position
-{% if site.data.data.sidebar.position == 'left' %}
+{% if site.data.sidebar.position == 'left' %}
   $resume-order: 2;
   $sidebar-order: 1;
 {% else %}
@@ -13,60 +13,76 @@
   $sidebar-order: 2;
 {% endif %}
 
-// Global abstracts
+// Global abstracts - Must be imported first
 @import "abstracts/variables";
 @import "abstracts/mixins";
 
 // --- Theme Handling ---
+
+// Determine the default skin
 {% assign default_skin = site.theme_skin | default: 'blue' %}
 
-// Default theme styles for body
-body {
-  @import "skins/{{ default_skin }}";
-  // Now import all other structural/component SCSS that uses these variables
-  @import "base/base";
-  @import "layout/grid";
-  @import "layout/sidebar";
-  @import "layout/main";
-  @import "layout/footer";
-  @import "components/buttons";
-  @import "components/contact-list";
-  @import "components/section-title";
-  @import "components/skills";
-  @import "components/tags";
-  @import "components/recommendations";
-  @import "components/certifications";
-  @import "components/education";
-  @import "components/experiences";
-  @import "components/showcase";
-}
+// Import the default skin's variables
+@import "skins/{{ default_skin }}";
+
+// Import all structural, component, and utility SCSS for the default theme
+// These will use the variables defined by the default_skin
+@import "base/base";
+@import "layout/grid";
+@import "layout/sidebar";
+@import "layout/main";
+@import "layout/footer";
+@import "components/buttons";
+@import "components/contact-list";
+@import "components/section-title";
+@import "components/experiences";
+@import "components/skills";
+@import "components/tags";
+@import "components/recommendations";
+@import "components/certifications";
+@import "components/education";
+// @import "components/experiences"; // Duplicate removed
+@import "components/showcase";
+@import "components/card";
+@import "components/badge";
+@import "components/common-logo"; // Centralized logo styles
+@import "utilities"; // Import new utilities
 
 // Loop for other themes
 {% for skin_name in site.data.theme_skins %}
-  body.theme-{{ skin_name }} {
-    @import "skins/{{ skin_name }}";
-    // Re-import all structural/component SCSS to generate rules with this skin's variables
-    @import "base/base";
-    @import "layout/grid";
-    @import "layout/sidebar";
-    @import "layout/main";
-    @import "layout/footer";
-    @import "components/buttons";
-    @import "components/contact-list";
-    @import "components/section-title";
-    @import "components/skills";
-    @import "components/tags";
-    @import "components/recommendations";
-    @import "components/certifications";
-    @import "components/education";
-    @import "components/experiences";
-    @import "components/showcase";
-  }
+  {% if skin_name != default_skin %}
+    body.theme-{{ skin_name }} {
+      // Import this skin's variables
+      @import "skins/{{ skin_name }}";
+
+      // Re-import all structural, component, and utility SCSS
+      // These will use the variables defined by the current skin_name
+      @import "base/base";
+      @import "layout/grid";
+      @import "layout/sidebar";
+      @import "layout/main";
+      @import "layout/footer";
+      @import "components/buttons";
+      @import "components/contact-list";
+      @import "components/section-title";
+      @import "components/experiences";
+      @import "components/skills";
+      @import "components/tags";
+      @import "components/recommendations";
+      @import "components/certifications";
+      @import "components/education";
+      // @import "components/experiences"; // Duplicate removed
+      @import "components/showcase";
+      @import "components/card";
+      @import "components/badge";
+      @import "components/common-logo"; // Centralized logo styles
+      @import "utilities";
+    }
+  {% endif %}
 {% endfor %}
 // --- End Theme Handling ---
 
-// Import utilities, responsive, and print styles globally, as they usually don't change per theme
-// or are additive.
-@import "utilities";
+// Import responsive and print styles globally
+// These are generally additive and don't need to be re-imported per theme
 @import "responsive";
 @import "print";

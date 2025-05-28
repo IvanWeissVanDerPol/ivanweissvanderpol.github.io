@@ -1,0 +1,67 @@
+// _sass/components/_badge.scss
+
+.badge {
+  display: inline-block;
+  padding: $badge-padding-y $badge-padding-x;
+  font-size: $badge-font-size; // Mapped to $font-size-sm (0.875rem)
+  font-weight: $badge-font-weight; // Mapped to $font-weight-semibold (600)
+  line-height: 1; // Ensure consistent line height regardless of content
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: $badge-border-radius; // Mapped to $border-radius-small (5px)
+  background-color: $badge-background-color; // Mapped to $background-color-muted (#f5f5f5)
+  color: $badge-text-color; // Mapped to $text-color-muted (#999999)
+  text-transform: uppercase; // Added for a common tag/badge style
+  letter-spacing: 0.05em; // Added for slight letter spacing
+
+  // Modifier for primary color badge
+  &.badge-primary {
+    background-color: $color-primary; // Uses semantic token
+    color: $white; // Ensure good contrast on primary color
+  }
+
+  // Modifier for a slightly more rounded "pill" badge
+  &.badge-pill {
+    border-radius: 50rem; // Large value to ensure fully rounded ends
+  }
+
+  // Modifier for secondary color badge
+  &.badge-secondary {
+    background-color: $color-secondary;
+    color: $badge-secondary-text-color;
+  }
+
+  // Modifier for success state badge
+  &.badge-success {
+    background-color: $color-success;
+    color: $badge-success-text-color;
+  }
+
+  // Modifier for error state badge
+  &.badge-error {
+    background-color: $color-error;
+    color: $badge-error-text-color;
+  }
+
+  // Modifier for warning state badge
+  &.badge-warning {
+    background-color: $color-warning;
+    color: $badge-warning-text-color;
+  }
+
+  // Modifier for info state badge
+  &.badge-info {
+    background-color: $color-info;
+    color: $badge-info-text-color;
+  }
+
+  // Example for a skill badge - can be expanded
+  &.badge-skill {
+    background-color: $gray-200; // Slightly different grey
+    color: $text-color-secondary;
+    font-weight: $font-weight-normal;
+    text-transform: none; // Skills might not need uppercase
+    letter-spacing: normal;
+  }
+}

@@ -17,6 +17,77 @@
 // Styles for Education in Main Content Section
 .educations-section {
   .item {
+    // Base card styling - applied to all items in educations-section
+    background: $light-background; 
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    margin-bottom: 2rem; // Keep existing margin-bottom from .experiences-section .item
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transform: translateY(-3px);
+    }
+
+    // Styles specific to the new horizontal layout's details
+    &.education-item-horizontal {
+      .details {
+        padding: 1.5rem; // Uniform padding for the details section
+      }
+    }
+
+    // New styles for the horizontal layout structure
+    &.education-item-horizontal {
+      .education-header-row {
+        display: flex;
+        align-items: flex-start; // Align items to the top
+        padding: 1.5rem; // Add padding around the header row content
+        padding-bottom: 0; // Details will have its own top margin or padding
+      }
+
+      .education-logo-column {
+        flex: 0 0 70px; // Slightly reduce fixed width
+        margin-right: 1.5rem; // Space between logo and info
+        display: flex;
+        // align-items: center; // Align to top via header-row
+        justify-content: center; // Center logo horizontally within its column
+
+        // .education-logo styling is now handled by the .logo-background-circle wrapper
+        // and its nested img style in _common-logo.scss.
+        // The .education-logo class on the <img> tag can be removed from HTML or kept if needed
+        // as a hook for very specific non-visual adjustments in the future, though it's currently unused.
+        // Ensure the <img> tag is wrapped with <div class="logo-background-circle"> in education.html.
+      }
+
+      .education-info-column {
+        flex: 1; // Takes up remaining space
+        display: flex;
+        flex-direction: column; // Stack degree, university, time vertically
+        justify-content: flex-start; // Align content to the top of the column
+
+        .degree {
+          font-size: $font-size-lg; 
+          font-weight: $font-weight-semibold;
+          color: $headings-color; // Use a standard heading color
+          margin-bottom: 0.25rem;
+        }
+
+        .university {
+          font-size: $font-size-base;
+          color: $text-color-secondary;
+          margin-bottom: 0.25rem;
+        }
+
+        .time {
+          font-size: $font-size-sm;
+          color: $text-color-muted;
+        }
+      }
+      // Ensure .details styles are correctly scoped or placed after this block
+    }
+
+    // Original .details styles (will apply to both old and new if not scoped)
+    // To ensure they only apply where needed, or are overridden by more specific selectors:
     .details {
       line-height: 1.6;
 
@@ -38,39 +109,6 @@
       }
     }
 
-    .meta {
-      .upper-row {
-        display: flex;
-        align-items: flex-start;
-        margin-bottom: 0.25rem;
-
-        .education-logo-main { // Class for main content logos
-          width: 50px;
-          height: 50px;
-          object-fit: contain;
-          margin-right: 15px;
-          flex-shrink: 0;
-        }
-
-        .degree {
-          flex-grow: 1;
-          margin-top: 0;
-          margin-bottom: 0;
-        }
-
-        .time {
-          margin-left: 15px;
-          white-space: nowrap;
-          padding-top: 0.1em;
-        }
-      }
-
-      .university {
-        font-weight: $font-weight-semibold;
-        color: $text-color-secondary;
-        margin-bottom: 0.5rem;
-        padding-left: 65px; // Indent university name (50px logo width + 15px margin-right)
-      }
-    }
+    // Old .meta styles removed.
   }
 }

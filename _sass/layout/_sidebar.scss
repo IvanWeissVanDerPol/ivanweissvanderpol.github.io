@@ -1,0 +1,123 @@
+// _sass/layout/_sidebar.scss
+
+.sidebar-wrapper {
+  grid-column: span $sidebar-width-ratio; // Variable
+  order: $sidebar-order; // Liquid variable from assets/css/main.scss
+  background: $theme-color-dark; // Theme variable
+  color: #fff; // Consider a theme variable $sidebar-text-color
+
+  a {
+    color: #fff; // Consider a theme variable $sidebar-link-color
+  }
+
+  .profile-container {
+    padding: 40px; // Consider $base-padding or specific variable
+    background: rgba(0, 0, 0, 0.3); // Consider theme variable $sidebar-profile-bg
+    text-align: center;
+  }
+
+  .name {
+    font-size: 32px; // Consider variable
+    font-weight: $font-weight-black; // Variable
+    margin: 0 0 10px;
+    color: #fff; // Match sidebar text color
+  }
+
+  .tagline {
+    color: rgba(255, 255, 255, 0.7); // Consider theme variable $sidebar-tagline-color
+    font-size: 16px; // Consider variable
+    font-weight: $font-weight-normal; // Variable
+  }
+
+  .avatar {
+    max-width: 120px; // Consider variable $avatar-max-width
+    margin: 20px auto;
+    border-radius: 50%;
+    border: 4px solid #fff; // Consider variable $avatar-border-color (or use a theme var)
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); // Consider a shadow variable
+  }
+
+  .container-block {
+    padding-top: $base-padding; // Variable
+    padding-bottom: $base-padding; // Variable
+    padding-left: $base-padding; // Variable
+    padding-right: $base-padding; // Variable
+    margin-bottom: 25px; // Added to increase space between blocks
+
+    &:last-child {
+      margin-bottom: 0; // Remove margin from the very last block
+    }
+  }
+
+  .container-block-title,
+  .section-title { // Targets h2 titles like 'Languages', 'Skills & Proficiency'
+    font-size: 1.15em; // e.g., 18.4px if base is 16px
+    font-weight: $font-weight-bold;
+    margin-top: 0;
+    margin-bottom: 20px; // Increased bottom margin for better separation
+    color: #fff; // Explicitly white for high contrast
+    padding-bottom: 5px; // Small padding for under-line effect if desired
+    // border-bottom: 1px solid rgba(255,255,255,0.2); // Optional subtle underline
+  }
+
+  // Styling for skill category titles like "Python Development" (h3.level-title)
+  // This needs to be specific enough if .skills-section is not directly under .sidebar-wrapper
+  // but included within a .container-block or similar.
+  // Assuming .skills-section is a direct child or common structure:
+  .skills-section {
+    .item {
+      .level-title {
+        font-size: 1.05em; // e.g., 16.8px
+        font-weight: $font-weight-semibold;
+        color: rgba(255, 255, 255, 0.85); // Slightly softer white for sub-titles
+        margin-top: 15px; // Space above skill category title
+        margin-bottom: 10px; // Space below skill category title
+      }
+    }
+  }
+
+  // CTA Block Styles
+  .sidebar-cta-block {
+    text-align: center;
+    margin: 25px auto; // Provides vertical spacing and centers if block has width
+    padding: 15px;
+    background-color: rgba(0,0,0,0.1); // Slightly darker than profile container's potential overlay
+    border-radius: $border-radius-base;
+
+    .cta-text {
+      font-size: 1.1em; // e.g., 17.6px if base is 16px
+      color: rgba(255, 255, 255, 0.9); // Bright and clear
+      margin-bottom: 15px;
+      font-weight: $font-weight-normal; // Standard weight for readability
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center; // Center buttons in the flex container
+      align-items: center;
+      gap: 10px; // Space between buttons
+
+      .btn-cta {
+        padding: 8px 12px; // Slightly smaller padding
+        font-size: 0.9em;   // Slightly smaller font
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1); // Subtle background
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: $border-radius-base; 
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+        flex-grow: 1; // Allow buttons to grow and share space if needed
+        max-width: 150px; // Max width for each button to prevent them from becoming too wide
+
+        i {
+          margin-right: 6px; // Space icon from text
+        }
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.2);
+          border-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
+  }
+}

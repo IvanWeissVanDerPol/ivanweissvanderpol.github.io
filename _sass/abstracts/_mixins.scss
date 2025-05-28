@@ -1,0 +1,117 @@
+/* === Shadow Mixins === */
+@mixin text-shadow($shadow: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+	text-shadow: $shadow;
+  }
+  
+  @mixin box-shadow($shadow: 0 1px 3px rgba(0, 0, 0, 0.25)) {
+	box-shadow: $shadow;
+  }
+  
+  @mixin drop-shadow($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	box-shadow: $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  }
+  
+  @mixin inner-shadow($x: 0, $y: 1px, $blur: 2px, $spread: 0, $alpha: 0.25) {
+	box-shadow: inset $x $y $blur $spread rgba(0, 0, 0, $alpha);
+  }
+  
+  /* === Box Model === */
+  @mixin box-sizing($type: border-box) {
+	box-sizing: $type;
+  }
+  
+  @mixin reset-box-sizing($type: border-box) {
+	&, *::before, *::after {
+	  box-sizing: $type;
+	}
+  }
+  
+  /* === Border Radius === */
+  @mixin border-radius($radius: 5px) {
+	border-radius: $radius;
+	background-clip: padding-box;
+  }
+  
+  @mixin border-radiuses($top-right: 0, $bottom-right: 0, $bottom-left: 0, $top-left: 0) {
+	border-radius: $top-right $bottom-right $bottom-left $top-left;
+	background-clip: padding-box;
+  }
+  
+  /* === Opacity === */
+  @mixin opacity($opacity: 0.5) {
+	opacity: $opacity;
+  }
+  
+  /* === Gradient Mixins === */
+  @mixin gradient($start: #eee, $end: white, $direction: to bottom) {
+	background: linear-gradient($direction, $start, $end);
+  }
+  
+  @mixin horizontal-gradient($start: #eee, $end: white) {
+	background: linear-gradient(to right, $start, $end);
+  }
+  
+  /* === Animation & Transition === */
+  @mixin animation($name, $duration: 300ms, $delay: 0s, $ease: ease) {
+	animation: $name $duration $delay $ease;
+  }
+  
+  @mixin transition($property: all, $duration: 300ms, $ease: ease) {
+	transition: $property $duration $ease;
+  }
+  
+  /* === Transformations === */
+  @mixin transform($transformation) {
+	transform: $transformation;
+  }
+  
+  @mixin scale($factor) {
+	@include transform(scale($factor));
+  }
+  
+  @mixin rotate($deg) {
+	@include transform(rotate($deg));
+  }
+  
+  @mixin skew($x: 0deg, $y: 0deg) {
+	@include transform(skew($x, $y));
+  }
+  
+  @mixin translate($x, $y: 0) {
+	@include transform(translate($x, $y));
+  }
+  
+  @mixin translate3d($x, $y: 0, $z: 0) {
+	@include transform(translate3d($x, $y, $z));
+  }
+  
+  @mixin perspective($value: 1000px) {
+	perspective: $value;
+  }
+  
+  @mixin transform-origin($x: center, $y: center) {
+	transform-origin: $x $y;
+  }
+  
+  /* === Truncation === */
+  @mixin truncate($max-width: 250px) {
+	max-width: $max-width;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+  }
+  
+  /* === Background Size === */
+  @mixin background-size($size: cover) {
+	background-size: $size;
+  }
+  
+  /* === Retina Support === */
+  @mixin background-image-retina($file, $type, $width, $height) {
+	background-image: url("#{$file}.#{$type}");
+  
+	@media only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+	  background-image: url("#{$file}@2x.#{$type}");
+	  background-size: $width $height;
+	}
+  }

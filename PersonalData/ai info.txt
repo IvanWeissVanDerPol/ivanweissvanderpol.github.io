@@ -847,7 +847,7 @@ jobs:
 ---
 layout: page
 title: Work Experience
-permalink: work_experience
+permalink: Logoerience
 ---
 ## SOFTWARE TESTER AT WPG.SRL
 

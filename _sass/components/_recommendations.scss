@@ -1,0 +1,86 @@
+// _sass/components/_recommendations.scss
+
+.recommendation-block {
+  margin-bottom: 1.5rem; // Space below each recommendation
+  padding: 1rem;
+  position: relative; // For potential pseudo-elements or advanced styling
+
+  // Optional: Add a subtle border or background
+  // border-left: 3px solid $theme-color-light;
+  // background-color: lighten($background-color, 3%); // Very light background
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .recommendation-content {
+    p, blockquote {
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      color: $text-color-secondary; // Or a slightly lighter text color
+      line-height: 1.6;
+      font-size: $font-size-base;
+
+      &::before {
+        // content: '\\201C'; // Optional: Left double quotation mark
+        // font-size: 2em;
+        // color: $theme-color-light;
+        // margin-right: 0.25em;
+        // vertical-align: middle;
+        // line-height: 0;
+      }
+    }
+  }
+
+  .recommendation-attribution {
+    // .d-flex and .ml-auto from HTML handle the right alignment of the block
+    margin-top: 0.5rem; // Space above the attribution
+    text-align: right;  // Ensures text inside the ml-auto div is right-aligned
+
+    .recommendation-person {
+      margin-bottom: 0.1rem;
+      font-size: $font-size-base * 1.05; // Slightly larger
+      font-weight: $font-weight-bold;
+      color: $text-color; // Using primary text color for better emphasis
+    }
+
+    .recommendation-role {
+      margin-bottom: 0;
+      font-size: $font-size-sm; // Smaller for the role
+      color: $text-color-muted;
+      font-style: normal;
+    }
+  }
+}
+
+// You might want to keep or refactor these if they are used elsewhere,
+// or remove them if the new .recommendation-block structure replaces their use.
+// For now, I will comment them out to avoid conflicts.
+
+// .list-unstyled {
+//   padding-left: 10px;
+//   list-style: none;
+// }
+
+// .recommendations-section {
+//   .item {
+//     margin-bottom: $base-padding;
+//
+//     &:last-child {
+//       margin-bottom: 0;
+//     }
+//   }
+// }
+
+// .recommendation-person { // This is now styled within .recommendation-attribution
+//   font-size: $font-size-base;
+//   font-weight: $font-weight-bold;
+//   color: $text-color-secondary;
+//   text-transform: uppercase;
+//   margin-bottom: 5px;
+// }
+
+// .details {
+//   margin: 0;
+//   line-height: $line-height-base;
+// }

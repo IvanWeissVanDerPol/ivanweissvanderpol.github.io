@@ -1,0 +1,76 @@
+// _sass/components/_education.scss
+
+// Styles for Education in Sidebar
+.education-container {
+  .item {
+    .education-logo { // Class for sidebar logos
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      margin-left: 10px; // Space to its left as it's floated right
+      vertical-align: middle;
+      float: right;
+    }
+  }
+}
+
+// Styles for Education in Main Content Section
+.educations-section {
+  .item {
+    .details {
+      line-height: 1.6;
+
+      p {
+        margin-bottom: $base-padding / 2;
+      }
+
+      ul {
+        padding-left: $base-padding;
+        margin-bottom: $base-padding / 2;
+
+        li {
+          margin-bottom: $base-padding / 3;
+          
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .meta {
+      .upper-row {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.25rem;
+
+        .education-logo-main { // Class for main content logos
+          width: 50px;
+          height: 50px;
+          object-fit: contain;
+          margin-right: 15px;
+          flex-shrink: 0;
+        }
+
+        .degree {
+          flex-grow: 1;
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+
+        .time {
+          margin-left: 15px;
+          white-space: nowrap;
+          padding-top: 0.1em;
+        }
+      }
+
+      .university {
+        font-weight: $font-weight-semibold;
+        color: $text-color-secondary;
+        margin-bottom: 0.5rem;
+        padding-left: 65px; // Indent university name (50px logo width + 15px margin-right)
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+// _sass/layout/_footer.scss
+
+.footer {
+  background-color: $background-color-light; // Use theme's light background color
+  padding: 15px; // Slightly adjust padding
+  text-align: center;
+  border-top: 1px solid $divider-color; // Add a subtle top border
+
+  .copyright {
+    font-size: $font-size-base; // Increase font size (e.g., to 16px)
+    color: $text-color-secondary; // Ensure dark text for contrast on light background
+  }
+
+  .fa-heart {
+    color: $heart; // Use the $heart variable directly, assuming it's defined (e.g. #FB866A)
+                   // This was $heart-color before, ensure $heart is available and suitable.
+  }
+}

@@ -1,0 +1,23 @@
+// _sass/components/_buttons.scss
+
+.btn-pdf { // Renamed from .pdf to be more descriptive and avoid conflict with potential .pdf class for PDF page styling
+  display: inline-block; // Added for proper button behavior
+  background-color: $theme-color-darker; // Theme variable
+  color: $background-color; // Theme variable (assuming this is light text on dark button)
+  padding: 10px 20px; // Consider spacing variables
+  border-radius: $border-radius-small; // Variable
+  text-decoration: none;
+  font-size: 16px; // Consider variable
+  font-weight: $font-weight-bold; // Variable (changed from 600 to use variable)
+  text-align: center; // Added for consistency
+
+  &:hover, &:focus {
+    background-color: darken($theme-color-darker, 10%); // Darken on hover/focus
+    color: $background-color; // Keep text color
+    text-decoration: none; // Ensure no underline
+  }
+}
+
+// Add other button styles here as needed, e.g.
+// .btn-primary { ... }
+// .btn-secondary { ... }

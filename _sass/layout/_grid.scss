@@ -1,0 +1,12 @@
+// _sass/layout/_grid.scss
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr); // Could use variables for column count if it changes
+  background: $background-color; // Theme variable
+  max-width: $max-wrapper-width; // Use variable
+  margin: 0 auto;
+  border-radius: $border-radius-base; // Use variable
+  box-shadow: $box-shadow-base; // Use variable
+  overflow: hidden; // Keep this to ensure child border-radius works as expected
+}

@@ -7,7 +7,7 @@
 <!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
 {% include head.html %}
 
-<body>
+<body data-default-theme="{{ site.theme_skin | default: 'blue' }}">
   <div class="wrapper">
     {% include sidebar.html %}
 
@@ -17,6 +17,11 @@
   </div>
 
   {% include footer.html %}
+
+{% if jekyll.environment == "development" %}
+  {% include theme_selector.html %}
+  <script src="{{ '/assets/js/theme-selector.js' | relative_url }}"></script>
+{% endif %}
 
 {% include scripts.html %}
 </body>

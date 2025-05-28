@@ -1,0 +1,94 @@
+// _sass/abstracts/_variables.scss
+
+// Typography
+
+// Text Colors - These are default fallbacks. Skins should override them.
+$text-color: #333333 !default; // Default dark grey for main text
+$text-color-secondary: #555555 !default; // Default slightly lighter grey
+$text-grey: #999999 !default; // Default grey for less important text
+$text-color-muted: $text-grey !default; // Muted text color, often for less prominent text or tags
+$text-link-color: #007bff !default; // Default link color (Bootstrap blue)
+$text-link-hover-color: #0056b3 !default; // Default link hover color (darker Bootstrap blue)
+$sidebar-text-color: $text-color-secondary !default; // Default text color for the sidebar
+$headings-color: $text-color !default; // Default color for headings
+$white: #ffffff !default;
+$gray-300: #dee2e6 !default; // Light gray for borders and dividers
+$divider-color: $gray-300 !default; // Default color for dividers
+
+// Consistent Gray Shades (Bootstrap-like naming)
+$gray-100: #f8f9fa !default; // Very light grey, (formerly $grey-lighter)
+$gray-200: #e9ecef !default; // Light grey, (formerly $grey-light)
+$gray-400: #ced4da !default; // Medium grey, (formerly $grey-medium)
+
+$font-family-base: "Roboto", sans-serif !default;
+$font-size-base: 16px !default; // Updated from 15px
+
+// Relative font sizes based on $font-size-base
+$font-size-xs: $font-size-base * .75 !default; // 12px
+$font-size-sm: 0.875rem !default; // 14px
+$font-size-lg: $font-size-base * 1.25 !default; // 20px
+$font-size-xl: $font-size-base * 1.5 !default;  // 24px
+
+// Heading font sizes
+$font-size-h1: 2rem !default;    // 32px
+$font-size-h2: 1.5rem !default;   // 24px
+$font-size-h3: 1.25rem !default;  // 20px
+$font-size-h4: 1.125rem !default; // 18px (same as $font-size-lg)
+$font-size-h5: 1rem !default;     // 16px (same as $font-size-base)
+$font-size-h6: 0.875rem !default; // 14px (same as $font-size-sm)
+
+$line-height-base: 1.6 !default; // Remains 1.6
+
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$font-weight-semibold: 600 !default; // This will be our 'medium' weight
+$font-weight-black: 900 !default;
+
+// Layout & Spacing
+$base-padding: 30px !default;
+$sidebar-width-ratio: 4 !default;
+$main-content-width-ratio: 8 !default;
+$max-wrapper-width: 1200px !default; // Default max width
+$border-radius-base: 10px !default;
+$border-radius-small: 5px !default;
+$border-radius-lg: 15px !default; // Larger border radius for prominent elements
+
+// Item Specific Paddings (e.g., for list items, card sections)
+$item-padding-y: $base-padding / 2 !default; // Vertical padding for items
+$item-padding-x: $base-padding !default;     // Horizontal padding for items
+
+// Shadows
+$box-shadow-base: 0px 4px 12px rgba(0, 0, 0, 0.1) !default;
+
+// Background Colors
+$background-color: $white !default; // Default main background color
+$background-color-light: #f8f9fa !default; // Light background for cards or distinct sections
+$smoky-white: #f5f5f5 !default; // A light, off-white color for card backgrounds
+$background-color-muted: $smoky-white !default; // Muted background color, often for tags or less prominent elements
+$background-light: $gray-100 !default;      // General light background, e.g., for cards or sections
+$accent-color: #007bff !default; // Default accent color (e.g., Bootstrap blue)
+$accent-color-light: lighten($accent-color, 15%) !default;
+$accent-color-dark: darken($accent-color, 15%) !default;
+$accent-color-secondary: #6c757d !default; // Default secondary accent color (e.g., Bootstrap secondary grey)
+$heart: #FB866A !default; // Color for heart icons
+$accent-color-secondary-light: lighten($accent-color-secondary, 15%) !default;
+$accent-color-secondary-dark: darken($accent-color-secondary, 15%) !default;
+
+// Theme Colors (provide defaults, skins should override)
+$theme-color: $accent-color !default; // Default theme color, can be overridden by skins
+$theme-color-light: lighten($theme-color, 15%) !default;
+$theme-color-dark: darken($theme-color, 15%) !default;
+$theme-color-darker: darken($theme-color, 30%) !default;
+
+// Specific Colors (Non-Theme)
+$heart-color: #fb866a !default; // Color for the heart icon in the footer
+
+// Breakpoints
+$breakpoint-xs-max: 767px !default;
+$breakpoint-sm-min: 768px !default;
+$breakpoint-md-min: 992px !default;
+$breakpoint-lg-min: 1200px !default;
+$breakpoint-xl-min: 1400px !default; // Used for .wrapper max-width increase
+
+// Transitions (Example, if needed for general use)
+$transition-base: all 0.3s ease-in-out !default;

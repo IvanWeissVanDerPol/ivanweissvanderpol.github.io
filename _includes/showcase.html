@@ -1,0 +1,62 @@
+{% assign showcase_data = site.data.data.showcase %}
+{% if showcase_data.enabled %}
+<section class="showcase-section section">
+  <h2 class="section-title">{{ showcase_data.title | default: "Showcase" }}</h2>
+
+  <div class="showcase-items">
+    {% for item in showcase_data.items %}
+      <div class="showcase-item card">
+        {% if item.thumbnail %}
+          <img src="{{ item.thumbnail | relative_url }}" alt="{{ item.title }} thumbnail" class="showcase-item-thumbnail card-img-top">
+        {% endif %}
+        
+        <div class="card-body">
+          <h5 class="card-title">
+            {% if item.link %}
+              <a href="{{ item.link }}" target="_blank" rel="noopener noreferrer">{{ item.title }}</a>
+            {% else %}
+              {{ item.title }}
+            {% endif %}
+          </h5>
+
+          {% if item.type == 'project' %}
+            <p class="card-text">{{ item.description }}</p>
+            {% if item.tags %}
+              <p class="tags">
+                {% for tag in item.tags %}
+                  <span class="tag badge bg-secondary">{{ tag }}</span>
+                {% endfor %}
+              </p>
+            {% endif %}
+          {% elsif item.type == 'media' %}
+            {% if item.media_type == 'video' and item.media_url contains 'youtube.com/embed' %}
+              <div class="showcase-video-wrapper mb-3">
+                <iframe class="embed-responsive-item" src="{{ item.media_url }}" allowfullscreen></iframe>
+              </div>
+            {% elsif item.media_type == 'gif' and item.media_url %}
+              <img src="{{ item.media_url | relative_url }}" alt="{{ item.title }} GIF" class="img-fluid mb-3">
+            {% endif %}
+            <p class="card-text">{{ item.description }}</p>
+          {% elsif item.type == 'testimonial' %}
+            <blockquote class="blockquote">
+              <p class="mb-0">{{ item.quote }}</p>
+              <footer class="blockquote-footer">
+                {{ item.author }}
+                {% if item.source %}
+                  <cite title="Source Title">
+                    {% if item.source_link %}
+                      (<a href="{{ item.source_link }}" target="_blank" rel="noopener noreferrer">{{ item.source }}</a>)
+                    {% else %}
+                      ({{ item.source }})
+                    {% endif %}
+                  </cite>
+                {% endif %}
+              </footer>
+            </blockquote>
+          {% endif %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,103 @@
+@import "../abstracts/variables";
+
+.certifications-section {
+  .certification-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid
+    gap: $base-padding; // Using existing theme variable for gap
+  }
+
+  .certification-card {
+    background: $smoky-white; // Or another light card background from your theme
+    border: 1px solid $gray-300; // Using theme variables
+    border-radius: $border-radius-lg; // Using theme variables
+    padding: $base-padding;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.3s ease-in-out;
+
+    &:hover {
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15); // Subtle hover effect
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: $item-padding-y / 2;
+      border-bottom: 1px solid $gray-200;
+      padding-bottom: $item-padding-y / 2;
+
+      .issuer-logo {
+        max-width: 50px; // Adjust as needed
+        max-height: 50px; // Adjust as needed
+        margin-right: $item-padding-x / 2;
+        object-fit: contain;
+      }
+
+      .certification-title {
+        font-size: $font-size-lg; // Using theme variables
+        font-weight: $font-weight-bold;
+        color: $headings-color; // Using theme variables
+        margin-bottom: 0;
+        flex-grow: 1;
+      }
+
+      .badge-icon {
+        font-size: $font-size-xl; // Adjust as needed
+        color: $theme-color; // Or a specific accent color
+      }
+    }
+
+    .card-body {
+      flex-grow: 1; // Allows details to expand
+
+      .meta {
+        font-size: $font-size-sm; // Using theme variables
+        color: $text-color-secondary;
+        margin-bottom: $item-padding-y / 2;
+
+        div {
+          margin-bottom: $item-padding-y / 4;
+        }
+        .organization {
+          font-weight: $font-weight-semibold;
+        }
+        .date-earned time {
+          font-style: italic;
+        }
+        .category {
+          font-style: italic;
+        }
+      }
+
+      .details {
+        font-size: $font-size-base; // Using theme variables
+        color: $text-color;
+        ul {
+          padding-left: 20px; // Indent bullet points
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .card-footer {
+      margin-top: auto; // Pushes footer to the bottom
+      padding-top: $item-padding-y / 2;
+      border-top: 1px solid $gray-200;
+      text-align: right;
+
+      .certification-link {
+        color: $theme-color;
+        text-decoration: none;
+        font-weight: $font-weight-semibold; // Use existing semibold for medium weight
+
+        &:hover {
+          text-decoration: underline;
+        }
+        i {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}

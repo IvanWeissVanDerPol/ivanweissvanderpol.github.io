@@ -1,0 +1,22 @@
+// _sass/components/_contact-list.scss
+
+.contact-list {
+  padding: 20px; // Consider spacing variable
+
+  li {
+    margin-bottom: 15px; // Consider spacing variable
+    display: flex;
+    align-items: center;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .fas, .fab, .far { // Font Awesome icons
+      margin-right: 10px; // Consider spacing variable
+      font-size: 18px; // Consider icon-size variable
+      width: 20px; // Added for consistent icon alignment if icons vary in width
+      text-align: center;
+    }
+  }
+}

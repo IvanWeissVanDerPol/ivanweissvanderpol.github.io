@@ -1,31 +1,52 @@
-{% assign skills = site.data.data.skills %}
-{% if skills %}
+{% assign skills_data = site.data.data.skills %}
+{% if skills_data %}
 <section class="skills-section section">
   <h2 class="section-title">
-    {{ skills.title }}
+    {{ skills_data.title }}
   </h2>
 
-  <div class="skillset">
-    {% for skill in skills.toolset %}
-    <div class="item">
-      <h3 class="level-title">{{ skill.name }}</h3>
-      <div class="tags">
-        {% for tag in skill.tags %}
-        <span class="tag">{{ tag }}</span>
-        {% endfor %}
-      </div>
-      <!--//tags-->
-      {% if skill.level %}
-      {% assign skill_level = 'width: ' | append: skill.level %}
-      <!-- <div class="level-bar">
-        <div class="level-bar-inner" style="{{ skill_level }}"></div>
-      </div> -->
-      <!--//level-bar-->
-      {% endif %}
-    </div>
-    <!--//item-->
+  <div class="accordion" id="skillsAccordion">
+    {% for skill_category in skills_data.toolset %}
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="heading{{ forloop.index }}">
+        <button class="accordion-button {% unless forloop.first %}collapsed{% endunless %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.index }}">
+          {{ skill_category.name }}
+        </button>
+      </h2>
+      <div id="collapse{{ forloop.index }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.index }}" data-bs-parent="#skillsAccordion">
+        <div class="accordion-body">
+          {% if skill_category.level %}
+          {% assign skill_level_width = 'width: ' | append: skill_category.level %}
+          <div class="progress-container mb-3">
+             <div class="progress" style="height: 20px;" title="Proficiency: {{ skill_category.level }}">
+                <div class="progress-bar" role="progressbar" style="{{ skill_level_width }}" aria-valuenow="{{ skill_category.level | remove: '%' }}" aria-valuemin="0" aria-valuemax="100">{{ skill_category.level }}</div>
+             </div>
+          </div>
+          {% endif %}
+
+          <div class="tags-container" id="tags-list-{{ forloop.index }}">
+            {% assign tags_limit = 6 %}
+            {% assign total_tags = skill_category.tags | size %}
+
+            {% for tag_item in skill_category.tags limit: tags_limit %}
+              <span class="tag">{{ tag_item }}</span>
+            {% endfor %}
+
+            {% if total_tags > tags_limit %}
+              <span class="hidden-tags" id="hidden-tags-{{ forloop.index }}" style="display: none;">
+                {% for tag_item in skill_category.tags offset: tags_limit %}
+                  <span class="tag">{{ tag_item }}</span>
+                {% endfor %}
+              </span>
+              <button class="btn btn-sm btn-outline-primary view-more-tags mt-2" type="button" data-target-hidden="hidden-tags-{{ forloop.index }}" data-target-list="tags-list-{{ forloop.index }}">
+                View All ({{ total_tags }})
+              </button>
+            {% endif %}
+          </div><!--//tags-container-->
+        </div><!--//accordion-body-->
+      </div><!--//accordion-collapse-->
+    </div><!--//accordion-item-->
     {% endfor %}
-  </div>
-</section>
-<!--//skills-section-->
+  </div><!--//accordion-->
+</section><!--//skills-section-->
 {% endif %}

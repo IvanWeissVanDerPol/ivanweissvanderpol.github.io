@@ -1,0 +1,40 @@
+// _sass/components/_tags.scss
+
+.tag { // Individual tag item
+  display: inline-block;
+  background-color: lighten($theme-color, 30%); // Theme variable
+  color: $text-color; // Theme variable
+  padding: 4px 10px; // Consider spacing variables
+  font-size: 13px; // Consider variable
+  border-radius: $border-radius-small; // Variable
+  margin-right: 8px; // Consider spacing variable
+  margin-bottom: 5px; // Consider spacing variable
+
+  &:hover {
+    background-color: darken($theme-color, 10%); // Theme variable
+    color: $background-color; // Theme variable (assuming light text on dark bg)
+  }
+}
+
+.tags { // Container for multiple tags
+  margin-top: 12px; // Consider spacing variable
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px; // Consider spacing variable
+  padding: 10px 15px; // Consider spacing variables
+  border-radius: 8px; // Consider variable, e.g., $border-radius-medium
+  font-size: 13px; // Matches .tag font-size, consider variable
+
+  // Styles for spans if used directly within .tags, as per original
+  span {
+    background-color: $background-color; // Theme variable
+    color: $theme-color-dark; // Theme variable
+    padding: 5px 10px; // Consider spacing variables
+    border-radius: $border-radius-small; // Variable
+
+    &:hover {
+      background-color: $theme-color-darker; // Theme variable
+      color: $background-color; // Theme variable
+    }
+  }
+}

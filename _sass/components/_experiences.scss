@@ -1,0 +1,75 @@
+// _sass/components/_experiences.scss
+
+.experiences-section {
+  .item {
+    margin-bottom: 2rem; // Add space after each job entry
+    // border-bottom: 1px solid $divider-color; // Optional: adds a separator line
+    // padding-bottom: 1rem; // Optional: space before the separator
+    // margin-bottom: 1rem; // Optional: space after the separator
+
+    // &:last-child {
+    //   border-bottom: none;
+    //   padding-bottom: 0;
+    //   margin-bottom: 0;
+    // }
+
+    .details {
+      line-height: 1.6; // Increase line height for readability
+
+      p {
+        margin-bottom: $base-padding / 2; // Add space after paragraphs
+      }
+
+      ul {
+        padding-left: $base-padding; // Standard indent for lists
+        margin-bottom: $base-padding / 2; // Space after the list itself
+
+        li {
+          margin-bottom: $base-padding / 3; // Space between list items (e.g., 10px if base is 30px)
+          
+          &:last-child {
+            margin-bottom: 0; // No extra margin for the last item in a list
+          }
+        }
+      }
+    }
+
+    .meta {
+      .upper-row {
+        display: flex;
+        align-items: flex-start; // Aligns items to the top, good for multi-line titles
+        margin-bottom: 0.25rem; // Space between title row and company name
+
+        .experience-logo {
+          width: 50px;
+          height: 50px;
+          object-fit: contain; // Ensures logo aspect ratio is maintained
+          margin-right: 15px;
+          flex-shrink: 0; // Prevents logo from shrinking
+        }
+
+        .job-title {
+          font-weight: $font-weight-semibold; // Changed to medium weight
+          font-size: $font-size-lg; // Keep as 1.125rem (18px)
+          color: $theme-color-dark; // Use a darker shade of the theme color
+          flex-grow: 1; // Allows job title to take up remaining space
+          margin-top: 0; // Normalize browser default styling
+          margin-bottom: 0; // Normalize browser default styling
+        }
+
+        .time {
+          margin-left: 15px; // Space between job title and time
+          white-space: nowrap; // Prevents time from wrapping
+          padding-top: 0.1em; // Slight adjustment for baseline alignment with title
+        }
+      }
+
+      .company {
+        font-weight: $font-weight-normal;
+        color: $text-color-secondary;
+        margin-bottom: 0.5rem;
+        padding-left: 65px; // Indent company name (50px logo width + 15px margin-right)
+      }
+    }
+  }
+}

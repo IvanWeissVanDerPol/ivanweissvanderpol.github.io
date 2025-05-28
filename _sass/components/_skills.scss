@@ -1,0 +1,72 @@
+// _sass/components/_skills.scss
+
+.skills-section {
+  .accordion-button {
+    font-weight: $font-weight-bold;
+    color: $headings-color; 
+    background-color: $gray-100; // Use the renamed variable 
+
+    &:not(.collapsed) {
+      color: $white;
+      background-color: $theme-color; 
+      &::after {
+        background-image: var(--bs-accordion-btn-active-icon); 
+      }
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba($theme-color, 0.25); 
+    }
+  }
+
+  .accordion-body {
+    padding: $base-padding;
+  }
+
+  .progress-container {
+    margin-bottom: $base-padding * 0.75; 
+  }
+  .progress-bar { 
+    background-color: $theme-color;
+    font-size: $font-size-sm; 
+    font-weight: $font-weight-semibold;
+  }
+
+  .tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $base-padding / 4 $base-padding / 3; 
+  }
+
+  .tag {
+    display: inline-block;
+    padding: ($base-padding / 5) ($base-padding / 2.5); 
+    border-radius: $border-radius-small; 
+    font-size: $font-size-xs; 
+    line-height: 1.5;
+    font-weight: $font-weight-semibold;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent; 
+
+    background-color: $background-color-muted; 
+    color: $text-color-secondary;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-color: darken($background-color-muted, 10%);
+    }
+
+    // Visual Diversity - using theme-color variations and grays
+    &:nth-child(5n+1) { background-color: lighten($theme-color, 35%); color: darken($theme-color, 30%); &:hover { border-color: $theme-color; } }
+    &:nth-child(5n+2) { background-color: lighten($theme-color, 25%); color: darken($theme-color, 35%); &:hover { border-color: darken($theme-color, 5%); } }
+    &:nth-child(5n+3) { background-color: lighten($theme-color, 40%); color: darken($theme-color, 20%); &:hover { border-color: lighten($theme-color, 5%); } }
+    &:nth-child(5n+4) { background-color: $gray-200;   color: $text-color; &:hover { border-color: $gray-400; } } 
+    &:nth-child(5n+5) { background-color: lighten($theme-color, 30%); color: $white; &:hover { border-color: $theme-color; background-color: $theme-color; } }
+  }
+
+  .view-more-tags {
+    font-size: $font-size-sm;
+    font-weight: $font-weight-semibold;
+    // Assuming btn-outline-primary is used in HTML, Bootstrap styles it.
+  }
+}

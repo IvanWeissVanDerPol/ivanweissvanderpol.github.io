@@ -1,5 +1,7 @@
+@import "abstracts/variables";
+
 /* Extra small devices (phones, less than 768px) */
-@media (max-width: 767px) {
+@media (max-width: $breakpoint-xs-max) {
   body {
     padding: 0;
   }
@@ -30,14 +32,14 @@
 }
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px) {
+@media (min-width: $breakpoint-sm-min) {
   .main-wrapper {
     padding: 40px; // Slightly more padding for tablets
   }
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {
+@media (min-width: $breakpoint-md-min) {
   .skillset .level-title {
     float: left;
     width: 30%;
@@ -53,22 +55,16 @@
 }
 
 /* Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
+@media (min-width: $breakpoint-lg-min) {
   .main-wrapper {
     padding: 60px; // Standard padding for larger screens
   }
 }
 
 /* Extra-Large devices (1400px and up) */
-@media (min-width: 1400px) {
+@media (min-width: $breakpoint-xl-min) {
   .wrapper {
-    max-width: 1400px; // Maximizing layout for very large screens
+    max-width: $breakpoint-xl-min; // Use variable for consistency, was 1400px
     margin: 0 auto;
   }
-}
-
-/* Skillset Transition Animation */
-.skillset .level-bar-inner {
-  width: auto;
-  transition: width 2s ease-in-out; // Removed unnecessary vendor prefixes
 }

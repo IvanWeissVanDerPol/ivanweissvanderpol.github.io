@@ -13,6 +13,8 @@ sidebar:
   avatar: ProfilePicIvan.jpg
   favicon: PageIcon.png
 
+  contact_title: "📞 Contact"
+
   # Sidebar links
   email: weissvanderpol.ivan@gmail.com
   phone: '+595 0981324569'
@@ -35,7 +37,7 @@ sidebar:
   pdf: "https://ivanweissvanderpol.github.io/PersonalData/ResumeIvanWeiss-2025-05.pdf"
 
   languages:
-    title: Languages
+    title: "🌐 Languages"
     info:
     - idiom: Spanish
       level: Native
@@ -90,6 +92,7 @@ education:
   - degree: Bachelor's Degree in Computer Science
     university: Facultad Politécnica de la Universidad Nacional de Asunción (FP-UNA)
     time: 2018 - Present
+    logo: /assets/images/Logo/FPuna_logo.jpg
     details: |
       Comprehensive program focused on both theoretical foundations and practical applications in computer science, covering a wide range of subjects from algorithms to systems design.
         - Specialized in **Software Engineering**, **Machine Learning**, **Data Security**, and **Database Systems**, with practical projects in automation and AI development.
@@ -100,6 +103,7 @@ education:
   - degree: Study Abroad Program in Computer Science
     university: Wichita State University, Kansas, USA
     time: Jan 2023 - May 2023
+    logo: /assets/images/Logo/wsu_logo.png
     details: |
       Selected for an international exchange program to broaden technical knowledge and gain exposure to global perspectives in computer science and project management.
         - Focused on **Negotiation**, **Strategic Marketing**, **Entrepreneurship**, and **Technical Communication**, integrating business strategy with software development.
@@ -115,6 +119,8 @@ experiences:
   - role: Technical Lead - Sturgeon County Project
     time: Oct 2024 - Present
     company: Stoic Finch
+    logo: /assets/images/Logo/Stoic_Finch_logo.webp
+    project_logo: "assets/images/Logo/Sturgeon_County_logo.png"
     details: |
       Successfully led a **cross-functional team** of developers, analysts, and stakeholders to deliver a robust and innovative **Power Apps solution** tailored for Sturgeon County's unique operational needs. 
         - **Architected and implemented** essential core functionalities, including **task management**, **case handling**, and **role-based access control**, which significantly enhanced operational efficiency and user experience across departments.
@@ -127,6 +133,7 @@ experiences:
   - role: Quality Engineer II - Professional Development
     time: Aug 2023 - Oct 2024
     company: MentorMate
+    logo: /assets/images/Logo/mentormate_logo.jpeg
     details: |
       Engaged in a comprehensive **professional development program**, significantly enhancing expertise in **QA methodologies**, **compliance standards**, and **automation techniques**.
         - Participated in various **training programs** and **workshops**, achieving proficiency in advanced tools and technologies including **Postman**, **Charles Proxy**, **MongoDB**, and **TestRail**.
@@ -141,6 +148,8 @@ experiences:
   - role: Quality Specialist II - Flyte Project
     time: Aug 2023 - Oct 2024
     company: MentorMate
+    logo: /assets/images/Logo/mentormate_logo.jpeg
+    project_logo: "assets/images/Logo/Flyte_logo.jpeg"
     details: |
       Oversaw **quality assurance** for the **Flyte Project**, focusing on a **website**, a **mobile application**, and an **FDA-cleared device** to improve women's pelvic health.
         - Collaborated with **developers** and **project managers** to ensure seamless integration of new features, maintaining high-quality user experiences.
@@ -159,6 +168,7 @@ experiences:
   - role: QA Engineer and Software Developer
     time: Oct 2018 - Dec 2022
     company: WPG.srl
+    logo: /assets/images/Logo/wpg_logo.jpeg
     details: |
       Performed comprehensive **manual and automated testing**, ensuring all new software features met quality standards before release.
         - Actively participated in multiple stages of the **software development lifecycle**, driving enhancements in system architecture and functionality through creative and effective solutions.
@@ -171,69 +181,115 @@ certifications:
   title: Certifications  
   list:  
   - name: "ISTQB Foundation Level Certification"  
+    date_earned: "2000-01-01"
     start: 2022  
     organization: International Software Testing Qualifications Board (ISTQB)  
+    file: /PersonalData/Certifications/Certifications/Personal/Certificate-8e85e79dd27d41078da9908a53aaedb8.pdf
     details: | 
       Achieved an **industry-recognized certification** in core software testing principles, covering **test design techniques**, **execution strategies**, and **reporting methodologies**. This certification highlights **proficiency** in both **manual and automated testing**, ensuring software quality through **structured processes** and **best practices**.
+    issuer_logo_path: "assets/images/Logo/ISTQB_logo.jpeg"
+    category: "Software Testing"
+    badge_icon_class: "fas fa-award"
 
   - name: "NASA Galactic Problem Solver"  
+    date_earned: "2000-01-01"
     start: 2023  
     organization: NASA International Space Apps Challenge  
+    file: /PersonalData/Certifications/Certifications/Personal/NASA_International_Space_Apps_Challenge.jpg
     details: |
       Awarded the **Galactic Problem Solver** title at the **NASA International Space Apps Challenge 2023** for pioneering solutions utilizing **AI** and **automation**. Recognized for addressing **complex challenges** in space exploration through **innovative technological applications**, contributing to NASA's **global open innovation initiatives**.
+    issuer_logo_path: "assets/images/Logo/nasa_space_apps.webp"
+    category: "Innovation & AI"
+    badge_icon_class: "fas fa-rocket"
 
-  - name: "Advanced English Proficiency (BECAL Scholarship Recipient)"  
+  - name: "Advanced English Proficiency (BECAL Scholarship Recipient)"
+    date_earned: "2000-01-01" 
     start: 2021  
     organization: BECAL Scholarship Program  
+    file: /PersonalData/Certifications/Certifications/Personal/Ivan_Weiss_Advanced_English_Proficiency_Certificate_BECAL_Scholarship_2022.jpg
     details: |
       Awarded the **prestigious BECAL Scholarship**, a **merit-based program** funded by the **Paraguayan government**, to pursue **advanced English studies**. This scholarship provided an opportunity to enhance my **professional communication skills** and strengthen **global collaboration abilities**. As part of the program, I attended **Wichita State University** in the USA, further refining my **language proficiency** and participating in **academic initiatives** that broadened my **international perspective**.
+    issuer_logo_path: "assets/images/Logo/Becal_logo.jpg"
+    category: "Professional Development"
+    badge_icon_class: "fas fa-language"
 
   - name: "TAU Test Automation Certifications"
+    date_earned: "2000-01-01"
     start: 2022
     organization: Test Automation University
+    folder_link: /PersonalData/Certifications/Certifications/Mentormate/Test_Automation_University/
+    issuer_logo_path: "assets/images/Logo/Tau_logo.png"
+    category: "Test Automation"
+    badge_icon_class: "fas fa-cogs"
     details: |
       Comprehensive training in modern test automation techniques, frameworks, and best practices:
-        - **Test Automation University Foundations**: Core principles and methodologies in test automation.
-        - **Python Programming for Automation**: Leveraging Python for automating web and API testing.
-        - **Java Programming for Automation**: Leveraging Java for automating web and API testing.
-        - **JavaScript Test Automation with WebdriverIO**: Automating browser tasks using JavaScript and WebdriverIO.
-        - **Introduction to Cypress**: End-to-end testing for modern web applications using Cypress.
-        - **Continuous Integration with Jenkins**: Implementing CI/CD pipelines to streamline automated testing.
-        - **API Testing with Postman**: Automating RESTful API testing using Postman.
-        - **Behavior-Driven Development (BDD) with Cucumber**: Integrating BDD practices into test automation.
-        - **Web Element Locator Strategies**: Advanced techniques for locating dynamic web elements efficiently.
-        - **Selenium WebDriver with Java**: Building robust browser-based automation tests using Java.
-        - **Advanced Selenium Techniques**: Mastering complex automation scenarios with Selenium.
-        - **AI in Test Automation**: Exploring how AI enhances test automation strategies.
-        - **Visual Validation Testing with Applitools**: Implementing visual testing techniques for UI consistency.
+          - **Test Automation University Foundations**: Core principles and methodologies in test automation.
+          - **Python Programming for Automation**: Leveraging Python for automating web and API testing.
+          - **Java Programming for Automation**: Leveraging Java for automating web and API testing.
+          - **JavaScript Test Automation with WebdriverIO**: Automating browser tasks using JavaScript and WebdriverIO.
+          - **Introduction to Cypress**: End-to-end testing for modern web applications using Cypress.
+          - **Continuous Integration with Jenkins**: Implementing CI/CD pipelines to streamline automated testing.
+          - **API Testing with Postman**: Automating RESTful API testing using Postman.
+          - **Behavior-Driven Development (BDD) with Cucumber**: Integrating BDD practices into test automation.
+          - **Web Element Locator Strategies**: Advanced techniques for locating dynamic web elements efficiently.
+          - **Selenium WebDriver with Java**: Building robust browser-based automation tests using Java.
+          - **Advanced Selenium Techniques**: Mastering complex automation scenarios with Selenium.
+          - **AI in Test Automation**: Exploring how AI enhances test automation strategies.
+          - **Visual Validation Testing with Applitools**: Implementing visual testing techniques for UI consistency.
+
+  - name: "Extensive Coursework on LinkedIn Learning"
+    start: "Ongoing"
+    organization: "LinkedIn Learning"
+    folder_link: /PersonalData/Certifications/Certifications/LinkedInLearning/
+    details: |
+      Completed a wide range of courses covering software development, testing, AI, and professional skills. Access to a portfolio of completed courses is available at the provided link.
+
+# showcase:
+#   title: Showcase
+#   enabled: true
+#   items:
+#     - type: project # or 'media' or 'testimonial'
+#       title: "Project Alpha"
+#       description: "A brief description of Project Alpha, highlighting key achievements and technologies used."
+#       thumbnail: "assets/images/showcase/project_alpha_thumb.jpg" # Path to thumbnail
+#       link: "https://example.com/project-alpha" # Link to live project or repo
+#       tags: ["Python", "Django", "JavaScript"] # Optional tags
+#     - type: media
+#       title: "Software Demo Video"
+#       description: "A short video showcasing the functionality of a key software component I developed."
+#       media_type: "video" # 'video' or 'gif'
+#       media_url: "https://www.youtube.com/embed/your_video_id" # Or path to local gif: assets/images/showcase/demo.gif
+#       thumbnail: "assets/images/showcase/video_thumb.jpg" # Optional: if you want a custom thumbnail for a video
+#     - type: testimonial
+#       quote: "Working with [Your Name] was a fantastic experience. Their expertise in [Skill] was invaluable to our project's success."
+#       author: "Satisfied Client"
+#       source: "LinkedIn" # Or "Email", "Upwork", etc.
+#       source_link: "https://linkedin.com/in/satisfiedclient" # Optional link to testimonial source
 
 recommendations:
   title: Recommendations
   list:
-  - person: Monika Koykova
-    role: Senior Quality Assurance Lead at MentorMate
-    recommendation: |
-      Ivan demonstrates a proactive approach to problem-solving, preferring to tackle challenges independently while actively incorporating AI tools to enhance workflow efficiency. He shows enthusiasm in training sessions and coding, strives for knowledge, and is always willing to assist his team, including creating helpful scripts. For his level, he excels technically and is unafraid to use generative AI, which has also helped me learn new techniques for my day-to-day testing.
+    - person: Monika Koykova
+      role: Senior Quality Assurance Lead at MentorMate
+      recommendation: |
+        Ivan demonstrates a proactive approach to problem-solving, preferring to tackle challenges independently while actively incorporating AI tools to enhance workflow efficiency. He shows enthusiasm in training sessions and coding, strives for knowledge, and is always willing to assist his team, including creating helpful scripts. For his level, he excels technically and is unafraid to use generative AI, which has also helped me learn new techniques for my day-to-day testing.
+    - person: Sarah Johnson
+      role: Business Analyst at MentorMate
+      recommendation: |
+        I think Ivan is INCREDIBLY smart and talented. He thinks things through, has some automation and electrical/mechanical skills, and can analyze things well.       I really enjoyed working with Ivan. As part of the Pelvital project team, he has demonstrated that he is really attentive to details, willing to help and support team members, always positive and polite, and has never been late to meetings. 
+        Yesterday, we had a conversation about a Jira ticket to be created, and Ivan sent me so much detailed and structured information about this case that creating a story would not be a problem at all. Ivan has a teamwork mindset.
+    - person: Hugo Medina
+      role: Software Development Engineer at MentorMate
+      recommendation: |
+        He worked with his tickets quickly and efficiently. He always maintained direct, fluid, and cordial communication with the author of the ticket.
+        Ivan has a never-ending amount of energy and desire to learn and improve. When he finds a task interesting, he can go above and beyond to deliver. He is a techie with a preference for all back-end related things, and if there is a chance Python or anything related to automation can be used, he is on it, and you know he will deliver.
+    - person: Kalina Petrova
+      role: Quality Assurance Specialist at MentorMate
+      recommendation: |
+        In the project, Ivan took the initiative to help with the testing of the controller data, which wasn't an easy task to do. He had a lot of insights about that and helped the team a lot.
 
-  - person: Sarah Johnson
-    role: Business Analyst at MentorMate
-    recommendation: |
-      I think Ivan is INCREDIBLY smart and talented. He thinks things through, has some automation and electrical/mechanical skills, and can analyze things well. 
-      I really enjoyed working with Ivan. As part of the Pelvital project team, he has demonstrated that he is really attentive to details, willing to help and support team members, always positive and polite, and has never been late to meetings. 
-      Yesterday, we had a conversation about a Jira ticket to be created, and Ivan sent me so much detailed and structured information about this case that creating a story would not be a problem at all. Ivan has a teamwork mindset.
-
-  - person: Hugo Medina
-    role: Software Development Engineer at MentorMate
-    recommendation: |
-      He worked with his tickets quickly and efficiently. He always maintained direct, fluid, and cordial communication with the author of the ticket.
-      Ivan has a never-ending amount of energy and desire to learn and improve. When he finds a task interesting, he can go above and beyond to deliver. He is a techie with a preference for all back-end related things, and if there is a chance Python or anything related to automation can be used, he is on it, and you know he will deliver.
-
-  - person: Kalina Petrova
-    role: Quality Assurance Specialist at MentorMate
-    recommendation: |
-      In the project, Ivan took the initiative to help with the testing of the controller data, which wasn't an easy task to do. He had a lot of insights about that and helped the team a lot.
 skills:
-  title: Skills & Proficiency
+  title: "🔧 Skills & Proficiency"
 
   toolset:
   - name: Python Development

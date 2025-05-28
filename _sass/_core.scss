@@ -1,0 +1,50 @@
+/*
+ * Template Name: Orbit - Responsive Resume/CV Template for Developers
+ * Version: 1.0
+ * Author: Xiaoying Riley
+ * Twitter: @3rdwave_themes
+ * License: Creative Commons Attribution 3.0 License
+ * Website: http://themes.3rdwavemedia.com/
+*/
+
+// Core SASS Imports
+
+// 1. Abstracts (Variables, Mixins, Functions - no CSS output)
+@import "abstracts/variables";
+@import "abstracts/mixins";
+
+// 2. Base Styles (HTML elements, typography, etc.)
+@import "base/base";
+
+// 3. Layout (Grid, Header, Footer, Sidebar, Navigation, etc.)
+@import "layout/grid";
+@import "layout/sidebar";
+@import "layout/main";
+@import "layout/footer";
+
+// 4. Components (Buttons, Cards, Forms, etc.)
+@import "components/buttons";
+@import "components/contact-list";
+@import "components/section-title";
+@import "components/skills";
+@import "components/tags";
+@import "components/recommendations";
+@import "components/certifications";
+@import "components/education";
+@import "components/experiences";
+@import "components/showcase";
+
+// 5. Page-specific styles (if any, typically not in a core file)
+// @import "pages/home";
+
+// 6. Themes (if applicable and loaded this way)
+// @import "themes/default";
+
+// 7. Utilities (Helper classes, overrides)
+@import "utilities"; // Existing file, ensure it's correctly placed
+
+// 8. Responsive Styles (Must come after components and layout usually)
+@import "responsive";
+
+// 9. Print Styles
+@import "print"; // Existing file

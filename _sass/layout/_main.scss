@@ -1,0 +1,39 @@
+// _sass/layout/_main.scss
+
+.main-wrapper {
+  grid-column: span $main-content-width-ratio; // Variable
+  order: $resume-order; // Liquid variable from assets/css/main.scss
+  background: $background-color; // Theme variable
+  padding: $base-padding * 2; // Variable (60px)
+
+  .item {
+    margin-bottom: $base-padding; // Variable (30px)
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .upper-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px; // Consider spacing variable
+  }
+
+  // General text styling for elements within main-wrapper based on the cascading effect
+  // of the original _base.scss file (lines 177-182 overriding 167-171).
+  .company,
+  .university,
+  .cert-title,
+  .degree,
+  .job-title,
+  .upper-row { // .upper-row was also part of the original combined selector
+    font-size: $font-size-base; // Variable (15px)
+    color: $text-color-secondary; // Theme variable
+  }
+
+  .time {
+    font-size: 14px; // Consider variable
+    color: $text-grey; // Theme variable
+  }
+}

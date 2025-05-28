@@ -1,0 +1,58 @@
+{% assign certifications = site.data.data.certifications %}
+{% if certifications %}
+<section class="section certifications-section">
+  <h2 class="section-title">
+    <span class="fa-stack fa-xs">
+      <i class="fas fa-circle fa-stack-2x"></i>
+      <i class="fas fa-award fa-stack-1x fa-inverse"></i>
+    </span>
+    Certifications
+  </h2>
+  {% if site.data.data.sidebar.education-title %}
+  <div class="intro">
+      <p>{{ site.data.data.sidebar.education-title }}</p>
+  </div><!--//intro-->
+  {% endif %}
+
+  <div class="certification-cards-container">
+    {% for cert_item in certifications %}
+    <div class="certification-card item">
+      <div class="card-header">
+        {% if cert_item.issuer_logo_path %}
+          <img src="{{ cert_item.issuer_logo_path | relative_url }}" alt="{{ cert_item.organization }} logo" class="issuer-logo">
+        {% endif %}
+        <h3 class="certification-title">{{ cert_item.name }}</h3>
+        {% if cert_item.badge_icon_class %}
+          <span class="badge-icon {{ cert_item.badge_icon_class }}"></span>
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <div class="meta">
+          <div class="organization">{{ cert_item.organization }}</div>
+          {% if cert_item.date_earned %}
+            <div class="date-earned">Earned: <time datetime="{{ cert_item.date_earned }}">{{ cert_item.date_earned | date: "%B %Y" }}</time></div>
+          {% elsif cert_item.start %}
+             <div class="date-earned">Ongoing since: {{ cert_item.start }}</div>
+          {% endif %}
+          {% if cert_item.category %}
+            <div class="category">Category: {{ cert_item.category }}</div>
+          {% endif %}
+        </div><!--//meta-->
+        {% if cert_item.details %}
+        <div class="details">
+          {{ cert_item.details | markdownify }}
+        </div><!--//details-->
+        {% endif %}
+      </div><!--//card-body-->
+      <div class="card-footer">
+        {% if cert_item.file %}
+          <a class="certification-link" href="{{ cert_item.file | relative_url }}" target="_blank" rel="noopener noreferrer">View Certificate <i class="fas fa-external-link-alt"></i></a>
+        {% elsif cert_item.folder_link %}
+          <a class="certification-link" href="{{ cert_item.folder_link | relative_url }}" target="_blank" rel="noopener noreferrer">View Credentials <i class="fas fa-folder-open"></i></a>
+        {% endif %}
+      </div><!--//card-footer-->
+    </div><!--//certification-card-->
+    {% endfor %}
+  </div><!--//certification-cards-container-->
+</section><!--//section-->
+{% endif %}

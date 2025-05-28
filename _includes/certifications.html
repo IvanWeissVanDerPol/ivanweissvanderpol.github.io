@@ -22,17 +22,15 @@
 
       <div class="second-upper-row">
         <div class="cert-org">
-          {{ certifications.organization }} {% if certifications.credentialid %}
-          ({{ certifications.credentialid }}) {% endif %}
+          {{ certifications.organization }}
         </div>
-        {% if certifications.credentialurl %}
-        <div class="cert-url">
-          <a
-            href="//{{ certifications.credentialurl }}"
-            target="_blank"
-            rel="noreferrer nofollow noopener"
-            >{{ certifications.credentialname }}</a
-          >
+        {% if certifications.file %}
+        <div class="cert-link">
+          <a href="{{ certifications.file | relative_url }}" target="_blank" rel="noopener noreferrer">View Certificate <i class="fas fa-external-link-alt fa-xs"></i></a>
+        </div>
+        {% elsif certifications.folder_link %}
+        <div class="cert-link">
+          <a href="{{ certifications.folder_link | relative_url }}" target="_blank" rel="noopener noreferrer">View Certificates in Folder <i class="fas fa-folder-open fa-xs"></i></a>
         </div>
         {% endif %}
       </div>

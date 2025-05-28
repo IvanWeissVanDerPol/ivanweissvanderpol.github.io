@@ -11,6 +11,9 @@
     <div class="item">
       <h4 class="degree">{{ graduation.degree }}</h4>
       <h5 class="meta">{{ graduation.university }}</h5>
+      {% if graduation.logo %}
+        <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" class="education-logo" />
+      {% endif %}
       <div class="time">{{ graduation.time }}</div>
     </div><!--//item-->
     {% endfor %}
@@ -33,6 +36,9 @@
       <div class="meta">
 
         <div class="upper-row">
+          {% if graduation.logo %}
+            <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" class="education-logo education-logo-main" />
+          {% endif %}
           <h3 class="degree">{{ graduation.degree }}</h3>
           <div class="time">{{ graduation.time }}</div>
         </div><!--//upper-row-->

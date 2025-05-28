@@ -1,0 +1,48 @@
+// _sass/base/_base.scss
+
+/* ======= Base ======= */
+body {
+  font-family: $font-family-base; // Use variable
+  color: $text-color-secondary; // Theme variable
+  background: $background-color-light; // Theme variable
+  font-size: $font-size-base; // Use variable
+  padding: $base-padding; // Use variable
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-bold; // Use variable
+  color: $text-color-secondary; // Changed from $text-color for better default contrast
+  margin-top: $base-padding * 1.5;
+  margin-bottom: $base-padding;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+h5 { font-size: $font-size-h5; }
+h6 { font-size: $font-size-h6; }
+
+// Add some default spacing for headings
+
+a {
+  color: $accent-color; // Theme variable
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: $accent-color-dark; // Theme variable
+  }
+
+  &:focus {
+    outline: none;
+    color: $accent-color-secondary; // Theme variable
+  }
+}
+
+p {
+  line-height: $line-height-base; // Use variable
+  margin-bottom: 1rem; // Consider making this a variable if used often
+}

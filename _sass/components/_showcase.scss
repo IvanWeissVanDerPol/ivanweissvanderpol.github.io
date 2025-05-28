@@ -1,0 +1,100 @@
+// _sass/components/_showcase.scss
+
+.showcase-section {
+  .showcase-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); // Responsive grid
+    gap: $base-padding; // Use your existing spacing variable
+
+    .showcase-item {
+      background-color: $background-light;
+      border: 1px solid $divider-color;
+      border-radius: $border-radius-base;
+      overflow: hidden; // Ensures content like images with border-radius on parent behave
+      display: flex; // Use flexbox to manage content flow
+      flex-direction: column; // Stack thumbnail/video and body vertically
+
+      .showcase-item-thumbnail {
+        width: 100%;
+        height: 200px; // Fixed height for thumbnails
+        object-fit: cover; // Ensures image covers the area, might crop
+        display: block; // Remove any extra space below image if it's inline
+      }
+
+      // Container for video embeds to maintain aspect ratio
+      .showcase-video-wrapper {
+        position: relative;
+        padding-top: 56.25%; // 16:9 Aspect Ratio
+        height: 0;
+        overflow: hidden;
+        width: 100%;
+
+        iframe,
+        .embed-responsive-item {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          border: 0;
+        }
+      }
+
+      .card-body {
+        padding: $base-padding / 1.5; // Consistent padding, e.g., 20px
+        flex-grow: 1; // Allows card body to expand if content is less, for consistent card height in a row if items have different content amounts
+        display: flex;
+        flex-direction: column;
+      }
+
+      .card-title {
+        font-size: $font-size-lg;
+        font-weight: $font-weight-bold;
+        margin-bottom: $base-padding / 2;
+        color: $text-color-secondary; // Match other titles
+      }
+
+      .card-text {
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        margin-bottom: $base-padding / 2;
+        flex-grow: 1; // Allows text to take available space before tags/footer
+      }
+
+      .tags {
+        margin-top: auto; // Push tags to the bottom if card-text doesn't fill space
+        padding-top: $base-padding / 2; // Space above tags if pushed down
+        .tag {
+          display: inline-block;
+          background-color: lighten($theme-color, 40%);
+          color: darken($theme-color, 10%);
+          padding: ($base-padding / 6) ($base-padding / 3);
+          border-radius: $border-radius-small;
+          margin-right: $base-padding / 6;
+          margin-bottom: $base-padding / 6;
+          font-size: 0.8rem;
+          font-weight: $font-weight-semibold;
+        }
+      }
+      
+      blockquote {
+        font-size: $font-size-base;
+        border-left: 4px solid $divider-color;
+        padding-left: $base-padding / 2;
+        margin: ($base-padding / 2) 0;
+        font-style: italic;
+        color: $text-grey;
+
+        .blockquote-footer {
+          font-size: 0.9em;
+          color: darken($text-grey, 10%);
+          font-style: normal;
+          margin-top: $base-padding / 4;
+          &::before {
+            content: "\2014 \00A0"; // Em dash
+          }
+        }
+      }
+    }
+  }
+}

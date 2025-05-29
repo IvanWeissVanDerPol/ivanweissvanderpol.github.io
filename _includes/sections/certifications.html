@@ -1,67 +1,81 @@
-<!-- CERTIFICATIONS TEMPLATE VERSION 3 - VERY OBVIOUS CHANGE -->
-{% assign certifications = site.data.certifications %}
-{% if certifications %}
+{% assign certifications = site.data.certifications %} {% if certifications %}
 <section class="section certifications-section">
-  <h2 class="section-title">
-    <span class="fa-stack fa-xs">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fas fa-award fa-stack-1x fa-inverse"></i>
-    </span>
-    Certifications
-  </h2>
-  <!-- Removed problematic intro block that assumed site.data.certifications.title -->
+  {% include components/c_section_title.html icon_name="award" title_text=certifications.title %}
 
   <div class="certification-cards-container">
-    {% for cert_item in site.data.certifications %}
-    <div class="certification-card item">
-      <div class="card-header">
-        {% if cert_item.issuer_logo_path %}
-          <img src="{{ cert_item.issuer_logo_path | relative_url }}" alt="{{ cert_item.organization }} logo" class="logo">
-        {% endif %}
-        <h3 class="certification-title">{{ cert_item.name }}</h3>
-        {% if cert_item.badge_icon_class %}
-          <span class="badge-icon {{ cert_item.badge_icon_class }}"></span>
-        {% endif %}
-      </div>
-      <div class="card-body">
-        <div class="meta">
-          <div class="organization">{{ cert_item.organization }}</div>
-          {% if cert_item.display_year_status %}
-            <div class="date-earned"> {# Keeping class for potential existing styling #}
-              {% if cert_item.display_year_status == "Ongoing" %}
-                Status: {{ cert_item.display_year_status }}
-              {% else %}
-                Completed: {{ cert_item.display_year_status }}
-              {% endif %}
-            </div>
-          {% endif %}
-          {% if cert_item.category %}
-            <div class="category">Category: {{ cert_item.category }}</div>
-          {% endif %}
-        </div><!--//meta-->
-        <div class="details">
-          {% if cert_item.details_intro %}
-            <p class="details-intro">{{ cert_item.details_intro | markdownify }}</p>
-          {% endif %}
+    {% for certification_item in certifications.list %}
+    <div class="item certification-item-horizontal">
+      {% comment %} Prepare common variables for the c_item_horizontal_content component {% endcomment %}
+      {% assign common_item_class_prefix = 'certification' %}
+      {% assign common_title = certification_item.name %}
+      {% assign common_subtitle = certification_item.organization %}
 
-          {% if cert_item.details_courses and cert_item.details_courses.size > 0 %}
-            <ul class="details-courses-list">
-              {% for course in cert_item.details_courses %}
+      {% comment %} Prepare logos_to_pass {% endcomment %}
+      {% if certification_item.logos and certification_item.logos.size > 0 %}
+        {% assign logos_to_pass = certification_item.logos %}
+      {% else %}
+        {% assign logos_to_pass = "" | split: "" %}
+      {% endif %}
+
+      {% comment %} Prepare common_title_icon {% endcomment %}
+      {% if certification_item.badge_icon_class %}
+        {% assign icon_class_parts = certification_item.badge_icon_class | split: 'fa-' %}
+        {% if icon_class_parts.size > 1 %}
+          {% assign common_title_icon = icon_class_parts | last %}
+        {% else %}
+          {% assign common_title_icon = certification_item.badge_icon_class %}
+        {% endif %}
+      {% else %}
+        {% assign common_title_icon = nil %}
+      {% endif %}
+
+      {% comment %} Capture the time HTML and category into common_time_display_html {% endcomment %}
+      {% capture common_time_display_html %}
+        <div class="time"><time>{{ certification_item.display_year_status }}</time></div>
+        {% if certification_item.category %}
+          <div class="category">Category: {{ certification_item.category }}</div>
+        {% endif %}
+      {% endcapture %}
+
+      {% include components/c_item_horizontal_content.html 
+        item_class_prefix=common_item_class_prefix
+        title=common_title
+        subtitle=common_subtitle
+        time_display_html=common_time_display_html
+        logos=logos_to_pass
+        title_icon=common_title_icon
+      %}
+
+
+
+        {% if certification_item.details_intro %}
+        <div class="details">
+          <div class="details-intro">{{ certification_item.details_intro | markdownify }}</div>
+        </div>
+        {% endif %}
+        {% if certification_item.details_courses and certification_item.details_courses.size > 0 %}
+        <div class="details">
+          <div class="details-courses-list">
+            <ul>
+              {% for course in certification_item.details_courses %}
                 <li>{{ course | markdownify }}</li>
               {% endfor %}
             </ul>
-          {% endif %}
-        </div><!--//details-->
-      </div><!--//card-body-->
-      <div class="card-footer">
-        {% if cert_item.file %}
-          <a class="certification-link" href="{{ cert_item.file | relative_url }}" target="_blank" rel="noopener noreferrer">View Certificate <i class="fas fa-external-link-alt"></i></a>
-        {% elsif cert_item.folder_link %}
-          <a class="certification-link" href="{{ cert_item.folder_link | relative_url }}" target="_blank" rel="noopener noreferrer">View Credentials <i class="fas fa-folder-open"></i></a>
+          </div>
+        </div>
         {% endif %}
-      </div><!--//card-footer-->
-    </div><!--//certification-card-->
+
+      <div class="card-footer">
+        {% if certification_item.file %}
+          <a href="{{ certification_item.file | relative_url }}" target="_blank" rel="noopener noreferrer" class="certification-link">View Certificate <i class="fas fa-external-link-alt fa-xs"></i></a>
+        {% elsif certification_item.folder_link %}
+          <a href="{{ certification_item.folder_link | relative_url }}" target="_blank" rel="noopener noreferrer" class="certification-link">View Certificates <i class="fas fa-folder-open fa-xs"></i></a>
+        {% endif %}
+      </div>
+    </div><!--//item certification-item-horizontal-->
     {% endfor %}
   </div><!--//certification-cards-container-->
-</section><!--//section-->
+
+</section>
+<!--//section-->
 {% endif %}

@@ -1,13 +1,7 @@
 {% assign oss = site.data.oss %}
 {% if oss %}
 <section class="section oss-section">
-  <h2 class="section-title">
-    <span class="fa-stack fa-xs">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fas fa-box-open fa-stack-1x fa-inverse"></i>
-    </span>
-    {{ oss.title }}
-  </h2>
+  {% include components/c_section_title.html icon_name="box-open" title_text=oss.title %}
 
   {% if oss.intro %}
   <div class="intro">

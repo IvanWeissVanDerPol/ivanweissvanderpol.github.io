@@ -1,0 +1,47 @@
+{% comment %}
+  Reusable item content component (horizontal layout).
+  Outputs an <article> tag with content structured into logo, info, and dates columns.
+
+  Expects:
+  - include.item_data: An object containing all necessary fields.
+    - .item_class_prefix: String, e.g., "experience", "education". Used for BEM-like classes.
+    - .logos (optional): Array of {url, path, name}
+    - .title: String (main title like job role, degree)
+    - .title_icon (optional): String (FA class for icon next to title, e.g., "briefcase")
+    - .subtitle: String (secondary line like company, university)
+    - .time_display_html (optional): Pre-formatted HTML for the time/date section.
+{% endcomment %}
+
+{% assign prefix = include.item_class_prefix | default: "c" %}
+
+<article class="item-horizontal {{ prefix }}-item-horizontal">
+
+  {% if include.logos and include.logos.size > 0 %}
+  <div class="logos-column {{ prefix }}-logos-column">
+    {% for logo_item in include.logos %}
+      <a href="{{ logo_item.url | default: '#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ logo_item.name }} website">
+        <div class="logo-background-circle">
+          <img src="{{ logo_item.path | relative_url }}" alt="{{ logo_item.name }} logo" />
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+  {% comment %} If no logos, the column is not rendered. SCSS/Flexbox should handle layout. {% endcomment %}
+  {% endif %}
+
+  <div class="info-column {{ prefix }}-info-column">
+    <div class="primary-info {{ prefix }}-primary-info">
+      {% if include.subtitle %}
+        <h4 class="subtitle {{ prefix }}-subtitle">{{ include.subtitle }}</h4>
+      {% endif %}
+      <h3 class="title {{ prefix }}-title">
+        {% if include.title_icon %}<i class="fas fa-{{ include.title_icon }} {{ prefix }}-title-icon" aria-hidden="true"></i>{% endif %}
+        {{ include.title }}
+      </h3>
+    </div>
+    {% if include.time_display_html %}
+    <div class="time-display {{ prefix }}-time-display">{{ include.time_display_html }}</div>
+    {% endif %}
+  </div>
+
+</article><!--//{{ prefix }}-item-horizontal-->

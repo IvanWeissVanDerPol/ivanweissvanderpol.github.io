@@ -1,0 +1,50 @@
+{% assign experiences = site.data.experiences %}
+{% if experiences %}
+<section class="section experiences-section">
+  {% include components/c_section_title.html icon_name="briefcase" title_text=experiences.title %}
+
+  {% for experience in experiences.info %}
+  <div class="item">
+
+    {% comment %} Common parameters for the include call {% endcomment %}
+    {% assign common_title = experience.role %}
+    {% assign common_subtitle = experience.company %}
+    {% assign common_time_display_html = "<span class='job-dates'>" | append: experience.time | append: "</span>" %}
+    {% assign common_title_icon = experience.icon %}
+
+    {% if experience.logos and experience.logos.size > 0 %}
+      {% assign logos_to_pass = experience.logos %}
+    {% else %}
+      {% assign empty_array_placeholder = "" | split: "" %} {# Liquid way to create an empty array #}
+      {% assign logos_to_pass = empty_array_placeholder %}
+    {% endif %}
+
+    {% include components/c_item_horizontal_content.html
+      title=common_title
+      subtitle=common_subtitle
+      time_display_html=common_time_display_html
+      logos=logos_to_pass
+      logos_position='left'
+      item_class_prefix='experience'
+      title_icon=common_title_icon
+    %}
+
+    {% if experience.details %}
+      {% include components/c_item_details.html content=experience.details %}
+    {% endif %}
+
+    {% if experience.tags and experience.tags.size > 0 %}
+      <div class="experience-tags">
+        <strong class="tags-title">Skills:</strong> 
+        {% for tag in experience.tags %}
+          <span class="tag-badge">{{ tag }}</span>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+  </div><!--//item-->
+  {% endfor %}
+
+</section><!--//section-->
+{% endif %}
+

@@ -1,0 +1,117 @@
+// _sass/components/_c_item_horizontal.scss
+
+// Common styles for the horizontal item layout used by c_item_horizontal_content.html
+.item-horizontal {
+  display: flex;
+  align-items: flex-start; // Align items to the top for a consistent baseline
+  padding: 1rem; // Default padding, can be overridden
+  align-items: center;
+  // General logo column styling
+  .logos-column {
+    flex: 0 0 70px; // Fixed width for logos
+    display: flex;
+    flex-direction: row; // Stack logos vertically if multiple
+    align-items: center; // Center logos within the column
+    gap: 0.5rem; // Space between logos if multiple
+
+    a {
+      display: block; // Ensure link takes up space for clickability
+      text-decoration: none;
+    }
+
+    .logo-background-circle {
+      width: 60px; // Standard size for the circle
+      height: 60px;
+      border-radius: 50%;
+      background-color: #ffffff; // White background for logos
+      border-color: $theme-color;
+      border-width: 2px;
+      border-style: solid;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Subtle shadow
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+
+      img {
+        max-width: 80%;
+        max-height: 80%;
+        object-fit: contain;
+        // make the image circular
+        border-radius: 50%;        
+      }
+    }
+  }
+
+  // General info column styling
+  .info-column {
+    flex: 1 1 auto; // Takes available space
+    display: flex;
+    flex-direction: column;
+    justify-content: center; // Vertically center content within the info column
+
+    .primary-info {
+      margin-bottom: 0.25rem; // Space between primary info and time display
+    }
+
+    .subtitle {
+      font-size: $font-size-sm;
+      color: $text-color-secondary; // Using a common variable for subtitle color
+      margin-bottom: 0.25rem;
+      font-weight: $font-weight-normal;
+
+    }
+
+    .title {
+      font-size: $font-size-lg; // Larger font for the main title
+      font-weight: $font-weight-bold;
+      color: $text-color; // Using a common variable for title color
+      margin: 0; // Remove bottom margin if time display is directly below
+      padding: 0; // Add padding to the left of the title
+
+      .fas { // For Font Awesome icons next to the title
+        margin-right: 0.35rem;
+        font-size: 0.9em; // Slightly smaller than title text
+        color: $text-color-muted; // Or a specific icon color
+      }
+    }
+  }
+
+  // General time display styling
+  .time-display {
+    font-size: $font-size-sm;
+    color: $text-color-muted;
+    margin-top: 0.25rem; // Add some space if it's below the title block
+  }
+}
+
+// Responsive adjustments for smaller screens
+@media (max-width: #{$screen-sm-min - 1px}) {
+  .item-horizontal {
+    flex-direction: column;
+    align-items: stretch; // Stretch items to full width
+
+    .logos-column {
+      order: 1; // Logo first
+      flex-direction: row; // Logos side-by-side on mobile if multiple
+      justify-content: flex-start; // Align to left
+      margin-bottom: 0.5rem; // Space below logos when stacked
+
+      .logo-background-circle {
+        width: 50px; // Slightly smaller logos on mobile
+        height: 50px;
+      }
+    }
+
+    .info-column {
+      order: 2; // Info second
+      align-items: flex-start; // Align text to left
+    }
+
+    .time-display {
+      order: 3; // Time display last if it's a separate div in the component
+      text-align: left;
+      margin-top: 0.5rem;
+    }
+  }
+}

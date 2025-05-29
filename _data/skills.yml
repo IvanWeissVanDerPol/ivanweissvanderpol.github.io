@@ -14,6 +14,10 @@ toolset:
 - name: QA Automation
   level: 95%
   tags:
+    - Selenium
+    - PyTest
+    - Jenkins
+    - TestRail
     - Selenium WebDriver
     - Hexawise
     - QTest
@@ -26,6 +30,9 @@ toolset:
 - name: Data Engineering
   level: 90%
   tags:
+    - Airflow
+    - Spark
+    - Delta Lake
     - Databricks
     - Apache Spark
     - Spark SQL
@@ -50,9 +57,13 @@ toolset:
 - name: Web Technologies
   level: 85%
   tags:
+    - HTML
+    - CSS
+    - JavaScript
+    - React
+    - Flask
     - HTML5
     - CSS3
-    - JavaScript
     - Responsive Design
     - Web Development
     - Bootstrap

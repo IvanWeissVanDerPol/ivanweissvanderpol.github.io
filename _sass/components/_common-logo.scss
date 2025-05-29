@@ -21,7 +21,6 @@
     width: 100%; // Takes full width of the padded area (e.g., 30px)
     height: 100%; // Takes full height of the padded area (e.g., 30px)
     object-fit: contain; // Ensures the logo fits well and maintains aspect ratio
-    border-radius: 50%;  // Makes the actual logo image circular
     // Provide a default background for logos with transparency, especially if theme color is dark.
     // If logos are guaranteed to be opaque or look good on theme color, this can be removed.
     background-color: $white; 

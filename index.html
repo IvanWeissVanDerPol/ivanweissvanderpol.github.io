@@ -3,23 +3,23 @@ layout: default
 ---
 
 
-{% include career-profile.html %}
+{% include sections/career-profile.html %}
 
-{% include experiences.html %}
+{% include sections/experiences.html %}
 
 {% unless site.data.sidebar.education %}
-  {% include education.html %}
+  {% include sections/education.html %}
 {% endunless %}
 
 {% include sections/certifications.html %}
 
-{% include projects.html %}
+{% include sections/projects.html %}
 
-{% include showcase.html %}
+{% include sections/showcase.html %}
 
-{% include oss-contributions.html %}
+{% include sections/oss-contributions.html %}
 
-{% include publications.html %}
+{% include sections/publications.html %}
 
 
-{% include recommendations.html %}
+{% include sections/recommendations.html %}

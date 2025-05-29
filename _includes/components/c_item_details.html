@@ -1,0 +1,15 @@
+{% comment %}
+  Reusable item details component.
+  Generates a div with class="details" (and optional custom class)
+  and renders markdown content.
+
+  Expects:
+  - include.content: Markdown string for the details.
+  - include.custom_class (optional): String, additional class for the details div.
+{% endcomment %}
+
+{% if include.content and include.content != "" %}
+  <div class="details {% if include.custom_class %}{{ include.custom_class }}{% endif %}">
+    {{ include.content | markdownify }}
+  </div><!--//details-->
+{% endif %}

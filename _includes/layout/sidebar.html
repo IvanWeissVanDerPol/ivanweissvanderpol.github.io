@@ -36,18 +36,18 @@
     {% endif %} <!-- Closing the 'if sidebar.tagline' -->
   </div><!--//profile-container-->
 
-  {% include contact.html %}
+  {% include sections/contact.html %}
 
   {% if sidebar.education %}
-    {% include education.html %}
+    {% include sections/education.html %}
   {% endif %}
 
-  {% include language.html %}
-  {% include interests.html %}
+  {% include sections/language.html %}
+  {% include sections/interests.html %}
 
   {% if sidebar.about %}
-    {% include about.html %}
+    {% include sections/about.html %}
   {% endif %}
 
-  {% include skills.html %}
+  {% include sections/skills.html %}
 </div><!--//sidebar-wrapper-->

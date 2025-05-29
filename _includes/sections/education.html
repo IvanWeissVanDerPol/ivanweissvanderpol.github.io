@@ -1,0 +1,73 @@
+{% assign education = site.data.education %}
+{% if education %}
+  {% if site.data.sidebar.education %}
+  <div class="education-container container-block">
+
+    <h2 class="container-block-title">
+      {{ education.title }}
+    </h2>
+
+    {% for graduation in education.info %}
+    <div class="item">
+      <h4 class="degree">{{ graduation.degree }}</h4>
+      <h5 class="meta">{{ graduation.university }}</h5>
+      {% if graduation.logo %}
+        <div class="logo-background-circle">
+          <img src="{{ graduation.logo | relative_url }}" alt="{{ graduation.university }} logo" />
+        </div>
+      {% endif %}
+      <div class="time">{{ graduation.time }}</div>
+    </div><!--//item-->
+    {% endfor %}
+
+  </div><!--//education-container-->
+  {% else %}
+  <section class="section educations-section">
+
+    {% include components/c_section_title.html icon_name="graduation-cap" title_text=education.title %}
+
+    {% for graduation in education.info %}
+    <div class="item education-item-horizontal"> <!-- Class retained for potential specific item styling -->
+      {% comment %} Prepare common variables for the c_item_horizontal_content component {% endcomment %}
+      {% assign common_item_class_prefix = 'education' %}
+      {% assign common_title = graduation.degree %}
+      {% assign common_subtitle = graduation.university %}
+
+      {% comment %} Prepare logos_to_pass {% endcomment %}
+      {% if graduation.logos and graduation.logos.size > 0 %}
+        {% assign logos_to_pass = graduation.logos %}
+      {% else %}
+        {% assign logos_to_pass = "" | split: "" %}
+      {% endif %}
+
+      {% comment %} Prepare common_title_icon {% endcomment %}
+      {% if graduation.icon %}
+        {% assign common_title_icon = graduation.icon %}
+      {% else %}
+        {% assign common_title_icon = nil %}
+      {% endif %}
+
+      {% comment %} Capture the time HTML into common_time_display_html {% endcomment %}
+      {% capture common_time_display_html %}
+        <div class="time">{{ graduation.time }}</div>
+      {% endcapture %}
+
+      {% include components/c_item_horizontal_content.html 
+        item_class_prefix=common_item_class_prefix
+        title=common_title
+        subtitle=common_subtitle
+        time_display_html=common_time_display_html
+        logos=logos_to_pass
+        title_icon=common_title_icon
+      %}
+
+      {% if graduation.details %}
+      {% include components/c_item_details.html content=graduation.details %}
+      {% endif %}
+
+    </div><!--//item education-item-horizontal-->
+    {% endfor %}
+
+  </section><!--//section-->
+  {% endif %}
+{% endif %}

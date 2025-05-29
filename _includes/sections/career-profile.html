@@ -2,13 +2,7 @@
 {% if career-profile %}
 <section class="section summary-section">
 
-  <h2 class="section-title">
-    <span class="fa-stack fa-xs">
-      <i class="fas fa-circle fa-stack-2x"></i>
-      <i class="fas fa-user fa-stack-1x fa-inverse"></i>
-    </span>
-    {{ career-profile.title }}
-  </h2>
+  {% include components/c_section_title.html icon_name="user" title_text=career-profile.title %}
 
   <div class="summary">
     {{ career-profile.summary | markdownify }}

@@ -4,7 +4,7 @@ layout: compress
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  {% include head.html %}
+  {% include layout/head.html %}
   <style>
     @page {
       size: A4;
@@ -43,10 +43,10 @@ layout: compress
 </head>
 <body class="print-mode">
   <div class="wrapper">
-    {% include sidebar.html %}
+    {% include layout/sidebar.html %}
     <div class="main-wrapper">{{ content }}</div>
   </div>
-  {% include scripts.html %}
+  {% include layout/scripts.html %}
   <script>
     // Remove any print buttons before printing
     document.addEventListener('DOMContentLoaded', function() {

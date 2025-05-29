@@ -3,7 +3,11 @@ info:
 - degree: Bachelor's Degree in Computer Science
   university: Facultad Politécnica de la Universidad Nacional de Asunción (FP-UNA)
   time: 2018 - Present
-  logo: /assets/images/Logo/FPuna_logo.jpg
+  icon: university
+  logos:
+    - path: /assets/images/Logo/FPuna_logo.jpg
+      url: "#" # TODO: Add FPUNA website URL
+      name: "FPUNA"
   details: |
     Comprehensive program focused on both theoretical foundations and practical applications in computer science, covering a wide range of subjects from algorithms to systems design.
       - Specialized in **Software Engineering**, **Machine Learning**, **Data Security**, and **Database Systems**, with practical projects in automation and AI development.
@@ -14,7 +18,11 @@ info:
 - degree: Study Abroad Program in Computer Science
   university: Wichita State University, Kansas, USA
   time: Jan 2023 - May 2023
-  logo: /assets/images/Logo/wsu_logo.png
+  icon: school
+  logos:
+    - path: /assets/images/Logo/wsu_logo.png
+      url: "#" # TODO: Add Wichita State University website URL
+      name: "Wichita State University"
   details: |
     Selected for an international exchange program to broaden technical knowledge and gain exposure to global perspectives in computer science and project management.
       - Focused on **Negotiation**, **Strategic Marketing**, **Entrepreneurship**, and **Technical Communication**, integrating business strategy with software development.

@@ -1,0 +1,21 @@
+{% comment %}
+  Reusable section title component.
+  Generates an H2 tag with a Font Awesome icon stack and title text.
+
+  Expects:
+  - include.icon_name: String, the Font Awesome icon name (e.g., "briefcase", "graduation-cap").
+  - include.title_text: String, the text for the section title.
+{% endcomment %}
+
+{% if include.icon_name and include.title_text %}
+<h2 class="section-title">
+  <span class="fa-stack fa-xs">
+    <i class="fas fa-circle fa-stack-2x"></i>
+    <i class="fas fa-{{ include.icon_name }} fa-stack-1x fa-inverse"></i>
+  </span>
+  {{ include.title_text }}
+</h2>
+{% else %}
+  {% comment %} Output a warning or default if parameters are missing, or just render nothing. {% endcomment %}
+  <!-- Section title component: Missing icon_name or title_text -->
+{% endif %}

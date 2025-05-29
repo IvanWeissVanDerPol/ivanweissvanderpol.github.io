@@ -43,8 +43,8 @@ info:
       url: "#" # TODO: Add MentorMate website URL
       name: "MentorMate"
     - path: "assets/images/Logo/Flyte_logo.jpeg"
-      url: "#" # TODO: Add Flyte website URL
-      name: "Flyte"
+      name: "Flyte Logo"
+      url: "#"
   details: |
     Oversaw **quality assurance** for the **Flyte Project**, focusing on a **website**, a **mobile application**, and an **FDA-cleared device** to improve women's pelvic health.
       - Collaborated with **developers** and **project managers** to ensure seamless integration of new features, maintaining high-quality user experiences.

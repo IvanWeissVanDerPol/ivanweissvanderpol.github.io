@@ -7,7 +7,7 @@
     gap: $base-padding; // Using existing theme variable for gap
   }
 
-  .certification-card {
+  .item { /* Was .certification-card */
     background: $light-background; // Consistent with experiences
     // border: 1px solid $gray-300; // Removing border, relying on shadow
     border-radius: $border-radius-lg; // Using theme variables (15px)
@@ -22,90 +22,49 @@
       transform: translateY(-3px); // Consistent hover lift
     }
 
-    .certification-header-row {
-      display: flex;
-      align-items: flex-start; // Align items to the top
-      padding: $base-padding; // Add padding around the header row content
-      padding-bottom: 0; // Details will have its own top margin or padding
-    }
+    /* Styles for header, logo, and info columns are now primarily handled by _c_item_horizontal.scss.
+       Section-specific overrides for .certification-item-horizontal (if needed) can be added here. */
+    // Example for certification-specific title override:
+    // .certification-info-column .title {
+    //   color: $some-certification-specific-color;
+    // }
 
-    .certification-logo-column {
-      flex: 0 0 70px; // Fixed width for logo column
-      margin-right: $base-padding; // Space between logo and info
-      display: flex;
-      justify-content: center; // Center logo horizontally
+    .details {
+      font-size: $font-size-base;
+      color: $text-color;
+      padding: $base-padding; // Consistent padding like education section details
+      padding-top: $item-padding-y / 2; // Maintain some space from header if header has no bottom padding
+      // flex-grow: 1; // If details should expand to fill space
 
-    }
+      .details-intro {
+        margin-bottom: $item-padding-y / 1.5; // Space before course list or if it's the only detail
+        line-height: $line-height-base;
 
-    .certification-info-column {
-      flex: 1; // Takes up remaining space
-      display: flex;
-      flex-direction: column;
-
-      .certification-title {
-        font-size: $font-size-lg;
-        font-weight: $font-weight-semibold;
-        color: $headings-color;
-        margin-bottom: $item-padding-y / 4;
+        &:last-child { // If no course list follows
+          margin-bottom: 0;
+        }
       }
 
-      .organization,
-      .date-earned,
-      .category {
-        font-size: $font-size-sm;
-        color: $text-color-secondary;
-        margin-bottom: $item-padding-y / 4;
-      }
-      .date-earned time {
-        font-style: italic;
-      }
-      .category {
-        font-style: italic;
-      }
+      .details-courses-list {
+        list-style-type: disc;
+        // padding-left: 20px; // Indentation for bullet points, now handled by ul default or theme
+        margin-top: 0; // No extra top margin if intro is present
+        margin-bottom: 0;
 
-      .badge-icon {
-        font-size: $font-size-lg; // Adjusted size
-        color: $theme-color;
-        margin-top: $item-padding-y / 4; // Space above badge icon
-      }
-    }
-
-    .card-body {
-      flex-grow: 1; // Allows details to expand
-      padding: 0 $base-padding $base-padding $base-padding; // Padding for card body, no top padding as header has bottom
-
-      .details {
-        font-size: $font-size-base;
-        color: $text-color;
-        margin-top: $item-padding-y /2; // Space above details block if header row had padding-bottom:0
-        padding-left: 0; // Reset if needed
-
-        .details-intro {
-          margin-bottom: $item-padding-y / 1.5; // Space before course list or if it's the only detail
-          line-height: $line-height-base;
-
-          &:last-child { // If no course list follows
-            margin-bottom: 0;
-          }
+        ul {
+          padding-left: 20px; // Ensure ul inside has padding for bullets
         }
 
-        .details-courses-list {
-          list-style-type: disc;
-          padding-left: 20px; // Indentation for bullet points
-          margin-top: 0; // No extra top margin if intro is present
-          margin-bottom: 0;
+        li {
+          margin-bottom: $item-padding-y / 2; // Space between course items
+          line-height: $line-height-sm;
 
-          li {
-            margin-bottom: $item-padding-y / 2; // Space between course items
-            line-height: $line-height-sm;
+          &:last-child {
+            margin-bottom: 0;
+          }
 
-            &:last-child {
-              margin-bottom: 0;
-            }
-
-            strong {
-              font-weight: $font-weight-semibold;
-            }
+          strong {
+            font-weight: $font-weight-semibold;
           }
         }
       }
@@ -121,7 +80,7 @@
         color: $theme-color;
         text-decoration: none;
         font-weight: $font-weight-semibold; // Use existing semibold for medium weight
-
+        padding-left: 5px;
         &:hover {
           text-decoration: underline;
         }

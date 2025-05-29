@@ -50,7 +50,7 @@
 @import "utilities"; // Import new utilities
 
 // Loop for other themes
-/* // Temporarily comment out this entire block
+
 {% for skin_name in site.data.theme_skins %}
   {% if skin_name != default_skin %}
     body.theme-{{ skin_name }} {
@@ -85,7 +85,7 @@
     }
   {% endif %}
 {% endfor %}
-*/ // End temporary comment block
+
 // --- End Theme Handling ---
 
 // Import responsive and print styles globally

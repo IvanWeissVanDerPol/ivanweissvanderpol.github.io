@@ -1,0 +1,13 @@
+<!-- _includes/layout/theme-selector.html -->
+<div class="theme-selector-container" style="position: fixed; top: 10px; right: 10px; z-index: 1000; background: #fff; padding: 10px; border-radius: 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+  <label for="theme-select" style="display: block; margin-bottom: 5px; font-size: 0.9em;">Select Theme:</label>
+  <select id="theme-select" style="padding: 5px; border-radius: 3px; border: 1px solid #ccc;">
+    {% assign site_default_skin = site.theme_skin | default: 'ceramic' %}
+    <option value="{{ site_default_skin }}">Default ({{ site_default_skin | capitalize }})</option>
+    {% for skin_name in site.data.theme_skins %}
+      {% if skin_name != site_default_skin %}
+        <option value="{{ skin_name }}">{{ skin_name | capitalize }}</option>
+      {% endif %}
+    {% endfor %}
+  </select>
+</div>

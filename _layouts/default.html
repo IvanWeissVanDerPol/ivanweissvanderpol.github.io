@@ -18,7 +18,9 @@
 
   {% include layout/footer.html %}
 
-  {% include components/theme_selector.html %}
+  {% if jekyll.environment == "development" %}
+    {% include components/theme_selector.html %}
+  {% endif %}
   <script src="{{ '/assets/js/theme-selector.js' | relative_url }}"></script>
 
 {% include layout/scripts.html %}

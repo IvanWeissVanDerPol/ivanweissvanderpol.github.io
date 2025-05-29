@@ -1,4 +1,4 @@
-// assets/js/theme-selector.js (adapted for select dropdown)
+// assets/js/theme-switcher.js
 document.addEventListener('DOMContentLoaded', function () {
   const themeSelect = document.getElementById('theme-select');
   // Determine the site's configured default skin from the select element's first option.
@@ -15,7 +15,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // Save the selected skin to localStorage, whether it's the default or another skin.
     localStorage.setItem('selectedTheme', skinName);
-    console.log('Applied theme:', skinName);
   }
 
   if (themeSelect) {
@@ -29,21 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
       // This handles the first visit or if localStorage was cleared.
       themeSelect.value = siteDefaultSkin;
       // No need to call applyTheme here if it's the default, as styles are already base styles.
-      // However, if the body somehow has a theme class from a previous session that wasn't default,
-      // we might want to clear it if localStorage is empty.
-      // The current applyTheme(siteDefaultSkin) if called would correctly remove other themes.
-      if (document.body.className.match(/\btheme-\S+\b/g)) { // if any theme class exists
-          applyTheme(siteDefaultSkin); // ensure it's reset to default state (no class or default class)
-      }
     }
 
     themeSelect.addEventListener('change', function () {
       applyTheme(this.value);
     });
-    console.log('Theme selector initialized. Default skin from HTML select:', siteDefaultSkin);
-  } else {
-    // This case should not happen if the theme selector is included only in dev mode
-    // and the script is loaded after the HTML.
-    console.log('Theme select element not found.');
   }
 });

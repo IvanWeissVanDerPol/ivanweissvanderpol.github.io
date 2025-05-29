@@ -20,7 +20,7 @@
 // --- Theme Handling ---
 
 // Determine the default skin
-{% assign default_skin = site.theme_skin | default: 'blue' %}
+{% assign default_skin = site.theme_skin | default: 'ceramic' %}
 
 // Import the default skin's variables
 @import "skins/{{ default_skin }}";
@@ -50,10 +50,13 @@
 @import "utilities"; // Import new utilities
 
 // Loop for other themes
+/* // Temporarily comment out this entire block
 {% for skin_name in site.data.theme_skins %}
   {% if skin_name != default_skin %}
     body.theme-{{ skin_name }} {
-      // Import this skin's variables
+      // Import global variables first to ensure defaults are available
+      @import "abstracts/variables";
+      // Import this skin's variables (which may override defaults)
       @import "skins/{{ skin_name }}";
 
       // Re-import all structural, component, and utility SCSS
@@ -82,6 +85,7 @@
     }
   {% endif %}
 {% endfor %}
+*/ // End temporary comment block
 // --- End Theme Handling ---
 
 // Import responsive and print styles globally

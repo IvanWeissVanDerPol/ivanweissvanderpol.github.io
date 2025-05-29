@@ -2,7 +2,7 @@
 
 .experiences-section {
   .item {
-    margin-bottom: 2rem; // Add space after each job entry
+    margin-bottom: 3rem; // Increased space after each job entry
     // border-bottom: 1px solid $divider-color; // Optional: adds a separator line
     // padding-bottom: 1rem; // Optional: space before the separator
     // margin-bottom: 1rem; // Optional: space after the separator
@@ -132,18 +132,7 @@
     }
   }
 }
-.item {  
-  background: $light-background; // Define in variables, e.g., #f9f9fb or darken(white, 2%)
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-
-  &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-  }
-  
-}
+// Redundant .item card styling removed. Assumes .card class will be applied to experience items in HTML.
 
 // Styles for the new horizontal experience item layout
 // Most styles for .item-horizontal, .logos-column, .info-column, .dates-column (time-display)

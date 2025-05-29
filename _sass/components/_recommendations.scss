@@ -62,15 +62,16 @@
 //   list-style: none;
 // }
 
-// .recommendations-section {
-//   .item {
-//     margin-bottom: $base-padding;
-//
-//     &:last-child {
-//       margin-bottom: 0;
-//     }
-//   }
-// }
+.recommendations-section {
+  .item {
+    margin-bottom: $base-padding;
+    margin-right: $base-padding;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
 
 // .recommendation-person { // This is now styled within .recommendation-attribution
 //   font-size: $font-size-base;

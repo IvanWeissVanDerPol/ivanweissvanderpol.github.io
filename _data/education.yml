@@ -3,7 +3,6 @@ info:
 - degree: Bachelor's Degree in Computer Science
   university: Facultad Politécnica de la Universidad Nacional de Asunción (FP-UNA)
   time: 2018 - Present
-  icon: university
   logos:
     - path: /assets/images/Logo/FPuna_logo.jpg
       url: "#" # TODO: Add FPUNA website URL
@@ -18,7 +17,6 @@ info:
 - degree: Study Abroad Program in Computer Science
   university: Wichita State University, Kansas, USA
   time: Jan 2023 - May 2023
-  icon: school
   logos:
     - path: /assets/images/Logo/wsu_logo.png
       url: "#" # TODO: Add Wichita State University website URL

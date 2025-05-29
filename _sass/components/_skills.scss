@@ -2,36 +2,76 @@
 
 .skills-section {
   .accordion-item {
-    border-radius: $border-radius-base; // Add rounding to the accordion item itself
-    margin-bottom: $base-padding / 2; // Add some space between accordion items
-    border: 1px solid transparent; // Prepare for potential border color on hover/focus
-    // Bootstrap typically handles rounding for first/last child buttons if the parent item has overflow:hidden and border-radius.
+    border-radius: $card-border-radius; // Consistent with other card-like elements
+    margin-bottom: $spacer; // Use standard spacer for consistency
+    border: 1px solid $color-border; // Use a defined border color
+    background-color: $card-bg; // Use card background for consistency
+    box-shadow: $card-box-shadow-sm; // Add a subtle shadow for depth
+    overflow: hidden; // Ensures child rounding is clipped by parent border-radius
+    &:first-of-type {
+      // Bootstrap might handle this, but explicit can be better
+      border-top-left-radius: $card-border-radius;
+      border-top-right-radius: $card-border-radius;
+    }
+    &:last-of-type {
+      border-bottom-left-radius: $card-border-radius;
+      border-bottom-right-radius: $card-border-radius;
+      margin-bottom: 0; // No margin for the last item if it's the end of the section
+    }
+  }
+
+  .accordion { // Targets the <div class="accordion" id="skillsAccordion">
+    // Add horizontal margins to make the accordion narrower than the skills-section container
+    margin-left: $spacer;  // Default is 1rem, adjust if needed
+    margin-right: $spacer; // Default is 1rem, adjust if needed
+  }
+
+  .accordion-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5px;
   }
 
   .accordion-button {
-    // display: flex; // No longer needed
-    // justify-content: space-between; // No longer needed
-    // align-items: center; // No longer needed
-    padding-left: $base-padding * 1.5; // Add more horizontal padding
-    padding-right: $base-padding * 1.5; // Add more horizontal padding
-    font-weight: $font-weight-bold;
+    width: 100%; // Make button expand to full available width
+    text-align: center; // Center text within the button
+    padding: $card-header-padding-y $card-header-padding-x; // Use card header padding vars
+    font-weight: $font-weight-semibold; // Slightly less heavy than bold, can look more refined
+    // margin-left: 10px; // Removed for full-width header, more standard BS look
     color: darken($theme-color, 10%); // Text color for collapsed state
-    background-color: lighten($theme-color, 40%); // Background for collapsed state 
+    background-color: lighten($theme-color, 40%); // Background for collapsed state
+
+    // Default state for the icon (collapsed)
+    // Bootstrap's default SVG icon uses currentColor for fill, which inherits the button's text color.
+    // Explicit override for icon color if needed (example):
+    // &::after {
+    //   background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{darken($theme-color, 10%)}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>"));
+    // }
 
     &:not(.collapsed) {
-      color: $white;
-      background-color: $theme-color; 
+      color: $white; // Or a high-contrast color suitable for $theme-color background
+      background-color: $theme-color;
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,.125); // Subtle inner shadow when active
+      
+      // Icon for expanded state (uses Bootstrap's variable for the active icon)
       &::after {
-        background-image: var(--bs-accordion-btn-active-icon); 
+        background-image: var(--bs-accordion-btn-active-icon);
       }
     }
+
     &:focus {
-      box-shadow: 0 0 0 0.25rem rgba($theme-color, 0.25); 
+      border-color: transparent; // Avoid double borders if focus ring is a box-shadow
+      box-shadow: 0 0 0 $input-btn-focus-width rgba($theme-color, .25); // Consistent focus ring
+      z-index: 3; // Ensure the focused button is above others, standard BS behavior
     }
   }
 
   .accordion-body {
     padding: $base-padding;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   // .skill-level-percentage, .progress-container, .progress-bar styles removed.

@@ -1,0 +1,47 @@
+// _sass/skins/_template.scss
+
+// This template defines the default values for themeable colors.
+// Individual skin files import this and can override these variables
+// to create a specific theme. All variables here use !default
+// to allow overrides.
+
+// It's assumed that _sass/abstracts/_variables.scss (with base color palette)
+// has already been imported before this template is processed by a skin.
+
+// Core Theme Colors
+$primary-color: $color-blue-500 !default;        // Main brand color
+$secondary-color: $color-gray-700 !default;      // Secondary supporting color
+$accent-color: $color-teal-500 !default;         // Accent color for highlights, links, buttons
+$accent-color-light: lighten($accent-color, 15%) !default;
+$accent-color-dark: darken($accent-color, 15%) !default;
+
+// Text Colors
+$text-color: $color-gray-900 !default;           // Base text color
+$text-color-secondary: $color-gray-700 !default; // Lighter text for secondary info, placeholders
+$headings-color: $color-gray-900 !default;       // Color for h1-h6
+
+// Background Colors
+$background-color: $color-white !default;              // Main page background
+$background-color-light: $color-gray-100 !default;     // Slightly off-white for sections
+$background-color-dark: $color-gray-800 !default;      // Darker background variant
+
+// Surface Colors (for cards, modals, etc.)
+$surface-color: $color-white !default;
+$surface-color-dark: $color-gray-50 !default; // Slightly darker surface
+
+// Border Color (Theme-specific)
+// This is distinct from the global $color-border which is more structural.
+// This could be what was missing and referred to as $border-color.
+$border-color-theme: $color-gray-300 !default;
+
+// UI Feedback Colors (can be themed)
+$color-success-theme: $color-green-500 !default;
+$color-warning-theme: $color-yellow-500 !default;
+$color-danger-theme: $color-red-500 !default;
+$color-info-theme: $color-cyan-500 !default;
+
+// Specific component theming if needed (examples)
+// $button-primary-bg: $primary-color !default;
+// $button-primary-text: $color-white !default;
+// $card-bg-theme: $surface-color !default;
+// $card-border-theme: $border-color-theme !default;

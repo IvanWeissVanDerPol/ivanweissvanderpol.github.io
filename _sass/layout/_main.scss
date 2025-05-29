@@ -6,6 +6,16 @@
 }
 
 .main-wrapper {
+  // Add spacing between major sections
+  > .section,
+  > section {
+    margin-bottom: 3rem; // Added for inter-section spacing
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   grid-column: span $main-content-width-ratio; // Variable
   order: $resume-order; // Liquid variable from assets/css/main.scss
   background: $background-color; // Theme variable

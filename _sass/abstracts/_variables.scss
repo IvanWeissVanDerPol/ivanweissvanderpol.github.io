@@ -77,16 +77,15 @@ $item-padding-x: $base-padding !default;     // Horizontal padding for items
 $badge-padding-y: 0.3em !default;            // Vertical padding for badges (scales with font-size)
 $badge-padding-x: 0.6em !default;            // Horizontal padding for badges (scales with font-size)
 
+// Input and Button Variables (for focus ring consistency)
+$input-btn-focus-width: .25rem !default; // For focus box-shadow width
+
 // Badge Text Colors for Stateful Badges (ensure contrast)
 $badge-secondary-text-color: $white !default;
 $badge-success-text-color: $white !default;
 $badge-error-text-color: $white !default;
 $badge-warning-text-color: $text-color !default; // Dark text on yellow for better readability
 $badge-info-text-color: $white !default;
-
-// Card Specific Variables
-$card-padding: 1.5rem !default;              // Default padding for card components
-$card-margin-bottom: 2rem !default;          // Default bottom margin for card components
 
 // Shadows
 $box-shadow-base: 0px 4px 12px rgba(0, 0, 0, 0.1) !default;
@@ -144,6 +143,18 @@ $color-warning: $color-yellow-base !default;   // For warnings, alerts
 $black: #000 !default;
 $color-dark: #212529 !default; // A common dark color, similar to Bootstrap's $dark
 $color-info: $color-cyan-base !default;     // For informational messages and alerts
+
+// Card Specific Variables
+$card-border-width: 1px !default;
+$card-border-color: $color-border !default;
+$card-border-radius: $border-radius-base !default;
+$card-box-shadow: $box-shadow-base !default;
+$card-box-shadow-sm: 0 .125rem .25rem rgba($black, .075) !default;
+$card-bg: $color-surface !default;
+$card-header-padding-y: $spacer * .75 !default;
+$card-header-padding-x: $spacer * 1.25 !default;
+$card-padding: 1.5rem !default;
+$card-margin-bottom: 2rem !default;
 
 // Theme Color Maps for Utility Generation
 // Used to generate .text-{color} and .bg-{color} utility classes.

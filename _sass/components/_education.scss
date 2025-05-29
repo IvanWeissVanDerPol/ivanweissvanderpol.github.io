@@ -17,17 +17,11 @@
 // Styles for Education in Main Content Section
 .educations-section {
   .item {
-    // Base card styling - applied to all items in educations-section
-    background: $light-background; 
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    margin-bottom: 2rem; // Keep existing margin-bottom from .experiences-section .item
-
-    &:hover {
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transform: translateY(-3px);
-    }
+    // Redundant card styling removed. Assumes .card class will be applied in HTML.
+    // The .card class from _card.scss will provide background, border-radius, box-shadow, transition, and hover effects.
+    // It also provides padding and a default margin-bottom ($card-margin-bottom = 1.5rem).
+    // We'll override margin-bottom here for more spacing, consistent with experiences.
+    margin-bottom: 3rem; // Increased for more vertical spacing, matching experiences section.
 
     // Styles for .degree, .university are specific to the info column structure
     // within education items if it differs from the generic .title, .subtitle

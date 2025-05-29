@@ -24,7 +24,7 @@
       height: 60px;
       border-radius: 50%;
       background-color: #ffffff; // White background for logos
-      border-color: $theme-color;
+      border-color: $card-border-color;
       border-width: 2px;
       border-style: solid;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Subtle shadow
@@ -55,10 +55,10 @@
     }
 
     .subtitle {
-      font-size: $font-size-sm;
-      color: $text-color-secondary; // Using a common variable for subtitle color
+      font-size: $font-size-lg;
+      color: $theme-color-darker; // Using a common variable for subtitle color
       margin-bottom: 0.25rem;
-      font-weight: $font-weight-normal;
+      font-weight: $font-weight-semibold; // Make subtitle (company/project) bolder
 
     }
 

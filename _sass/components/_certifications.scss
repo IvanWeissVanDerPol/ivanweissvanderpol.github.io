@@ -8,14 +8,14 @@
   }
 
   .item { /* Was .certification-card */
-    background: $light-background; // Consistent with experiences
+    //background: $light-background; // Consistent with experiences
     // border: 1px solid $gray-300; // Removing border, relying on shadow
     border-radius: $border-radius-lg; // Using theme variables (15px)
     padding: 0; // Card itself has no padding, content sections will manage it
     display: flex;
     flex-direction: column;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // Consistent initial shadow
-    transition: box-shadow 0.2s ease, transform 0.2s ease; // Consistent transition
+    //box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); // Consistent initial shadow
+    //transition: box-shadow 0.2s ease, transform 0.2s ease; // Consistent transition
 
     &:hover {
       box-shadow: $box-shadow-base; // Consistent hover shadow (0 4px 12px rgba(0,0,0,0.1))

@@ -1,10 +1,10 @@
 // _sass/components/_section-title.scss
 
 .section-title {
-  font-size: 22px; // Consider variable
+  font-size: 1.8rem; // Increased from 22px
   font-weight: $font-weight-bold; // Variable (original was 600)
   color: $theme-color-dark; // Theme variable
-  margin-bottom: 25px; // Consider spacing variable
+  margin-bottom: 35px; // Increased from 25px for more space
   position: relative; // For the ::after pseudo-element
   padding-left: 0; // Variable (30px) - matches original skills-section padding
 

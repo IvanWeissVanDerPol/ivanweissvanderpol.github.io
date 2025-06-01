@@ -18,7 +18,7 @@ list:
     file: /PersonalData/Certifications/Certifications/Personal/NASA_International_Space_Apps_Challenge.jpg
     details_intro: "Awarded the **Galactic Problem Solver** title at the **NASA International Space Apps Challenge 2023** for pioneering solutions utilizing **AI** and **automation**. Recognized for addressing **complex challenges** in space exploration through **innovative technological applications**, contributing to NASA's **global open innovation initiatives**."
     logos:
-      - path: /assets/images/Logo/nasa_space_logo.webp
+      - path: /assets/images/Logo/nasa_space_logo.png
         url: "#" # TODO: Add NASA website URL
         name: "NASA"
     category: "Innovation & AI"

@@ -1,0 +1,96 @@
+// Piggy Theme 4: Pastel Lilac
+// Lavender, soft blue, light pink piglet-inspired palette
+
+$theme-color: #e6b7f8 !default; // Lavender
+$theme-color-light: #f7e6ff !default; // Light lilac
+$theme-color-lighter: #fcf7ff !default;
+$theme-color-dark: #d1a7e8 !default;
+$theme-color-darker: #a37dc0 !default;
+$theme-gradient: linear-gradient(135deg, $theme-color, $theme-color-dark) !default;
+
+$accent-color: #f8b7c8 !default; // Soft pink
+$accent-color-light: #ffe6f7 !default;
+$accent-color-dark: #e07dc0 !default;
+$accent-gradient: linear-gradient(135deg, $accent-color, $accent-color-dark) !default;
+
+$accent-color-secondary: #b7e0f8 !default; // Soft blue
+$accent-color-secondary-light: #e6f7ff !default;
+$accent-color-secondary-dark: #7dc0e3 !default;
+
+$text-color: #6c4a7d !default; // Muted purple
+$text-color-light: #c8b0e6 !default;
+$text-color-secondary: #a37dc0 !default;
+$text-color-muted: #d3a7e8 !default;
+$text-grey: #c9b9cd !default;
+$accessible-text: #3a245c !default;
+
+$background-color: #fcf7ff !default;
+$background-color-light: #f7e6ff !default;
+$background-color-dark: #e6b7f8 !default;
+$background-color-muted: #f2e2ff !default;
+$background-gradient: linear-gradient(180deg, $background-color-light, $background-color) !default;
+
+$divider-color: #e6b7f8 !default;
+$grey-lighter: #fcf7ff !default;
+$grey-light: #f7e6ff !default;
+$grey-medium: #d3a7e8 !default;
+$grey-dark: #a37dc0 !default;
+$grey-darker: #6c4a7d !default;
+
+
+/* === Primary Colors === */
+$theme-color: #FDA246;
+$theme-color-light: lighten($theme-color, 20%);
+$theme-color-lighter: lighten($theme-color, 40%);
+$theme-color-dark: darken($theme-color, 20%);
+$theme-color-darker: darken($theme-color, 40%);
+$theme-gradient: linear-gradient(135deg, $theme-color, $theme-color-dark);
+
+/* === Accent Colors === */
+$accent-color: #FFB347; // Warm, vibrant accent
+$accent-color-light: lighten($accent-color, 15%);
+$accent-color-dark: darken($accent-color, 15%);
+$accent-gradient: linear-gradient(135deg, $accent-color, $accent-color-dark);
+
+$accent-color-secondary: #6A9FB5; // Complementary soft blue
+$accent-color-secondary-light: lighten($accent-color-secondary, 15%);
+$accent-color-secondary-dark: darken($accent-color-secondary, 15%);
+
+/* === Text Colors === */
+$text-color: #4a7d6c !default; // Muted teal
+$text-color-light: lighten($text-color, 20%);
+$text-color-secondary: #545E6C;
+$text-color-muted: #6C757D; // For placeholder or less important text
+$text-grey: #97AAC3;
+$accessible-text: #2B2B2B;
+
+/* === Backgrounds === */
+
+/* === Semantic Colors === */
+$success-color: #4CAF50;
+$success-color-light: lighten($success-color, 15%);
+$success-color-dark: darken($success-color, 15%);
+
+$warning-color: #FFC107;
+$warning-color-light: lighten($warning-color, 15%);
+$warning-color-dark: darken($warning-color, 15%);
+
+$error-color: #F44336;
+$error-color-light: lighten($error-color, 15%);
+$error-color-dark: darken($error-color, 15%);
+
+$info-color: #2196F3;
+$info-color-light: lighten($info-color, 15%);
+$info-color-dark: darken($info-color, 15%);
+
+/* === Hover & Focus States === */
+$button-hover: darken($theme-color, 10%);
+$button-focus: lighten($theme-color, 10%);
+$link-hover: $accent-color;
+$link-active: darken($accent-color, 10%);
+
+/* === Special Colors === */
+$smoky-white: #F5F5F5;
+$heart: #FB866A;
+$heart-light: lighten($heart, 15%);
+$heart-dark: darken($heart, 15%);

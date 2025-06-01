@@ -1,5 +1,59 @@
 // _sass/abstracts/_variables.scss
 
+// --- Color Palette (Bootstrap 5 compatible) ---
+$color-blue-100: #cfe2ff !default;
+$color-blue-200: #9ec5fe !default;
+$color-blue-300: #6ea8fe !default;
+$color-blue-400: #3d8bfd !default;
+$color-blue-500: #0d6efd !default;
+$color-blue-600: #0a58ca !default;
+$color-blue-700: #084298 !default;
+$color-blue-800: #052c65 !default;
+$color-blue-900: #031633 !default;
+
+$color-green-100: #d1e7dd !default;
+$color-green-200: #a3cfbb !default;
+$color-green-300: #75b798 !default;
+$color-green-400: #479f76 !default;
+$color-green-500: #198754 !default;
+$color-green-600: #157347 !default;
+$color-green-700: #0f5132 !default;
+$color-green-800: #0a3622 !default;
+$color-green-900: #051b11 !default;
+
+$color-red-100: #f8d7da !default;
+$color-red-200: #f1b0b7 !default;
+$color-red-300: #ea868f !default;
+$color-red-400: #e35d6a !default;
+$color-red-500: #dc3545 !default;
+$color-red-600: #b02a37 !default;
+$color-red-700: #842029 !default;
+$color-red-800: #58151c !default;
+$color-red-900: #2c0b0e !default;
+
+$color-yellow-100: #fff3cd !default;
+$color-yellow-200: #ffe69c !default;
+$color-yellow-300: #ffda6a !default;
+$color-yellow-400: #ffc107 !default;
+$color-yellow-500: #ffcd39 !default;
+$color-yellow-600: #e0a800 !default;
+$color-yellow-700: #b68900 !default;
+$color-yellow-800: #997404 !default;
+$color-yellow-900: #7c5c02 !default;
+
+$color-gray-100: #f8f9fa !default;
+$color-gray-200: #e9ecef !default;
+$color-gray-300: #dee2e6 !default;
+$color-gray-400: #ced4da !default;
+$color-gray-500: #adb5bd !default;
+$color-gray-600: #6c757d !default;
+$color-gray-700: #495057 !default;
+$color-gray-800: #343a40 !default;
+$color-gray-900: #212529 !default;
+
+$color-white: #fff !default;
+$color-black: #000 !default;
+
 // Typography
 
 // Text Colors - These are default fallbacks. Skins should override them.

@@ -6,7 +6,7 @@ list:
     file: /PersonalData/Certifications/Certifications/Personal/Certificate-8e85e79dd27d41078da9908a53aaedb8.pdf
     details_intro: "Achieved an **industry-recognized certification** in core software testing principles, covering **test design techniques**, **execution strategies**, and **reporting methodologies**. This certification highlights **proficiency** in both **manual and automated testing**, ensuring software quality through **structured processes** and **best practices**."
     logos:
-      - path: /assets/images/Logo/ISTQB_logo.jpeg
+      - path: /assets/images/Logo/ISTQB_logo.png
         url: "#" # TODO: Add ISTQB website URL
         name: "ISTQB"
 

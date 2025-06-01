@@ -16,23 +16,9 @@
       <div id="collapse{{ forloop.index }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.index }}" data-bs-parent="#skillsAccordion">
         <div class="accordion-body">
           <div class="tags-container" id="tags-list-{{ forloop.index }}">
-            {% assign tags_limit = 6 %}
-            {% assign total_tags = skill_category.tags | size %}
-
-            {% for tag_item in skill_category.tags limit: tags_limit %}
+            {% for tag_item in skill_category.tags %}
               <span class="tag">{{ tag_item }}</span>
             {% endfor %}
-
-            {% if total_tags > tags_limit %}
-              <span class="hidden-tags" id="hidden-tags-{{ forloop.index }}" style="display: none;">
-                {% for tag_item in skill_category.tags offset: tags_limit %}
-                  <span class="tag">{{ tag_item }}</span>
-                {% endfor %}
-              </span>
-              <button class="btn btn-sm btn-outline-primary view-more-tags mt-2" type="button" data-target-hidden="hidden-tags-{{ forloop.index }}" data-target-list="tags-list-{{ forloop.index }}">
-                View All ({{ total_tags }})
-              </button>
-            {% endif %}
           </div><!--//tags-container-->
         </div><!--//accordion-body-->
       </div><!--//accordion-collapse-->

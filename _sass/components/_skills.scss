@@ -4,8 +4,7 @@
   .accordion-item {
     border-radius: $card-border-radius; // Consistent with other card-like elements
     margin-bottom: $spacer; // Use standard spacer for consistency
-    border: 1px solid $color-border; // Use a defined border color
-    background-color: $card-bg; // Use card background for consistency
+    background-color: transparent; // Make accordion item background transparent
     box-shadow: $card-box-shadow-sm; // Add a subtle shadow for depth
     overflow: hidden; // Ensures child rounding is clipped by parent border-radius
     &:first-of-type {
@@ -34,40 +33,53 @@
   }
 
   .accordion-button {
-    width: 100%; // Make button expand to full available width
-    text-align: center; // Center text within the button
-    padding: $card-header-padding-y $card-header-padding-x; // Use card header padding vars
-    font-weight: $font-weight-semibold; // Slightly less heavy than bold, can look more refined
-    // margin-left: 10px; // Removed for full-width header, more standard BS look
-    color: darken($theme-color, 10%); // Text color for collapsed state
-    background-color: lighten($theme-color, 40%); // Background for collapsed state
+    width: 100%;
+    text-align: center;
+    padding: $card-header-padding-y $card-header-padding-x; // Assuming these vars are defined (e.g., via Bootstrap import)
+    background-color: $gray-100; // Default for collapsed
+    color: $text-color-secondary; // Softer text for collapsed
+    font-weight: $font-weight-normal; // Lighter font for collapsed
+    border: none;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, font-weight 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
-    // Default state for the icon (collapsed)
-    // Bootstrap's default SVG icon uses currentColor for fill, which inherits the button's text color.
-    // Explicit override for icon color if needed (example):
-    // &::after {
-    //   background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='#{darken($theme-color, 10%)}'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>"));
-    // }
+    // Default icon color will be $text-color-secondary
 
-    &:not(.collapsed) {
-      color: $white; // Or a high-contrast color suitable for $theme-color background
+    &:hover {
+      &.collapsed { // Specific hover for collapsed state
+        background-color: $gray-200;
+        color: $theme-color;
+        font-weight: $font-weight-semibold; // Emphasize on hover
+      }
+      // Hover for expanded state implicitly uses :not(.collapsed) styles
+    }
+
+    &:not(.collapsed) { // Expanded state
       background-color: $theme-color;
-      box-shadow: inset 0 -1px 0 rgba(0,0,0,.125); // Subtle inner shadow when active
-      
-      // Icon for expanded state (uses Bootstrap's variable for the active icon)
+      color: $white;
+      font-weight: $font-weight-semibold; // Stronger font for expanded
+      box-shadow: inset 0 -1px 0 rgba(0,0,0,.125);
+      // Icon for expanded state (will be white due to color: $white)
       &::after {
         background-image: var(--bs-accordion-btn-active-icon);
       }
     }
 
     &:focus {
-      border-color: transparent; // Avoid double borders if focus ring is a box-shadow
-      box-shadow: 0 0 0 $input-btn-focus-width rgba($theme-color, .25); // Consistent focus ring
-      z-index: 3; // Ensure the focused button is above others, standard BS behavior
+      border-color: transparent;
+      box-shadow: 0 0 0 $input-btn-focus-width rgba($theme-color, .25);
+      z-index: 3;
+      outline: 0;
+
+      &.collapsed { // Specific focus styles for collapsed button
+        color: $theme-color; // Match hover color for emphasis
+        font-weight: $font-weight-semibold; // Match hover font-weight for emphasis
+        // background-color: $gray-200; // Optional: match hover background on focus, if desired
+      }
     }
   }
 
   .accordion-body {
+    background-color: transparent; // Ensure the body content area is also transparent
     padding: $base-padding;
     display: flex;
     flex-direction: column;
@@ -79,7 +91,9 @@
   .tags-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center; // Add this to center-align tags when fewer items are shown
     gap: $base-padding / 4 $base-padding / 3; 
+    max-width: 100%;
   }
 
   .tag {
@@ -90,6 +104,12 @@
     line-height: 1.5;
     font-weight: $font-weight-semibold; // Consistent font weight
     transition: all 0.2s ease-in-out;
+
+    // Prevent multi-line tags and handle overflow
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 140px; // or use `ch` for characters
+    overflow: hidden;
     
     // Consistent styling for chip-style badge
     background-color: lighten($theme-color, 42%); // Light theme background
@@ -105,9 +125,4 @@
     }
   }
 
-  .view-more-tags {
-    font-size: $font-size-sm;
-    font-weight: $font-weight-semibold;
-    // Assuming btn-outline-primary is used in HTML, Bootstrap styles it.
-  }
 }

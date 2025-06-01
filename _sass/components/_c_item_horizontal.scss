@@ -35,10 +35,9 @@
       overflow: hidden;
 
       img {
-        max-width: 80%;
-        max-height: 80%;
-        object-fit: contain;
+        object-fit: cover;
         // make the image circular
+        padding: 5px;
         border-radius: 50%;        
       }
     }

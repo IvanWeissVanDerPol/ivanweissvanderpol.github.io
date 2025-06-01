@@ -17,10 +17,8 @@
   </div>
 
   {% include layout/footer.html %}
-
-  {% if jekyll.environment == "development" %}
-    {% include components/theme_selector.html %}
-  {% endif %}
+  <!-- Always include the theme selector; JS will control visibility based on URL -->
+  {% include components/theme-selector.html %}
   <script src="{{ '/assets/js/theme-selector.js' | relative_url }}"></script>
 
 {% include layout/scripts.html %}

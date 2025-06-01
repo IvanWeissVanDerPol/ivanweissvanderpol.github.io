@@ -6,6 +6,7 @@
   align-items: flex-start; // Align items to the top for a consistent baseline
   padding: 1rem; // Default padding, can be overridden
   align-items: center;
+  gap: 10px;
   // General logo column styling
   .logos-column {
     flex: 0 0 70px; // Fixed width for logos
@@ -24,8 +25,8 @@
       height: 60px;
       border-radius: 50%;
       background-color: #ffffff; // White background for logos
-      border-color: $card-border-color;
-      border-width: 2px;
+      border-color: $theme-color-dark;
+      border-width: 4px;
       border-style: solid;
       box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Subtle shadow
       display: flex;
@@ -77,12 +78,7 @@
     }
   }
 
-  // General time display styling
-  .time-display {
-    font-size: $font-size-sm;
-    color: $text-color-muted;
-    margin-top: 0.25rem; // Add some space if it's below the title block
-  }
+
 }
 
 // Responsive adjustments for smaller screens
@@ -108,10 +104,6 @@
       align-items: flex-start; // Align text to left
     }
 
-    .time-display {
-      order: 3; // Time display last if it's a separate div in the component
-      text-align: left;
-      margin-top: 0.5rem;
-    }
+
   }
 }

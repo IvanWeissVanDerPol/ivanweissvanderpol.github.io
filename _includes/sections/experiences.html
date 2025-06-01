@@ -9,7 +9,7 @@
     {% comment %} Common parameters for the include call {% endcomment %}
     {% assign common_title = experience.role %}
     {% assign common_subtitle = experience.company %}
-    {% assign common_time_display_html = "<span class='job-dates'>" | append: experience.time | append: "</span>" %}
+    {% assign common_time_display_html = "<span class='time'>" | append: experience.time | append: "</span>" %}
     {% assign common_title_icon = experience.icon %}
 
     {% if experience.logos and experience.logos.size > 0 %}

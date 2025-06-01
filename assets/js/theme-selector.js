@@ -1,5 +1,34 @@
 // assets/js/theme-selector.js (adapted for select dropdown)
 document.addEventListener('DOMContentLoaded', function () {
+  // --- Show/hide theme selector based on URL ---
+  const wrapper = document.getElementById('theme-selector-wrapper');
+  const host = window.location.hostname;
+  console.log('[ThemeSelector] Hostname:', host);
+  if (!wrapper) {
+    console.warn('[ThemeSelector] Wrapper element NOT found!');
+  } else {
+    console.log('[ThemeSelector] Wrapper element found.');
+  }
+  // Show only if localhost or 127.0.0.1
+  if (host === 'localhost' || host === '127.0.0.1') {
+    if (wrapper) {
+      wrapper.style.display = 'block';
+      console.log('[ThemeSelector] Showing selector for dev environment.');
+    }
+  } else if (host.includes('.github.io')) {
+    if (wrapper) {
+      wrapper.style.display = 'none';
+      console.log('[ThemeSelector] Hiding selector for github.io domain.');
+    }
+  } else {
+    // Any other domain: treat as prod, hide selector
+    if (wrapper) {
+      wrapper.style.display = 'none';
+      console.log('[ThemeSelector] Hiding selector for non-dev environment.');
+    }
+  }
+  // --- End show/hide logic ---
+
   const themeSelect = document.getElementById('theme-select');
   const themeButtons = document.querySelectorAll('.theme-button');
   // Use the value from the body's data attribute as the ultimate fallback for default skin

@@ -88,6 +88,16 @@
 
 // --- End Theme Handling ---
 
+// === DEBUG: TEMPORARY THEME BACKGROUND COLORS ===
+body.theme-berry { background: magenta !important; }
+body.theme-ceramic { background: #e0e0e0 !important; }
+body.theme-green { background: #b6fcb6 !important; }
+body.theme-oceanstale { background: #b6e5fc !important; }
+body.theme-orange { background: orange !important; }
+body.theme-teal { background: #b6fcf4 !important; }
+body.theme-turquoise { background: turquoise !important; }
+// === END DEBUG ===
+
 // Import responsive and print styles globally
 // These are generally additive and don't need to be re-imported per theme
 @import "responsive";

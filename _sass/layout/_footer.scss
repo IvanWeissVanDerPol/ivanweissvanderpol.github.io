@@ -1,18 +1,56 @@
-// _sass/layout/_footer.scss
-
 .footer {
-  background-color: $background-color-light; // Use theme's light background color
-  padding: 15px; // Slightly adjust padding
+  width: 100vw;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 18px 0 14px 0;
   text-align: center;
-  border-top: 1px solid $divider-color; // Add a subtle top border
+  border-top: 1.5px solid $divider-color;
+  margin: 0;
+  z-index: 100;
+  transition: background 0.3s;
 
   .copyright {
-    font-size: $font-size-base; // Increase font size (e.g., to 16px)
-    color: $text-color-secondary; // Ensure dark text for contrast on light background
+    font-size: 1.12rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: $text-color-secondary;
+    background: transparent;
+    padding: 0 10px;
+    line-height: 1.8;
+    display: inline-block;
   }
 
   .fa-heart {
-    color: $heart; // Use the $heart variable directly, assuming it's defined (e.g. #FB866A)
-                   // This was $heart-color before, ensure $heart is available and suitable.
+    color: $heart;
+    margin: 0 4px;
+    vertical-align: middle;
+    font-size: 1.18em;
+    animation: heartbeat 1.2s infinite;
+    transition: transform 0.2s, color 0.2s;
   }
+
+  .fa-heart:hover {
+    color: $heart-dark;
+    transform: scale(1.15);
+    animation: heartbeat 0.6s infinite;
+  }
+
+  @media (max-width: 600px) {
+    padding: 12px 0 10px 0;
+    .copyright {
+      font-size: 1.01rem;
+    }
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  10% { transform: scale(1.2); }
+  20% { transform: scale(0.95); }
+  30% { transform: scale(1.15); }
+  40% { transform: scale(0.95); }
+  50% { transform: scale(1.1); }
+  60% { transform: scale(1); }
 }

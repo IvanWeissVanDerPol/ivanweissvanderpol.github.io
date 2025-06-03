@@ -18,8 +18,10 @@
 
   {% include layout/footer.html %}
   <!-- Always include the theme selector; JS will control visibility based on URL -->
+  {% if site.data.sidebar.show_theme_selector %}
   {% include components/theme-selector.html %}
   <script src="{{ '/assets/js/theme-selector.js' | relative_url }}"></script>
+{% endif %}
 
 {% include layout/scripts.html %}
 </body>

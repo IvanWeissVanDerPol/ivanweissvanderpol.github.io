@@ -1,101 +1,31 @@
 title: "Skills & Proficiency"
 
-toolset:
-- name: Python Development
-  level: 98%
-  tags:
-    - Python
-    - Pandas
-    - Selenium
-    - PySpark
-    - NumPy
-    - Matplotlib
-
-- name: QA Automation
-  level: 95%
-  tags:
-    - Selenium
-    - PyTest
-    - Jenkins
-    - TestRail
-    - Selenium WebDriver
-    - Hexawise
-    - QTest
-    - Test Automation
-    - BDD (Cucumber)
-    - Applitools
-    - Cypress
-    - WebdriverIO
-
-- name: Data Engineering
-  level: 90%
-  tags:
-    - Airflow
-    - Spark
-    - Delta Lake
-    - Databricks
-    - Apache Spark
-    - Spark SQL
-    - Azure DevOps
-    - Data Pipelines
-    - ETL
-    - Big Data
-
-- name: Software Development
-  level: 90%
-  tags:
-    - Python
-    - Java
-    - Git
-    - RESTful APIs
-    - Postman
-    - API Automation
-    - Jenkins
-    - CI/CD
-    - Azure DevOps
-
-- name: Web Technologies
-  level: 85%
-  tags:
-    - HTML
-    - CSS
-    - JavaScript
-    - React
-    - Flask
-    - HTML5
-    - CSS3
-    - Responsive Design
-    - Web Development
-    - Bootstrap
-
-- name: Database Management
-  level: 80%
-  tags:
-    - MongoDB
-    - SQL
-    - Database Design
-    - Query Optimization
-    - Databricks
-    - Relational Databases
-    - Azure Data Lake
-    - Apache Spark
-    - PySpark
-
-- name: AI & Automation Tools
-  level: 75%
-  tags:
-    - Prompt Engineering
-    - Automation Scripts
-    - AI Agents 
-    - OpenAI
-
-- name: Project Management & DevOps
-  level: 70%
-  tags:
-    - JIRA
-    - CI/CD Practices
-    - Agile Methodologies
-    - Scrum
-    - Kanban
-    - Version Control
-    - DevOps Tools
+groups:
+  - group: "Food Science and Technology"
+    skills:
+      - skillName: "Food Safety Analysis"
+        imagePath: "images/skills/food_safety_logo.png"
+      - skillName: "Quality Control"
+        imagePath: "images/skills/quality_control_logo.png"
+  - group: "Chemical Engineering"
+    skills:
+      - skillName: "Process Design"
+        imagePath: "images/skills/process_design_logo.png"
+      - skillName: "Chemical Analysis"
+        imagePath: "images/skills/chemical_analysis_logo.png"
+  - group: "Teaching and Education"
+    skills:
+      - skillName: "Curriculum Development"
+        imagePath: "images/skills/curriculum_development_logo.png"
+        description: "Creating and implementing comprehensive educational curricula tailored to various subjects and student needs."
+      - skillName: "Robotics Education"
+        imagePath: "images/skills/robotics_education_logo.png"
+        description: "Instructing students in robotics and programming, fostering innovation and technical skills."
+  - group: "Volunteer Work"
+    skills:
+      - skillName: "Community Outreach"
+        imagePath: "images/skills/community_outreach_logo.png"
+        description: "Engaging in projects that benefit the community and promote science and technology education."
+      - skillName: "Youth Mentoring"
+        imagePath: "images/skills/youth_mentoring_logo.png"
+        description: "Guiding and supporting young individuals in their educational and professional development."

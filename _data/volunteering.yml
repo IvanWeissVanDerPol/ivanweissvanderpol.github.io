@@ -1,0 +1,43 @@
+title: Volunteering
+list:
+  - title: "Marketing Subcoordinator"
+    subtitle: "IEEE WIE UNA Student Branch"
+    duration: "February 2022 - February 2023"
+    details:
+      - "Managed marketing strategies and campaigns to promote branch activities."
+      - "Engaged with members through social media and other communication channels."
+    tags: ["Marketing", "Communication", "Engagement"]
+    icon: "marketing"
+  - title: "Course and Workshop Subcoordinator"
+    subtitle: "IEEE - IAS UNA Student Branch Chapter"
+    duration: "February 2021 - February 2022"
+    details:
+      - "Organized and coordinated educational courses and workshops."
+      - "Collaborated with industry professionals to deliver high-quality learning experiences."
+    tags: ["Education", "Workshop Coordination", "Collaboration"]
+    icon: "education"
+  - title: "Marketing Subcoordinator"
+    subtitle: "IEEE Rama Estudiantil UNA"
+    duration: "February 2021 - February 2022"
+    details:
+      - "Developed and executed marketing plans to increase visibility and participation."
+      - "Engaged with the student community through various outreach activities."
+    tags: ["Marketing", "Student Engagement", "Outreach"]
+    icon: "marketing"
+  - title: "Volunteer"
+    subtitle: "Marker Lab in a Can - CCPA School"
+    duration: "December 2022 - Present"
+    details:
+      - "Facilitated hands-on science and technology workshops for students."
+      - "Mentored students in their projects, encouraging creativity and innovation."
+    tags: ["Volunteering", "Mentorship", "STEM"]
+    icon: "volunteer"
+  - title: "Driven Communication"
+    subtitle: "IEEE Region 9"
+    duration: "March 2024 - Present"
+    details:
+      - "Developed communication strategies focused on engaging IEEE members."
+      - "Worked with regional committees to ensure effective communication and member engagement."
+    tags: ["Communication", "Strategy", "Member Engagement"]
+    icon: "communication"
+

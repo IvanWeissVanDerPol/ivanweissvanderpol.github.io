@@ -1,20 +1,10 @@
-title: Recommendations
+title: Testimonials
 list:
-  - person: Monika Koykova
-    role: Senior Quality Assurance Lead at MentorMate
-    recommendation: |
-      Ivan demonstrates a proactive approach to problem-solving, preferring to tackle challenges independently while actively incorporating AI tools to enhance workflow efficiency. He shows enthusiasm in training sessions and coding, strives for knowledge, and is always willing to assist his team, including creating helpful scripts. For his level, he excels technically and is unafraid to use generative AI, which has also helped me learn new techniques for my day-to-day testing.
-  - person: Sarah Johnson
-    role: Business Analyst at MentorMate
-    recommendation: |
-      I think Ivan is INCREDIBLY smart and talented. He thinks things through, has some automation and electrical/mechanical skills, and can analyze things well.       I really enjoyed working with Ivan. As part of the Pelvital project team, he has demonstrated that he is really attentive to details, willing to help and support team members, always positive and polite, and has never been late to meetings. 
-      Yesterday, we had a conversation about a Jira ticket to be created, and Ivan sent me so much detailed and structured information about this case that creating a story would not be a problem at all. Ivan has a teamwork mindset.
-  - person: Hugo Medina
-    role: Software Development Engineer at MentorMate
-    recommendation: |
-      He worked with his tickets quickly and efficiently. He always maintained direct, fluid, and cordial communication with the author of the ticket.
-      Ivan has a never-ending amount of energy and desire to learn and improve. When he finds a task interesting, he can go above and beyond to deliver. He is a techie with a preference for all back-end related things, and if there is a chance Python or anything related to automation can be used, he is on it, and you know he will deliver.
-  - person: Kalina Petrova
-    role: Quality Assurance Specialist at MentorMate
-    recommendation: |
-      In the project, Ivan took the initiative to help with the testing of the controller data, which wasn't an easy task to do. He had a lot of insights about that and helped the team a lot.
+  - reviewer: "John Doe"
+    period: "Various Positions"
+    company: "Agropecuaria Cooperativa La Paz"
+    feedback:
+      - title: "Technical Expertise"
+        detail: "Laura's deep knowledge in food safety and quality control has been invaluable to our projects. She consistently ensures the highest standards."
+      - title: "Team Collaboration"
+        detail: "Laura excels in team environments, always contributing her expertise and fostering a collaborative spirit. Her positive attitude and reliability are greatly appreciated."

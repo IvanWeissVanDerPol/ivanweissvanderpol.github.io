@@ -3,42 +3,25 @@ about: False # set to False or comment line if you want to remove the "how to us
 education: False # set to False if you want education in main section instead of in sidebar
 
 # Profile information
-name: Ivan Weiss Van Der Pol
-tagline: Data Engineer | AI Enthusiast | Python Developer
-avatar: ProfilePicIvan.jpg
+name: Laura Picco
+avatar: ProfilePicLaura.jpg
 favicon: PageIcon.png
-
 contact_title: "Contact"
 
 # Sidebar links
-email: weissvanderpol.ivan@gmail.com
-phone: '+595 0981324569'
-timezone: America/Asuncion
-citizenship: Paraguayan and Dutch 
-website: https://ivanweissvanderpol.github.io/
-linkedin: ivanweissvanderpol
-xing: 
-github: ivanweissvanderpol
-telegram: # add your nickname without '@' sign
-gitlab:
-bitbucket:
-twitter: 
-stack-overflow: # Number/Username, e.g. 123456/alandoe
-codewars:
-goodreads: # Number-Username, e.g. 123456-alandoe
-mastodon: # Please include your full Mastodon link here.
-hackerrank: # Please provide your HackerRank username.
-leetcode: # Please provide your LeetCode username.
-pdf: "https://ivanweissvanderpol.github.io/PersonalData/ResumeIvanWeiss-2025-05.pdf"
+email: laura.picco2@gmail.com
+linkedin: laura-picco-62a37b210
+website: https://www.linkedin.com/in/laura-picco-62a37b210/
+pdf: "assets/Laura_Picco_Resume.pdf"
 
 languages:
   title: "Languages"
   info:
   - idiom: Spanish
-    level: Native
-
+    level: Native (100%)
   - idiom: English
-    level: Fluent
-
-  - idiom: Dutch
-    level: Fluent
+    level: Fluent (95%)
+  - idiom: Guaraní
+    level: Native/Bilingual (90%)
+  - idiom: Portuguese
+    level: Proficient (85%)

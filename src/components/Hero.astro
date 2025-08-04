@@ -133,35 +133,47 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
             <div class="card-content terminal-content">
               <div class="terminal-prompt">
                 <span class="prompt-path">C:\Users\Ivan></span>
-                <span class="prompt-command">personal_page.py</span>
+                <span class="prompt-command">python personal_info.py</span>
               </div>
-              <div class="code-block">
+              <div class="code-block" id="terminal-code">
                 <div class="code-line">
-                  <span class="code-keyword">const</span>
-                  <span class="code-variable">developer</span> = {`{`}
+                  <span class="code-comment"># Personal Information System</span>
                 </div>
-                <div class="code-line indent">
-                  <span class="code-property">  name:</span>
-                  <span class="code-string">"Ivan weiss van der pol"</span>,
-                </div>
-                <div class="code-line indent">
-                  <span class="code-property">  languages:</span>
-                  <span class="code-array">["Python", "Java",  "C", "SQL"]</span>,
-                </div>
-                <div class="code-line indent">
-                  <span class="code-property">  what:</span>
-                  <span class="code-string">"Coding efficient solutions"</span>,
-                </div>
-                <div class="code-line indent">
-                  <span class="code-property">  available:</span>
-                  <span class="code-boolean">true</span>
-                </div>
-                <div class="code-line">{`}`};</div>
                 <div class="code-line">
-                  <span class="code-comment">// Building neat projects!</span>
+                  <span class="code-keyword">class</span> <span class="code-class">Developer</span>:
+                </div>
+                <div class="code-line indent">
+                  <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self):
+                </div>
+                <div class="code-line indent2">
+                  <span class="code-property">self.name</span> = <span class="code-string">"Ivan Weiss Van Der Pol"</span>
+                </div>
+                <div class="code-line indent2">
+                  <span class="code-property">self.role</span> = <span class="code-string">"Technical Lead & QA Engineer"</span>
+                </div>
+                <div class="code-line indent2">
+                  <span class="code-property">self.languages</span> = [<span class="code-string">"Python"</span>, <span class="code-string">"Java"</span>, <span class="code-string">"JavaScript"</span>]
+                </div>
+                <div class="code-line indent2">
+                  <span class="code-property">self.specialties</span> = [<span class="code-string">"Data Engineering"</span>, <span class="code-string">"QA Automation"</span>]
+                </div>
+                <div class="code-line indent2">
+                  <span class="code-property">self.available</span> = <span class="code-boolean">True</span>
+                </div>
+                <div class="code-line">
+                <br>
+                </div>
+                <div class="code-line">
+                  <span class="code-comment"># Ready to build amazing projects! 🚀</span>
+                </div>
+                <div class="code-line">
+                  <span class="code-variable">ivan</span> = <span class="code-class">Developer</span>()
+                </div>
+                <div class="code-line">
+                  <span class="code-builtin">print</span>(<span class="code-string">f"Hi! I'm {'{ivan.name}'}"</span>)
                 </div>
               </div>
-              <div class="terminal-cursor"></div>
+              <div class="terminal-cursor" id="terminal-cursor"></div>
             </div>
           </div>
         </div>
@@ -174,6 +186,206 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
 
 <style>
   @import '../styles/sections/hero.css';
+  
+  /* Enhanced Terminal Styles */
+  .terminal-container {
+    margin-top: var(--space-4);
+  }
+  
+  .terminal-toggle {
+    background: var(--bg-card);
+    border: 2px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    color: var(--text-primary);
+    padding: var(--space-3) var(--space-4);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .terminal-toggle:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .visual-card.windows-terminal {
+    margin-top: var(--space-4);
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-muted);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: all var(--transition-slow);
+  }
+  
+  .visual-card.windows-terminal.show {
+    opacity: 1;
+    max-height: 500px;
+  }
+  
+  .card-header {
+    background: var(--bg-quaternary);
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--border-muted);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .window-controls {
+    display: flex;
+    gap: var(--space-2);
+  }
+  
+  .control {
+    width: 12px;
+    height: 12px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: transparent;
+    transition: var(--transition-fast);
+  }
+  
+  .control.minimize { background: #ffbd2e; }
+  .control.maximize { background: #28ca42; }
+  .control.close { background: #ff5f56; }
+  
+  .control:hover {
+    color: var(--text-primary);
+  }
+  
+  .card-title {
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .terminal-content {
+    padding: var(--space-4);
+    font-family: 'Fira Code', 'Cascadia Code', 'Monaco', monospace;
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-relaxed);
+    background: var(--bg-primary);
+  }
+  
+  .terminal-prompt {
+    color: var(--color-success);
+    margin-bottom: var(--space-3);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+  
+  .prompt-path {
+    color: var(--color-accent);
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .prompt-command {
+    color: var(--text-primary);
+  }
+  
+  .code-block {
+    position: relative;
+  }
+  
+  .code-line {
+    margin-bottom: var(--space-1);
+    transition: all var(--transition-normal);
+  }
+  
+  .code-line.typing {
+    background: rgba(59, 130, 246, 0.1);
+    padding: 0 var(--space-2);
+    border-radius: var(--radius-sm);
+  }
+  
+  .indent { padding-left: var(--space-4); }
+  .indent2 { padding-left: var(--space-8); }
+  
+  /* Enhanced Syntax Highlighting */
+  .code-keyword {
+    color: #ff79c6;
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .code-class {
+    color: #8be9fd;
+    font-weight: var(--font-weight-semibold);
+  }
+  
+  .code-function {
+    color: #50fa7b;
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .code-string {
+    color: #f1fa8c;
+  }
+  
+  .code-property {
+    color: #bd93f9;
+  }
+  
+  .code-variable {
+    color: #f8f8f2;
+  }
+  
+  .code-boolean {
+    color: #ff79c6;
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .code-comment {
+    color: #6272a4;
+    font-style: italic;
+  }
+  
+  .code-builtin {
+    color: #8be9fd;
+    font-weight: var(--font-weight-medium);
+  }
+  
+  .terminal-cursor {
+    display: inline-block;
+    width: 10px;
+    height: 18px;
+    background: var(--color-primary);
+    margin-left: var(--space-1);
+    opacity: 0;
+    border-radius: 2px;
+  }
+  
+  .terminal-cursor.blink {
+    animation: cursor-blink 1s infinite;
+  }
+  
+  @keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+  
+  /* Responsive Terminal */
+  @media (max-width: 768px) {
+    .terminal-content {
+      font-size: 12px;
+      padding: var(--space-3);
+    }
+    
+    .indent { padding-left: var(--space-2); }
+    .indent2 { padding-left: var(--space-4); }
+  }
 </style>
 
 <script>
@@ -255,11 +467,51 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
           terminalContent.classList.add('show');
           this.querySelector('.toggle-text').textContent = 'Hide Code';
           this.querySelector('.toggle-icon').textContent = '📟';
+          
+          // Start typing animation when terminal opens
+          setTimeout(() => startTypingAnimation(), 500);
         } else {
           terminalContent.classList.remove('show');
           this.querySelector('.toggle-text').textContent = 'Show Code';
           this.querySelector('.toggle-icon').textContent = '💻';
         }
+      });
+    }
+
+    // Enhanced Terminal Typing Animation
+    let typingAnimationRunning = false;
+    
+    function startTypingAnimation() {
+      if (typingAnimationRunning) return;
+      typingAnimationRunning = true;
+      
+      const codeLines = document.querySelectorAll('#terminal-code .code-line');
+      const cursor = document.getElementById('terminal-cursor');
+      
+      // Hide all lines initially
+      codeLines.forEach(line => {
+        line.style.opacity = '0';
+        line.style.transform = 'translateX(-10px)';
+      });
+      
+      // Show cursor
+      if (cursor) {
+        cursor.style.opacity = '1';
+        cursor.classList.add('blink');
+      }
+      
+      // Animate lines appearing with typing effect
+      codeLines.forEach((line, index) => {
+        setTimeout(() => {
+          line.style.transition = 'all 0.3s ease';
+          line.style.opacity = '1';
+          line.style.transform = 'translateX(0)';
+          
+          // Add typing sound effect (visual)
+          line.classList.add('typing');
+          setTimeout(() => line.classList.remove('typing'), 300);
+          
+        }, index * 200);
       });
     }
 

@@ -188,24 +188,30 @@ export const skillsData = {
           name: "Python",
           icon: "fab fa-python",
           proficiency: "Expert",
+          proficiencyPercentage: 98,
           yearsExperience: "6+ years",
           description: "Expert-level Python development for automation, data processing, and backend systems",
+          techColor: "#3776ab",
           specialties: ["Data Processing", "Automation", "API Development", "Testing"]
         },
         {
           name: "Java",
           icon: "fab fa-java",
           proficiency: "Advanced",
+          proficiencyPercentage: 85,
           yearsExperience: "3+ years",
           description: "Backend development with Spring framework and enterprise applications",
+          techColor: "#ed8b00",
           specialties: ["Spring Framework", "REST APIs", "Enterprise Development"]
         },
         {
           name: "JavaScript",
           icon: "fab fa-js-square",
           proficiency: "Intermediate",
+          proficiencyPercentage: 75,
           yearsExperience: "2+ years",
           description: "Frontend development and test automation with modern JS frameworks",
+          techColor: "#f7df1e",
           specialties: ["Frontend Development", "Test Automation", "Node.js"]
         }
       ]
@@ -217,24 +223,30 @@ export const skillsData = {
           name: "Apache Spark",
           icon: "fas fa-fire",
           proficiency: "Advanced",
+          proficiencyPercentage: 88,
           yearsExperience: "2+ years",
           description: "Large-scale data processing and distributed computing with PySpark",
+          techColor: "#e25a1c",
           specialties: ["PySpark", "Spark SQL", "Data Pipelines", "ETL"]
         },
         {
           name: "Databricks",
           icon: "fas fa-cloud",
           proficiency: "Advanced",
+          proficiencyPercentage: 82,
           yearsExperience: "2+ years",
           description: "Cloud-based data engineering and analytics platform expertise",
+          techColor: "#ff3621",
           specialties: ["Data Processing", "ML Integration", "Collaborative Analytics"]
         },
         {
           name: "ETL Pipelines",
           icon: "fas fa-cogs",
           proficiency: "Advanced",
+          proficiencyPercentage: 90,
           yearsExperience: "3+ years",
           description: "Design and implementation of Extract, Transform, Load workflows",
+          techColor: "#4a90e2",
           specialties: ["Data Transformation", "Pipeline Automation", "Scheduling"]
         }
       ]

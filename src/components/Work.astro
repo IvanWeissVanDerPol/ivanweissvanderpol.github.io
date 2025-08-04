@@ -59,19 +59,19 @@ import Button from './ui/Button.astro';
         <h3>Career Highlights</h3>
         <div class="stats-grid">
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="300">
-            <span class="stat-number">{workData.statistics.totalProjects}</span>
+            <span class="stat-number" data-target="{workData.statistics.totalProjects}">0</span>
             <span class="stat-label">Total Projects</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="400">
-            <span class="stat-number">{workData.statistics.clientProjects}</span>
+            <span class="stat-number" data-target="{workData.statistics.clientProjects}">0</span>
             <span class="stat-label">Client Projects</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="500">
-            <span class="stat-number">{workData.statistics.technologiesUsed}</span>
+            <span class="stat-number" data-target="{workData.statistics.technologiesUsed}">0</span>
             <span class="stat-label">Technologies Used</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="600">
-            <span class="stat-number">{workData.statistics.yearsOfExperience}</span>
+            <span class="stat-number" data-target="{workData.statistics.yearsOfExperience}">0</span>
             <span class="stat-label">Years Experience</span>
           </div>
         </div>
@@ -94,4 +94,117 @@ import Button from './ui/Button.astro';
 
 <style>
   @import '../styles/sections/work.css';
+  
+  /* Achievement Counter Animation */
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    display: block;
+    line-height: 1;
+    min-height: 2.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--bg-card);
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    transition: all 0.3s ease;
+  }
+  
+  .stat-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: var(--color-primary);
+  }
+  
+  .stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
+    display: block;
+  }
+  
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .stat-number {
+      font-size: 2rem;
+    }
+    
+    .stat-item {
+      padding: 1rem;
+    }
+  }
 </style>
+
+<script>
+  // Animated Achievement Counters
+  document.addEventListener('DOMContentLoaded', function() {
+    const animateCounter = (element, target, duration = 2000) => {
+      const start = 0;
+      const increment = target / (duration / 16); // 60fps
+      let current = start;
+      
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          current = target;
+          clearInterval(timer);
+        }
+        
+        // Format the number (handle both integers and strings like "6+")
+        let displayValue;
+        if (typeof target === 'string' && target.includes('+')) {
+          const numericPart = parseInt(target);
+          displayValue = Math.floor(current) + '+';
+        } else {
+          displayValue = Math.floor(current);
+        }
+        
+        element.textContent = displayValue;
+      }, 16);
+    };
+    
+    // Intersection Observer for counter animations
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const statNumbers = entry.target.querySelectorAll('.stat-number');
+          
+          statNumbers.forEach((statNumber, index) => {
+            const target = statNumber.getAttribute('data-target');
+            if (target) {
+              // Add staggered delay for each counter
+              setTimeout(() => {
+                animateCounter(statNumber, target, 2000);
+              }, index * 200);
+            }
+          });
+          
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.5,
+      rootMargin: '0px 0px -100px 0px'
+    });
+    
+    // Observe the stats container
+    const statsContainer = document.querySelector('.work-stats .stats-container');
+    if (statsContainer) {
+      counterObserver.observe(statsContainer);
+    }
+  });
+</script>

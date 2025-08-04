@@ -2,7 +2,7 @@
 
 A modern portfolio website built with **Astro** and enhanced with scroll animations. Originally based on the HTML5 UP "Miniport" template, migrated to a component-based architecture for better maintainability and development experience.
 
-🌐 **Live Site**: [alcabvaldo.github.io](https://alcabvaldo.github.io)
+🌐 **Live Site**: [ivanweissvanderpol.github.io](https://ivanweissvanderpol.github.io)
 
 ## ✨ Features
 

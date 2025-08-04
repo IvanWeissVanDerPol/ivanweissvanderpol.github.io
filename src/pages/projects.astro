@@ -1,0 +1,105 @@
+---
+// Dedicated projects page - comprehensive portfolio showcase
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Projects from '../components/Projects.astro';
+import Contact from '../components/Contact.astro';
+import { siteConfig } from '../data/index.js';
+
+const pageTitle = 'Projects | ' + siteConfig.title;
+const pageDescription = 'Explore my portfolio of data engineering, QA automation, and web development projects. See live demos and source code.';
+---
+
+<Layout 
+  title={pageTitle}
+  description={pageDescription}
+>
+  <Navigation />
+  
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <div class="page-header-content">
+        <h1>My Projects</h1>
+        <p>A showcase of my work in data engineering, QA automation, web development, and more. Each project demonstrates different skills and technologies I've mastered throughout my career.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <Projects />
+  
+  <!-- Contact CTA -->
+  <section class="projects-cta" style="margin-top: 4em;">
+    <div class="container">
+      <div class="cta-content" style="text-align: center; padding: 3em 0;">
+        <h2>Interested in Working Together?</h2>
+        <p>I'm always open to discussing new projects and opportunities. Let's build something amazing together!</p>
+        <div style="margin-top: 2em;">
+          <a href="/about#contact" class="button large primary">Get In Touch</a>
+          <a href="/#contact" class="button large">View Contact Info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    padding: 6em 0 4em;
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-bottom: 1px solid var(--border-light);
+  }
+  
+  .page-header-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .page-header h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .page-header p {
+    font-size: 1.2em;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+  
+  .projects-cta {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-light);
+  }
+  
+  .cta-content h2 {
+    color: var(--text-heading);
+    margin-bottom: 1em;
+  }
+  
+  .cta-content p {
+    color: var(--text-secondary);
+    font-size: 1.1em;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .page-header {
+      padding: 4em 0 2em;
+    }
+    
+    .page-header h1 {
+      font-size: 2em;
+    }
+    
+    .page-header p {
+      font-size: 1em;
+    }
+  }
+</style>

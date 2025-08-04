@@ -8,6 +8,11 @@ export const navigationData = {
       active: true
     },
     {
+      label: "Projects",
+      href: "/projects",
+      active: true
+    },
+    {
       label: "About Me",
       href: "/about",
       active: true

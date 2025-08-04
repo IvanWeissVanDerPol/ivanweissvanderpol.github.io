@@ -17,6 +17,7 @@ import { aboutData, skillsData, workData, certificationsData, contactData } from
         <ul>
           <li><a href="#summary" data-nav="summary">Summary</a></li>
           <li><a href="#experience" data-nav="experience">Experience</a></li>
+          <li><a href="#projects" data-nav="projects">Projects</a></li>
           <li><a href="#skills" data-nav="skills">Technical Skills</a></li>
           <li><a href="#certifications" data-nav="certifications">Certifications</a></li>
           <li><a href="#contact" data-nav="contact">Contact</a></li>
@@ -192,6 +193,150 @@ import { aboutData, skillsData, workData, certificationsData, contactData } from
               </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="content-section">
+      <h2>Featured Projects</h2>
+      <div class="projects-overview">
+        <p class="projects-intro">Here are some of my key projects that demonstrate my technical skills and problem-solving approach:</p>
+        
+        <div class="projects-grid">
+          <div class="project-card featured">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="project-title">
+                <h3>Data Engineering Pipeline</h3>
+                <span class="project-category">Data Engineering</span>
+              </div>
+              <span class="project-status in-progress">In Progress</span>
+            </div>
+            
+            <p class="project-description">
+              Comprehensive ETL pipeline for processing large-scale datasets using Python, Apache Spark, and modern data engineering practices.
+            </p>
+            
+            <div class="project-technologies">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Apache Spark</span>
+              <span class="tech-tag">PostgreSQL</span>
+              <span class="tech-tag">Docker</span>
+            </div>
+            
+            <div class="project-highlights">
+              <h4>Key Features:</h4>
+              <ul>
+                <li>Processes 10GB+ datasets efficiently</li>
+                <li>Automated data validation and cleansing</li>
+                <li>Real-time monitoring and alerting</li>
+                <li>Scalable containerized deployment</li>
+              </ul>
+            </div>
+            
+            <div class="project-actions">
+              <a href="https://github.com/IvanWeissVanDerPol" class="project-link" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a href="/projects" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Demo
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="project-title">
+                <h3>QA Automation Framework</h3>
+                <span class="project-category">QA Automation</span>
+              </div>
+              <span class="project-status completed">Completed</span>
+            </div>
+            
+            <p class="project-description">
+              Comprehensive test automation framework using Selenium, Python, and CI/CD integration for web application testing.
+            </p>
+            
+            <div class="project-technologies">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Selenium</span>
+              <span class="tech-tag">Jenkins</span>
+              <span class="tech-tag">TestNG</span>
+            </div>
+            
+            <div class="project-highlights">
+              <h4>Achievements:</h4>
+              <ul>
+                <li>95% test automation coverage</li>
+                <li>Reduced testing time by 60%</li>
+                <li>Cross-browser compatibility testing</li>
+                <li>Automated CI/CD pipeline integration</li>
+              </ul>
+            </div>
+            
+            <div class="project-actions">
+              <a href="https://github.com/IvanWeissVanDerPol" class="project-link" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            </div>
+          </div>
+          
+          <div class="project-card">
+            <div class="project-header">
+              <div class="project-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="project-title">
+                <h3>Portfolio Website</h3>
+                <span class="project-category">Web Development</span>
+              </div>
+              <span class="project-status completed">Completed</span>
+            </div>
+            
+            <p class="project-description">
+              Modern, responsive portfolio website built with Astro, featuring dynamic theming and optimized performance.
+            </p>
+            
+            <div class="project-technologies">
+              <span class="tech-tag">Astro</span>
+              <span class="tech-tag">JavaScript</span>
+              <span class="tech-tag">CSS</span>
+              <span class="tech-tag">GitHub Actions</span>
+            </div>
+            
+            <div class="project-highlights">
+              <h4>Features:</h4>
+              <ul>
+                <li>Static site generation for performance</li>
+                <li>Responsive design with dark theme</li>
+                <li>SEO optimized with meta tags</li>
+                <li>Automated deployment via GitHub Pages</li>
+              </ul>
+            </div>
+            
+            <div class="project-actions">
+              <a href="https://github.com/IvanWeissVanDerPol/ivanweissvanderpol.github.io" class="project-link" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+              <a href="/" class="project-link">
+                <i class="fas fa-external-link-alt"></i> Live Site
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="projects-cta">
+          <p>Want to see more projects?</p>
+          <a href="/projects" class="cta-button">
+            <i class="fas fa-folder-open"></i>
+            View All Projects
+          </a>
         </div>
       </div>
     </section>

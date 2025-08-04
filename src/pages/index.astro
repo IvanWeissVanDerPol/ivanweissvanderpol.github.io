@@ -1,8 +1,12 @@
 ---
-// Home page - minimal landing page with hero section only
+// Home page - comprehensive portfolio showcase
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
 import Hero from '../components/Hero.astro';
+import Skills from '../components/Skills.astro';
+import Projects from '../components/Projects.astro';
+import Work from '../components/Work.astro';
+import Contact from '../components/Contact.astro';
 import { siteConfig } from '../data/index.js';
 ---
 
@@ -12,4 +16,8 @@ import { siteConfig } from '../data/index.js';
 >
   <Navigation />
   <Hero />
+  <Skills />
+  <Projects />
+  <Work />
+  <Contact />
 </Layout>

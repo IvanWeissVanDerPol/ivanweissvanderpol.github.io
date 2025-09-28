@@ -1,0 +1,120 @@
+---
+// Desktop Navigation Links component
+import { navigationData } from '../../data/index.js';
+
+export interface Props {
+  className?: string;
+  links?: Array<{
+    href: string;
+    label: string;
+  }>;
+}
+
+const {
+  className = '',
+  links = navigationData?.mainMenu || []
+} = Astro.props;
+---
+
+<div class={`nav-menu desktop-only ${className}`} role="menubar">
+  {links.map((item) => (
+    <a
+      href={item.href}
+      class="nav-link"
+      role="menuitem"
+      data-nav-link
+      aria-label={`Navigate to ${item.label}`}
+    >
+      {item.label}
+    </a>
+  ))}
+</div>
+
+<style>
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex: 1;
+    justify-content: center;
+  }
+
+  .nav-link {
+    color: var(--text-secondary, #cbd5e1);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all var(--transition-fast, 0.15s ease);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+    transition: all var(--transition-fast, 0.15s ease);
+    transform: translateX(-50%);
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary, #f8fafc);
+    background: var(--bg-glass, rgba(0, 0, 0, 0.3));
+    transform: translateY(-1px);
+  }
+
+  .nav-link:hover::before {
+    width: 80%;
+  }
+
+  .nav-link:focus {
+    outline: var(--focus-ring, 2px solid var(--color-primary));
+    outline-offset: var(--focus-offset, 2px);
+  }
+
+  .nav-link.active {
+    color: var(--color-primary, #3b82f6);
+    background: var(--bg-glass, rgba(59, 130, 246, 0.1));
+  }
+
+  .nav-link.active::before {
+    width: 80%;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  }
+
+  /* Utility classes */
+  .desktop-only {
+    display: flex;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .desktop-only {
+      display: none;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .nav-link {
+      border: 1px solid transparent;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+      border-color: var(--color-primary, #3b82f6);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link {
+      transition: none;
+    }
+  }
+</style>

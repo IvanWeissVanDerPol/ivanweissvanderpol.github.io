@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+build/
+
+# Configuration
+*.config.js
+*.config.mjs
+*.config.ts
+
+# Public assets
+public/
+
+# Generated files
+*.min.js
+*.min.css
+
+# Personal data
+src/data/PersonalData/

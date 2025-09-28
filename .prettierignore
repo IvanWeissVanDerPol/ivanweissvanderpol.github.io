@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Build output
+dist/
+.astro/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Environment
+.env
+.env.*
+
+# Generated files
+*.min.js
+*.min.css
+
+# Public assets
+public/assets/js/*.min.js
+public/assets/css/*.min.css
+public/assets/css/fontawesome-all.min.css
+
+# Personal data
+src/data/PersonalData/

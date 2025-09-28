@@ -1,0 +1,555 @@
+---
+import { certificationsData } from '../../data/index.js';
+
+export interface Props {
+  showAllCertifications?: boolean;
+  maxCertifications?: number;
+}
+
+const {
+  showAllCertifications = true,
+  maxCertifications = 6
+} = Astro.props;
+
+const displayCertifications = showAllCertifications
+  ? (certificationsData?.certifications || [])
+  : (certificationsData?.certifications || []).slice(0, maxCertifications);
+
+// Group certifications by category
+const groupedCertifications = displayCertifications.reduce((acc, cert) => {
+  if (!acc[cert.category]) {
+    acc[cert.category] = [];
+  }
+  acc[cert.category].push(cert);
+  return acc;
+}, {});
+---
+
+<section id="certifications" class="content-section">
+  <h2>{certificationsData.title}</h2>
+  <p class="section-subtitle">{certificationsData.subtitle}</p>
+
+  <div class="certifications-container">
+    <!-- Featured Certifications -->
+    <div class="featured-certifications">
+      {displayCertifications.slice(0, 3).map((cert, index) => (
+        <div class="certification-card featured" data-index={index}>
+          <div class="cert-header">
+            {cert.logo && (
+              <div class="cert-logo">
+                <img src={cert.logo} alt={`${cert.issuer} logo`} loading="lazy" />
+              </div>
+            )}
+            <div class="cert-badge" data-style={cert.badgeStyle}>
+              <i class={`fas ${cert.icon}`}></i>
+            </div>
+          </div>
+
+          <div class="cert-content">
+            <h3>{cert.title}</h3>
+            <div class="cert-issuer">
+              <i class="fas fa-award"></i>
+              {cert.issuer}
+            </div>
+
+            <p class="cert-description">{cert.description}</p>
+
+            <div class="cert-meta">
+              <div class="meta-item">
+                <i class="fas fa-calendar"></i>
+                <span>Issued: {cert.issueDate}</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>Valid: {cert.expiryDate}</span>
+              </div>
+              {cert.credentialId && (
+                <div class="meta-item">
+                  <i class="fas fa-fingerprint"></i>
+                  <span>ID: {cert.credentialId}</span>
+                </div>
+              )}
+            </div>
+
+            <div class="cert-skills">
+              {cert.skills.slice(0, 4).map(skill => (
+                <span class="skill-tag">{skill}</span>
+              ))}
+              {cert.skills.length > 4 && (
+                <span class="skill-tag more">+{cert.skills.length - 4} more</span>
+              )}
+            </div>
+
+            <div class="cert-actions">
+              {cert.credentialUrl && (
+                <a href={cert.credentialUrl} class="cert-link" target="_blank" rel="noopener">
+                  <i class="fas fa-certificate"></i>
+                  View Certificate
+                </a>
+              )}
+              {cert.verificationUrl && (
+                <a href={cert.verificationUrl} class="cert-link verify" target="_blank" rel="noopener">
+                  <i class="fas fa-check-circle"></i>
+                  Verify
+                </a>
+              )}
+            </div>
+          </div>
+
+          {cert.verified && (
+            <div class="verified-badge">
+              <i class="fas fa-check-shield"></i>
+              Verified
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+
+    <!-- Certifications by Category -->
+    <div class="certifications-grid">
+      <h3>All Certifications</h3>
+      {Object.entries(groupedCertifications).map(([category, certs]) => (
+        <div class="cert-category">
+          <h4 class="category-title">
+            <i class="fas fa-layer-group"></i>
+            {category}
+          </h4>
+          <div class="category-certs">
+            {certs.map(cert => (
+              <div class="cert-item">
+                <div class="cert-item-header">
+                  {cert.logo && (
+                    <img src={cert.logo} alt="" class="cert-item-logo" loading="lazy" />
+                  )}
+                  <div class="cert-item-info">
+                    <h5>{cert.title}</h5>
+                    <span class="cert-item-issuer">{cert.issuer}</span>
+                  </div>
+                  <div class="cert-item-date">{cert.issueDate}</div>
+                </div>
+
+                <div class="cert-item-actions">
+                  {cert.credentialUrl && (
+                    <a href={cert.credentialUrl} target="_blank" rel="noopener" class="cert-item-link">
+                      <i class="fas fa-external-link-alt"></i>
+                    </a>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Certification Stats -->
+    <div class="cert-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-certificate"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">{certificationsData.certifications.length}</div>
+          <div class="stat-label">Total Certifications</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-check-double"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">
+            {certificationsData.certifications.filter(c => c.verified).length}
+          </div>
+          <div class="stat-label">Verified Credentials</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="stat-content">
+          <div class="stat-number">
+            {certificationsData.certifications.filter(c => c.badgeStyle === 'award').length}
+          </div>
+          <div class="stat-label">Special Awards</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3xl);
+    line-height: 1.8;
+  }
+
+  .certifications-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  /* Featured Certifications */
+  .featured-certifications {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .certification-card {
+    position: relative;
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-normal);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: calc(var(--index) * 0.15s);
+  }
+
+  .certification-card[data-index="0"] { --index: 0; }
+  .certification-card[data-index="1"] { --index: 1; }
+  .certification-card[data-index="2"] { --index: 2; }
+
+  .certification-card.featured {
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-secondary-alpha));
+  }
+
+  .certification-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-alpha);
+    box-shadow: 0 8px 24px var(--shadow-lg);
+  }
+
+  .cert-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .cert-logo {
+    width: 60px;
+    height: 60px;
+    padding: var(--space-xs);
+    background: white;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .cert-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .cert-badge {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    font-size: 1.5rem;
+  }
+
+  .cert-badge[data-style="certification"] {
+    background: linear-gradient(135deg, var(--color-primary-alpha), transparent);
+    color: var(--color-primary);
+  }
+
+  .cert-badge[data-style="award"] {
+    background: linear-gradient(135deg, var(--color-warning-alpha), transparent);
+    color: var(--color-warning);
+  }
+
+  .cert-content h3 {
+    margin: 0 0 var(--space-sm) 0;
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+  }
+
+  .cert-issuer {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-primary);
+    font-size: var(--font-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .cert-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-sm);
+  }
+
+  .cert-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  .meta-item i {
+    color: var(--color-primary-alpha);
+  }
+
+  .cert-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .skill-tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+  }
+
+  .skill-tag.more {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .cert-actions {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .cert-link:hover {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateX(2px);
+  }
+
+  .cert-link.verify {
+    background: var(--color-success-alpha);
+    border-color: var(--color-success);
+    color: var(--color-success);
+  }
+
+  .verified-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-success-alpha);
+    border: 1px solid var(--color-success);
+    border-radius: var(--radius-sm);
+    color: var(--color-success);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+  }
+
+  /* Certifications Grid */
+  .certifications-grid {
+    background: var(--bg-secondary-alpha);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+  }
+
+  .certifications-grid h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+  }
+
+  .cert-category {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .category-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin: 0 0 var(--space-lg) 0;
+    color: var(--color-primary);
+    font-size: var(--font-md);
+  }
+
+  .category-certs {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+  }
+
+  .cert-item:hover {
+    border-color: var(--color-primary-alpha);
+    transform: translateX(4px);
+  }
+
+  .cert-item-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex: 1;
+  }
+
+  .cert-item-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    background: white;
+    padding: 4px;
+    border-radius: var(--radius-sm);
+  }
+
+  .cert-item-info h5 {
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+  }
+
+  .cert-item-issuer {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+  }
+
+  .cert-item-date {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+  }
+
+  .cert-item-link {
+    padding: var(--space-xs);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+  }
+
+  .cert-item-link:hover {
+    color: var(--color-primary);
+  }
+
+  /* Stats */
+  .cert-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .stat-card {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl);
+    background: linear-gradient(135deg, var(--color-primary-alpha), transparent);
+    border: 1px solid var(--color-primary-alpha);
+    border-radius: var(--radius-lg);
+  }
+
+  .stat-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary);
+    border-radius: var(--radius-full);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .stat-number {
+    font-size: var(--font-2xl);
+    font-weight: var(--font-bold);
+    color: var(--text-primary);
+  }
+
+  .stat-label {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .featured-certifications {
+      grid-template-columns: 1fr;
+    }
+
+    .cert-meta {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+
+    .cert-actions {
+      flex-direction: column;
+    }
+
+    .cert-link {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cert-item-header {
+      flex-wrap: wrap;
+    }
+  }
+</style>

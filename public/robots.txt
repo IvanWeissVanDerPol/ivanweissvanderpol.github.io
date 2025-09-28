@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://ivanweissvanderpol.github.io/sitemap.xml
+
+# Block development directories
+Disallow: /src/
+Disallow: /.github/
+Disallow: /node_modules/
+Disallow: /.astro/
+
+# Allow search engines to access CSS and JS
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /_astro/
+
+# Crawl delay (optional, in seconds)
+# Crawl-delay: 1

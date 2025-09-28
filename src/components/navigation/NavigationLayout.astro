@@ -1,0 +1,207 @@
+---
+// Main Navigation Layout that combines all navigation components
+import NavLogo from './NavLogo.astro';
+import NavLinks from './NavLinks.astro';
+import NavBar from './NavBar.astro';
+import MobileMenu from './MobileMenu.astro';
+import { navigationData } from '../../data/index.js';
+
+export interface Props {
+  fixed?: boolean;
+  transparent?: boolean;
+}
+
+const {
+  fixed = true,
+  transparent = false
+} = Astro.props;
+
+const links = navigationData?.mainMenu || [];
+---
+
+<header>
+  <nav
+    class:list={[
+      'main-navigation',
+      { 'navigation-fixed': fixed },
+      { 'navigation-transparent': transparent }
+    ]}
+    data-main-navigation
+    role="navigation"
+    aria-label="Main navigation"
+  >
+    <div class="nav-container">
+      <!-- Logo/Brand -->
+      <NavLogo />
+
+      <!-- Desktop Navigation Links -->
+      <NavLinks links={links} />
+
+      <!-- Controls Section (Theme, Language) -->
+      <div class="nav-controls-wrapper">
+        <NavBar />
+        <!-- Mobile Menu is part of controls on mobile -->
+        <MobileMenu links={links} />
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+  }
+
+  .main-navigation {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .main-navigation.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(30px);
+    box-shadow: var(--shadow-lg);
+    border-bottom-color: var(--border-primary);
+  }
+
+  .navigation-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  .navigation-transparent {
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .navigation-transparent.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(30px);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .nav-controls-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .nav-container {
+      padding: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav-container {
+      padding: 0.75rem;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    header {
+      display: none;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .main-navigation {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Handle scroll effects for navigation
+  document.addEventListener('DOMContentLoaded', () => {
+    const nav = document.querySelector('.main-navigation') as HTMLElement;
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    const updateNavigation = () => {
+      const scrollY = window.scrollY;
+
+      // Add scrolled class when scrolling down
+      if (scrollY > 50) {
+        nav?.classList.add('scrolled');
+      } else {
+        nav?.classList.remove('scrolled');
+      }
+
+      lastScrollY = scrollY;
+      ticking = false;
+    };
+
+    const requestTick = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateNavigation);
+        ticking = true;
+      }
+    };
+
+    // Listen for scroll events
+    window.addEventListener('scroll', requestTick);
+
+    // Update active navigation links based on current section
+    const navLinks = document.querySelectorAll('[data-nav-link], [data-mobile-nav-link]');
+
+    const updateActiveLink = () => {
+      const currentSection = getCurrentSection();
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentSection) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    };
+
+    const getCurrentSection = () => {
+      const sections = document.querySelectorAll('section[id], article[id]');
+      let current = '#';
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          current = `#${section.id}`;
+        }
+      });
+
+      // If no section is in view, check if we're at the top
+      if (window.scrollY < 100) {
+        current = '#';
+      }
+
+      return current;
+    };
+
+    // Update active link on scroll
+    window.addEventListener('scroll', updateActiveLink);
+    updateActiveLink();
+
+    // Initial update
+    updateNavigation();
+  });
+</script>

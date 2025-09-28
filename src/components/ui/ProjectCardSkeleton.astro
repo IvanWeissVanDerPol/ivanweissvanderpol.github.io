@@ -1,0 +1,105 @@
+---
+// Skeleton loader for project cards
+import Skeleton from './Skeleton.astro';
+
+export interface Props {
+  count?: number;
+  className?: string;
+}
+
+const { count = 3, className = '' } = Astro.props;
+---
+
+<div class={`project-skeletons ${className}`}>
+  {Array.from({ length: count }, (_, i) => (
+    <div key={i} class="project-card-skeleton">
+      <!-- Image skeleton -->
+      <div class="project-image-skeleton">
+        <Skeleton variant="rectangular" width="100%" height="200px" />
+      </div>
+
+      <!-- Content skeleton -->
+      <div class="project-content-skeleton">
+        <!-- Title -->
+        <Skeleton variant="text" width="80%" height="24px" />
+
+        <!-- Description lines -->
+        <div class="project-description-skeleton">
+          <Skeleton variant="text" width="100%" lines={2} />
+          <Skeleton variant="text" width="60%" />
+        </div>
+
+        <!-- Tags skeleton -->
+        <div class="project-tags-skeleton">
+          <Skeleton variant="rounded" width="60px" height="24px" />
+          <Skeleton variant="rounded" width="80px" height="24px" />
+          <Skeleton variant="rounded" width="70px" height="24px" />
+        </div>
+
+        <!-- Links skeleton -->
+        <div class="project-links-skeleton">
+          <Skeleton variant="rounded" width="100px" height="36px" />
+          <Skeleton variant="rounded" width="100px" height="36px" />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .project-skeletons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .project-card-skeleton {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .project-image-skeleton {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .project-content-skeleton {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .project-description-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .project-tags-skeleton {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .project-links-skeleton {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-sm);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .project-skeletons {
+      grid-template-columns: 1fr;
+      gap: var(--space-lg);
+    }
+
+    .project-content-skeleton {
+      padding: var(--space-md);
+    }
+  }
+</style>

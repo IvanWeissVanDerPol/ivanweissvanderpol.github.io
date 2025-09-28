@@ -1,0 +1,529 @@
+---
+import { contactData, socialLinks } from '../../data/index.js';
+---
+
+<section id="contact" class="content-section">
+  <h2>Get In Touch</h2>
+  <p class="section-subtitle">Let's discuss opportunities and collaborate on exciting projects</p>
+
+  <div class="contact-container">
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+
+      <div class="info-cards">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="info-content">
+            <h4>Email</h4>
+            <a href={`mailto:${contactData.email}`}>{contactData.email}</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="info-content">
+            <h4>Phone</h4>
+            <a href={`tel:${contactData.phone}`}>{contactData.phone}</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-map-marker-alt"></i>
+          </div>
+          <div class="info-content">
+            <h4>Location</h4>
+            <span>{contactData.location}</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="info-content">
+            <h4>Availability</h4>
+            <span>{contactData.availability || 'Open to opportunities'}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links">
+        <h4>Connect With Me</h4>
+        <div class="social-buttons">
+          {socialLinks?.profiles?.map(profile => (
+            <a
+              href={profile.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-button"
+              aria-label={`Visit ${profile.platform} profile`}
+            >
+              <i class={profile.icon}></i>
+              <span>{profile.platform}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Form -->
+    <div class="contact-form-container">
+      <h3>Send Me a Message</h3>
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="Your Name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="your.email@example.com"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input
+            type="text"
+            id="subject"
+            name="subject"
+            required
+            placeholder="What would you like to discuss?"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            required
+            placeholder="Your message..."
+          ></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-paper-plane"></i>
+            Send Message
+          </button>
+          <button type="reset" class="btn-secondary">
+            <i class="fas fa-redo"></i>
+            Clear Form
+          </button>
+        </div>
+
+        <div class="form-status" id="form-status"></div>
+      </form>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="contact-cta">
+      <h3>Let's Work Together</h3>
+      <p>I'm always interested in hearing about new opportunities and exciting projects. Whether you have a question, a business proposal, or just want to say hello, feel free to reach out!</p>
+      <div class="cta-buttons">
+        <a href={`mailto:${contactData.email}`} class="cta-button primary">
+          <i class="fas fa-envelope"></i>
+          Email Me Directly
+        </a>
+        <a href="/documents/resume.pdf" class="cta-button secondary" download>
+          <i class="fas fa-download"></i>
+          Download Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3xl);
+    line-height: 1.8;
+  }
+
+  .contact-container {
+    display: grid;
+    gap: var(--space-3xl);
+  }
+
+  /* Contact Information */
+  .contact-info {
+    background: var(--bg-secondary-alpha);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+  }
+
+  .contact-info h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+  }
+
+  .info-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .info-card {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+  }
+
+  .info-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary-alpha);
+  }
+
+  .info-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-alpha), transparent);
+    border-radius: var(--radius-full);
+    font-size: 1.25rem;
+    color: var(--color-primary);
+  }
+
+  .info-content h4 {
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .info-content a,
+  .info-content span {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+
+  .info-content a:hover {
+    color: var(--color-primary);
+  }
+
+  /* Social Links */
+  .social-links h4 {
+    margin: 0 0 var(--space-md) 0;
+    color: var(--text-primary);
+  }
+
+  .social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+  }
+
+  .social-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .social-button:hover {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  /* Contact Form */
+  .contact-form-container {
+    background: var(--bg-secondary-alpha);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+  }
+
+  .contact-form-container h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-lg);
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--text-primary);
+    font-size: var(--font-sm);
+    font-weight: var(--font-medium);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: var(--font-md);
+    transition: all var(--transition-fast);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.6;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--bg-primary);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border: none;
+    border-radius: var(--radius-md);
+    font-size: var(--font-md);
+    font-weight: var(--font-medium);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-primary-alpha);
+  }
+
+  .btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-secondary-alpha);
+    border-color: var(--color-primary);
+  }
+
+  .form-status {
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+    border-radius: var(--radius-md);
+    display: none;
+  }
+
+  .form-status.success {
+    display: block;
+    background: var(--color-success-alpha);
+    border: 1px solid var(--color-success);
+    color: var(--color-success);
+  }
+
+  .form-status.error {
+    display: block;
+    background: var(--color-error-alpha);
+    border: 1px solid var(--color-error);
+    color: var(--color-error);
+  }
+
+  /* Call to Action */
+  .contact-cta {
+    text-align: center;
+    padding: var(--space-3xl);
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-secondary-alpha));
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-primary);
+  }
+
+  .contact-cta h3 {
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+    font-size: var(--font-2xl);
+  }
+
+  .contact-cta p {
+    margin-bottom: var(--space-xl);
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: var(--font-medium);
+    transition: all var(--transition-normal);
+  }
+
+  .cta-button.primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+  }
+
+  .cta-button.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-primary-alpha);
+  }
+
+  .cta-button.secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .cta-button.secondary:hover {
+    background: var(--bg-secondary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .info-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .cta-button {
+      width: 100%;
+      max-width: 300px;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  // Contact form handling
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const status = document.getElementById('form-status');
+
+    if (form && status) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+
+        // Show sending status
+        status.textContent = 'Sending message...';
+        status.className = 'form-status';
+
+        // Simulate form submission (replace with actual API call)
+        try {
+          // Here you would normally send the data to your backend
+          await new Promise(resolve => setTimeout(resolve, 1000));
+
+          // Show success message
+          status.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+          status.className = 'form-status success';
+
+          // Reset form
+          form.reset();
+        } catch (error) {
+          // Show error message
+          status.textContent = 'There was an error sending your message. Please try again.';
+          status.className = 'form-status error';
+        }
+      });
+    }
+  });
+</script>

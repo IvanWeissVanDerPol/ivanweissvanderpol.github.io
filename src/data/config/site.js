@@ -21,7 +21,7 @@ export const siteConfig = {
   ],
   
   // Open Graph / Social Media
-  ogImage: "/images/ProfilePicIvan.jpg",
+  ogImage: "/images/programmer.jpg",
   twitterCard: "summary_large_image",
   
   // Technical settings

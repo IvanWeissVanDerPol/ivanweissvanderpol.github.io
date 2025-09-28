@@ -1,0 +1,121 @@
+---
+// Hero statistics display component
+import { heroData } from '../../data/index.js';
+
+export interface Props {
+  stats?: {
+    efficiency?: string;
+    experience?: string;
+    projectsCompleted?: string;
+  };
+  showLabels?: boolean;
+}
+
+const {
+  stats = heroData.stats,
+  showLabels = true
+} = Astro.props;
+---
+
+{stats && (
+  <div class="value-props">
+    {stats.efficiency && (
+      <div class="value-prop">
+        <span class="prop-metric">{stats.efficiency}</span>
+        {showLabels && <span class="prop-label">Efficiency Increase</span>}
+      </div>
+    )}
+    {stats.experience && (
+      <div class="value-prop">
+        <span class="prop-metric">{stats.experience}</span>
+        {showLabels && <span class="prop-label">Years Experience</span>}
+      </div>
+    )}
+    {stats.projectsCompleted && (
+      <div class="value-prop">
+        <span class="prop-metric">{stats.projectsCompleted}</span>
+        {showLabels && <span class="prop-label">Projects Completed</span>}
+      </div>
+    )}
+  </div>
+)}
+
+<style>
+  /* Value Propositions */
+  .value-props {
+    display: flex;
+    gap: var(--space-2xl);
+    margin: var(--space-2xl) 0;
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--border-primary);
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .value-prop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    animation: fadeInScale 0.6s ease forwards;
+    animation-delay: 1.2s;
+  }
+
+  .value-prop:nth-child(2) {
+    animation-delay: 1.4s;
+  }
+
+  .value-prop:nth-child(3) {
+    animation-delay: 1.6s;
+  }
+
+  .prop-metric {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: var(--font-bold);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: var(--space-xs);
+  }
+
+  .prop-label {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* Animations */
+  @keyframes fadeInScale {
+    from {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .value-props {
+      flex-direction: column;
+      gap: var(--space-lg);
+      margin: var(--space-lg) 0;
+    }
+
+    .prop-metric {
+      font-size: 1.5rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .value-prop {
+      animation: none;
+      opacity: 1;
+    }
+  }
+</style>

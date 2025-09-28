@@ -1,23 +1,29 @@
 ---
-// Home page - comprehensive portfolio showcase
+// Home page - comprehensive portfolio showcase with optimized flow
 import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
-import Hero from '../components/Hero.astro';
-import Skills from '../components/Skills.astro';
+// Use the new refactored Navigation components
+import NavigationLayout from '../components/navigation/NavigationLayout.astro';
+// Keep original for backward compatibility
+// import Navigation from '../components/Navigation.astro';
+// Use the new refactored Hero components
+import HeroLayout from '../components/hero/HeroLayout.astro';
+// Keep original for backward compatibility
+// import Hero from '../components/Hero.astro';
+import SkillsCompact from '../components/SkillsCompact.astro';
 import Projects from '../components/Projects.astro';
 import Work from '../components/Work.astro';
 import Contact from '../components/Contact.astro';
 import { siteConfig } from '../data/index.js';
 ---
 
-<Layout 
+<Layout
   title={siteConfig.title}
   description={siteConfig.description}
 >
-  <Navigation />
-  <Hero />
-  <Skills />
+  <NavigationLayout />
+  <HeroLayout />
   <Projects />
+  <SkillsCompact />
   <Work />
   <Contact />
 </Layout>

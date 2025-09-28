@@ -1,0 +1,274 @@
+---
+// Mobile Menu component with hamburger toggle
+import { navigationData } from '../../data/index.js';
+import ThemeSelector from '../ui/ThemeSelector.astro';
+import LanguageSelector from '../ui/LanguageSelector.astro';
+
+export interface Props {
+  links?: Array<{
+    href: string;
+    label: string;
+  }>;
+}
+
+const { links = navigationData?.mainMenu || [] } = Astro.props;
+---
+
+<!-- Mobile Menu Toggle Button -->
+<button
+  class="mobile-toggle"
+  data-mobile-toggle
+  aria-label="Toggle mobile menu"
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <span class="toggle-line" aria-hidden="true"></span>
+  <span class="toggle-line" aria-hidden="true"></span>
+  <span class="toggle-line" aria-hidden="true"></span>
+</button>
+
+<!-- Mobile Navigation Menu -->
+<div
+  class="mobile-menu"
+  data-mobile-menu
+  id="mobile-menu"
+  role="menu"
+  aria-labelledby="mobile-toggle"
+  aria-hidden="true"
+>
+  <div class="mobile-menu-content">
+    <!-- Mobile Navigation Links -->
+    <div class="mobile-nav-links" role="group" aria-label="Mobile navigation links">
+      {links.map((item) => (
+        <a
+          href={item.href}
+          class="mobile-nav-link"
+          role="menuitem"
+          data-mobile-nav-link
+          aria-label={`Navigate to ${item.label}`}
+        >
+          {item.label}
+        </a>
+      ))}
+    </div>
+
+    <!-- Mobile Controls -->
+    <div class="mobile-controls">
+      <div class="mobile-control-section">
+        <h3 class="mobile-control-title">Theme</h3>
+        <ThemeSelector />
+      </div>
+
+      <div class="mobile-control-section">
+        <h3 class="mobile-control-title">Language</h3>
+        <LanguageSelector />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* Mobile toggle button */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    gap: 0.25rem;
+    transition: all var(--transition-fast, 0.15s ease);
+  }
+
+  .mobile-toggle:focus {
+    outline: var(--focus-ring, 2px solid var(--color-primary));
+    outline-offset: var(--focus-offset, 2px);
+    border-radius: 0.25rem;
+  }
+
+  .toggle-line {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--text-primary, #f8fafc);
+    transition: all var(--transition-fast, 0.15s ease);
+  }
+
+  .mobile-toggle.active .toggle-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .mobile-toggle.active .toggle-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle.active .toggle-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+  /* Mobile menu overlay */
+  .mobile-menu {
+    position: fixed;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 100%);
+    background: var(--bg-card, rgba(17, 17, 17, 0.98));
+    backdrop-filter: blur(20px);
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-normal, 0.2s ease);
+    z-index: 999;
+  }
+
+  .mobile-menu.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-content {
+    padding: 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  /* Mobile navigation links */
+  .mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: 1rem;
+    color: var(--text-secondary, #cbd5e1);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.125rem;
+    border-radius: 0.5rem;
+    transition: all var(--transition-fast, 0.15s ease);
+  }
+
+  .mobile-nav-link:hover,
+  .mobile-nav-link:focus {
+    color: var(--text-primary, #f8fafc);
+    background: var(--bg-glass, rgba(0, 0, 0, 0.3));
+  }
+
+  .mobile-nav-link:focus {
+    outline: var(--focus-ring, 2px solid var(--color-primary));
+    outline-offset: var(--focus-offset, 2px);
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-primary, #3b82f6);
+    background: var(--bg-glass, rgba(59, 130, 246, 0.1));
+  }
+
+  /* Mobile controls section */
+  .mobile-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-light, rgba(255, 255, 255, 0.1));
+  }
+
+  .mobile-control-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mobile-control-title {
+    color: var(--text-muted, #94a3b8);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  /* Responsive - show mobile toggle on small screens */
+  @media (max-width: 768px) {
+    .mobile-toggle {
+      display: flex;
+    }
+  }
+
+  /* High contrast mode */
+  @media (prefers-contrast: high) {
+    .mobile-nav-link {
+      border: 1px solid transparent;
+    }
+
+    .mobile-nav-link:hover,
+    .mobile-nav-link:focus {
+      border-color: var(--color-primary, #3b82f6);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-toggle,
+    .toggle-line,
+    .mobile-menu,
+    .mobile-nav-link {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  // Mobile menu toggle functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggle = document.querySelector('.mobile-toggle') as HTMLButtonElement;
+    const mobileMenu = document.querySelector('.mobile-menu') as HTMLDivElement;
+    const body = document.body;
+
+    toggle?.addEventListener('click', () => {
+      const isOpen = mobileMenu?.classList.contains('active');
+
+      if (isOpen) {
+        mobileMenu?.classList.remove('active');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      } else {
+        mobileMenu?.classList.add('active');
+        toggle?.classList.add('active');
+        toggle?.setAttribute('aria-expanded', 'true');
+        body.style.overflow = 'hidden';
+      }
+    });
+
+    // Close menu when clicking on links
+    const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu?.classList.remove('active');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      });
+    });
+
+    // Close menu on escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && mobileMenu?.classList.contains('active')) {
+        mobileMenu?.classList.remove('active');
+        toggle?.classList.remove('active');
+        toggle?.setAttribute('aria-expanded', 'false');
+        body.style.overflow = '';
+      }
+    });
+  });
+</script>

@@ -1,0 +1,264 @@
+---
+// Main Hero layout component that combines all hero sections
+import HeroBackground from './HeroBackground.astro';
+import HeroContent from './HeroContent.astro';
+import HeroStats from './HeroStats.astro';
+import HeroCTA from './HeroCTA.astro';
+
+export interface Props {
+  showBackground?: boolean;
+  showStats?: boolean;
+  showCTA?: boolean;
+  showImage?: boolean;
+}
+
+const {
+  showBackground = true,
+  showStats = true,
+  showCTA = true,
+  showImage = false
+} = Astro.props;
+---
+
+<article class="hero-section">
+  <div class="hero-container">
+    <!-- Background Elements -->
+    {showBackground && <HeroBackground />}
+
+    <!-- Main Hero Content -->
+    <div class="hero-main">
+      <div class="hero-content-wrapper">
+        <!-- Content -->
+        <HeroContent />
+
+        <!-- Stats -->
+        {showStats && <HeroStats />}
+
+        <!-- Call to Action -->
+        {showCTA && <HeroCTA />}
+      </div>
+
+      <!-- Professional Image (optional) -->
+      {showImage && (
+        <div class="hero-image">
+          <div class="image-container">
+            <img src="/images/profile.jpg" alt="Professional profile" loading="eager" />
+            <div class="image-overlay"></div>
+          </div>
+        </div>
+      )}
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="mouse">
+        <div class="wheel"></div>
+      </div>
+      <div class="arrow">
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  /* Hero Section */
+  .hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: var(--bg-primary);
+  }
+
+  .hero-container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: var(--space-2xl);
+    position: relative;
+  }
+
+  /* Main Content Area */
+  .hero-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-content-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Professional Image (if used) */
+  .hero-image {
+    display: none; /* Hidden by default */
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 3/4;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px var(--shadow-lg);
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, var(--bg-primary-alpha) 0%, transparent 50%);
+  }
+
+  /* Scroll Indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: var(--space-2xl);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    opacity: 0.6;
+    animation: bounce 2s infinite;
+  }
+
+  .mouse {
+    width: 26px;
+    height: 40px;
+    border: 2px solid var(--color-primary);
+    border-radius: 13px;
+    position: relative;
+  }
+
+  .wheel {
+    width: 4px;
+    height: 8px;
+    background: var(--color-primary);
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scroll 2s infinite;
+  }
+
+  .arrow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .arrow span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid var(--color-primary);
+    border-right: 2px solid var(--color-primary);
+    transform: rotate(45deg);
+    margin: -5px;
+    animation: arrow 2s infinite;
+  }
+
+  .arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+  }
+
+  /* Animations */
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateX(-50%) translateY(0);
+    }
+    40% {
+      transform: translateX(-50%) translateY(-10px);
+    }
+    60% {
+      transform: translateX(-50%) translateY(-5px);
+    }
+  }
+
+  @keyframes scroll {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+  }
+
+  @keyframes arrow {
+    0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-5px, -5px);
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+  }
+
+  /* Responsive with image */
+  @media (min-width: 1024px) {
+    .hero-main {
+      grid-template-columns: 1fr auto;
+    }
+
+    .hero-image {
+      display: block;
+    }
+  }
+
+  /* Tablet */
+  @media (max-width: 768px) {
+    .hero-container {
+      padding: var(--space-xl);
+    }
+
+    .scroll-indicator {
+      bottom: var(--space-lg);
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 480px) {
+    .hero-section {
+      min-height: 100vh;
+      min-height: 100dvh; /* Dynamic viewport height */
+    }
+
+    .hero-container {
+      padding: var(--space-lg);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-indicator,
+    .wheel,
+    .arrow span {
+      animation: none;
+    }
+
+    .scroll-indicator {
+      opacity: 1;
+    }
+  }
+</style>

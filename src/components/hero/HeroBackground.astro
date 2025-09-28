@@ -1,0 +1,117 @@
+---
+// Hero background component with animated elements
+export interface Props {
+  showParticles?: boolean;
+  showMesh?: boolean;
+}
+
+const {
+  showParticles = true,
+  showMesh = true
+} = Astro.props;
+---
+
+<div class="hero-background">
+  {showMesh && <div class="hero-mesh"></div>}
+  {showParticles && <div class="hero-particles"></div>}
+</div>
+
+<style>
+  /* Background Elements */
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    z-index: 0;
+  }
+
+  /* Animated Mesh Gradient */
+  .hero-mesh {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 50%, var(--color-primary-alpha) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, var(--color-secondary-alpha) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, var(--color-accent-alpha) 0%, transparent 50%);
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: meshAnimation 20s ease-in-out infinite;
+  }
+
+  @keyframes meshAnimation {
+    0%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    33% {
+      transform: rotate(120deg) scale(1.1);
+    }
+    66% {
+      transform: rotate(240deg) scale(0.95);
+    }
+  }
+
+  /* Particle System */
+  .hero-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .hero-particles::before,
+  .hero-particles::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    box-shadow:
+      20px 50px 0 var(--color-primary),
+      100px 150px 0 var(--color-secondary),
+      300px 100px 0 var(--color-accent),
+      450px 250px 0 var(--color-primary),
+      600px 180px 0 var(--color-secondary),
+      750px 320px 0 var(--color-accent),
+      900px 80px 0 var(--color-primary),
+      1050px 200px 0 var(--color-secondary),
+      200px 350px 0 var(--color-accent),
+      350px 400px 0 var(--color-primary);
+    animation: particleFloat 30s linear infinite;
+  }
+
+  .hero-particles::after {
+    animation-delay: -15s;
+    animation-direction: reverse;
+  }
+
+  @keyframes particleFloat {
+    from {
+      transform: translateY(100vh) rotate(0deg);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-mesh {
+      filter: blur(80px);
+    }
+
+    .hero-particles {
+      opacity: 0.5;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mesh,
+    .hero-particles::before,
+    .hero-particles::after {
+      animation: none;
+    }
+  }
+</style>

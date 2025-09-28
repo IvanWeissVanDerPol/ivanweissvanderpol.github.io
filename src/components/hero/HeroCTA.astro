@@ -1,0 +1,215 @@
+---
+// Hero call-to-action buttons component
+export interface Props {
+  primaryText?: string;
+  primaryLink?: string;
+  secondaryText?: string;
+  secondaryLink?: string;
+  showContactCTA?: boolean;
+}
+
+const {
+  primaryText = "View My Projects",
+  primaryLink = "#projects",
+  secondaryText = "Download Resume",
+  secondaryLink = "/resume.pdf",
+  showContactCTA = true
+} = Astro.props;
+---
+
+<div class="hero-actions">
+  <div class="primary-cta">
+    <a href={primaryLink} class="btn btn-primary btn-large cta-primary">
+      <i class="fas fa-rocket"></i>
+      {primaryText}
+    </a>
+    <a href={secondaryLink} class="btn btn-secondary btn-large cta-secondary" download>
+      <i class="fas fa-download"></i>
+      {secondaryText}
+    </a>
+  </div>
+
+  {showContactCTA && (
+    <div class="contact-cta">
+      <button class="btn btn-outline btn-large contact-modal-trigger">
+        <i class="fas fa-envelope"></i>
+        Let's Work Together
+      </button>
+    </div>
+  )}
+</div>
+
+<style>
+  /* Action Buttons */
+  .hero-actions {
+    margin-top: var(--space-2xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.8s;
+  }
+
+  .primary-cta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .contact-cta {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  /* Button Styles */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    border-radius: var(--radius-full);
+    font-weight: var(--font-semibold);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-large {
+    padding: var(--space-md) var(--space-2xl);
+    font-size: var(--font-md);
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    box-shadow: 0 4px 15px var(--color-primary-alpha);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px var(--color-primary-alpha);
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
+  }
+
+  .btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-color: var(--border-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-secondary-alpha);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+  }
+
+  .btn-outline:hover {
+    background: var(--color-primary-alpha);
+    transform: translateY(-2px);
+  }
+
+  /* Contact Modal Trigger */
+  .contact-modal-trigger {
+    position: relative;
+  }
+
+  .contact-modal-trigger::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: all var(--transition-normal);
+    transform: translateX(-50%);
+  }
+
+  .contact-modal-trigger:hover::after {
+    width: 100%;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .primary-cta {
+      flex-direction: column;
+    }
+
+    .btn {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .contact-cta {
+      width: 100%;
+    }
+
+    .contact-modal-trigger {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-actions {
+      animation: none;
+      opacity: 1;
+    }
+
+    .btn::before {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Contact modal trigger
+  document.addEventListener('DOMContentLoaded', () => {
+    const modalTriggers = document.querySelectorAll('.contact-modal-trigger');
+
+    modalTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        // Dispatch custom event for modal opening
+        const event = new CustomEvent('openContactModal');
+        document.dispatchEvent(event);
+      });
+    });
+  });
+</script>

@@ -1,0 +1,241 @@
+/* =====================================================
+   HERO SECTION FIXES
+   Professional, Balanced, Readable
+   ===================================================== */
+
+/* ===== HERO NAME SIZE FIX ===== */
+.hero-title,
+.hero-title .name {
+  font-size: clamp(2rem, 4vw, 3rem) !important; /* Was way too large */
+  line-height: 1.2 !important;
+  margin-bottom: 0.5rem !important;
+}
+
+/* Remove the huge gradient text */
+.hero-title .gradient-text,
+.gradient-text {
+  background: none !important;
+  -webkit-text-fill-color: white !important;
+  color: white !important;
+  font-weight: 700;
+}
+
+/* Subtitle should be subtle */
+.hero-subtitle,
+.hero-tagline {
+  font-size: 1.25rem !important;
+  color: #0ea5e9 !important; /* Clean blue, not cyan */
+  font-weight: 500 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* ===== HERO DESCRIPTION FIX ===== */
+.hero-description {
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+  color: rgba(255, 255, 255, 0.8) !important;
+  max-width: 600px !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Make the tagline readable */
+.hero-section p {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+/* ===== HERO LAYOUT FIX ===== */
+.hero-section {
+  min-height: 80vh !important; /* Not full screen */
+  padding: 4rem 0 !important;
+  display: flex;
+  align-items: center;
+}
+
+.hero-main {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 4rem !important;
+  align-items: center !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding: 0 2rem !important;
+}
+
+.hero-content {
+  order: 1 !important;
+}
+
+.hero-image {
+  order: 2 !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+/* ===== HERO IMAGE FIX ===== */
+.hero-image img,
+.image-container img {
+  max-width: 400px !important;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 12px !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+}
+
+/* Hide the blue background box */
+.image-container::before,
+.hero-image::before {
+  display: none !important;
+}
+
+/* ===== HERO STATS FIX ===== */
+.hero-stats,
+.value-props {
+  display: flex !important;
+  gap: 2rem !important;
+  margin: 2rem 0 !important;
+}
+
+.stat-item,
+.value-prop {
+  background: rgba(255, 255, 255, 0.05) !important;
+  padding: 1rem !important;
+  border-radius: 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  flex: 1;
+  text-align: center;
+}
+
+.stat-value,
+.hero-stats strong {
+  font-size: 2rem !important;
+  color: #0ea5e9 !important;
+  font-weight: 700 !important;
+  display: block !important;
+  margin-bottom: 0.25rem !important;
+}
+
+.stat-label {
+  font-size: 0.875rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+/* ===== HERO META INFO FIX ===== */
+.hero-meta,
+.location-info {
+  display: flex !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  margin: 1rem 0 !important;
+  font-size: 0.9rem !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+/* Hide unnecessary time display */
+.local-time {
+  display: none !important;
+}
+
+/* ===== HERO CTA BUTTONS FIX ===== */
+.hero-actions {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+}
+
+.hero-actions .btn,
+.hero-actions .button {
+  padding: 0.75rem 2rem !important;
+  font-size: 1rem !important;
+  border-radius: 8px !important;
+}
+
+.btn-primary {
+  background: #0ea5e9 !important;
+  color: white !important;
+  border: none !important;
+}
+
+.btn-secondary {
+  background: transparent !important;
+  color: #0ea5e9 !important;
+  border: 2px solid #0ea5e9 !important;
+}
+
+/* ===== AVAILABILITY BADGE FIX ===== */
+.availability-badge,
+.status-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: #22c55e !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  border: 1px solid #22c55e !important;
+  font-size: 0.875rem !important;
+  margin-bottom: 1rem !important;
+}
+
+.availability-badge::before {
+  content: '●' !important;
+  color: #22c55e !important;
+  animation: pulse 2s infinite;
+}
+
+/* ===== SOCIAL LINKS FIX ===== */
+.hero-social,
+.social-links {
+  display: flex !important;
+  gap: 1rem !important;
+  margin-top: 1.5rem !important;
+}
+
+.hero-social a,
+.social-link {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  text-decoration: none !important;
+  transition: color 0.2s !important;
+}
+
+.hero-social a:hover {
+  color: #0ea5e9 !important;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .hero-main {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+
+  .hero-image {
+    display: none !important; /* Hide on mobile */
+  }
+
+  .hero-stats {
+    flex-direction: column !important;
+  }
+
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-actions {
+    flex-direction: column !important;
+  }
+
+  .hero-actions .btn {
+    width: 100% !important;
+  }
+}
+
+/* ===== ANIMATION CLEANUP ===== */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}

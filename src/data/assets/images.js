@@ -3,7 +3,7 @@ export const images = {
   // Hero section images
   hero: {
     main: {
-      src: "/images/ProfilePicIvan.jpg",
+      src: "/images/programmer.jpg",
       alt: "Ivan Weiss Van Der Pol",
       class: "image fit blackAndWhite"
     }

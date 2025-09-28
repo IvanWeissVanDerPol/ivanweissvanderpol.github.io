@@ -28,12 +28,29 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
         <h1 class="hero-title">
           <span class="greeting">{heroData.greeting}</span>
           <span class="name gradient-text">{heroData.name}</span>
-          <span class="role-text">{heroData.subtitle}</span>
+          <span class="role-text">{heroData.role}</span>
+          <span class="subtitle-text">{heroData.subtitle}</span>
         </h1>
 
         <!-- Description -->
         <div class="hero-description">
-          <p class="description-main" set:html={description}></p>
+          <p class="description-main">{heroData.fullDescription}</p>
+
+          <!-- Key value propositions -->
+          <div class="value-props">
+            <div class="value-prop">
+              <span class="prop-metric">{heroData.stats?.efficiency}</span>
+              <span class="prop-label">Efficiency Increase</span>
+            </div>
+            <div class="value-prop">
+              <span class="prop-metric">{heroData.stats?.experience}</span>
+              <span class="prop-label">Years Experience</span>
+            </div>
+            <div class="value-prop">
+              <span class="prop-metric">{heroData.stats?.projectsCompleted}</span>
+              <span class="prop-label">Projects Completed</span>
+            </div>
+          </div>
           
           <!-- Social Links -->
           <div class="hero-social">
@@ -58,122 +75,60 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
           </div>
         </div>
 
-        <!-- Action Buttons - Unified -->
+        <!-- Action Buttons - Professional CTAs -->
         <div class="hero-actions">
           <div class="primary-cta">
-            <Button variant="primary" size="large" href="/projects">
-              <span class="btn-icon">🚀</span>
-              View My Work
+            <Button variant="primary" size="large" href="#projects" class="cta-primary">
+              <i class="fas fa-rocket"></i>
+              View My Projects
             </Button>
-            <span class="cta-divider">or</span>
-            <button class="btn btn-secondary btn-large contact-modal-trigger">
-              <span class="btn-icon">💼</span>
-              Get In Touch
-            </button>
+            <Button variant="secondary" size="large" href="/resume.pdf" class="cta-secondary" download>
+              <i class="fas fa-download"></i>
+              Download Resume
+            </Button>
           </div>
-          
-          <div class="quick-links">
-            <span class="quick-links-intro">Quick Links:</span>
-            <div class="quick-link-group">
-              <a href="#work" class="quick-link">
-                <i class="fas fa-briefcase"></i>
-                Experience
-              </a>
-              <a href="#skills" class="quick-link">
-                <i class="fas fa-code"></i>
-                Skills
-              </a>
-              <a href="#projects" class="quick-link">
-                <i class="fas fa-folder-open"></i>
-                Projects
-              </a>
-            </div>
+
+          <div class="contact-cta">
+            <button class="btn btn-outline btn-large contact-modal-trigger">
+              <i class="fas fa-envelope"></i>
+              Let's Work Together
+            </button>
           </div>
         </div>
       </div>
 
-      <!-- Stats Cards - Now prioritized -->
-      <div class="hero-stats">
-        <div class="stats-cards">
-          <div class="stat-card">
-            <span class="stat-number">Software</span>
-            <span class="stat-label">Development</span>
-          </div>
-          <div class="stat-card">
-            <span class="stat-number">Data</span>
-            <span class="stat-label">Engineering</span>
-          </div>
-          <div class="stat-card time-card">
-            <div class="hero-time-display" id="heroParaguayTime">
-              <span class="time-stat">--:--</span>
-              <span class="time-label">Paraguay</span>
+      <!-- Professional Image -->
+      <div class="hero-image">
+        <div class="image-container">
+          <img
+            src={heroData.image.src}
+            alt={heroData.image.alt}
+            class="profile-image"
+            loading="eager"
+          />
+          <div class="image-overlay">
+            <div class="availability-indicator">
+              <span class="indicator-dot"></span>
+              <span class="indicator-text">Available for new projects</span>
             </div>
-          </div>
-          <div class="stat-card remote-card">
-            <span class="stat-number">🌍</span>
-            <span class="stat-label">Remote Ready</span>
           </div>
         </div>
-        
-        <!-- Collapsible Terminal Visual -->
-        <div class="terminal-container">
-          <button class="terminal-toggle" id="terminalToggle" aria-expanded="false" aria-controls="terminal-content">
-            <span class="toggle-icon">💻</span>
-            <span class="toggle-text">Show Code</span>
-          </button>
-          <div class="visual-card windows-terminal" id="terminal-content" aria-hidden="true">
-            <div class="card-header">
-              <div class="window-controls windows-style">
-                <span class="control minimize">−</span>
-                <span class="control maximize">□</span>
-                <span class="control close">×</span>
-              </div>
-              <span class="card-title">Command Prompt - C:\Users\Ivan</span>
-            </div>
-            <div class="card-content terminal-content">
-              <div class="terminal-prompt">
-                <span class="prompt-path">C:\Users\Ivan></span>
-                <span class="prompt-command">python personal_info.py</span>
-              </div>
-              <div class="code-block" id="terminal-code">
-                <div class="code-line">
-                  <span class="code-comment"># Personal Information System</span>
-                </div>
-                <div class="code-line">
-                  <span class="code-keyword">class</span> <span class="code-class">Developer</span>:
-                </div>
-                <div class="code-line indent">
-                  <span class="code-keyword">def</span> <span class="code-function">__init__</span>(self):
-                </div>
-                <div class="code-line indent2">
-                  <span class="code-property">self.name</span> = <span class="code-string">"Ivan Weiss Van Der Pol"</span>
-                </div>
-                <div class="code-line indent2">
-                  <span class="code-property">self.role</span> = <span class="code-string">"Technical Lead & QA Engineer"</span>
-                </div>
-                <div class="code-line indent2">
-                  <span class="code-property">self.languages</span> = [<span class="code-string">"Python"</span>, <span class="code-string">"Java"</span>, <span class="code-string">"JavaScript"</span>]
-                </div>
-                <div class="code-line indent2">
-                  <span class="code-property">self.specialties</span> = [<span class="code-string">"Data Engineering"</span>, <span class="code-string">"QA Automation"</span>]
-                </div>
-                <div class="code-line indent2">
-                  <span class="code-property">self.available</span> = <span class="code-boolean">True</span>
-                </div>
-                <div class="code-line">
-                <br>
-                </div>
-                <div class="code-line">
-                  <span class="code-comment"># Ready to build amazing projects! 🚀</span>
-                </div>
-                <div class="code-line">
-                  <span class="code-variable">ivan</span> = <span class="code-class">Developer</span>()
-                </div>
-                <div class="code-line">
-                  <span class="code-builtin">print</span>(<span class="code-string">f"Hi! I'm {'{ivan.name}'}"</span>)
-                </div>
-              </div>
-              <div class="terminal-cursor" id="terminal-cursor"></div>
+
+        <!-- Professional credentials -->
+        <div class="credentials">
+          <div class="credential-item">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Computer Science Student at {heroData.university.name}</span>
+          </div>
+          <div class="credential-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{heroData.location}</span>
+          </div>
+          <div class="credential-item">
+            <i class="fas fa-clock"></i>
+            <div class="time-display" id="heroParaguayTime">
+              <span class="time-stat">--:--</span>
+              <span class="time-label">Local Time</span>
             </div>
           </div>
         </div>
@@ -186,7 +141,194 @@ const description = `${heroData.rolePrefix} <strong>${heroData.role}</strong>${h
 
 <style>
   @import '../styles/sections/hero.css';
-  
+
+  /* Enhanced Hero Styles */
+  .hero-section {
+    background: var(--gradient-dark);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .hero-title .subtitle-text {
+    display: block;
+    font-size: var(--text-lg);
+    font-weight: var(--font-medium);
+    color: var(--neutral-400);
+    margin-top: var(--space-2);
+    line-height: var(--leading-relaxed);
+  }
+
+  .value-props {
+    display: flex;
+    gap: var(--space-6);
+    margin: var(--space-6) 0;
+    flex-wrap: wrap;
+  }
+
+  .value-prop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-width: 120px;
+  }
+
+  .prop-metric {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-bold);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+
+  .prop-label {
+    font-size: var(--text-sm);
+    color: var(--neutral-500);
+    font-weight: var(--font-medium);
+    margin-top: var(--space-1);
+  }
+
+  .hero-actions {
+    margin-top: var(--space-8);
+  }
+
+  .primary-cta {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+    flex-wrap: wrap;
+  }
+
+  .contact-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-6);
+  }
+
+  .image-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+    border: 3px solid var(--glass-light);
+    box-shadow: 0 20px 40px rgba(0, 212, 255, 0.1);
+  }
+
+  .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .image-container:hover .profile-image {
+    transform: scale(1.05);
+  }
+
+  .image-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+    padding: var(--space-4);
+  }
+
+  .availability-indicator {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    color: white;
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+  }
+
+  .indicator-dot {
+    width: 8px;
+    height: 8px;
+    background: #10b981;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .credentials {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    text-align: center;
+  }
+
+  .credential-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    color: var(--neutral-400);
+    font-size: var(--text-sm);
+  }
+
+  .credential-item i {
+    color: var(--accent-cyan);
+    width: 16px;
+  }
+
+  .time-display {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
+
+  .time-stat {
+    font-weight: var(--font-semibold);
+    color: var(--neutral-200);
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  @media (max-width: 768px) {
+    .value-props {
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .primary-cta {
+      flex-direction: column;
+    }
+
+    .image-container {
+      width: 250px;
+      height: 250px;
+    }
+
+    .credentials {
+      align-items: center;
+    }
+  }
+
   /* Enhanced Terminal Styles */
   .terminal-container {
     margin-top: var(--space-4);

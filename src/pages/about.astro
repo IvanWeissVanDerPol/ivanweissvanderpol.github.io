@@ -2,14 +2,17 @@
 // About Me page - unified single-page layout with side navigation
 import Layout from '../layouts/Layout.astro';
 import Navigation from '../components/Navigation.astro';
-import AboutUnified from '../components/AboutUnified.astro';
+// Using the new refactored modular components
+import AboutLayout from '../components/about/AboutLayout.astro';
+// Keep the original for backward compatibility
+// import AboutUnified from '../components/AboutUnified.astro';
 import { siteConfig } from '../data/index.js';
 ---
 
-<Layout 
+<Layout
   title={`About Me - ${siteConfig.title}`}
   description="Learn more about Ivan weiss van der pol - Data Engineer, Computer Science student, skills, projects, and professional experience"
 >
   <Navigation />
-  <AboutUnified />
+  <AboutLayout />
 </Layout> 

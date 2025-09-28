@@ -1,25 +1,33 @@
-// Hero section data (extracted from current Hero component)
+// Hero section data - optimized for professional portfolio
 export const heroData = {
   // Section configuration
   sectionId: "top",
   wrapperClass: "wrapper style4",
-  
-  // Text content - all text fragments
+
+  // Professional headline and value proposition
   greeting: "Hi, I'm",
   name: "Ivan Weiss Van Der Pol",
-  role: "Data Engineer | AI Enthusiast | Python Developer",
-  subtitle: "Technical Lead & Quality Engineering Expert",
-  
-  // Description text fragments
+  role: "Technical Lead & Data Engineer",
+  subtitle: "Delivering measurable results through innovative software solutions",
+
+  // Clear value proposition
   rolePrefix: "I'm a",
-  roleIntroduction: " with expertise in Python development, QA automation, and data engineering",
-  
-  // Complete description (alternative to fragments)
-  fullDescription: "I'm a Data Engineer and Technical Lead with expertise in Python development, QA automation, and data engineering. Currently leading Power Apps solutions at Stoic Finch while pursuing my Computer Science degree at FP-UNA.",
-  
-  // Additional professional info
-  tagline: "Building scalable solutions with AI and automation",
-  location: "Paraguay",
+  roleIntroduction: " specializing in Python development, data engineering, and quality assurance automation",
+
+  // Compelling elevator pitch
+  fullDescription: "Technical Lead with 6+ years of experience building scalable data solutions and leading cross-functional teams. I help organizations increase operational efficiency by 40%+ through strategic automation and data-driven insights.",
+
+  // Key selling points
+  tagline: "Transforming complex challenges into elegant, scalable solutions",
+  location: "Paraguay • Remote-First",
+
+  // Professional stats for credibility
+  stats: {
+    experience: "6+",
+    projectsCompleted: "25+",
+    efficiency: "40%",
+    teamSize: "8+"
+  },
   
   // University information
   university: {
@@ -29,9 +37,9 @@ export const heroData = {
   
   // Image configuration
   image: {
-    src: "/images/ProfilePicIvan.jpg",
+    src: "/images/programmer.jpg",
     alt: "Ivan Weiss Van Der Pol",
-    class: "image fit blackAndWhite"
+    class: "image fit"
   },
   
   // Layout classes

@@ -1,0 +1,391 @@
+---
+// Toast notification component
+export interface Props {
+  variant?: 'success' | 'error' | 'warning' | 'info';
+  title?: string;
+  description?: string;
+  duration?: number;
+  closable?: boolean;
+  position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' | 'top-center' | 'bottom-center';
+  id?: string;
+}
+
+const {
+  variant = 'info',
+  title,
+  description,
+  duration = 5000,
+  closable = true,
+  position = 'top-right',
+  id
+} = Astro.props;
+
+const icons = {
+  success: 'fas fa-check-circle',
+  error: 'fas fa-exclamation-circle',
+  warning: 'fas fa-exclamation-triangle',
+  info: 'fas fa-info-circle'
+};
+---
+
+<div
+  class:list={[
+    'toast',
+    `toast-${variant}`,
+    `toast-${position}`
+  ]}
+  role="alert"
+  aria-live="polite"
+  data-toast-id={id}
+  data-duration={duration}
+>
+  <div class="toast-content">
+    <div class="toast-icon" aria-hidden="true">
+      <i class={icons[variant]}></i>
+    </div>
+
+    <div class="toast-text">
+      {title && <div class="toast-title">{title}</div>}
+      {description && <div class="toast-description">{description}</div>}
+      <slot />
+    </div>
+
+    {closable && (
+      <button
+        class="toast-close"
+        aria-label="Close notification"
+        data-toast-close
+      >
+        <i class="fas fa-times"></i>
+      </button>
+    )}
+  </div>
+
+  <div class="toast-progress" aria-hidden="true"></div>
+</div>
+
+<style>
+  .toast {
+    position: fixed;
+    z-index: 9999;
+    max-width: 400px;
+    min-width: 300px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px);
+    opacity: 0;
+    transform: translateX(100%);
+    transition: all var(--transition-normal);
+    overflow: hidden;
+  }
+
+  .toast.toast-show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* Positions */
+  .toast-top-right {
+    top: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  .toast-top-left {
+    top: var(--space-lg);
+    left: var(--space-lg);
+    transform: translateX(-100%);
+  }
+
+  .toast-top-left.toast-show {
+    transform: translateX(0);
+  }
+
+  .toast-bottom-right {
+    bottom: var(--space-lg);
+    right: var(--space-lg);
+  }
+
+  .toast-bottom-left {
+    bottom: var(--space-lg);
+    left: var(--space-lg);
+    transform: translateX(-100%);
+  }
+
+  .toast-bottom-left.toast-show {
+    transform: translateX(0);
+  }
+
+  .toast-top-center {
+    top: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%) translateY(-100%);
+  }
+
+  .toast-top-center.toast-show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .toast-bottom-center {
+    bottom: var(--space-lg);
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+  }
+
+  .toast-bottom-center.toast-show {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .toast-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+  }
+
+  .toast-icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-md);
+  }
+
+  .toast-text {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .toast-title {
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-xs);
+    line-height: 1.4;
+  }
+
+  .toast-description {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .toast-close {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .toast-close:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .toast-close:focus {
+    outline: var(--focus-ring);
+    outline-offset: var(--focus-offset);
+  }
+
+  .toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: currentColor;
+    opacity: 0.3;
+    transform-origin: left;
+    animation: toast-progress var(--duration, 5000ms) linear forwards;
+  }
+
+  @keyframes toast-progress {
+    from {
+      transform: scaleX(1);
+    }
+    to {
+      transform: scaleX(0);
+    }
+  }
+
+  /* Variants */
+  .toast-success {
+    border-left: 4px solid var(--color-success);
+  }
+
+  .toast-success .toast-icon {
+    color: var(--color-success);
+  }
+
+  .toast-error {
+    border-left: 4px solid var(--color-error);
+  }
+
+  .toast-error .toast-icon {
+    color: var(--color-error);
+  }
+
+  .toast-warning {
+    border-left: 4px solid var(--color-warning);
+  }
+
+  .toast-warning .toast-icon {
+    color: var(--color-warning);
+  }
+
+  .toast-info {
+    border-left: 4px solid var(--color-info);
+  }
+
+  .toast-info .toast-icon {
+    color: var(--color-info);
+  }
+
+  /* Mobile responsive */
+  @media (max-width: 480px) {
+    .toast {
+      left: var(--space-sm) !important;
+      right: var(--space-sm) !important;
+      max-width: none;
+      min-width: auto;
+    }
+
+    .toast-top-center,
+    .toast-bottom-center {
+      transform: translateY(-100%);
+    }
+
+    .toast-top-center.toast-show,
+    .toast-bottom-center.toast-show {
+      transform: translateY(0);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .toast {
+      transition: opacity var(--transition-fast);
+    }
+
+    .toast-progress {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Toast functionality
+  class ToastManager {
+    constructor() {
+      this.toasts = new Map();
+      this.init();
+    }
+
+    init() {
+      // Handle close buttons
+      document.addEventListener('click', (e) => {
+        const closeBtn = e.target.closest('[data-toast-close]');
+        if (closeBtn) {
+          const toast = closeBtn.closest('[data-toast-id]');
+          if (toast) {
+            this.hideToast(toast);
+          }
+        }
+      });
+
+      // Auto-hide toasts based on duration
+      document.addEventListener('DOMContentLoaded', () => {
+        const toasts = document.querySelectorAll('[data-toast-id]');
+        toasts.forEach(toast => this.showToast(toast));
+      });
+    }
+
+    showToast(toastElement) {
+      const duration = parseInt(toastElement.dataset.duration) || 5000;
+
+      // Show toast
+      setTimeout(() => {
+        toastElement.classList.add('toast-show');
+      }, 100);
+
+      // Auto-hide after duration
+      if (duration > 0) {
+        setTimeout(() => {
+          this.hideToast(toastElement);
+        }, duration);
+      }
+    }
+
+    hideToast(toastElement) {
+      toastElement.classList.remove('toast-show');
+
+      // Remove from DOM after transition
+      setTimeout(() => {
+        toastElement.remove();
+      }, 300);
+    }
+
+    // Static method to create toasts programmatically
+    static show(options) {
+      const {
+        variant = 'info',
+        title,
+        description,
+        duration = 5000,
+        position = 'top-right'
+      } = options;
+
+      const toast = document.createElement('div');
+      toast.className = `toast toast-${variant} toast-${position}`;
+      toast.setAttribute('role', 'alert');
+      toast.setAttribute('aria-live', 'polite');
+      toast.setAttribute('data-duration', duration);
+
+      const icons = {
+        success: 'fas fa-check-circle',
+        error: 'fas fa-exclamation-circle',
+        warning: 'fas fa-exclamation-triangle',
+        info: 'fas fa-info-circle'
+      };
+
+      toast.innerHTML = `
+        <div class="toast-content">
+          <div class="toast-icon">
+            <i class="${icons[variant]}"></i>
+          </div>
+          <div class="toast-text">
+            ${title ? `<div class="toast-title">${title}</div>` : ''}
+            ${description ? `<div class="toast-description">${description}</div>` : ''}
+          </div>
+          <button class="toast-close" aria-label="Close notification" data-toast-close>
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="toast-progress"></div>
+      `;
+
+      document.body.appendChild(toast);
+
+      const manager = new ToastManager();
+      manager.showToast(toast);
+
+      return toast;
+    }
+  }
+
+  // Initialize toast manager
+  if (typeof window !== 'undefined') {
+    window.ToastManager = ToastManager;
+    new ToastManager();
+  }
+</script>

@@ -1,0 +1,212 @@
+---
+export interface Props {
+  sections?: Array<{
+    id: string;
+    label: string;
+  }>;
+}
+
+const defaultSections = [
+  { id: 'summary', label: 'Summary' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Technical Skills' },
+  { id: 'certifications', label: 'Certifications' },
+  { id: 'contact', label: 'Contact' }
+];
+
+const { sections = defaultSections } = Astro.props;
+---
+
+<aside class="about-nav">
+  <div class="nav-sticky">
+    <div class="nav-header">
+      <h3 class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="nav-index" role="button" tabindex="0">
+        Index
+        <span class="triangle-indicator" aria-hidden="true">▼</span>
+      </h3>
+    </div>
+    <nav class="nav-index" id="nav-index">
+      <ul>
+        {sections.map(section => (
+          <li>
+            <a href={`#${section.id}`} data-nav={section.id}>
+              {section.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</aside>
+
+<style>
+  /* Side Navigation */
+  .about-nav {
+    position: relative;
+    padding-top: var(--space-lg);
+  }
+
+  .nav-sticky {
+    position: sticky;
+    top: calc(80px + var(--space-lg));
+    background: transparent;
+    border: none;
+    border-radius: none;
+    padding: 0;
+    box-shadow: none;
+  }
+
+  .nav-header {
+    margin-bottom: var(--space-md);
+  }
+
+  .nav-sticky h3 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+    font-weight: var(--font-semibold);
+  }
+
+  .nav-toggle {
+    cursor: pointer;
+    transition: var(--transition-fast);
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-sm);
+  }
+
+  .nav-toggle:hover {
+    color: var(--color-primary);
+  }
+
+  .triangle-indicator {
+    font-size: 0.75rem;
+    transition: transform var(--transition-fast);
+    display: inline-block;
+  }
+
+  .nav-toggle[aria-expanded="true"] .triangle-indicator {
+    transform: rotate(180deg);
+  }
+
+  .nav-index {
+    opacity: 1;
+    max-height: 500px;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+  }
+
+  .nav-index.collapsed {
+    opacity: 0;
+    max-height: 0;
+  }
+
+  .nav-index ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-index li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .nav-index a {
+    display: block;
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-left: 2px solid transparent;
+    transition: all var(--transition-fast);
+    font-size: var(--font-sm);
+  }
+
+  .nav-index a:hover {
+    color: var(--text-primary);
+    background: var(--bg-secondary-alpha);
+    border-left-color: var(--color-primary);
+  }
+
+  .nav-index a.active {
+    color: var(--color-primary);
+    background: var(--bg-secondary-alpha);
+    border-left-color: var(--color-primary);
+    font-weight: var(--font-medium);
+  }
+
+  /* Mobile adjustments */
+  @media (max-width: 768px) {
+    .about-nav {
+      display: none;
+    }
+  }
+
+  /* Medium screens */
+  @media (max-width: 1024px) {
+    .nav-sticky {
+      position: static;
+      margin-bottom: var(--space-2xl);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-primary);
+      border-radius: var(--radius-lg);
+      padding: var(--space-md);
+    }
+  }
+</style>
+
+<script>
+  // Toggle navigation collapse
+  document.addEventListener('DOMContentLoaded', () => {
+    const navToggle = document.querySelector('[data-nav-toggle]');
+    const navIndex = document.getElementById('nav-index');
+
+    if (navToggle && navIndex) {
+      navToggle.addEventListener('click', () => {
+        const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !isExpanded);
+        navIndex.classList.toggle('collapsed', isExpanded);
+      });
+    }
+
+    // Active section highlighting
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          document.querySelectorAll('[data-nav]').forEach(link => {
+            link.classList.toggle('active', link.getAttribute('data-nav') === id);
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe all sections
+    document.querySelectorAll('.content-section').forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+</script>

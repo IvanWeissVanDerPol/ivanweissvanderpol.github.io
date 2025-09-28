@@ -1,0 +1,70 @@
+---
+// Navigation Logo/Brand component
+export interface Props {
+  className?: string;
+  href?: string;
+}
+
+const { className = '', href = '/' } = Astro.props;
+---
+
+<div class={`nav-brand ${className}`}>
+  <a href={href} class="brand-link" aria-label="Ivan weiss van der pol - Home">
+    <span class="brand-text">Ivan</span>
+    <span class="brand-dot">.</span>
+    <span class="brand-domain">dev</span>
+  </a>
+</div>
+
+<style>
+  .nav-brand {
+    flex-shrink: 0;
+  }
+
+  .brand-link {
+    display: flex;
+    align-items: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-heading, #ffffff);
+    text-decoration: none;
+    transition: all var(--transition-fast, 0.15s ease);
+  }
+
+  .brand-link:hover {
+    color: var(--color-primary, #3b82f6);
+    transform: translateY(-1px);
+  }
+
+  .brand-link:focus {
+    outline: var(--focus-ring, 2px solid var(--color-primary));
+    outline-offset: var(--focus-offset, 2px);
+  }
+
+  .brand-text {
+    color: var(--text-heading, #ffffff);
+  }
+
+  .brand-dot {
+    color: var(--color-primary, #3b82f6);
+    margin: 0 2px;
+  }
+
+  .brand-domain {
+    color: var(--color-secondary, #8b5cf6);
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    .brand-link {
+      font-size: 1.125rem;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .brand-link {
+      transition: none;
+    }
+  }
+</style>

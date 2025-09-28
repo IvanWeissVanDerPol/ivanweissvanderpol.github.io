@@ -1,0 +1,41 @@
+---
+// Navigation Bar component with controls
+import ThemeSelector from '../ui/ThemeSelector.astro';
+import LanguageSelector from '../ui/LanguageSelector.astro';
+
+export interface Props {
+  showThemeSelector?: boolean;
+  showLanguageSelector?: boolean;
+  className?: string;
+}
+
+const {
+  showThemeSelector = true,
+  showLanguageSelector = true,
+  className = ''
+} = Astro.props;
+---
+
+<div class={`nav-controls ${className}`}>
+  <!-- Theme Selector -->
+  {showThemeSelector && <ThemeSelector />}
+
+  <!-- Language Selector -->
+  {showLanguageSelector && <LanguageSelector />}
+</div>
+
+<style>
+  .nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Hide theme and language selectors on mobile - they appear in mobile menu */
+  @media (max-width: 768px) {
+    .nav-controls > :global(:not(.mobile-toggle)) {
+      display: none;
+    }
+  }
+</style>

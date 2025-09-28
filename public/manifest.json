@@ -1,0 +1,52 @@
+{
+  "name": "Ivan Weiss Van Der Pol - Portfolio",
+  "short_name": "Ivan Portfolio",
+  "description": "Technical Lead & Data Engineer - Professional Portfolio showcasing projects and expertise",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000a14",
+  "theme_color": "#00d4ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/images/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": [
+    "portfolio",
+    "business",
+    "developer",
+    "productivity"
+  ],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "screenshots": [
+    {
+      "src": "/images/pic01.jpg",
+      "type": "image/jpeg",
+      "sizes": "1920x1080",
+      "label": "Homepage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "url": "/#projects",
+      "description": "View my projects"
+    },
+    {
+      "name": "Contact",
+      "url": "/#contact",
+      "description": "Get in touch"
+    }
+  ]
+}

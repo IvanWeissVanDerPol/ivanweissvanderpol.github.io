@@ -1,0 +1,503 @@
+---
+import { skillsData } from '../../data/index.js';
+
+export interface Props {
+  showAllSkills?: boolean;
+  maxCategories?: number;
+}
+
+const {
+  showAllSkills = true,
+  maxCategories = 8
+} = Astro.props;
+
+// Check if we have the newer skillsets structure or the older categories structure
+const skillCategories = skillsData.skillsets || skillsData.categories || [];
+const displaySkills = showAllSkills
+  ? skillCategories
+  : skillCategories.slice(0, maxCategories);
+---
+
+<section id="skills" class="content-section">
+  <h2>{skillsData.title}</h2>
+  <p class="section-subtitle">{skillsData.subtitle}</p>
+
+  <div class="skills-container">
+    <!-- Primary Skills with Proficiency -->
+    <div class="skills-proficiency">
+      {displaySkills.map((skillset, index) => (
+        <div class="skill-item" data-index={index}>
+          <div class="skill-header">
+            <div class="skill-icon" style={`background: linear-gradient(135deg, ${skillset.techColor}20, transparent);`}>
+              <i class={skillset.icon} style={`color: ${skillset.techColor};`}></i>
+            </div>
+            <div class="skill-info">
+              <h3>{skillset.name}</h3>
+              <div class="skill-meta">
+                <span class="experience">{skillset.yearsExperience}</span>
+                <span class="proficiency-badge" data-level={skillset.proficiencyLevel.toLowerCase()}>
+                  {skillset.proficiencyLevel}
+                </span>
+              </div>
+            </div>
+            <div class="skill-percentage">
+              <span class="percentage-value">{skillset.level}%</span>
+            </div>
+          </div>
+
+          <p class="skill-description">{skillset.description}</p>
+
+          <!-- Progress Bar -->
+          <div class="skill-progress">
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                style={`width: ${skillset.level}%; background: linear-gradient(90deg, ${skillset.techColor}, ${skillset.techColor}dd);`}
+                data-percentage={skillset.level}
+              >
+                <span class="progress-glow"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Technology Tags -->
+          {skillset.tags && (
+            <div class="skill-tags">
+              {skillset.tags.map(tag => (
+                <span class="tech-tag">{tag}</span>
+              ))}
+            </div>
+          )}
+
+          <!-- Hover Description (for desktop) -->
+          <div class="skill-hover-info">
+            <p>{skillset.hoverDescription}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Additional Skills Categories -->
+    <div class="skills-categories">
+      <h3>Additional Expertise</h3>
+      <div class="category-grid">
+        {skillsData.categories?.map(category => (
+          <div class="skill-category">
+            <h4>{category.name}</h4>
+            <div class="category-skills">
+              {category.skills.map(skill => (
+                <span class="skill-chip">
+                  {skill.icon && <i class={skill.icon}></i>}
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Tools & Technologies Grid -->
+    <div class="tools-grid">
+      <h3>Tools & Technologies</h3>
+      <div class="tools-container">
+        {skillsData.tools?.map(tool => (
+          <div class="tool-card">
+            <div class="tool-icon">
+              {tool.icon && <i class={tool.icon}></i>}
+            </div>
+            <span class="tool-name">{tool.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .section-subtitle {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3xl);
+    line-height: 1.8;
+  }
+
+  .skills-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3xl);
+  }
+
+  /* Primary Skills */
+  .skills-proficiency {
+    display: grid;
+    gap: var(--space-2xl);
+  }
+
+  .skill-item {
+    position: relative;
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-normal);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+
+  .skill-item[data-index="0"] { --index: 0; }
+  .skill-item[data-index="1"] { --index: 1; }
+  .skill-item[data-index="2"] { --index: 2; }
+  .skill-item[data-index="3"] { --index: 3; }
+  .skill-item[data-index="4"] { --index: 4; }
+  .skill-item[data-index="5"] { --index: 5; }
+
+  .skill-item:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-alpha);
+  }
+
+  .skill-item:hover .skill-hover-info {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .skill-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    font-size: 1.75rem;
+  }
+
+  .skill-info {
+    flex: 1;
+  }
+
+  .skill-info h3 {
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+  }
+
+  .skill-meta {
+    display: flex;
+    gap: var(--space-md);
+    align-items: center;
+  }
+
+  .experience {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  .proficiency-badge {
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+  }
+
+  .proficiency-badge[data-level="expert"] {
+    background: var(--color-success-alpha);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+
+  .proficiency-badge[data-level="advanced"] {
+    background: var(--color-primary-alpha);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+
+  .proficiency-badge[data-level="intermediate"] {
+    background: var(--color-warning-alpha);
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+  }
+
+  .skill-percentage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .percentage-value {
+    font-size: var(--font-2xl);
+    font-weight: var(--font-bold);
+    color: var(--color-primary);
+  }
+
+  .skill-description {
+    margin: 0 0 var(--space-lg) 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Progress Bar */
+  .skill-progress {
+    margin-bottom: var(--space-lg);
+  }
+
+  .progress-bar {
+    height: 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    position: relative;
+    transition: width 1s ease;
+    animation: progressAnimation 1.5s ease forwards;
+  }
+
+  @keyframes progressAnimation {
+    from {
+      width: 0 !important;
+    }
+  }
+
+  .progress-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    animation: progressGlow 2s infinite;
+  }
+
+  @keyframes progressGlow {
+    0% {
+      transform: translateX(-100px);
+    }
+    100% {
+      transform: translateX(100px);
+    }
+  }
+
+  /* Technology Tags */
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tech-tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+  }
+
+  .tech-tag:hover {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  /* Hover Info */
+  .skill-hover-info {
+    position: absolute;
+    top: 100%;
+    left: var(--space-xl);
+    right: var(--space-xl);
+    margin-top: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-primary);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
+    z-index: 10;
+  }
+
+  .skill-hover-info p {
+    margin: 0;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  /* Additional Categories */
+  .skills-categories {
+    padding: var(--space-2xl);
+    background: var(--bg-secondary-alpha);
+    border-radius: var(--radius-lg);
+  }
+
+  .skills-categories h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+  }
+
+  .category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .skill-category h4 {
+    margin: 0 0 var(--space-md) 0;
+    color: var(--color-primary);
+    font-size: var(--font-md);
+  }
+
+  .category-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .skill-chip {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  /* Tools Grid */
+  .tools-grid {
+    padding: var(--space-2xl);
+    background: linear-gradient(135deg, var(--bg-secondary), transparent);
+    border-radius: var(--radius-lg);
+  }
+
+  .tools-grid h3 {
+    margin-bottom: var(--space-xl);
+    color: var(--text-primary);
+  }
+
+  .tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .tool-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+  }
+
+  .tool-icon {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .tool-name {
+    font-size: var(--font-xs);
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .skill-header {
+      flex-wrap: wrap;
+    }
+
+    .skill-percentage {
+      width: 100%;
+      flex-direction: row;
+      justify-content: flex-end;
+    }
+
+    .skill-hover-info {
+      display: none;
+    }
+
+    .category-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tools-container {
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    }
+  }
+</style>
+
+<script>
+  // Animate progress bars when they come into view
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const progressFills = entry.target.querySelectorAll('.progress-fill');
+          progressFills.forEach(fill => {
+            const percentage = fill.getAttribute('data-percentage');
+            if (percentage) {
+              setTimeout(() => {
+                fill.style.width = percentage + '%';
+              }, 100);
+            }
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all skill items
+    document.querySelectorAll('.skill-item').forEach(item => {
+      observer.observe(item);
+    });
+  });
+</script>

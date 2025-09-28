@@ -1,15 +1,35 @@
 {
-  "name": "astro-migration",
+  "name": "ivan-portfolio",
   "type": "module",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "description": "Ivan Weiss Van Der Pol - Professional Portfolio",
+  "author": "Ivan Weiss Van Der Pol",
+  "license": "MIT",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx,.astro",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx,.astro --fix",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,astro,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,astro,json,css,md}\"",
+    "typecheck": "astro check && tsc --noEmit",
+    "clean": "rm -rf dist .astro node_modules/.cache",
+    "validate": "npm run typecheck && npm run lint && npm run format:check"
   },
   "dependencies": {
     "astro": "^5.12.3",
     "sal.js": "^0.8.5"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.19.0",
+    "@typescript-eslint/parser": "^6.19.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-astro": "^0.31.4",
+    "prettier": "^3.2.4",
+    "prettier-plugin-astro": "^0.13.0",
+    "typescript": "^5.3.3"
   }
 }

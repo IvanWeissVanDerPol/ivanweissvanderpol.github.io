@@ -1,0 +1,354 @@
+---
+// Hero content component with title, description, and social links
+import { heroData, socialLinks } from '../../data/index.js';
+
+export interface Props {
+  showStatusBadge?: boolean;
+  showSocialLinks?: boolean;
+}
+
+const {
+  showStatusBadge = true,
+  showSocialLinks = true
+} = Astro.props;
+---
+
+<div class="hero-content">
+  <!-- Status Badge -->
+  {showStatusBadge && (
+    <div class="status-badge">
+      <div class="status-dot"></div>
+      <span>Available for projects</span>
+    </div>
+  )}
+
+  <!-- Main Title -->
+  <h1 class="hero-title">
+    <span class="greeting">{heroData.greeting}</span>
+    <span class="name gradient-text">{heroData.name}</span>
+    <span class="role-text">{heroData.role}</span>
+    <span class="subtitle-text">{heroData.subtitle}</span>
+  </h1>
+
+  <!-- Description -->
+  <div class="hero-description">
+    <p class="description-main">{heroData.fullDescription}</p>
+
+    <!-- Social Links -->
+    {showSocialLinks && socialLinks?.primary && (
+      <div class="hero-social">
+        <span class="social-intro">Connect with me</span>
+        <div class="social-links">
+          <!-- Copy Email Button -->
+          <button id="copyEmailBtn" class="social-link-button email-copy-btn" aria-label="Copy email to clipboard">
+            <i class="fas fa-copy"></i>
+            <span class="link-text">weissvanderpol.ivan@gmail.com</span>
+          </button>
+
+          <!-- Social Media Links -->
+          <div class="social-platforms">
+            {socialLinks.primary.filter(link => link.icon !== 'fa-envelope').map(link => (
+              <a href={link.url} class="social-link-button" target="_blank" rel="noopener noreferrer">
+                <i class={`fab ${link.icon}`}></i>
+                <span class="link-text">{link.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .hero-content {
+    z-index: 10;
+    position: relative;
+    max-width: 800px;
+  }
+
+  /* Status Badge */
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--color-success);
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-xl);
+    font-size: var(--font-sm);
+    color: var(--color-success);
+    opacity: 0;
+    animation: fadeInDown 0.6s ease forwards;
+    animation-delay: 0.2s;
+  }
+
+  .status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-success);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 var(--color-success);
+    }
+    70% {
+      box-shadow: 0 0 0 8px transparent;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+    }
+  }
+
+  /* Title Styles */
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+    line-height: 1.2;
+  }
+
+  .hero-title span {
+    display: block;
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .greeting {
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    font-weight: var(--font-normal);
+    animation-delay: 0.4s;
+  }
+
+  .name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: var(--font-bold);
+    animation-delay: 0.6s;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .role-text {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--text-primary);
+    font-weight: var(--font-semibold);
+    animation-delay: 0.8s;
+  }
+
+  .subtitle-text {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    font-weight: var(--font-normal);
+    animation-delay: 1s;
+  }
+
+  /* Description */
+  .hero-description {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .description-main {
+    font-size: var(--font-lg);
+    line-height: 1.8;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-xl);
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 1.2s;
+  }
+
+  /* Social Links */
+  .hero-social {
+    padding: var(--space-lg) 0;
+    border-top: 1px solid var(--border-primary);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.4s;
+  }
+
+  .social-intro {
+    display: block;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-md);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .social-link-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-sm);
+    transition: all var(--transition-fast);
+    cursor: pointer;
+  }
+
+  .social-link-button:hover {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    transform: translateX(4px);
+  }
+
+  .email-copy-btn {
+    position: relative;
+  }
+
+  .email-copy-btn.copied {
+    background: var(--color-success-alpha);
+    border-color: var(--color-success);
+  }
+
+  .email-copy-btn.copied::after {
+    content: 'Copied!';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-success);
+    color: white;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    animation: fadeOutUp 2s ease forwards;
+  }
+
+  .social-platforms {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  .link-text {
+    font-weight: var(--font-medium);
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeOutUp {
+    0% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content {
+      text-align: center;
+    }
+
+    .status-badge {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-title {
+      align-items: center;
+    }
+
+    .social-links {
+      align-items: center;
+    }
+
+    .social-platforms {
+      justify-content: center;
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .status-badge,
+    .hero-title span,
+    .description-main,
+    .hero-social {
+      animation: none;
+      opacity: 1;
+    }
+
+    .status-dot {
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  // Email copy functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const copyBtn = document.getElementById('copyEmailBtn');
+
+    if (copyBtn) {
+      copyBtn.addEventListener('click', async () => {
+        const email = 'weissvanderpol.ivan@gmail.com';
+
+        try {
+          await navigator.clipboard.writeText(email);
+          copyBtn.classList.add('copied');
+
+          setTimeout(() => {
+            copyBtn.classList.remove('copied');
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy email:', err);
+        }
+      });
+    }
+  });
+</script>

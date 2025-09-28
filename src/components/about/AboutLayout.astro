@@ -1,0 +1,196 @@
+---
+// Main About page layout that combines all about sections
+import AboutNav from './AboutNav.astro';
+import AboutSummary from './AboutSummary.astro';
+import AboutExperience from './AboutExperience.astro';
+import AboutProjects from './AboutProjects.astro';
+import AboutSkills from './AboutSkills.astro';
+import AboutCertifications from './AboutCertifications.astro';
+import AboutContact from './AboutContact.astro';
+
+export interface Props {
+  showNavigation?: boolean;
+  sections?: string[];
+}
+
+const {
+  showNavigation = true,
+  sections = ['summary', 'experience', 'projects', 'skills', 'certifications', 'contact']
+} = Astro.props;
+---
+
+<div class="about-unified">
+  {showNavigation && <AboutNav />}
+
+  <!-- Main Content -->
+  <main class="about-content">
+    <header class="about-header">
+      <h1>About Me</h1>
+      <p class="about-subtitle">Data Engineer & Computer Science Student</p>
+    </header>
+
+    {sections.includes('summary') && <AboutSummary />}
+    {sections.includes('experience') && <AboutExperience />}
+    {sections.includes('projects') && <AboutProjects />}
+    {sections.includes('skills') && <AboutSkills />}
+    {sections.includes('certifications') && <AboutCertifications />}
+    {sections.includes('contact') && <AboutContact />}
+  </main>
+</div>
+
+<style>
+  .about-unified {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: var(--space-2xl);
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px var(--space-2xl) var(--space-2xl) var(--space-2xl);
+    min-height: 100vh;
+  }
+
+  .about-content {
+    overflow-x: hidden;
+  }
+
+  .about-header {
+    margin-bottom: var(--space-3xl);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .about-header h1 {
+    margin: 0 0 var(--space-sm) 0;
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: var(--font-bold);
+    background: linear-gradient(135deg, var(--text-primary), var(--color-primary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .about-subtitle {
+    margin: 0;
+    font-size: var(--font-lg);
+    color: var(--text-secondary);
+  }
+
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .content-section:last-child {
+    border-bottom: none;
+  }
+
+  /* Loading placeholders */
+  [data-section] {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  [data-section] .content-section {
+    width: 100%;
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .about-unified {
+      grid-template-columns: 1fr;
+      padding-top: 60px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-unified {
+      padding: 60px var(--space-lg) var(--space-lg) var(--space-lg);
+    }
+
+    .about-header h1 {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<script>
+  // Lazy load heavy sections
+  document.addEventListener('DOMContentLoaded', () => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '100px',
+      threshold: 0.1
+    };
+
+    const loadSection = async (sectionName: string, placeholder: Element) => {
+      try {
+        // Dynamic import based on section name
+        let module;
+        switch(sectionName) {
+          case 'skills':
+            // In production, this would dynamically import the component
+            // For now, we'll just update the placeholder
+            placeholder.innerHTML = `
+              <section id="skills" class="content-section">
+                <h2>Technical Skills</h2>
+                <p>Skills section would be loaded here</p>
+              </section>
+            `;
+            break;
+          case 'certifications':
+            placeholder.innerHTML = `
+              <section id="certifications" class="content-section">
+                <h2>Certifications</h2>
+                <p>Certifications section would be loaded here</p>
+              </section>
+            `;
+            break;
+          case 'contact':
+            placeholder.innerHTML = `
+              <section id="contact" class="content-section">
+                <h2>Contact</h2>
+                <p>Contact section would be loaded here</p>
+              </section>
+            `;
+            break;
+        }
+      } catch (error) {
+        console.error(`Failed to load section ${sectionName}:`, error);
+      }
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionName = entry.target.getAttribute('data-section');
+          if (sectionName) {
+            loadSection(sectionName, entry.target);
+            observer.unobserve(entry.target);
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observe all lazy-loaded sections
+    document.querySelectorAll('[data-section]').forEach(section => {
+      observer.observe(section);
+    });
+  });
+</script>

@@ -1,0 +1,151 @@
+---
+// Skeleton loader for work experience timeline
+import Skeleton from './Skeleton.astro';
+
+export interface Props {
+  count?: number;
+  className?: string;
+}
+
+const { count = 3, className = '' } = Astro.props;
+---
+
+<div class={`work-experience-skeletons ${className}`}>
+  {Array.from({ length: count }, (_, i) => (
+    <div key={i} class="work-item-skeleton">
+      <!-- Timeline dot -->
+      <div class="timeline-dot-skeleton">
+        <Skeleton variant="circular" width="16px" height="16px" />
+      </div>
+
+      <!-- Work content -->
+      <div class="work-content-skeleton">
+        <!-- Header -->
+        <div class="work-header-skeleton">
+          <div class="work-title-skeleton">
+            <Skeleton variant="text" width="200px" height="20px" />
+            <Skeleton variant="text" width="150px" height="16px" />
+          </div>
+          <Skeleton variant="text" width="100px" height="14px" />
+        </div>
+
+        <!-- Company info -->
+        <div class="work-company-skeleton">
+          <Skeleton variant="text" width="180px" height="16px" />
+          <Skeleton variant="text" width="120px" height="14px" />
+        </div>
+
+        <!-- Description -->
+        <div class="work-description-skeleton">
+          <Skeleton variant="text" width="100%" lines={2} />
+          <Skeleton variant="text" width="80%" />
+        </div>
+
+        <!-- Skills/tags -->
+        <div class="work-skills-skeleton">
+          <Skeleton variant="rounded" width="60px" height="20px" />
+          <Skeleton variant="rounded" width="80px" height="20px" />
+          <Skeleton variant="rounded" width="70px" height="20px" />
+          <Skeleton variant="rounded" width="90px" height="20px" />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+<style>
+  .work-experience-skeletons {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    position: relative;
+  }
+
+  .work-experience-skeletons::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-primary);
+  }
+
+  .work-item-skeleton {
+    display: flex;
+    gap: var(--space-lg);
+    position: relative;
+    padding-left: var(--space-sm);
+  }
+
+  .timeline-dot-skeleton {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-xs);
+  }
+
+  .work-content-skeleton {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--bg-card);
+    padding: var(--space-lg);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .work-header-skeleton {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+  }
+
+  .work-title-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+
+  .work-company-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .work-description-skeleton {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+  }
+
+  .work-skills-skeleton {
+    display: flex;
+    gap: var(--space-sm);
+    flex-wrap: wrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .work-experience-skeletons::before {
+      left: 4px;
+    }
+
+    .work-item-skeleton {
+      padding-left: 0;
+    }
+
+    .work-header-skeleton {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .work-content-skeleton {
+      padding: var(--space-md);
+    }
+  }
+</style>

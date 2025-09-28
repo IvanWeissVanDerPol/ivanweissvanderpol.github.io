@@ -1,0 +1,139 @@
+---
+// Skeleton loader component for loading states
+export interface Props {
+  variant?: 'text' | 'circular' | 'rectangular' | 'rounded';
+  width?: string | number;
+  height?: string | number;
+  lines?: number;
+  className?: string;
+  animate?: boolean;
+}
+
+const {
+  variant = 'text',
+  width,
+  height,
+  lines = 1,
+  className = '',
+  animate = true
+} = Astro.props;
+
+const getWidth = (w: string | number | undefined) => {
+  if (typeof w === 'number') return `${w}px`;
+  return w || (variant === 'text' ? '100%' : '40px');
+};
+
+const getHeight = (h: string | number | undefined) => {
+  if (typeof h === 'number') return `${h}px`;
+  return h || (variant === 'text' ? '1em' : '40px');
+};
+---
+
+<div
+  class:list={[
+    'skeleton',
+    `skeleton-${variant}`,
+    { 'skeleton-animate': animate },
+    className
+  ]}
+  style={`width: ${getWidth(width)}; height: ${getHeight(height)}`}
+  aria-hidden="true"
+>
+  {variant === 'text' && lines > 1 && (
+    Array.from({ length: lines - 1 }, (_, i) => (
+      <div key={i} class="skeleton-line" />
+    ))
+  )}
+</div>
+
+<style>
+  .skeleton {
+    background: var(--skeleton-bg, linear-gradient(90deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0.1) 100%
+    ));
+    background-size: 200% 100%;
+    border-radius: var(--radius-sm);
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skeleton-animate {
+    animation: skeleton-shimmer 1.5s ease-in-out infinite;
+  }
+
+  .skeleton-text {
+    border-radius: var(--radius-xs);
+    min-height: 1em;
+  }
+
+  .skeleton-circular {
+    border-radius: 50%;
+  }
+
+  .skeleton-rectangular {
+    border-radius: 0;
+  }
+
+  .skeleton-rounded {
+    border-radius: var(--radius-md);
+  }
+
+  .skeleton-line {
+    background: inherit;
+    border-radius: inherit;
+    height: 1em;
+    margin-top: 0.5em;
+    width: 100%;
+  }
+
+  .skeleton-line:last-child {
+    width: 80%;
+  }
+
+  @keyframes skeleton-shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Dark theme support */
+  [data-theme="dark"] .skeleton {
+    background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(255, 255, 255, 0.1) 50%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .skeleton-animate {
+      animation: none;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    [data-theme="dark"] .skeleton-animate {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+
+  /* High contrast */
+  @media (prefers-contrast: high) {
+    .skeleton {
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    [data-theme="dark"] .skeleton {
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+</style>

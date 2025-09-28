@@ -1,0 +1,15 @@
+---
+// Refactored AboutUnified component using the new modular architecture
+import AboutLayout from './about/AboutLayout.astro';
+
+// This component now simply delegates to the AboutLayout
+// The original AboutUnified.astro can be kept for backward compatibility
+// or gradually migrated
+---
+
+<AboutLayout />
+
+<style>
+  /* Any additional styles specific to this usage can go here */
+  /* Most styles are now in the individual components */
+</style>

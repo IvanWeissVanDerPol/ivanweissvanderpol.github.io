@@ -1,0 +1,344 @@
+---
+// Projects showcase for About page
+const projects = [
+  {
+    title: 'Data Engineering Pipeline',
+    category: 'Data Engineering',
+    status: 'in-progress',
+    icon: 'fas fa-database',
+    description: 'Comprehensive ETL pipeline for processing large-scale datasets using Python, Apache Spark, and modern data engineering practices.',
+    technologies: ['Python', 'Apache Spark', 'PostgreSQL', 'Docker'],
+    highlights: [
+      'Processes 10GB+ datasets efficiently',
+      'Automated data validation and cleansing',
+      'Real-time monitoring and alerting',
+      'Scalable containerized deployment'
+    ],
+    links: {
+      github: 'https://github.com/IvanWeissVanDerPol',
+      demo: '/projects'
+    }
+  },
+  {
+    title: 'QA Automation Framework',
+    category: 'QA Automation',
+    status: 'completed',
+    icon: 'fas fa-robot',
+    description: 'Comprehensive test automation framework using Selenium, Python, and CI/CD integration for web application testing.',
+    technologies: ['Python', 'Selenium', 'Jenkins', 'TestNG'],
+    highlights: [
+      '95% test automation coverage',
+      'Reduced testing time by 60%',
+      'Cross-browser compatibility testing',
+      'Automated CI/CD pipeline integration'
+    ],
+    links: {
+      github: 'https://github.com/IvanWeissVanDerPol'
+    }
+  },
+  {
+    title: 'Portfolio Website',
+    category: 'Web Development',
+    status: 'completed',
+    icon: 'fas fa-globe',
+    description: 'Modern, responsive portfolio website built with Astro, featuring dynamic theming and optimized performance.',
+    technologies: ['Astro', 'JavaScript', 'CSS', 'GitHub Actions'],
+    highlights: [
+      'Static site generation for performance',
+      'Responsive design with dark theme',
+      'SEO optimized with meta tags',
+      'Automated deployment via GitHub Pages'
+    ],
+    links: {
+      github: 'https://github.com/IvanWeissVanDerPol/ivanweissvanderpol.github.io',
+      demo: '/'
+    }
+  }
+];
+---
+
+<section id="projects" class="content-section">
+  <h2>Featured Projects</h2>
+  <div class="projects-overview">
+    <p class="projects-intro">Here are some of my key projects that demonstrate my technical skills and problem-solving approach:</p>
+
+    <div class="projects-grid">
+      {projects.map((project, index) => (
+        <div class={`project-card ${index === 0 ? 'featured' : ''}`}>
+          <div class="project-header">
+            <div class="project-icon">
+              <i class={project.icon}></i>
+            </div>
+            <div class="project-title">
+              <h3>{project.title}</h3>
+              <span class="project-category">{project.category}</span>
+            </div>
+            <span class={`project-status ${project.status}`}>
+              {project.status === 'in-progress' ? 'In Progress' : 'Completed'}
+            </span>
+          </div>
+
+          <p class="project-description">{project.description}</p>
+
+          <div class="project-technologies">
+            {project.technologies.map(tech => (
+              <span class="tech-tag">{tech}</span>
+            ))}
+          </div>
+
+          <div class="project-highlights">
+            <h4>{project.status === 'completed' ? 'Achievements:' : 'Key Features:'}</h4>
+            <ul>
+              {project.highlights.map(highlight => (
+                <li>{highlight}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="project-actions">
+            {project.links.github && (
+              <a href={project.links.github} class="project-link" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i> View Code
+              </a>
+            )}
+            {project.links.demo && (
+              <a href={project.links.demo} class="project-link">
+                <i class="fas fa-external-link-alt"></i> {project.links.demo === '/' ? 'Live Site' : 'Live Demo'}
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="projects-cta">
+      <p>Want to see more projects?</p>
+      <a href="/projects" class="cta-button">
+        <i class="fas fa-folder-open"></i>
+        View All Projects
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  .projects-intro {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-2xl);
+    line-height: 1.8;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+  }
+
+  .project-card {
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+  }
+
+  .project-card.featured {
+    grid-column: span 2;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-secondary-alpha));
+    border-color: var(--color-primary-alpha);
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary-alpha);
+  }
+
+  .project-header {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .project-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-alpha), transparent);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .project-title {
+    flex: 1;
+  }
+
+  .project-title h3 {
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+  }
+
+  .project-category {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  .project-status {
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+  }
+
+  .project-status.completed {
+    background: var(--color-success-alpha);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+
+  .project-status.in-progress {
+    background: var(--color-warning-alpha);
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+  }
+
+  .project-description {
+    margin: 0 0 var(--space-lg) 0;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tech-tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+  }
+
+  .project-highlights h4 {
+    margin: 0 0 var(--space-md) 0;
+    color: var(--text-primary);
+    font-size: var(--font-md);
+  }
+
+  .project-highlights ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  .project-highlights li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .project-highlights li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--color-success);
+  }
+
+  .project-actions {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: auto;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: var(--font-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .project-link:hover {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    transform: translateX(2px);
+  }
+
+  .projects-cta {
+    text-align: center;
+    padding-top: var(--space-xl);
+  }
+
+  .projects-cta p {
+    margin-bottom: var(--space-lg);
+    color: var(--text-secondary);
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-medium);
+    transition: all var(--transition-normal);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px var(--color-primary-alpha);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .project-card.featured {
+      grid-column: span 1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project-actions {
+      flex-direction: column;
+    }
+
+    .project-link {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

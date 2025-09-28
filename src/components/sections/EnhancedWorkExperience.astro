@@ -1,0 +1,221 @@
+---
+// Enhanced Work Experience Component with Visual Hierarchy
+export interface Props {
+  company: string;
+  position: string;
+  duration: string;
+  location: string;
+  type: string;
+  status: string;
+  description: string;
+  responsibilities: string[];
+  technologies: string[];
+  achievements: string[];
+  companyInfo: {
+    website?: string;
+    industry: string;
+    size: string;
+    logo?: string;
+  };
+  'data-sal'?: string;
+  'data-sal-delay'?: string | number;
+  'data-sal-duration'?: string | number;
+}
+
+const {
+  company,
+  position,
+  duration,
+  location,
+  type,
+  status,
+  description,
+  responsibilities,
+  technologies,
+  achievements,
+  companyInfo,
+  ...props
+} = Astro.props;
+
+// Helper function to extract metrics from achievement text
+function extractMetric(text: string): { metric: string; description: string } {
+  const metricMatch = text.match(/(\d+%|\d+\+?)/);
+  if (metricMatch) {
+    const metric = metricMatch[1];
+    const description = text.replace(metric, '').trim();
+    return { metric, description };
+  }
+  return { metric: '', description: text };
+}
+
+// Categorize technologies
+function categorizeTechnologies(techs: string[]) {
+  const categories = {
+    'Development': [] as string[],
+    'Testing & QA': [] as string[],
+    'Platforms': [] as string[],
+    'Leadership': [] as string[]
+  };
+
+  techs.forEach(tech => {
+    if (tech.includes('Development') || tech.includes('Python') || tech.includes('Apps')) {
+      categories['Development'].push(tech);
+    } else if (tech.includes('Testing') || tech.includes('Postman') || tech.includes('QA')) {
+      categories['Testing & QA'].push(tech);
+    } else if (tech.includes('SharePoint') || tech.includes('Power') || tech.includes('MongoDB')) {
+      categories['Platforms'].push(tech);
+    } else if (tech.includes('Leadership') || tech.includes('Management')) {
+      categories['Leadership'].push(tech);
+    } else {
+      categories['Development'].push(tech); // Default category
+    }
+  });
+
+  return Object.entries(categories).filter(([_, techs]) => techs.length > 0);
+}
+
+// Add proficiency levels to technologies (this could be data-driven in the future)
+function getTechProficiency(tech: string): string {
+  const expertTechs = ['Power Apps Development', 'Python', 'Test Automation'];
+  const advancedTechs = ['SharePoint Integration', 'API Testing', 'Technical Leadership'];
+
+  if (expertTechs.some(expert => tech.includes(expert))) return 'expert';
+  if (advancedTechs.some(advanced => tech.includes(advanced))) return 'advanced';
+  return 'intermediate';
+}
+
+const categorizedTechs = categorizeTechnologies(technologies);
+---
+
+<div class="work-card" {...props}>
+  <!-- Status Indicator -->
+  <div class={`work-status-indicator ${status}`}></div>
+
+  <!-- Enhanced Header -->
+  <div class="work-card-header">
+    <div class="work-title-section">
+      <div class="work-company-logo">
+        {companyInfo.logo ? (
+          <img src={companyInfo.logo} alt={`${company} logo`} loading="lazy" />
+        ) : (
+          <i class="fas fa-briefcase"></i>
+        )}
+      </div>
+
+      <div class="work-title-info">
+        <h3 class="work-position-title">{position}</h3>
+        <h4 class="work-company-name">
+          {companyInfo.website ? (
+            <a href={companyInfo.website} target="_blank" rel="noopener">
+              {company}
+            </a>
+          ) : (
+            company
+          )}
+        </h4>
+
+        <!-- Enhanced Meta Information -->
+        <div class="work-meta-grid">
+          <div class="work-meta-item">
+            <i class="fas fa-calendar-alt"></i>
+            <span>{duration}</span>
+          </div>
+          <div class="work-meta-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{location}</span>
+          </div>
+          <div class="work-meta-item">
+            <i class="fas fa-tag"></i>
+            <span>{type}</span>
+          </div>
+          <div class={`work-meta-item ${status}`}>
+            <i class="fas fa-circle"></i>
+            <span>{status.charAt(0).toUpperCase() + status.slice(1)}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Content -->
+  <div class="work-card-content">
+    <!-- Description -->
+    <p class="work-description">{description}</p>
+
+    <!-- PRIORITY: Enhanced Achievements Section -->
+    {achievements.length > 0 && (
+      <div class="work-achievements">
+        <h5 class="work-section-title">
+          <i class="fas fa-trophy"></i>
+          Key Achievements & Impact
+        </h5>
+        <div class="achievements-grid">
+          {achievements.map(achievement => {
+            const { metric, description } = extractMetric(achievement);
+            return (
+              <div class="achievement-item">
+                {metric && (
+                  <div class="achievement-metric">{metric}</div>
+                )}
+                <div class="achievement-text">{description}</div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    )}
+
+    <!-- Responsibilities Section -->
+    <div class="work-responsibilities">
+      <h5 class="work-section-title">
+        <i class="fas fa-tasks"></i>
+        Key Responsibilities
+      </h5>
+      <ul class="responsibilities-list">
+        {responsibilities.map(responsibility => (
+          <li class="responsibility-item">{responsibility}</li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Enhanced Technologies Section -->
+    <div class="work-technologies">
+      <h5 class="work-section-title">
+        <i class="fas fa-cogs"></i>
+        Technologies & Skills
+      </h5>
+      <div class="tech-categories">
+        {categorizedTechs.map(([category, techs]) => (
+          <div class="tech-category">
+            <div class="tech-category-title">{category}</div>
+            <div class="tech-tags-grid">
+              {techs.map(tech => (
+                <span class={`tech-tag ${getTechProficiency(tech)}`}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Company Information Footer -->
+    <div class="work-company-info">
+      <div class="company-details">
+        <div class="company-detail">
+          <i class="fas fa-industry"></i>
+          <span>{companyInfo.industry}</span>
+        </div>
+        <div class="company-detail">
+          <i class="fas fa-users"></i>
+          <span>{companyInfo.size}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  @import '../../styles/components/modern-work-experience.css';
+</style>

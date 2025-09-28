@@ -1,0 +1,399 @@
+---
+// Compact Skills section - focused on core competencies
+import { skillsData } from '../data/index.js';
+import SectionHeader from './ui/SectionHeader.astro';
+
+// Extract core competencies from the extensive skills data
+const coreCompetencies = [
+  {
+    name: "Technical Leadership",
+    level: 95,
+    icon: "fas fa-users-cog",
+    description: "Leading cross-functional teams and driving technical strategy",
+    technologies: ["Team Management", "Project Planning", "Technical Architecture"]
+  },
+  {
+    name: "Python Development",
+    level: 98,
+    icon: "fab fa-python",
+    description: "Expert-level Python development across multiple domains",
+    technologies: ["Python", "Django", "FastAPI", "Data Science"]
+  },
+  {
+    name: "Data Engineering",
+    level: 90,
+    icon: "fas fa-database",
+    description: "Building scalable data pipelines and processing systems",
+    technologies: ["Apache Spark", "ETL Pipelines", "Big Data", "Cloud Platforms"]
+  },
+  {
+    name: "Quality Assurance",
+    level: 95,
+    icon: "fas fa-shield-alt",
+    description: "Comprehensive test automation and quality engineering",
+    technologies: ["Test Automation", "CI/CD", "API Testing", "Performance Testing"]
+  }
+];
+
+const technicalSkills = [
+  { name: "Python", level: 98 },
+  { name: "Java", level: 85 },
+  { name: "JavaScript", level: 75 },
+  { name: "Apache Spark", level: 88 },
+  { name: "Power Platform", level: 85 },
+  { name: "Git", level: 90 },
+  { name: "Jenkins", level: 82 },
+  { name: "Databricks", level: 82 }
+];
+---
+
+<article id="skills" class="skills-section">
+  <div class="container">
+    <SectionHeader
+      title="Core Competencies"
+      subtitle="Delivering measurable impact through technical expertise and leadership"
+    />
+
+    <!-- Core Competencies Grid -->
+    <div class="competencies-grid">
+      {coreCompetencies.map((competency, index) => (
+        <div class="competency-card" data-sal="fade-up" data-sal-delay={100 + (index * 150)}>
+          <div class="competency-header">
+            <div class="competency-icon">
+              <i class={competency.icon}></i>
+            </div>
+            <div class="competency-info">
+              <h3 class="competency-name">{competency.name}</h3>
+              <div class="proficiency-bar">
+                <div class="proficiency-fill" style={`width: ${competency.level}%`}></div>
+              </div>
+              <span class="proficiency-level">{competency.level}% Proficiency</span>
+            </div>
+          </div>
+          <p class="competency-description">{competency.description}</p>
+          <div class="technology-tags">
+            {competency.technologies.map(tech => (
+              <span class="tech-tag">{tech}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Technical Skills Overview -->
+    <div class="technical-overview">
+      <h3 class="section-subtitle">Technical Skills Overview</h3>
+      <div class="skills-compact-grid">
+        {technicalSkills.map((skill, index) => (
+          <div class="skill-compact" data-sal="slide-up" data-sal-delay={200 + (index * 50)}>
+            <span class="skill-name">{skill.name}</span>
+            <div class="skill-level-bar">
+              <div class="skill-fill" style={`width: ${skill.level}%`}></div>
+            </div>
+            <span class="skill-percentage">{skill.level}%</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Professional Achievements -->
+    <div class="achievements-summary">
+      <h3 class="section-subtitle">Key Achievements</h3>
+      <div class="achievements-grid">
+        <div class="achievement-item" data-sal="zoom-in" data-sal-delay="300">
+          <div class="achievement-number">40%</div>
+          <div class="achievement-label">Efficiency Improvement</div>
+        </div>
+        <div class="achievement-item" data-sal="zoom-in" data-sal-delay="400">
+          <div class="achievement-number">25+</div>
+          <div class="achievement-label">Projects Delivered</div>
+        </div>
+        <div class="achievement-item" data-sal="zoom-in" data-sal-delay="500">
+          <div class="achievement-number">100%</div>
+          <div class="achievement-label">Quality Standards</div>
+        </div>
+        <div class="achievement-item" data-sal="zoom-in" data-sal-delay="600">
+          <div class="achievement-number">6+</div>
+          <div class="achievement-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<style>
+  .skills-section {
+    padding: var(--section-padding) 0;
+    background: linear-gradient(135deg, var(--primary-900), var(--primary-800));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skills-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.2;
+    pointer-events: none;
+  }
+
+  .competencies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
+    position: relative;
+    z-index: 1;
+  }
+
+  .competency-card {
+    background: linear-gradient(135deg, var(--glass-dark), var(--glass-medium));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-light);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .competency-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .competency-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .competency-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 212, 255, 0.15);
+    border-color: var(--accent-cyan);
+  }
+
+  .competency-header {
+    display: flex;
+    gap: var(--space-4);
+    margin-bottom: var(--space-4);
+  }
+
+  .competency-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--gradient-accent);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: var(--text-lg);
+    flex-shrink: 0;
+  }
+
+  .competency-info {
+    flex: 1;
+  }
+
+  .competency-name {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+    color: var(--neutral-100);
+    margin-bottom: var(--space-2);
+  }
+
+  .proficiency-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--glass-light);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: var(--space-1);
+  }
+
+  .proficiency-fill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 3px;
+    transition: width 0.8s ease;
+  }
+
+  .proficiency-level {
+    font-size: var(--text-xs);
+    color: var(--neutral-400);
+    font-weight: var(--font-medium);
+  }
+
+  .competency-description {
+    color: var(--neutral-300);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-4);
+  }
+
+  .technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .tech-tag {
+    padding: var(--space-1) var(--space-2);
+    background: var(--glass-white);
+    border: 1px solid var(--accent-cyan);
+    border-radius: var(--radius-md);
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: var(--accent-cyan);
+    transition: all 0.2s ease;
+  }
+
+  .tech-tag:hover {
+    background: var(--accent-cyan);
+    color: var(--primary-900);
+  }
+
+  .technical-overview {
+    margin-bottom: var(--space-12);
+  }
+
+  .section-subtitle {
+    font-size: var(--text-xl);
+    font-weight: var(--font-bold);
+    color: var(--neutral-100);
+    text-align: center;
+    margin-bottom: var(--space-6);
+  }
+
+  .skills-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-4);
+  }
+
+  .skill-compact {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-3);
+    background: var(--glass-white);
+    border-radius: var(--radius-lg);
+    transition: all 0.2s ease;
+  }
+
+  .skill-compact:hover {
+    background: var(--glass-light);
+    transform: scale(1.02);
+  }
+
+  .skill-name {
+    font-weight: var(--font-semibold);
+    color: var(--neutral-200);
+    min-width: 100px;
+  }
+
+  .skill-level-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--glass-light);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: var(--gradient-accent);
+    border-radius: 2px;
+    transition: width 0.6s ease;
+  }
+
+  .skill-percentage {
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--accent-cyan);
+    min-width: 35px;
+    text-align: right;
+  }
+
+  .achievements-summary {
+    text-align: center;
+  }
+
+  .achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+  }
+
+  .achievement-item {
+    padding: var(--space-4);
+    background: var(--glass-dark);
+    border: 1px solid var(--glass-light);
+    border-radius: var(--radius-xl);
+    transition: all 0.3s ease;
+  }
+
+  .achievement-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 212, 255, 0.1);
+    border-color: var(--accent-cyan);
+  }
+
+  .achievement-number {
+    font-size: var(--text-2xl);
+    font-weight: var(--font-black);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: var(--space-2);
+  }
+
+  .achievement-label {
+    font-size: var(--text-sm);
+    color: var(--neutral-400);
+    font-weight: var(--font-medium);
+  }
+
+  @media (max-width: 768px) {
+    .competencies-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .skills-compact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .achievements-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skill-compact {
+      flex-direction: column;
+      text-align: center;
+      gap: var(--space-2);
+    }
+
+    .skill-name {
+      min-width: auto;
+    }
+
+    .skill-level-bar {
+      width: 100%;
+    }
+  }
+</style>

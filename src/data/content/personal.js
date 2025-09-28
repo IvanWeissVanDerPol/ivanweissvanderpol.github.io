@@ -16,7 +16,7 @@ export const personalData = {
   resume: "/src/data/PersonalData/ResumeIvanWeiss-2025-05.pdf",
   
   // Avatar and favicon
-  avatar: "ProfilePicIvan.jpg",
+  avatar: "programmer.jpg",
   favicon: "PageIcon.png",
   
   // Languages

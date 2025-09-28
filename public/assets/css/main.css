@@ -86,7 +86,7 @@ input, select, textarea {
 
 	.gradient-text {
 		text-shadow: -1px -1px 0px rgba(0, 0, 0, 0);
-		background-color: #f3ec78;
+		background-color: #3b82f6;
 		background-image: linear-gradient(-45deg, #78f3ca, #4256af);
 		background-size: 100%;
 		-webkit-background-clip: text;
@@ -1608,9 +1608,9 @@ input, select, textarea {
 		padding: 0.75em;
 		font-size: 1em;
 		border-radius: 8px;
-		border: solid 1px #ddd;
-		background: #fff;
-		color: #bbb;
+		border: solid 1px #333;
+		background: #1a1a1a;
+		color: #e2e8f0;
 		box-shadow: inset 0px 2px 3px 1px rgba(0, 0, 0, 0.05), 0px 1px 0px 0px rgba(255, 255, 255, 0.025);
 		width: 100%;
 	}
@@ -1990,7 +1990,7 @@ input, select, textarea {
 /* Box */
 
 	.box {
-		background: #fff;
+		background: #1a1a1a;
 		box-shadow: inset 0px 0px 0px 1px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 		text-align: center;
 		padding: 2em;
@@ -2074,17 +2074,17 @@ input, select, textarea {
 
 		.wrapper.style1 {
 			background-image: none;
-			background-color: #fff;
+			background-color: #1a1a1a;
 		}
 
 		.wrapper.style2 {
-			background-color: #fafafa;
-			text-shadow: 1px 1px 0px #fff;
+			background-color: #0f0f0f;
+			text-shadow: 1px 1px 0px #000;
 		}
 
 		.wrapper.style3 {
-			background-color: #f4f4f4;
-			text-shadow: 1px 1px 0px #fff;
+			background-color: #111111;
+			text-shadow: 1px 1px 0px #000;
 		}
 
 		.wrapper.style4 {

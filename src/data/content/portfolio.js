@@ -1,83 +1,124 @@
-// Portfolio projects data
+// Portfolio projects data - Real professional projects
 export const portfolioData = {
   // Section configuration
   sectionId: "projects",
-  title: "My Projects",
-  subtitle: "A showcase of my development work and learning journey",
-  
-  // Featured projects
+  title: "Featured Projects",
+  subtitle: "Real-world solutions delivering measurable business impact",
+
+  // Professional projects showcasing technical leadership and impact
   projects: [
     {
-      id: "portfolio-website",
-      title: "Portfolio Website",
-      description: "Modern portfolio website built with Astro featuring component-based architecture, data-driven design, and GitHub Pages deployment. Demonstrates proficiency in static site generation, responsive design, and modern web development practices.",
-      category: "Web Development",
-      technologies: ["Astro", "JavaScript", "SCSS", "HTML5", "SAL.js", "GitHub Actions"],
-      image: "/images/programmer.jpg", // Using existing image as placeholder
-      liveUrl: "https://alcabvaldo.github.io",
-      githubUrl: "https://github.com/alcabvaldo/alcabvaldo.github.io",
+      id: "sturgeon-county-platform",
+      title: "Sturgeon County Power Apps Solution",
+      description: "Led the development of a comprehensive Power Apps platform for Sturgeon County, delivering a 40% efficiency improvement across 5+ departments through automated workflows and centralized document management.",
+      category: "Enterprise Solution",
+      technologies: ["Power Apps", "Power Automate", "SharePoint", "Power BI", "Technical Leadership"],
+      image: "/images/programmer.jpg",
       featured: true,
       status: "completed",
+      company: "Stoic Finch",
+      duration: "October 2024 - Present",
+      businessImpact: [
+        "40% efficiency improvement across departments",
+        "60% reduction in case processing time",
+        "50% improvement in document management",
+        "85% increase in user satisfaction"
+      ],
       highlights: [
-        "Component-based architecture with Astro",
-        "Data-driven content management system",
-        "Responsive design with mobile-first approach",
-        "GitHub Pages deployment with CI/CD",
-        "Performance optimized with minimal JavaScript"
+        "Led cross-functional team of 8+ developers and stakeholders",
+        "Architected role-based access control system",
+        "Implemented automated task management workflows",
+        "Integrated SharePoint for centralized document management",
+        "Collaborated with UI/UX developers for enhanced design"
+      ],
+      technicalAchievements: [
+        "Automated case handling and assignment processes",
+        "Built comprehensive Power BI dashboards",
+        "Established best practices for Power Platform development"
       ]
     },
     {
-      id: "university-projects",
-      title: "Computer Science Coursework",
-      description: "Collection of academic projects demonstrating fundamental computer science concepts including algorithms, data structures, and software engineering principles. Projects span multiple programming languages and problem domains.",
-      category: "Academic",
-      technologies: ["Python", "Java", "C++", "Algorithms", "Data Structures"],
-      image: "/images/pic01.jpg", // Using existing image as placeholder
-      githubUrl: "https://github.com/alcabvaldo/cs-coursework",
+      id: "flyte-medical-qa",
+      title: "FDA-Compliant Medical Device QA Platform",
+      description: "Oversaw comprehensive quality assurance for Flyte Project's FDA-cleared medical device platform, ensuring 100% compliance across web, mobile, and hardware components for women's pelvic health solutions.",
+      category: "Healthcare Technology",
+      technologies: ["FDA Compliance", "API Testing", "MongoDB", "Bluetooth Testing", "Medical Device QA"],
+      image: "/images/pic01.jpg",
       featured: true,
-      status: "ongoing",
+      status: "completed",
+      company: "MentorMate",
+      duration: "August 2023 - October 2024",
+      businessImpact: [
+        "100% FDA compliance achieved",
+        "99.5% uptime maintained",
+        "75% improvement in feature adoption",
+        "60% enhanced testing robustness"
+      ],
       highlights: [
-        "Algorithm implementation and analysis",
-        "Data structure design and optimization",
-        "Object-oriented programming patterns",
-        "Problem-solving methodology",
-        "Clean code practices and documentation"
+        "Managed quality assurance for FDA-cleared medical device",
+        "Ensured compliance across web, mobile, and hardware platforms",
+        "Developed comprehensive test strategies for patient scenarios",
+        "Created detailed documentation for industry compliance",
+        "Executed API testing with Postman for medical integrations"
+      ],
+      technicalAchievements: [
+        "Bluetooth connectivity testing for medical devices",
+        "MongoDB test data generation for patient scenarios",
+        "Risk assessment and mitigation strategies"
       ]
     },
     {
-      id: "web-development-demos",
-      title: "Web Development Practice",
-      description: "Various web development projects exploring different frameworks, libraries, and techniques. Includes responsive layouts, interactive components, and modern JavaScript applications.",
-      category: "Web Development", 
-      technologies: ["React", "Vue.js", "Node.js", "Express", "MongoDB"],
-      image: "/images/pic02.jpg", // Using existing image as placeholder
-      githubUrl: "https://github.com/alcabvaldo/web-development-practice",
-      featured: false,
-      status: "ongoing",
+      id: "python-automation-suite",
+      title: "Enterprise Python Automation Suite",
+      description: "Developed comprehensive Python automation tools at WPG.srl, reducing manual testing effort by 85% and increasing testing efficiency by 300% through automated report generation and XML processing systems.",
+      category: "Automation & Data Processing",
+      technologies: ["Python", "Test Automation", "XML Processing", "Data Generation", "Reporting Systems"],
+      image: "/images/pic02.jpg",
+      featured: true,
+      status: "completed",
+      company: "WPG.srl",
+      duration: "October 2018 - December 2022",
+      businessImpact: [
+        "85% reduction in manual testing effort",
+        "300% increase in testing efficiency",
+        "100% quality standards maintained",
+        "90% documentation coverage achieved"
+      ],
       highlights: [
-        "Frontend framework exploration",
-        "Backend API development",
-        "Database integration",
-        "User interface design",
-        "Progressive web app features"
+        "Built Python tools for automated test data generation",
+        "Developed XML processing and transformation systems",
+        "Created automated report generation pipelines",
+        "Maintained 100% quality standards across 50+ releases",
+        "Contributed to 25+ system architecture improvements"
+      ],
+      technicalAchievements: [
+        "Automated complex XML data transformations",
+        "Built reusable testing framework components",
+        "Streamlined development-to-production workflows"
       ]
     },
     {
-      id: "programming-challenges",
-      title: "Algorithm Challenges",
-      description: "Solutions to programming challenges from various platforms. Focus on algorithmic thinking, code optimization, and problem-solving strategies across different difficulty levels.",
-      category: "Algorithms",
-      technologies: ["Python", "JavaScript", "Java", "C++"],
-      image: "/images/pic03.jpg", // Using existing image as placeholder
-      githubUrl: "https://github.com/alcabvaldo/programming-challenges",
+      id: "modern-portfolio-architecture",
+      title: "Modern Portfolio Website Architecture",
+      description: "Designed and built a performance-optimized portfolio website using modern web technologies, featuring component-based architecture, responsive design, and comprehensive accessibility compliance.",
+      category: "Web Development",
+      technologies: ["Astro", "Modern CSS", "Accessibility", "Performance Optimization", "Responsive Design"],
+      image: "/images/pic03.jpg",
+      githubUrl: "https://github.com/ivanweissvanderpol/ivanweissvanderpol.github.io",
+      liveUrl: "https://ivanweissvanderpol.github.io",
       featured: false,
       status: "ongoing",
       highlights: [
-        "Competitive programming solutions",
-        "Algorithm optimization techniques",
-        "Data structure applications",
-        "Time and space complexity analysis",
-        "Multiple language implementations"
+        "Modern component-based architecture with Astro",
+        "WCAG 2.1 AA accessibility compliance",
+        "Mobile-first responsive design approach",
+        "Performance-optimized with critical CSS loading",
+        "Modern animation framework with reduced motion support"
+      ],
+      technicalAchievements: [
+        "Lighthouse performance score optimization",
+        "Comprehensive design system implementation",
+        "Advanced CSS architecture with modular approach"
       ]
     }
   ],

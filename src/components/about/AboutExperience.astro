@@ -1,0 +1,435 @@
+---
+import { workData } from '../../data/index.js';
+---
+
+<section id="experience" class="content-section">
+  <h2>Professional Experience</h2>
+  <div class="experience-container">
+    <!-- Timeline visual indicator -->
+    <div class="timeline-line" aria-hidden="true"></div>
+
+    <div class="experience-timeline">
+      {workData.experiences.map((experience, index) => (
+        <div class="experience-item" data-index={index}>
+          <div class="timeline-node" aria-hidden="true">
+            <div class="node-indicator"></div>
+          </div>
+
+          <div class="experience-card">
+            <div class="experience-header">
+              <div class="experience-main">
+                <div class="experience-logo">
+                  {experience.companyInfo?.logo ? (
+                    <div class="company-logo-container">
+                      <img src={experience.companyInfo.logo} alt={`${experience.company} logo`} loading="lazy" />
+                    </div>
+                  ) : (
+                    <div class="company-placeholder">
+                      <i class="fas fa-building"></i>
+                    </div>
+                  )}
+                </div>
+                <div class="experience-title">
+                  <h3>{experience.position}</h3>
+                  <h4>{experience.company}</h4>
+                  <div class="experience-meta">
+                    <span class="duration">{experience.duration}</span>
+                    <span class="location">{experience.location}</span>
+                    <span class={`status ${experience.status}`}>{experience.status}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Expandable content trigger -->
+              <button class="experience-toggle" data-experience-id={`exp-${index}`} aria-expanded="false">
+                <span class="toggle-label">Details</span>
+                <i class="fas fa-chevron-down toggle-icon"></i>
+              </button>
+            </div>
+
+            <p class="experience-description">{experience.description}</p>
+
+            <!-- Technologies prominently displayed -->
+            <div class="experience-tech-showcase">
+              <span class="tech-label">Technologies:</span>
+              <div class="tech-tags">
+                {experience.technologies.slice(0, 5).map(tech => (
+                  <span class="tech-tag">{tech}</span>
+                ))}
+                {experience.technologies.length > 5 && (
+                  <span class="tech-tag more">+{experience.technologies.length - 5} more</span>
+                )}
+              </div>
+            </div>
+
+            <!-- Collapsible detailed content -->
+            <div class="experience-details" id={`exp-${index}`} aria-hidden="true">
+              <div class="details-grid">
+                <div class="responsibilities">
+                  <h5>Key Responsibilities</h5>
+                  <ul>
+                    {experience.responsibilities.map(responsibility => (
+                      <li>{responsibility}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                {experience.technologies.length > 5 && (
+                  <div class="all-technologies">
+                    <h5>All Technologies</h5>
+                    <div class="tech-tags">
+                      {experience.technologies.map(tech => (
+                        <span class="tech-tag">{tech}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                <div class="achievements">
+                  <h5>Key Achievements</h5>
+                  <ul>
+                    {experience.achievements.map(achievement => (
+                      <li>{achievement}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    min-height: 100vh;
+    padding: var(--space-2xl) 0;
+    border-bottom: 1px solid var(--border-primary);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+  }
+
+  .experience-container {
+    position: relative;
+  }
+
+  .timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 40px;
+    bottom: 40px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-primary), transparent);
+    opacity: 0.3;
+  }
+
+  .experience-timeline {
+    position: relative;
+    padding-left: 60px;
+  }
+
+  .experience-item {
+    position: relative;
+    margin-bottom: var(--space-2xl);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+    animation-delay: calc(var(--index) * 0.1s);
+  }
+
+  .experience-item[data-index="0"] { --index: 0; }
+  .experience-item[data-index="1"] { --index: 1; }
+  .experience-item[data-index="2"] { --index: 2; }
+  .experience-item[data-index="3"] { --index: 3; }
+
+  .timeline-node {
+    position: absolute;
+    left: -44px;
+    top: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .node-indicator {
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--color-primary);
+    background: var(--bg-primary);
+    border-radius: 50%;
+    transition: all var(--transition-fast);
+  }
+
+  .experience-item:hover .node-indicator {
+    background: var(--color-primary);
+    transform: scale(1.2);
+  }
+
+  .experience-card {
+    background: var(--bg-secondary-alpha);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-normal);
+  }
+
+  .experience-card:hover {
+    border-color: var(--color-primary-alpha);
+    transform: translateX(4px);
+  }
+
+  .experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-lg);
+  }
+
+  .experience-main {
+    display: flex;
+    gap: var(--space-lg);
+    flex: 1;
+  }
+
+  .experience-logo {
+    flex-shrink: 0;
+  }
+
+  .company-logo-container {
+    width: 60px;
+    height: 60px;
+    padding: var(--space-xs);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+  }
+
+  .company-logo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .company-placeholder {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-primary-alpha), transparent);
+    border-radius: var(--radius-md);
+    font-size: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .experience-title h3 {
+    margin: 0 0 var(--space-xs) 0;
+    color: var(--text-primary);
+    font-size: var(--font-lg);
+  }
+
+  .experience-title h4 {
+    margin: 0 0 var(--space-sm) 0;
+    color: var(--color-primary);
+    font-size: var(--font-md);
+    font-weight: var(--font-medium);
+  }
+
+  .experience-meta {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+  }
+
+  .experience-meta span {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .experience-meta .status {
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    font-weight: var(--font-medium);
+    text-transform: uppercase;
+  }
+
+  .status.current {
+    background: var(--color-success-alpha);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+
+  .experience-toggle {
+    background: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: all var(--transition-fast);
+  }
+
+  .experience-toggle:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  .toggle-icon {
+    transition: transform var(--transition-fast);
+  }
+
+  .experience-toggle[aria-expanded="true"] .toggle-icon {
+    transform: rotate(180deg);
+  }
+
+  .experience-description {
+    margin: 0 0 var(--space-lg) 0;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .experience-tech-showcase {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    margin-bottom: var(--space-lg);
+  }
+
+  .tech-label {
+    font-size: var(--font-sm);
+    color: var(--text-secondary);
+    font-weight: var(--font-medium);
+  }
+
+  .tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tech-tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-xs);
+    color: var(--text-primary);
+    transition: all var(--transition-fast);
+  }
+
+  .tech-tag.more {
+    background: var(--color-primary-alpha);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+    font-weight: var(--font-medium);
+  }
+
+  .experience-details {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-normal);
+  }
+
+  .experience-details[aria-hidden="false"] {
+    max-height: 800px;
+  }
+
+  .details-grid {
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-primary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .details-grid h5 {
+    margin: 0 0 var(--space-md) 0;
+    color: var(--text-primary);
+    font-size: var(--font-md);
+  }
+
+  .details-grid ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .details-grid li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .details-grid li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
+  }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .experience-timeline {
+      padding-left: 40px;
+    }
+
+    .timeline-node {
+      left: -28px;
+    }
+
+    .experience-header {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .experience-toggle {
+      width: 100%;
+      justify-content: center;
+    }
+
+    .experience-tech-showcase {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<script>
+  // Experience details toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleButtons = document.querySelectorAll('.experience-toggle');
+
+    toggleButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-experience-id');
+        const targetElement = document.getElementById(targetId);
+        const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+        button.setAttribute('aria-expanded', !isExpanded);
+        targetElement?.setAttribute('aria-hidden', isExpanded);
+      });
+    });
+  });
+</script>

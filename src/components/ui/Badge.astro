@@ -1,0 +1,155 @@
+---
+// Badge component for status indicators and labels
+export interface Props {
+  variant?: 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'info';
+  size?: 'sm' | 'md' | 'lg';
+  dot?: boolean;
+  pulse?: boolean;
+  className?: string;
+  'aria-label'?: string;
+}
+
+const {
+  variant = 'default',
+  size = 'md',
+  dot = false,
+  pulse = false,
+  className = '',
+  'aria-label': ariaLabel
+} = Astro.props;
+---
+
+<span
+  class:list={[
+    'badge',
+    `badge-${variant}`,
+    `badge-${size}`,
+    { 'badge-dot': dot },
+    { 'badge-pulse': pulse },
+    className
+  ]}
+  aria-label={ariaLabel}
+  role={ariaLabel ? 'status' : undefined}
+>
+  {dot && <span class="badge-dot-indicator" aria-hidden="true"></span>}
+  <slot />
+</span>
+
+<style>
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    font-weight: var(--font-medium);
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    vertical-align: middle;
+    font-family: inherit;
+    line-height: 1;
+  }
+
+  /* Sizes */
+  .badge-sm {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-xs);
+    height: 1.25rem;
+  }
+
+  .badge-md {
+    padding: var(--space-xs) var(--space-md);
+    font-size: var(--font-sm);
+    height: 1.5rem;
+  }
+
+  .badge-lg {
+    padding: var(--space-sm) var(--space-md);
+    font-size: var(--font-md);
+    height: 2rem;
+  }
+
+  /* Variants */
+  .badge-default {
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-primary);
+  }
+
+  .badge-primary {
+    background: var(--color-primary-alpha);
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+  }
+
+  .badge-secondary {
+    background: var(--color-secondary-alpha);
+    color: var(--color-secondary);
+    border: 1px solid var(--color-secondary);
+  }
+
+  .badge-success {
+    background: var(--color-success-alpha);
+    color: var(--color-success);
+    border: 1px solid var(--color-success);
+  }
+
+  .badge-warning {
+    background: var(--color-warning-alpha);
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning);
+  }
+
+  .badge-error {
+    background: var(--color-error-alpha);
+    color: var(--color-error);
+    border: 1px solid var(--color-error);
+  }
+
+  .badge-info {
+    background: var(--color-info-alpha);
+    color: var(--color-info);
+    border: 1px solid var(--color-info);
+  }
+
+  /* Dot indicator */
+  .badge-dot-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    flex-shrink: 0;
+  }
+
+  .badge-pulse .badge-dot-indicator {
+    animation: badge-pulse 2s infinite;
+  }
+
+  @keyframes badge-pulse {
+    0% {
+      box-shadow: 0 0 0 0 currentColor;
+      opacity: 1;
+    }
+    70% {
+      box-shadow: 0 0 0 6px transparent;
+      opacity: 0.7;
+    }
+    100% {
+      box-shadow: 0 0 0 0 transparent;
+      opacity: 1;
+    }
+  }
+
+  /* High contrast */
+  @media (prefers-contrast: high) {
+    .badge {
+      border-width: 2px;
+      font-weight: var(--font-semibold);
+    }
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .badge-pulse .badge-dot-indicator {
+      animation: none;
+    }
+  }
+</style>

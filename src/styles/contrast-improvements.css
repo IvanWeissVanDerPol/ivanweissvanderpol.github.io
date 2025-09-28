@@ -1,0 +1,327 @@
+/* =====================================================
+   CONTRAST & READABILITY IMPROVEMENTS
+   Enhanced Color Contrast for Better Accessibility
+   ===================================================== */
+
+/* ===== IMPROVED TEXT CONTRAST ===== */
+
+/* Increase base text contrast */
+body {
+  color: rgba(248, 250, 252, 0.95) !important; /* From 0.85 to 0.95 */
+  font-weight: 400; /* Slightly heavier for better readability */
+}
+
+/* Enhance paragraph text */
+p {
+  color: rgba(248, 250, 252, 0.9) !important; /* Better contrast */
+  line-height: 1.7; /* Better spacing */
+}
+
+/* Secondary text improvements */
+.text-secondary,
+.project-description,
+.competency-description,
+.contact-subtitle {
+  color: rgba(229, 231, 235, 0.95) !important; /* Much better contrast */
+}
+
+/* Tertiary text improvements */
+.text-tertiary,
+.skill-label,
+.stat-label,
+.achievement-label,
+.proficiency-level {
+  color: rgba(209, 213, 219, 0.95) !important; /* Better visibility */
+}
+
+/* ===== HEADINGS CONTRAST ===== */
+
+h1, h2, h3, h4, h5, h6,
+.heading-1, .heading-2, .heading-3, .heading-4, .heading-5, .heading-6 {
+  color: rgba(255, 255, 255, 1) !important; /* Full white for headings */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* ===== LINK CONTRAST ===== */
+
+a:not(.button):not(.btn) {
+  color: #00e5ff !important; /* Brighter cyan */
+  font-weight: 500;
+}
+
+a:not(.button):not(.btn):hover {
+  color: #66f2ff !important; /* Even brighter on hover */
+}
+
+/* ===== CARD IMPROVEMENTS ===== */
+
+.card,
+.project-card,
+.skill-category,
+.competency-card,
+.contact-card {
+  background: linear-gradient(135deg,
+    rgba(30, 30, 35, 0.8),
+    rgba(40, 40, 45, 0.7)) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+}
+
+.card:hover,
+.project-card:hover,
+.skill-category:hover,
+.competency-card:hover,
+.contact-card:hover {
+  background: linear-gradient(135deg,
+    rgba(35, 35, 40, 0.9),
+    rgba(45, 45, 50, 0.8)) !important;
+  border-color: #00e5ff !important;
+}
+
+/* ===== BUTTON CONTRAST ===== */
+
+.btn,
+.button {
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+}
+
+.btn-primary,
+.button.primary {
+  background: linear-gradient(135deg, #0066e6, #00d4ff) !important;
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary,
+.button.secondary {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #00e5ff !important;
+  border: 2px solid #00e5ff !important;
+}
+
+/* ===== NAVIGATION IMPROVEMENTS ===== */
+
+.main-navigation {
+  background: rgba(10, 10, 20, 0.98) !important;
+  backdrop-filter: blur(20px) saturate(150%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+  color: rgba(248, 250, 252, 0.95) !important;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #00e5ff !important;
+}
+
+/* ===== STATUS INDICATORS ===== */
+
+.status-indicator {
+  color: #22c55e !important; /* Bright green */
+  font-weight: 600;
+}
+
+.status-dot {
+  background: #22c55e !important;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+}
+
+/* ===== FORM ELEMENTS ===== */
+
+input,
+textarea,
+select {
+  background: rgba(30, 30, 35, 0.8) !important;
+  border: 2px solid rgba(255, 255, 255, 0.2) !important;
+  color: rgba(248, 250, 252, 0.95) !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #00e5ff !important;
+  background: rgba(35, 35, 40, 0.9) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(209, 213, 219, 0.7) !important;
+}
+
+/* ===== TECH TAGS & BADGES ===== */
+
+.tech-tag,
+.tech-badge,
+.skill-tag {
+  background: rgba(0, 229, 255, 0.15) !important;
+  border: 1.5px solid #00e5ff !important;
+  color: #00e5ff !important;
+  font-weight: 600;
+}
+
+.tech-tag:hover,
+.tech-badge:hover,
+.skill-tag:hover {
+  background: #00e5ff !important;
+  color: #000a14 !important;
+}
+
+/* ===== SECTION BACKGROUNDS ===== */
+
+.hero-section,
+.skills-section,
+.projects-section,
+.work-section,
+.contact-section {
+  position: relative;
+}
+
+.hero-section::after,
+.skills-section::after,
+.projects-section::after,
+.work-section::after,
+.contact-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-section > *,
+.skills-section > *,
+.projects-section > *,
+.work-section > *,
+.contact-section > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== STATISTICS & METRICS ===== */
+
+.stat-number,
+.achievement-number,
+.metric-value {
+  background: linear-gradient(135deg, #00e5ff, #8b5cf6) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 900 !important;
+  text-shadow: none !important;
+}
+
+/* ===== CODE BLOCKS ===== */
+
+code {
+  background: rgba(0, 229, 255, 0.15) !important;
+  color: #00e5ff !important;
+  padding: 0.2em 0.4em;
+  font-weight: 500;
+}
+
+pre {
+  background: rgba(20, 20, 25, 0.9) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* ===== FOOTER IMPROVEMENTS ===== */
+
+.footer,
+.site-footer {
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(0, 10, 20, 0.8)) !important;
+}
+
+.footer-copyright,
+.footer-info {
+  color: rgba(209, 213, 219, 0.9) !important;
+}
+
+/* ===== ACCESSIBILITY FOCUS STATES ===== */
+
+*:focus-visible {
+  outline: 2px solid #00e5ff !important;
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 3px solid #00e5ff !important;
+  outline-offset: 4px;
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+
+@media (prefers-contrast: high) {
+  body {
+    color: white !important;
+  }
+
+  p, .text-secondary, .text-tertiary {
+    color: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .card,
+  .project-card {
+    background: rgba(20, 20, 25, 0.95) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .btn,
+  .button {
+    border-width: 2px !important;
+    font-weight: 700 !important;
+  }
+}
+
+/* ===== DARK MODE OPTIMIZATIONS ===== */
+
+@media (prefers-color-scheme: dark) {
+  /* Already optimized for dark mode */
+}
+
+/* ===== LIGHT MODE ADJUSTMENTS ===== */
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #ffffff !important;
+    color: #0f1419 !important;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #0f1419 !important;
+    text-shadow: none !important;
+  }
+
+  p {
+    color: #374151 !important;
+  }
+
+  .card,
+  .project-card {
+    background: white !important;
+    border: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  a:not(.button):not(.btn) {
+    color: #0066e6 !important;
+  }
+
+  .tech-tag {
+    background: rgba(0, 102, 230, 0.1) !important;
+    border-color: #0066e6 !important;
+    color: #0066e6 !important;
+  }
+}

@@ -2,7 +2,7 @@
 // Work section component - modular and reusable
 import { workData, themeConfig } from '../data/index.js';
 import SectionHeader from './ui/SectionHeader.astro';
-import WorkExperience from './sections/WorkExperience.astro';
+import EnhancedWorkExperience from './sections/EnhancedWorkExperience.astro';
 import Card from './ui/Card.astro';
 import Button from './ui/Button.astro';
 ---
@@ -30,7 +30,7 @@ import Button from './ui/Button.astro';
       <div class="timeline-container">
         {workData.experiences.map((experience, index) => (
           <div class="timeline-item">
-            <WorkExperience 
+            <EnhancedWorkExperience 
               company={experience.company}
               position={experience.position}
               duration={experience.duration}
@@ -59,19 +59,19 @@ import Button from './ui/Button.astro';
         <h3>Career Highlights</h3>
         <div class="stats-grid">
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="300">
-            <span class="stat-number" data-target="{workData.statistics.totalProjects}">0</span>
+            <span class="stat-number" data-target={workData.statistics.totalProjects}>0</span>
             <span class="stat-label">Total Projects</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="400">
-            <span class="stat-number" data-target="{workData.statistics.clientProjects}">0</span>
-            <span class="stat-label">Client Projects</span>
+            <span class="stat-number" data-target={workData.statistics.professionalPositions}>0</span>
+            <span class="stat-label">Professional Positions</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="500">
-            <span class="stat-number" data-target="{workData.statistics.technologiesUsed}">0</span>
+            <span class="stat-number" data-target={workData.statistics.technologiesUsed}>0</span>
             <span class="stat-label">Technologies Used</span>
           </div>
           <div class="stat-item" data-sal="zoom-in" data-sal-delay="600">
-            <span class="stat-number" data-target="{workData.statistics.yearsOfExperience}">0</span>
+            <span class="stat-number" data-target={workData.statistics.yearsOfExperience}>0</span>
             <span class="stat-label">Years Experience</span>
           </div>
         </div>
@@ -95,30 +95,56 @@ import Button from './ui/Button.astro';
 <style>
   @import '../styles/sections/work.css';
   
+  /* Work Section Background */
+  #work {
+    background: linear-gradient(135deg, var(--primary-800), var(--primary-900));
+    position: relative;
+    overflow: hidden;
+  }
+
+  #work::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-mesh);
+    opacity: 0.15;
+    pointer-events: none;
+  }
+
   /* Achievement Counter Animation */
   .stat-number {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
+    font-size: var(--text-4xl);
+    font-weight: var(--font-black);
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     display: block;
     line-height: 1;
     min-height: 2.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   .stat-item {
     text-align: center;
-    padding: 1.5rem;
-    background: var(--bg-card);
-    border-radius: 12px;
-    border: 1px solid var(--border-light);
-    transition: all 0.3s ease;
+    padding: var(--space-6);
+    background: linear-gradient(135deg, var(--glass-dark), var(--glass-medium));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--glass-light);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-lg);
   }
-  
+
   .stat-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border-color: var(--color-primary);
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-2xl), var(--shadow-glow);
+    border-color: var(--accent-cyan);
+    background: linear-gradient(135deg, var(--glass-medium), var(--glass-light));
   }
   
   .stat-label {
@@ -152,27 +178,28 @@ import Button from './ui/Button.astro';
 <script>
   // Animated Achievement Counters
   document.addEventListener('DOMContentLoaded', function() {
-    const animateCounter = (element, target, duration = 2000) => {
+    const animateCounter = (element, targetValue, duration = 2000) => {
+      // Handle both numbers and strings with '+' suffix
+      let target = typeof targetValue === 'number' ? targetValue : parseInt(targetValue) || 0;
+      const hasPlus = String(targetValue).includes('+');
+
       const start = 0;
       const increment = target / (duration / 16); // 60fps
       let current = start;
-      
+
       const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
           current = target;
           clearInterval(timer);
         }
-        
-        // Format the number (handle both integers and strings like "6+")
-        let displayValue;
-        if (typeof target === 'string' && target.includes('+')) {
-          const numericPart = parseInt(target);
-          displayValue = Math.floor(current) + '+';
-        } else {
-          displayValue = Math.floor(current);
+
+        // Format the display value
+        let displayValue = Math.floor(current);
+        if (hasPlus && current === target) {
+          displayValue = displayValue + '+';
         }
-        
+
         element.textContent = displayValue;
       }, 16);
     };

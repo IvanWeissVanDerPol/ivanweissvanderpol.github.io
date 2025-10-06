@@ -7,9 +7,9 @@ export const aboutData = {
   
   // Enhanced personal summary
   summary: {
-    intro: "I am a versatile and results-driven Software Developer with a strong background in software engineering, QA automation, and project management. My expertise spans multiple programming languages, automation tools, and data analysis frameworks, with a focus on delivering innovative, efficient, and scalable solutions. I thrive in environments that challenge me to improve system reliability, streamline workflows, and leverage AI technologies for impactful results.",
-    focus: "Currently specializing in Technical Leadership, Data Engineering, and QA Automation. My expertise spans Python development (98% proficiency), test automation frameworks, Apache Spark, ETL pipelines, and cloud-based solutions. I've led cross-functional teams, implemented FDA-compliant healthcare solutions, and developed innovative AI-powered automation tools.",
-    goals: "My goal is to continue advancing in technical leadership and data engineering while leveraging AI and automation to solve complex challenges. I'm passionate about building robust, scalable systems, mentoring teams, and driving innovation through technology. I aim to bridge cutting-edge technology with practical business solutions that make a real impact."
+    intro: "I transform complex data challenges into scalable solutions that drive measurable business growth. With 6+ years of experience leading engineering teams and architecting enterprise-scale systems, I specialize in technical leadership, data engineering, and quality automation—delivering solutions that combine innovation with proven reliability.",
+    focus: "My expertise spans Python development (98% proficiency), Apache Spark data pipelines, Power Platform solutions, and comprehensive QA automation. I've successfully led cross-functional teams of 8+ professionals, reduced processing times by 60%, and improved operational efficiency by 40% across multiple departments through strategic automation and architectural design.",
+    goals: "I excel at bridging cutting-edge technology with practical business needs. Whether architecting data pipelines processing millions of events daily, implementing FDA-compliant healthcare solutions, or mentoring engineering teams to peak performance, I bring a results-driven approach focused on scalability, efficiency, and long-term value creation."
   },
   
   // Enhanced key highlights

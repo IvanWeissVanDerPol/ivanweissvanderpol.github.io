@@ -1,5 +1,4 @@
 /* Feature Card Component Styles */
-@import '../theme/theme.css';
 
 .feature-icon {
   margin-bottom: var(--space-lg);

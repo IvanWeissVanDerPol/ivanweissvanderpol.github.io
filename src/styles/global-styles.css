@@ -29,7 +29,7 @@ body {
   position: relative;
 }
 
-/* Add mesh gradient background */
+/* Add subtle gradient background for professional look */
 body::before {
   content: '';
   position: fixed;
@@ -37,9 +37,9 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--gradient-mesh);
+  background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 50%, #f8f9fc 100%);
   pointer-events: none;
-  z-index: var(--z-0);
+  z-index: -1;
 }
 
 /* ========== TYPOGRAPHY ========== */
@@ -53,10 +53,8 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: var(--text-5xl);
   font-weight: var(--font-black);
-  background: var(--gradient-brand);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 h2 {
@@ -128,11 +126,10 @@ strong {
 /* ========== CARDS ========== */
 .card {
   background: var(--card-bg);
-  backdrop-filter: blur(20px);
-  border: var(--border-width-thin) solid var(--card-border);
-  border-radius: var(--card-radius);
-  padding: var(--card-padding);
-  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--shadow-sm);
   transition: var(--transition-all);
   position: relative;
   overflow: hidden;
@@ -145,15 +142,15 @@ strong {
   left: 0;
   right: 0;
   height: 3px;
-  background: var(--gradient-brand);
+  background: var(--brand-primary);
   transform: scaleX(0);
   transition: var(--transition-transform);
 }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--card-shadow-hover), var(--shadow-glow-md);
-  border-color: var(--card-border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--brand-primary);
   background: var(--card-bg-hover);
 }
 
@@ -183,20 +180,23 @@ strong {
 }
 
 .btn-primary {
-  background: var(--gradient-brand);
+  background: var(--brand-primary);
   color: white;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-sm);
+  font-weight: 600;
 }
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-xl), var(--shadow-glow-md);
+  box-shadow: var(--shadow-md);
+  background: var(--brand-secondary);
 }
 
 .btn-secondary {
-  background: transparent;
+  background: white;
   border-color: var(--brand-primary);
   color: var(--brand-primary);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {

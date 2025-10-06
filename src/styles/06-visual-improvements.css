@@ -1,0 +1,376 @@
+/* =====================================================
+   VISUAL IMPROVEMENTS - Professional Polish & Hierarchy
+   Addresses: spacing, typography, color, layout issues
+   ===================================================== */
+
+/* ========== REMOVE YELLOW HIGHLIGHTS ========== */
+mark, .highlight, [style*="background: yellow"],
+[style*="background:#ff"], [style*="background-color: yellow"] {
+  background: transparent !important;
+  color: inherit !important;
+}
+
+/* ========== TYPOGRAPHY HIERARCHY ========== */
+
+/* Increase base font size for better readability */
+html {
+  font-size: 18px !important;
+}
+
+/* Create clear heading hierarchy */
+h1 {
+  font-size: clamp(3rem, 8vw, 5rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.1 !important;
+  letter-spacing: -0.03em !important;
+  margin-bottom: 1.5rem !important;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  margin-bottom: 2rem !important;
+  margin-top: 0 !important;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2rem) !important;
+  font-weight: 700 !important;
+  line-height: 1.3 !important;
+  margin-bottom: 1rem !important;
+}
+
+h4 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+}
+
+/* Better line height for body text */
+p, li, span {
+  line-height: 1.8 !important;
+  font-size: 1rem !important;
+}
+
+/* ========== SPACING & BREATHING ROOM ========== */
+
+/* Generous section spacing */
+section, article {
+  padding-top: 6rem !important;
+  padding-bottom: 6rem !important;
+  margin: 0 !important;
+}
+
+/* First section gets extra top space */
+section:first-of-type,
+article:first-of-type {
+  padding-top: 8rem !important;
+}
+
+/* Container max-width and centering */
+.container, .wrapper > .container {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 3rem !important;
+  padding-right: 3rem !important;
+}
+
+/* Card spacing - more breathing room */
+.card, .work-card, .project-card, .skill-card, .feature-card {
+  margin-bottom: 3rem !important;
+  padding: 2.5rem !important;
+}
+
+/* Grid gaps */
+.grid, .row, [class*="col-"] {
+  gap: 3rem !important;
+}
+
+/* ========== HERO SECTION FIXES ========== */
+
+/* Remove contact info box background (looks like highlight) */
+.hero-contact-info {
+  background: transparent !important;
+  border: none !important;
+  padding: 2rem 0 !important;
+}
+
+/* Better hero spacing */
+.hero-title {
+  margin-bottom: 2rem !important;
+}
+
+.hero-description {
+  margin-bottom: 3rem !important;
+  max-width: 700px !important;
+}
+
+.hero-actions {
+  margin-top: 3rem !important;
+  gap: 2rem !important;
+}
+
+/* Social links less cluttered */
+.hero-social {
+  margin-top: 2.5rem !important;
+  padding: 2rem 0 !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: transparent !important;
+  border-left: none !important;
+  border-right: none !important;
+  border-bottom: none !important;
+}
+
+/* ========== ABOUT SECTION IMPROVEMENTS ========== */
+
+/* Limit text width for readability */
+.about-content p,
+.about-description {
+  max-width: 800px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Feature cards - reduce from 6 to 3 columns max */
+.highlights-grid,
+.features-grid {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+  gap: 2.5rem !important;
+  max-width: 1000px !important;
+  margin: 3rem auto !important;
+}
+
+@media (min-width: 1024px) {
+  .highlights-grid,
+  .features-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Feature cards equal height and better spacing */
+.feature-card, .highlight-item, .highlight-card {
+  min-height: 280px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  padding: 2rem !important;
+}
+
+/* ========== SKILLS SECTION IMPROVEMENTS ========== */
+
+/* Reduce visual clutter in skills */
+.skill-item, .skills-list li {
+  margin-bottom: 1.5rem !important;
+  padding: 0.75rem 0 !important;
+}
+
+/* Technology tags - better spacing */
+.tech-tag, .technology-tag, .technologies span {
+  margin: 0.25rem !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  display: inline-block !important;
+}
+
+/* ========== PROJECT CARDS IMPROVEMENTS ========== */
+
+/* Reduce text density in project cards */
+.project-card .description,
+.project-description {
+  margin-bottom: 1.5rem !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+/* Limit bullet points to 3 visible */
+.project-highlights li:nth-child(n+4),
+.achievements-list li:nth-child(n+4) {
+  display: none !important;
+}
+
+/* Better separation between project sections */
+.project-card {
+  margin-bottom: 4rem !important;
+  padding: 3rem !important;
+}
+
+/* ========== WORK EXPERIENCE IMPROVEMENTS ========== */
+
+/* More space between job entries */
+.work-card, .timeline-item, .job-entry {
+  margin-bottom: 4rem !important;
+  padding-bottom: 2rem !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.work-card:last-child,
+.timeline-item:last-child {
+  border-bottom: none !important;
+}
+
+/* Limit responsibilities/achievements to 3 */
+.responsibilities li:nth-child(n+4),
+.work-achievements li:nth-child(n+4) {
+  display: none !important;
+}
+
+/* ========== COLOR & CONTRAST IMPROVEMENTS ========== */
+
+/* Ensure proper contrast */
+body, p, li, span {
+  color: #e2e8f0 !important; /* Lighter gray */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+}
+
+/* Links more visible */
+a {
+  color: #60a5fa !important; /* Brighter blue */
+  text-decoration: none !important;
+  transition: color 0.2s ease !important;
+}
+
+a:hover {
+  color: #93c5fd !important;
+  text-decoration: underline !important;
+}
+
+/* Better card backgrounds */
+.card, .work-card, .project-card, .skill-card {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(100, 116, 139, 0.3) !important;
+}
+
+/* ========== BUTTON IMPROVEMENTS ========== */
+
+/* Primary buttons stand out */
+.btn-primary, .button.primary, .cta-primary {
+  background: #2563eb !important;
+  color: #ffffff !important;
+  padding: 1rem 2.5rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border: none !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4) !important;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.5) !important;
+}
+
+/* Secondary buttons subtle */
+.btn-secondary, .button.secondary, .cta-secondary {
+  background: transparent !important;
+  color: #60a5fa !important;
+  border: 2px solid #60a5fa !important;
+  padding: 1rem 2.5rem !important;
+  font-size: 1.1rem !important;
+}
+
+.btn-secondary:hover {
+  background: rgba(96, 165, 250, 0.1) !important;
+  border-color: #93c5fd !important;
+}
+
+/* ========== REMOVE DUPLICATE SECTIONS ========== */
+
+/* Hide duplicate CTAs */
+.cta-section:nth-of-type(n+2) {
+  display: none !important;
+}
+
+/* Hide duplicate work experience sections */
+section[id*="work"]:nth-of-type(2),
+section[id*="experience"]:nth-of-type(2) {
+  display: none !important;
+}
+
+/* ========== FOOTER IMPROVEMENTS ========== */
+
+/* Cleaner footer */
+.footer, .site-footer {
+  padding: 4rem 0 2rem !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.footer-grid {
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+  gap: 3rem !important;
+  max-width: 1200px !important;
+  margin: 0 auto 3rem !important;
+}
+
+.footer-section h4 {
+  margin-bottom: 1rem !important;
+  font-size: 1rem !important;
+}
+
+.footer-section ul {
+  list-style: none !important;
+  padding: 0 !important;
+}
+
+.footer-section li {
+  margin-bottom: 0.75rem !important;
+}
+
+/* ========== MOBILE RESPONSIVE IMPROVEMENTS ========== */
+
+@media (max-width: 768px) {
+  html {
+    font-size: 16px !important;
+  }
+
+  section, article {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+
+  .container, .wrapper > .container {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem) !important;
+  }
+
+  .grid, .row {
+    gap: 2rem !important;
+  }
+
+  .highlights-grid,
+  .features-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .card, .work-card, .project-card {
+    padding: 1.5rem !important;
+  }
+}
+
+/* ========== ANIMATION PERFORMANCE ========== */
+
+/* Reduce motion for better performance */
+* {
+  animation-duration: 0.3s !important;
+  transition-duration: 0.2s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

@@ -33,9 +33,9 @@ import Card from './ui/Card.astro';
           <div class="contact-card-content">
             <h3>Send me an email</h3>
             <p>I typically respond within 24 hours</p>
-            <button class="contact-link-btn contact-modal-trigger">
+            <a href={`mailto:${contactData.email}`} class="contact-link-email">
               {contactData.email}
-            </button>
+            </a>
           </div>
         </Card>
 
@@ -53,15 +53,17 @@ import Card from './ui/Card.astro';
           </div>
         </Card>
 
-        <!-- Location Card -->
+        <!-- Phone Card -->
         <Card variant="feature" class="contact-card">
           <div class="contact-card-icon">
-            <i class="fas fa-map-marker-alt"></i>
+            <i class="fas fa-phone-alt"></i>
           </div>
           <div class="contact-card-content">
-            <h3>Based in Paraguay</h3>
-            <p>Available for remote work worldwide</p>
-            <span class="contact-info">UTC-3 timezone</span>
+            <h3>Give me a call</h3>
+            <p>Available for phone consultations</p>
+            <a href={`tel:${contactData.phone}`} class="contact-link-email">
+              {contactData.phone}
+            </a>
           </div>
         </Card>
       </div>
@@ -86,65 +88,58 @@ import Card from './ui/Card.astro';
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">
-        <!-- Footer Main -->
-        <div class="footer-main">
+        <!-- Compact Footer Grid -->
+        <div class="footer-grid">
           <div class="footer-brand">
             <h3 class="brand-name gradient-text">Ivan weiss van der pol</h3>
             <p class="brand-tagline">Building digital experiences with modern technology</p>
           </div>
 
-          <div class="footer-links">
-            <div class="footer-section">
-              <h4>Navigation</h4>
-              <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#work">Experience</a></li>
-              </ul>
-            </div>
+          <div class="footer-section">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="#about">About</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+              <li><a href="#work">Experience</a></li>
+            </ul>
+          </div>
 
-            <div class="footer-section">
-              <h4>Technologies</h4>
-              <ul>
-                <li><a href="#skills">JavaScript</a></li>
-                <li><a href="#skills">Python</a></li>
-                <li><a href="#skills">React</a></li>
-                <li><a href="#skills">Astro</a></li>
-              </ul>
-            </div>
+          <div class="footer-section">
+            <h4>Technologies</h4>
+            <ul>
+              <li><a href="#skills">JavaScript</a></li>
+              <li><a href="#skills">Python</a></li>
+              <li><a href="#skills">React</a></li>
+              <li><a href="#skills">Astro</a></li>
+            </ul>
+          </div>
 
-            <div class="footer-section">
-              <h4>Connect</h4>
-              <div class="footer-social">
-                {socialLinks.all.map(link => (
-                  <a href={link.url} class={`footer-social-link icon brands ${link.icon}`} target="_blank" rel="noopener">
-                    <span class="sr-only">{link.label}</span>
-                  </a>
-                ))}
-              </div>
+          <div class="footer-section">
+            <h4>Connect</h4>
+            <div class="footer-social">
+              {socialLinks.all.map(link => (
+                <a href={link.url} class={`footer-social-link icon brands ${link.icon}`} target="_blank" rel="noopener">
+                  <span class="sr-only">{link.label}</span>
+                </a>
+              ))}
             </div>
           </div>
         </div>
 
-        <!-- Footer Bottom -->
+        <!-- Compact Footer Bottom -->
         <div class="footer-bottom">
           <div class="footer-info">
             <p>&copy; {new Date().getFullYear()} Ivan weiss van der pol. All rights reserved.</p>
             <p>Built with <span class="heart">❤️</span> using Astro and modern web technologies.</p>
           </div>
-          
-          <div class="footer-meta">
-            <span class="status-indicator">
-              <span class="status-dot"></span>
-              Available for work
-            </span>
+
+          <div class="footer-status">
+            <span class="status-dot"></span>
+            Available for work
           </div>
         </div>
       </div>
-
-      <!-- Footer Pattern -->
-      <div class="footer-pattern"></div>
     </footer>
   </div>
 </article>
@@ -264,6 +259,26 @@ import Card from './ui/Card.astro';
     color: var(--primary-900);
     transform: scale(1.05);
     box-shadow: var(--shadow-glow);
+  }
+
+  .contact-link-email {
+    display: inline-block;
+    background: rgba(37, 99, 235, 0.1);
+    border: 2px solid var(--brand-primary);
+    color: var(--brand-primary);
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-lg);
+    font-weight: var(--font-semibold);
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .contact-link-email:hover {
+    background: var(--brand-primary);
+    color: #ffffff;
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
   }
 
   /* Social Links Enhanced */

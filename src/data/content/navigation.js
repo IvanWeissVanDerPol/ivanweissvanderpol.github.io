@@ -1,20 +1,35 @@
-// Navigation data - updated for multi-page structure
+// Navigation data - Single-page with anchor links
 export const navigationData = {
   // Main navigation menu items
   mainMenu: [
     {
       label: "Home",
-      href: "/",
+      href: "#",
+      active: true
+    },
+    {
+      label: "About",
+      href: "#about",
+      active: true
+    },
+    {
+      label: "Skills",
+      href: "#skills",
       active: true
     },
     {
       label: "Projects",
-      href: "/projects",
+      href: "#projects",
       active: true
     },
     {
-      label: "About Me",
-      href: "/about",
+      label: "Experience",
+      href: "#work",
+      active: true
+    },
+    {
+      label: "Contact",
+      href: "#contact",
       active: true
     }
   ],

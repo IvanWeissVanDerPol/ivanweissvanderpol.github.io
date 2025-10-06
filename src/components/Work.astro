@@ -2,7 +2,7 @@
 // Work section component - modular and reusable
 import { workData, themeConfig } from '../data/index.js';
 import SectionHeader from './ui/SectionHeader.astro';
-import EnhancedWorkExperience from './sections/EnhancedWorkExperience.astro';
+import SimplifiedWorkExperience from './sections/SimplifiedWorkExperience.astro';
 import Card from './ui/Card.astro';
 import Button from './ui/Button.astro';
 ---
@@ -30,7 +30,7 @@ import Button from './ui/Button.astro';
       <div class="timeline-container">
         {workData.experiences.map((experience, index) => (
           <div class="timeline-item">
-            <EnhancedWorkExperience 
+            <SimplifiedWorkExperience
               company={experience.company}
               position={experience.position}
               duration={experience.duration}
@@ -50,10 +50,10 @@ import Button from './ui/Button.astro';
       </div>
     </section>
 
-    <section class="work-stats" style="margin-top: 3em;">
-      <div 
+    <section class="work-stats" style="margin-top: 2em;">
+      <div
         class="stats-container"
-        data-sal="slide-up" 
+        data-sal="slide-up"
         data-sal-delay="200"
       >
         <h3>Career Highlights</h3>
@@ -78,7 +78,7 @@ import Button from './ui/Button.astro';
       </div>
     </section>
 
-    <section class="work-cta" style="margin-top: 3em;">
+    <section class="work-cta" style="margin-top: 2em;">
       <Card variant="feature" data-sal="fade" data-sal-delay="200">
         <div class="cta-content">
           <h3>{workData.callToAction.title}</h3>

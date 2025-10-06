@@ -1,5 +1,4 @@
 /* Work Section Component Styles */
-@import '../theme/theme.css';
 
 .timeline-title,
 .section-subtitle {
@@ -31,7 +30,7 @@
 
 .timeline-item {
   position: relative;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
   padding-left: calc(var(--space-2xl) + var(--space-lg));
 }
 

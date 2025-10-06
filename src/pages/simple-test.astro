@@ -1,0 +1,416 @@
+---
+// Simple test page without complex layout
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Test - Ivan's Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #ffffff;
+      color: #0f172a;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Navigation */
+    nav {
+      background: #ffffff;
+      border-bottom: 2px solid #e5e7eb;
+      padding: 1rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-brand {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #475569;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #2563eb;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-top: 80px;
+      padding: 4rem 0;
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .hero-text .name {
+      color: #2563eb;
+      font-weight: 800;
+    }
+
+    .hero-text .role {
+      font-size: 1.5rem;
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+
+    .hero-text .description {
+      font-size: 1.125rem;
+      color: #64748b;
+      margin-bottom: 2rem;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: #ffffff;
+      border: 2px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+      border-color: #2563eb;
+    }
+
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2563eb;
+    }
+
+    .stat-label {
+      font-size: 0.875rem;
+      color: #64748b;
+      text-transform: uppercase;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      padding: 0.875rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      color: white;
+      border: 2px solid #2563eb;
+    }
+
+    .btn-primary:hover {
+      background: #1e40af;
+      border-color: #1e40af;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: #2563eb;
+      border: 2px solid #2563eb;
+    }
+
+    .btn-secondary:hover {
+      background: #eff6ff;
+    }
+
+    /* Sections */
+    section {
+      padding: 4rem 0;
+    }
+
+    section:nth-child(even) {
+      background: #f8f9fa;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      color: #0f172a;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .project-card {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    }
+
+    .project-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .project-description {
+      color: #64748b;
+      margin-bottom: 1rem;
+    }
+
+    .project-tech {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .tech-tag {
+      background: #eff6ff;
+      color: #2563eb;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <div class="nav-brand">Ivan.dev</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>
+            Hi, I'm <span class="name">Ivan Weiss Van Der Pol</span>
+          </h1>
+          <div class="role">Technical Lead & Data Engineer</div>
+          <p class="description">
+            Technical Lead with 6+ years of experience building scalable data solutions
+            and leading cross-functional teams. I help organizations increase operational
+            efficiency by 40%+ through strategic automation and data-driven insights.
+          </p>
+          <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View My Projects</a>
+            <a href="/resume.pdf" class="btn btn-secondary">Download Resume</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value">40%</div>
+            <div class="stat-label">Efficiency Gains</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">6+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">25+</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value">8+</div>
+            <div class="stat-label">Team Members Led</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <div class="container">
+      <h2>Featured Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">Data Pipeline Automation</h3>
+          <p class="project-description">
+            Built scalable ETL pipelines processing 100M+ records daily,
+            reducing processing time by 70%.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">Apache Spark</span>
+            <span class="tech-tag">AWS</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">QA Automation Framework</h3>
+          <p class="project-description">
+            Developed comprehensive testing framework reducing manual testing
+            effort by 80% and bug detection time by 60%.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">Selenium</span>
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Real-time Analytics Dashboard</h3>
+          <p class="project-description">
+            Created executive dashboard providing real-time business insights,
+            enabling data-driven decision making.
+          </p>
+          <div class="project-tech">
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">D3.js</span>
+            <span class="tech-tag">PostgreSQL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <div class="container">
+      <h2>Technical Skills</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3 class="project-title">Languages</h3>
+          <div class="project-tech">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">JavaScript</span>
+            <span class="tech-tag">SQL</span>
+            <span class="tech-tag">TypeScript</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Frameworks</h3>
+          <div class="project-tech">
+            <span class="tech-tag">Django</span>
+            <span class="tech-tag">React</span>
+            <span class="tech-tag">FastAPI</span>
+            <span class="tech-tag">Node.js</span>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3 class="project-title">Tools & Platforms</h3>
+          <div class="project-tech">
+            <span class="tech-tag">AWS</span>
+            <span class="tech-tag">Docker</span>
+            <span class="tech-tag">Kubernetes</span>
+            <span class="tech-tag">Jenkins</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <div class="container">
+      <h2>Get In Touch</h2>
+      <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <p style="font-size: 1.125rem; color: #64748b; margin-bottom: 2rem;">
+          I'm currently open to new opportunities. Whether you have a question
+          or just want to say hi, feel free to reach out!
+        </p>
+        <div class="cta-buttons" style="justify-content: center;">
+          <a href="mailto:weissvanderpol.ivan@gmail.com" class="btn btn-primary">Send Email</a>
+          <a href="https://linkedin.com/in/ivanweissvanderpol" class="btn btn-secondary">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

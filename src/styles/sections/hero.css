@@ -1,24 +1,26 @@
 /* Hero Section Styles */
 .hero-section {
-  min-height: 85vh;
+  min-height: 100vh;
   width: 100%;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   background: var(--bg-primary) !important;
   color: var(--text-primary) !important;
   position: relative;
   overflow: hidden;
-  padding: var(--space-xl) 0 var(--space-lg) 0;
+  padding: var(--space-xl) 0;
 }
 
 .hero-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--space-lg);
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 2rem !important;
   width: 100%;
-  min-height: inherit;
   position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 80vh;
 }
 
 .hero-main {
@@ -26,11 +28,12 @@
   grid-template-columns: 1.2fr 0.8fr;
   gap: var(--space-2xl);
   align-items: center;
-  justify-content: center;
+  justify-content: stretch;
   width: 100%;
-  min-height: inherit;
+  max-width: 1400px;
   position: relative;
   z-index: 2;
+  margin: 0 auto;
 }
 
 /* Hero Content */

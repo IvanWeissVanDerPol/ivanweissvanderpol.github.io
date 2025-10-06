@@ -30,7 +30,9 @@ const {
       <div class="hero-content-wrapper">
         <!-- Content -->
         <HeroContent />
+      </div>
 
+      <div class="hero-sidebar">
         <!-- Stats -->
         {showStats && <HeroStats />}
 
@@ -68,6 +70,7 @@ const {
     min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
     background: var(--bg-primary);
@@ -75,25 +78,59 @@ const {
 
   .hero-container {
     width: 100%;
-    max-width: var(--container-xl);
-    margin: 0 auto;
-    padding: var(--space-2xl);
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 2rem !important;
     position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 80vh;
   }
 
   /* Main Content Area */
   .hero-main {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: var(--space-3xl);
-    align-items: center;
     position: relative;
     z-index: 1;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
   .hero-content-wrapper {
     display: flex;
     flex-direction: column;
+    flex: 1;
+  }
+
+  .hero-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  /* Desktop: Side-by-side layout */
+  @media (min-width: 1024px) {
+    .hero-main {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: var(--space-3xl);
+    }
+
+    .hero-content-wrapper {
+      flex: 1;
+      max-width: 650px;
+    }
+
+    .hero-sidebar {
+      flex-shrink: 0;
+      width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+    }
   }
 
   /* Professional Image (if used) */

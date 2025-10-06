@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Hero Test">
+  <div style="padding: 50px; background: white; color: black;">
+    <h1>Testing Hero Section</h1>
+
+    <div style="background: #f0f0f0; padding: 20px; margin: 20px 0; border: 2px solid blue;">
+      <h2>Hero Content Should Be Here:</h2>
+
+      <!-- Direct content without components -->
+      <div class="hero-section" style="background: white; padding: 40px; border: 2px solid green;">
+        <div class="hero-container">
+          <div class="hero-main">
+            <div class="hero-content-wrapper">
+              <div class="status-badge" style="display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; background: #e0f2fe; border: 1px solid #0ea5e9; border-radius: 20px; margin-bottom: 20px;">
+                <div style="width: 8px; height: 8px; background: #0ea5e9; border-radius: 50%;"></div>
+                <span>Available for projects</span>
+              </div>
+
+              <h1 style="margin: 20px 0;">
+                <span style="display: block; font-size: 1.5rem; color: #666;">Hi, I'm</span>
+                <span style="display: block; font-size: 3rem; font-weight: bold; color: #2563eb;">Ivan Weiss Van Der Pol</span>
+                <span style="display: block; font-size: 2rem; color: #333;">Technical Lead & Data Engineer</span>
+                <span style="display: block; font-size: 1.2rem; color: #666;">Delivering measurable results through innovative software solutions</span>
+              </h1>
+
+              <p style="font-size: 1.125rem; line-height: 1.7; color: #666; margin: 20px 0;">
+                Technical Lead with 6+ years of experience building scalable data solutions and leading cross-functional teams.
+                I help organizations increase operational efficiency by 40%+ through strategic automation and data-driven insights.
+              </p>
+
+              <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 30px 0;">
+                <div style="background: white; border: 2px solid #e5e7eb; padding: 20px; text-align: center; border-radius: 12px;">
+                  <span style="font-size: 2rem; font-weight: bold; color: #2563eb;">40%</span>
+                  <span style="display: block; font-size: 0.875rem; color: #666; margin-top: 5px;">Efficiency</span>
+                </div>
+                <div style="background: white; border: 2px solid #e5e7eb; padding: 20px; text-align: center; border-radius: 12px;">
+                  <span style="font-size: 2rem; font-weight: bold; color: #2563eb;">6+</span>
+                  <span style="display: block; font-size: 0.875rem; color: #666; margin-top: 5px;">Years</span>
+                </div>
+                <div style="background: white; border: 2px solid #e5e7eb; padding: 20px; text-align: center; border-radius: 12px;">
+                  <span style="font-size: 2rem; font-weight: bold; color: #2563eb;">25+</span>
+                  <span style="display: block; font-size: 0.875rem; color: #666; margin-top: 5px;">Projects</span>
+                </div>
+                <div style="background: white; border: 2px solid #e5e7eb; padding: 20px; text-align: center; border-radius: 12px;">
+                  <span style="font-size: 2rem; font-weight: bold; color: #2563eb;">8+</span>
+                  <span style="display: block; font-size: 0.875rem; color: #666; margin-top: 5px;">Team Size</span>
+                </div>
+              </div>
+
+              <div style="display: flex; gap: 15px; margin-top: 30px;">
+                <a href="#projects" style="padding: 12px 24px; background: #2563eb; color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                  View My Projects
+                </a>
+                <a href="/resume.pdf" style="padding: 12px 24px; background: white; color: #2563eb; text-decoration: none; border-radius: 8px; border: 2px solid #2563eb; font-weight: 600;">
+                  Download Resume
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+      <h3>Debug Info:</h3>
+      <p>This is a test page to verify that content can display properly.</p>
+      <p>If you see the hero content above in the green bordered box, the issue is with CSS or component imports.</p>
+      <p>If you don't see it, there might be a JavaScript error.</p>
+    </div>
+  </div>
+</Layout>

@@ -1,5 +1,4 @@
 /* Projects Section Component Styles */
-@import '../theme/theme.css';
 
 .section-subtitle {
   color: var(--color-primary);

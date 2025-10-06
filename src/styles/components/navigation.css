@@ -1,6 +1,4 @@
 /* Modern Navigation Component - floating, minimal design */
-@import '../theme/theme.css';
-@import '../theme/color-palette.css';
 
 .main-navigation {
   position: fixed;

@@ -14,14 +14,6 @@ const {
 ---
 
 <div class="hero-content">
-  <!-- Status Badge -->
-  {showStatusBadge && (
-    <div class="status-badge">
-      <div class="status-dot"></div>
-      <span>Available for projects</span>
-    </div>
-  )}
-
   <!-- Main Title -->
   <h1 class="hero-title">
     <span class="greeting">{heroData.greeting}</span>
@@ -34,17 +26,23 @@ const {
   <div class="hero-description">
     <p class="description-main">{heroData.fullDescription}</p>
 
+    <!-- Contact Info - Prominent -->
+    <div class="hero-contact-info">
+      <a href="mailto:weissvanderpol.ivan@gmail.com" class="contact-link email-link">
+        <i class="fas fa-envelope"></i>
+        <span class="contact-text">weissvanderpol.ivan@gmail.com</span>
+      </a>
+      <a href="tel:+5950981324569" class="contact-link phone-link">
+        <i class="fas fa-phone-alt"></i>
+        <span class="contact-text">+595 0981324569</span>
+      </a>
+    </div>
+
     <!-- Social Links -->
     {showSocialLinks && socialLinks?.primary && (
       <div class="hero-social">
         <span class="social-intro">Connect with me</span>
         <div class="social-links">
-          <!-- Copy Email Button -->
-          <button id="copyEmailBtn" class="social-link-button email-copy-btn" aria-label="Copy email to clipboard">
-            <i class="fas fa-copy"></i>
-            <span class="link-text">weissvanderpol.ivan@gmail.com</span>
-          </button>
-
           <!-- Social Media Links -->
           <div class="social-platforms">
             {socialLinks.primary.filter(link => link.icon !== 'fa-envelope').map(link => (
@@ -166,6 +164,54 @@ const {
     opacity: 0;
     animation: fadeIn 0.8s ease forwards;
     animation-delay: 1.2s;
+  }
+
+  /* Contact Info - Prominent Display */
+  .hero-contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    padding: var(--space-lg);
+    background: rgba(37, 99, 235, 0.05);
+    border: 2px solid rgba(37, 99, 235, 0.2);
+    border-radius: var(--radius-lg);
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+    animation-delay: 1.3s;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-sm);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.125rem;
+    font-weight: var(--font-semibold);
+    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+  }
+
+  .contact-link:hover {
+    background: rgba(37, 99, 235, 0.1);
+    transform: translateX(4px);
+    color: var(--color-primary);
+  }
+
+  .contact-link i {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    width: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-text {
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 0.02em;
   }
 
   /* Social Links */

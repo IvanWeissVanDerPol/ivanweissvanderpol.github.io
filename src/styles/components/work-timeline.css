@@ -1,0 +1,223 @@
+/* =====================================================
+   WORK EXPERIENCE TIMELINE - Visual Timeline Enhancement
+   ===================================================== */
+
+/* Timeline Container */
+.work-timeline-container {
+  position: relative;
+  padding-left: 80px;
+  margin: 3rem 0;
+}
+
+/* Vertical Timeline Line */
+.work-timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg,
+    rgba(37, 99, 235, 0.8) 0%,
+    rgba(124, 58, 237, 0.8) 100%
+  );
+  border-radius: 2px;
+  box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Timeline Dots for Each Position */
+.work-card {
+  position: relative;
+  margin-bottom: 3rem !important;
+}
+
+.work-card::before {
+  content: '';
+  position: absolute;
+  left: -56px;
+  top: 48px;
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  border: 4px solid #0f172a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6px rgba(37, 99, 235, 0.2),
+              0 4px 12px rgba(37, 99, 235, 0.4);
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+/* Current position indicator - pulsing animation */
+.work-card.current::before {
+  background: linear-gradient(135deg, #10b981, #06b6d4);
+  animation: pulse-dot 2s ease-in-out infinite;
+  box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.3),
+              0 4px 12px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(16, 185, 129, 0.3),
+                0 4px 12px rgba(16, 185, 129, 0.5);
+  }
+  50% {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0.2),
+                0 6px 16px rgba(16, 185, 129, 0.6);
+  }
+}
+
+/* Hover effect on timeline dot */
+.work-card:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 8px rgba(37, 99, 235, 0.3),
+              0 6px 16px rgba(37, 99, 235, 0.5);
+}
+
+/* Date Label on Timeline */
+.work-timeline-date {
+  position: absolute;
+  left: -200px;
+  top: 40px;
+  width: 120px;
+  text-align: right;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Timeline connector line from dot to card */
+.work-card::after {
+  content: '';
+  position: absolute;
+  left: -32px;
+  top: 60px;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg,
+    rgba(37, 99, 235, 0.5),
+    rgba(37, 99, 235, 0.1)
+  );
+}
+
+/* Mobile Timeline Adjustments */
+@media (max-width: 1024px) {
+  .work-timeline-container {
+    padding-left: 60px;
+  }
+
+  .work-timeline-container::before {
+    left: 24px;
+  }
+
+  .work-card::before {
+    left: -44px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .work-timeline-date {
+    display: none; /* Hide dates on tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .work-timeline-container {
+    padding-left: 0;
+  }
+
+  .work-timeline-container::before {
+    left: 12px;
+  }
+
+  .work-card::before {
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-width: 3px;
+  }
+
+  .work-card::after {
+    display: none;
+  }
+
+  .work-card {
+    margin-left: 32px !important;
+  }
+}
+
+/* Enhanced Work Card with Timeline */
+.work-card-with-timeline {
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.work-card-with-timeline:hover {
+  border-left-color: rgba(37, 99, 235, 0.5);
+}
+
+/* Timeline Milestone Markers */
+.timeline-milestone {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 80px;
+}
+
+.timeline-milestone::before {
+  content: attr(data-year);
+  position: absolute;
+  left: -200px;
+  top: 0;
+  font-size: 3rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.05);
+  pointer-events: none;
+}
+
+.timeline-milestone-dot {
+  position: absolute;
+  left: 25px;
+  top: 8px;
+  width: 18px;
+  height: 18px;
+  background: #7c3aed;
+  border: 3px solid #0f172a;
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.2);
+}
+
+/* Scrollytelling effect - fade in cards as they appear */
+.work-card {
+  opacity: 0;
+  transform: translateX(-20px);
+  animation: slideInTimeline 0.6s ease-out forwards;
+}
+
+.work-card:nth-child(1) { animation-delay: 0.1s; }
+.work-card:nth-child(2) { animation-delay: 0.2s; }
+.work-card:nth-child(3) { animation-delay: 0.3s; }
+.work-card:nth-child(4) { animation-delay: 0.4s; }
+.work-card:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes slideInTimeline {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Accessibility: Respect Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .work-card {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .work-card.current::before {
+    animation: none;
+  }
+}

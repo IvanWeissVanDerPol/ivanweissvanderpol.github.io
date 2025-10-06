@@ -1,5 +1,4 @@
 /* Card Component Styles */
-@import '../theme/theme.css';
 
 .card {
   background: var(--bg-card);

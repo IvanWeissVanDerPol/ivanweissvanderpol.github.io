@@ -11,8 +11,16 @@ export interface Props {
   showLabels?: boolean;
 }
 
+// Ensure stats always have values (fallback if data loading fails)
+const defaultStats = {
+  efficiency: "40%",
+  experience: "6+",
+  projectsCompleted: "25+",
+  teamSize: "8+"
+};
+
 const {
-  stats = heroData.stats,
+  stats = heroData?.stats || defaultStats,
   showLabels = true
 } = Astro.props;
 ---
@@ -37,53 +45,75 @@ const {
         {showLabels && <span class="prop-label">Projects Completed</span>}
       </div>
     )}
+    {stats.teamSize && (
+      <div class="value-prop">
+        <span class="prop-metric">{stats.teamSize}</span>
+        {showLabels && <span class="prop-label">Team Members Led</span>}
+      </div>
+    )}
   </div>
 )}
 
 <style>
   /* Value Propositions */
   .value-props {
-    display: flex;
-    gap: var(--space-2xl);
-    margin: var(--space-2xl) 0;
-    padding: var(--space-lg) 0;
-    border-top: 1px solid var(--border-primary);
-    border-bottom: 1px solid var(--border-primary);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    padding: 0;
+    margin: 0;
   }
 
   .value-prop {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: var(--space-lg);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-normal);
     opacity: 0;
     animation: fadeInScale 0.6s ease forwards;
     animation-delay: 1.2s;
   }
 
+  .value-prop:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px var(--shadow-md);
+  }
+
   .value-prop:nth-child(2) {
-    animation-delay: 1.4s;
+    animation-delay: 1.3s;
   }
 
   .value-prop:nth-child(3) {
-    animation-delay: 1.6s;
+    animation-delay: 1.4s;
+  }
+
+  .value-prop:nth-child(4) {
+    animation-delay: 1.5s;
   }
 
   .prop-metric {
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(2rem, 4vw, 2.5rem);
     font-weight: var(--font-bold);
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: var(--space-xs);
+    line-height: 1;
   }
 
   .prop-label {
-    font-size: var(--font-sm);
+    font-size: var(--font-xs);
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.1em;
+    font-weight: var(--font-medium);
   }
 
   /* Animations */
@@ -101,13 +131,16 @@ const {
   /* Responsive */
   @media (max-width: 768px) {
     .value-props {
-      flex-direction: column;
-      gap: var(--space-lg);
-      margin: var(--space-lg) 0;
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+
+    .value-prop {
+      padding: var(--space-md);
     }
 
     .prop-metric {
-      font-size: 1.5rem;
+      font-size: 2rem;
     }
   }
 

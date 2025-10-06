@@ -1,5 +1,4 @@
 /* Progress Bar Component Styles */
-@import '../theme/theme.css';
 
 .progress-bar {
   background: var(--bg-glass);

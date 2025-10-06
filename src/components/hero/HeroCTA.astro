@@ -18,57 +18,41 @@ const {
 ---
 
 <div class="hero-actions">
-  <div class="primary-cta">
-    <a href={primaryLink} class="btn btn-primary btn-large cta-primary">
-      <i class="fas fa-rocket"></i>
-      {primaryText}
-    </a>
-    <a href={secondaryLink} class="btn btn-secondary btn-large cta-secondary" download>
-      <i class="fas fa-download"></i>
-      {secondaryText}
-    </a>
-  </div>
-
+  <a href={primaryLink} class="btn btn-primary btn-large cta-primary">
+    <i class="fas fa-rocket"></i>
+    {primaryText}
+  </a>
+  <a href={secondaryLink} class="btn btn-secondary btn-large cta-secondary" download>
+    <i class="fas fa-download"></i>
+    {secondaryText}
+  </a>
   {showContactCTA && (
-    <div class="contact-cta">
-      <button class="btn btn-outline btn-large contact-modal-trigger">
-        <i class="fas fa-envelope"></i>
-        Let's Work Together
-      </button>
-    </div>
+    <button class="btn btn-outline btn-large contact-modal-trigger">
+      <i class="fas fa-envelope"></i>
+      Let's Work Together
+    </button>
   )}
 </div>
 
 <style>
   /* Action Buttons */
   .hero-actions {
-    margin-top: var(--space-2xl);
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
-    animation-delay: 1.8s;
-  }
-
-  .primary-cta {
-    display: flex;
-    gap: var(--space-md);
-    flex-wrap: wrap;
-  }
-
-  .contact-cta {
-    display: flex;
-    justify-content: flex-start;
+    animation-delay: 1.6s;
   }
 
   /* Button Styles */
   .btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
+    justify-content: center;
     gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl);
-    border-radius: var(--radius-full);
+    padding: var(--space-lg) var(--space-xl);
+    border-radius: var(--radius-lg);
     font-weight: var(--font-semibold);
     text-decoration: none;
     transition: all var(--transition-normal);
@@ -76,10 +60,11 @@ const {
     border: 2px solid transparent;
     position: relative;
     overflow: hidden;
+    width: 100%;
   }
 
   .btn-large {
-    padding: var(--space-md) var(--space-2xl);
+    padding: var(--space-lg) var(--space-2xl);
     font-size: var(--font-md);
   }
 
@@ -167,22 +152,8 @@ const {
 
   /* Responsive */
   @media (max-width: 768px) {
-    .primary-cta {
-      flex-direction: column;
-    }
-
-    .btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .contact-cta {
-      width: 100%;
-    }
-
-    .contact-modal-trigger {
-      width: 100%;
-      justify-content: center;
+    .hero-actions {
+      gap: var(--space-sm);
     }
   }
 

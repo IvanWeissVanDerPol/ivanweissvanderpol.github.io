@@ -1,0 +1,591 @@
+/* =====================================================
+   CRITICAL FIXES - Contrast, Readability & Visual Hierarchy
+   Priority: URGENT - Fixes all contrast and accessibility issues
+   ===================================================== */
+
+/* ========== TYPOGRAPHY SCALE - WCAG AAA COMPLIANT ========== */
+
+/* All body text must be white or very light for dark backgrounds */
+body,
+p,
+li,
+span,
+div {
+  color: #ffffff !important;
+  line-height: 1.7;
+}
+
+/* Headings - Crisp white for maximum readability */
+h1, h2, h3, h4, h5, h6 {
+  color: #ffffff !important;
+  font-weight: 700;
+}
+
+/* Professional Typography Scale */
+h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem) !important;
+  line-height: 1.1 !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 2.5rem) !important;
+  line-height: 1.2 !important;
+  font-weight: 700 !important;
+  margin-bottom: 2rem !important;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 1.875rem) !important;
+  line-height: 1.3 !important;
+  font-weight: 600 !important;
+}
+
+h4 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+h5 {
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  color: #ffffff !important;
+}
+
+/* Body text - Enhanced readability */
+p {
+  font-size: clamp(1rem, 2vw, 1.125rem) !important;
+  line-height: 1.8 !important;
+  color: #e2e8f0 !important;
+  margin-bottom: 1rem;
+}
+
+/* Secondary text - Still readable */
+.text-secondary,
+.secondary-text,
+small {
+  color: #cbd5e1 !important;
+  font-size: 0.95rem;
+}
+
+/* Muted text - Minimum WCAG AA contrast */
+.text-muted,
+.muted-text {
+  color: #94a3b8 !important;
+}
+
+/* ========== PROJECT CARDS - MAXIMUM CONTRAST ========== */
+
+.project-card {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 2px solid rgba(71, 85, 105, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.project-card h4,
+.project-card h3 {
+  color: #ffffff !important;
+  font-size: 1.75rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1rem !important;
+}
+
+.project-description,
+.project-card p {
+  color: #e2e8f0 !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.8 !important;
+}
+
+/* Project highlights and achievements */
+.highlights li,
+.metric-item {
+  color: #f1f5f9 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+/* ========== WORK EXPERIENCE - FIXED CONTRAST ========== */
+
+.work-card {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 2px solid rgba(71, 85, 105, 0.6) !important;
+  backdrop-filter: blur(20px) !important;
+}
+
+.work-position-title,
+.work-card h3,
+.work-card h4 {
+  color: #ffffff !important;
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+}
+
+.work-company-name {
+  color: #f1f5f9 !important;
+  font-size: 1.25rem !important;
+}
+
+.work-description {
+  color: #e2e8f0 !important;
+  font-size: 1.0625rem !important;
+  line-height: 1.8 !important;
+  background: rgba(51, 65, 85, 0.6) !important;
+}
+
+.responsibility-item,
+.achievement-text {
+  color: #f1f5f9 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+.work-meta-item {
+  color: #e2e8f0 !important;
+  background: rgba(51, 65, 85, 0.7) !important;
+  font-size: 0.9375rem !important;
+}
+
+/* ========== SKILLS/COMPETENCIES - ENHANCED VISIBILITY ========== */
+
+.competency-card {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 2px solid rgba(71, 85, 105, 0.6) !important;
+}
+
+.competency-name,
+.skill-name {
+  color: #ffffff !important;
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+}
+
+.competency-description {
+  color: #e2e8f0 !important;
+  font-size: 1rem !important;
+  line-height: 1.7 !important;
+}
+
+.skill-percentage {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* ========== SPACING SYSTEM - CONSISTENT & BREATHING ROOM ========== */
+
+/* Section spacing - 120px between major sections */
+section,
+article {
+  padding: 7.5rem 0 !important;
+}
+
+section + section,
+article + article {
+  margin-top: 0 !important;
+}
+
+/* Container max-width and padding */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 3rem);
+}
+
+/* Card spacing */
+.projects-grid,
+.competencies-grid,
+.work-experience-grid {
+  gap: 2rem !important;
+}
+
+/* ========== BUTTONS & CTAs - MORE PROMINENT ========== */
+
+.button,
+.btn,
+button[type="button"],
+button[type="submit"],
+a.button {
+  background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%) !important;
+  color: #ffffff !important;
+  padding: 1rem 2.5rem !important;
+  font-size: 1.125rem !important;
+  font-weight: 600 !important;
+  border-radius: 12px !important;
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.75rem !important;
+  cursor: pointer !important;
+}
+
+.button:hover,
+.btn:hover,
+button:hover {
+  transform: translateY(-4px) scale(1.02) !important;
+  box-shadow: 0 12px 32px rgba(37, 99, 235, 0.5) !important;
+}
+
+.button.large,
+.btn-large {
+  padding: 1.25rem 3rem !important;
+  font-size: 1.25rem !important;
+}
+
+.button.secondary,
+.btn-secondary {
+  background: rgba(30, 41, 59, 0.8) !important;
+  border: 2px solid #2563eb !important;
+  color: #ffffff !important;
+}
+
+/* ========== HERO SECTION - ENHANCED ========== */
+
+.hero-section,
+.hero {
+  padding: 8rem 0 6rem !important;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 7vw, 4rem) !important;
+  color: #ffffff !important;
+  margin-bottom: 1.5rem !important;
+}
+
+.hero .role-text,
+.hero .subtitle {
+  font-size: clamp(1.25rem, 3vw, 1.75rem) !important;
+  color: #cbd5e1 !important;
+}
+
+.hero .description-main {
+  font-size: clamp(1.0625rem, 2.5vw, 1.25rem) !important;
+  color: #e2e8f0 !important;
+  line-height: 1.8 !important;
+}
+
+/* Hero stats/metrics */
+.stat-value,
+.hero-stat-value {
+  font-size: clamp(2.5rem, 5vw, 3.5rem) !important;
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+.stat-label,
+.hero-stat-label {
+  font-size: 0.9375rem !important;
+  color: #cbd5e1 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========== GLASSMORPHISM ENHANCEMENT ========== */
+
+.card,
+.project-card,
+.work-card,
+.competency-card,
+.achievement-item {
+  backdrop-filter: blur(20px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
+  background: rgba(30, 41, 59, 0.85) !important;
+  border: 2px solid rgba(148, 163, 184, 0.2) !important;
+}
+
+.card:hover,
+.project-card:hover,
+.work-card:hover,
+.competency-card:hover {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border-color: rgba(37, 99, 235, 0.5) !important;
+  box-shadow: 0 20px 60px rgba(37, 99, 235, 0.3) !important;
+}
+
+/* ========== TAGS & BADGES - BETTER VISIBILITY ========== */
+
+.tech-tag,
+.tag,
+.badge,
+.category {
+  background: rgba(37, 99, 235, 0.2) !important;
+  border: 1px solid rgba(37, 99, 235, 0.5) !important;
+  color: #ffffff !important;
+  padding: 0.5rem 1rem !important;
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+}
+
+.tech-tag:hover,
+.tag:hover {
+  background: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+  transform: translateY(-2px) !important;
+}
+
+/* ========== SECTION HEADERS - ENHANCED ========== */
+
+.section-header h2,
+.major h2,
+section > h2,
+article > h2 {
+  color: #ffffff !important;
+  font-size: clamp(2rem, 5vw, 3rem) !important;
+  font-weight: 800 !important;
+  text-align: center;
+  margin-bottom: 3rem !important;
+  position: relative;
+  padding-bottom: 1.5rem;
+}
+
+.section-header h2::after,
+.major h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #2563eb, #7c3aed);
+  border-radius: 2px;
+}
+
+.section-header p,
+.major p {
+  color: #cbd5e1 !important;
+  font-size: clamp(1.0625rem, 2.5vw, 1.25rem) !important;
+  line-height: 1.7 !important;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3rem !important;
+}
+
+/* ========== LINKS - BETTER VISIBILITY ========== */
+
+a {
+  color: #60a5fa !important;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #93c5fd !important;
+  text-decoration: underline;
+}
+
+a:not(.button):not(.btn) {
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.4);
+  text-underline-offset: 3px;
+}
+
+/* ========== MOBILE RESPONSIVENESS ========== */
+
+@media (max-width: 768px) {
+  section,
+  article {
+    padding: 4rem 0 !important;
+  }
+
+  .projects-grid,
+  .competencies-grid {
+    gap: 1.5rem !important;
+  }
+
+  .button,
+  .btn {
+    padding: 0.875rem 2rem !important;
+    font-size: 1rem !important;
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  p {
+    font-size: 1rem !important;
+  }
+}
+
+/* ========== PRINT STYLES ========== */
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .card,
+  .project-card,
+  .work-card {
+    background: white !important;
+    border: 2px solid #ddd !important;
+    color: black !important;
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6, p, li {
+    color: black !important;
+  }
+}
+
+/* ========== HIGH CONTRAST MODE ========== */
+
+@media (prefers-contrast: high) {
+  body,
+  p,
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+  }
+
+  .card,
+  .project-card,
+  .work-card {
+    border-width: 3px !important;
+    border-color: #ffffff !important;
+  }
+
+  .button,
+  .btn {
+    border: 3px solid #ffffff !important;
+  }
+}
+/* =====================================================
+   SPACING FIXES - Centralize & Reduce Spacing
+   ===================================================== */
+
+/* Global Container - Centralize All Content */
+.container,
+.wrapper > .container,
+article > .container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+}
+
+/* Section Spacing - Reduce gaps between sections */
+article,
+section {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* First section - add top padding */
+article:first-of-type,
+section:first-of-type {
+  padding-top: 5rem !important;
+}
+
+/* Wrapper Styles - Remove excessive padding */
+.wrapper {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.wrapper.style1,
+.wrapper.style2,
+.wrapper.style3 {
+  padding: 3rem 0 !important;
+}
+
+/* Remove default section margins */
+#hero,
+#about,
+#skills,
+#projects,
+#work,
+#contact {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Centralize content within sections */
+#hero .container,
+#about .container,
+#skills .container,
+#projects .container,
+#work .container,
+#contact .container {
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+}
+
+/* Remove excessive padding from cards */
+.card,
+.work-card,
+.project-card,
+.skill-card {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Grid layouts - center content */
+.row,
+.grid,
+.grid-container {
+  max-width: 1200px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Reduce heading margins */
+h2,
+.section-title,
+.timeline-title {
+  margin-top: 0 !important;
+  margin-bottom: 1.5rem !important;
+}
+
+h3 {
+  margin-top: 0 !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .container,
+  .wrapper > .container,
+  article > .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  article,
+  section {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+
+  .wrapper.style1,
+  .wrapper.style2,
+  .wrapper.style3 {
+    padding: 2rem 0 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  article,
+  section {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+}

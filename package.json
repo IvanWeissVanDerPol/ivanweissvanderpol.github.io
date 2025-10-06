@@ -16,18 +16,22 @@
     "format:check": "prettier --check \"**/*.{js,jsx,ts,tsx,astro,json,css,md}\"",
     "typecheck": "astro check && tsc --noEmit",
     "clean": "rm -rf dist .astro node_modules/.cache",
-    "validate": "npm run typecheck && npm run lint && npm run format:check"
+    "validate": "npm run typecheck && npm run lint && npm run format:check",
+    "analyze": "node scripts/visual-analyzer.js",
+    "test:visual": "npx playwright install chromium && node scripts/visual-analyzer.js"
   },
   "dependencies": {
     "astro": "^5.12.3",
     "sal.js": "^0.8.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.55.1",
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-astro": "^0.31.4",
+    "playwright": "^1.55.1",
     "prettier": "^3.2.4",
     "prettier-plugin-astro": "^0.13.0",
     "typescript": "^5.3.3"

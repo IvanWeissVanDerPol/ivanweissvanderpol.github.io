@@ -35,13 +35,13 @@ import FeatureCard from './sections/FeatureCard.astro';
       </div>
     </div>
 
-    <div class="row gtr-uniform highlights-grid" style="margin-top: 3em;">
+    <div class="row gtr-uniform highlights-grid" style="margin-top: 2em; gap: 1.5em;">
       {aboutData.highlights.map((highlight, index) => (
-        <div class="col-3 col-6-medium col-12-small">
-          <FeatureCard 
+        <div class="col-2 col-4-medium col-6-small">
+          <FeatureCard
             title={highlight.title}
             description={highlight.description}
-            icon={`solid ${highlight.icon}`}
+            icon={`fas ${highlight.icon}`}
             data-sal="zoom-in"
             data-sal-delay={300 + (index * 100)}
           />
@@ -51,3 +51,24 @@ import FeatureCard from './sections/FeatureCard.astro';
   </div>
 </article>
 
+<style>
+  .highlights-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 1.5rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+  }
+
+  @media (min-width: 1024px) {
+    .highlights-grid {
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .highlights-grid {
+      grid-template-columns: repeat(6, 1fr) !important;
+    }
+  }
+</style>

@@ -1,0 +1,171 @@
+{
+  "timestamp": "2025-10-04T22:08:02.004Z",
+  "issues": [
+    {
+      "type": "contrast",
+      "element": "theme-midnight breakpoint-xlarge breakpoint-large breakpoint-medium breakpoint-small breakpoint-xsmall",
+      "background": "rgb(0, 0, 0)",
+      "text": "rgb(26, 26, 26)"
+    },
+    {
+      "type": "contrast",
+      "element": "theme-dropdown",
+      "background": "rgba(17, 17, 17, 0.9)",
+      "text": "rgb(15, 23, 42)"
+    },
+    {
+      "type": "contrast",
+      "element": "theme-accent",
+      "background": "rgb(59, 130, 246)",
+      "text": "rgb(0, 0, 0)"
+    },
+    {
+      "type": "contrast",
+      "element": "theme-accent",
+      "background": "rgb(6, 182, 212)",
+      "text": "rgb(0, 0, 0)"
+    },
+    {
+      "type": "contrast",
+      "element": "theme-accent",
+      "background": "rgb(16, 185, 129)",
+      "text": "rgb(0, 0, 0)"
+    },
+    {
+      "type": "spacing",
+      "element": "cta-section",
+      "issue": "Using px instead of rem for padding",
+      "current": "64px 24px"
+    },
+    {
+      "type": "typography",
+      "issue": "H2 is larger than H1",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H3 is larger than H2",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H4 is larger than H3",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H5 is larger than H4",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H4 is larger than H3",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H5 is larger than H4",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H4 is larger than H3",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H5 is larger than H4",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H4 is larger than H3",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H5 is larger than H4",
+      "suggestion": "Fix heading hierarchy"
+    },
+    {
+      "type": "typography",
+      "issue": "H3 is larger than H2",
+      "suggestion": "Fix heading hierarchy"
+    }
+  ],
+  "improvements": {
+    "css": [
+      "\n/* Fix contrast issue for theme-midnight breakpoint-xlarge breakpoint-large breakpoint-medium breakpoint-small breakpoint-xsmall */\n.theme-midnight breakpoint-xlarge breakpoint-large breakpoint-medium breakpoint-small breakpoint-xsmall {\n  color: var(--text-primary) !important;\n  background-color: var(--bg-primary) !important;\n}",
+      "\n/* Fix contrast issue for theme-dropdown */\n.theme-dropdown {\n  color: var(--text-primary) !important;\n  background-color: var(--bg-primary) !important;\n}",
+      "\n/* Fix contrast issue for theme-accent */\n.theme-accent {\n  color: var(--text-primary) !important;\n  background-color: var(--bg-primary) !important;\n}",
+      "\n/* Fix contrast issue for theme-accent */\n.theme-accent {\n  color: var(--text-primary) !important;\n  background-color: var(--bg-primary) !important;\n}",
+      "\n/* Fix contrast issue for theme-accent */\n.theme-accent {\n  color: var(--text-primary) !important;\n  background-color: var(--bg-primary) !important;\n}",
+      "\n/* Fix spacing consistency */\n.cta-section {\n  padding: var(--space-2xl) var(--space-xl);\n}"
+    ],
+    "suggestions": [
+      {
+        "type": "typography",
+        "message": "H2 is larger than H1",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H3 is larger than H2",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H4 is larger than H3",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H5 is larger than H4",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H4 is larger than H3",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H5 is larger than H4",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H4 is larger than H3",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H5 is larger than H4",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H4 is larger than H3",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H5 is larger than H4",
+        "fix": "Fix heading hierarchy"
+      },
+      {
+        "type": "typography",
+        "message": "H3 is larger than H2",
+        "fix": "Fix heading hierarchy"
+      }
+    ]
+  },
+  "summary": {
+    "total": 17,
+    "byType": [
+      "contrast",
+      "spacing",
+      "typography"
+    ]
+  }
+}

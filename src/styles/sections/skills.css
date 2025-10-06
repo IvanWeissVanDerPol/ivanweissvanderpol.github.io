@@ -1,5 +1,4 @@
 /* Skills Section Component Styles */
-@import '../theme/theme.css';
 
 .skill-category {
   background: var(--bg-glass);

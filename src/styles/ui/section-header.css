@@ -1,5 +1,4 @@
 /* Section Header Component Styles */
-@import '../theme/theme.css';
 
 .section-header {
   margin-bottom: var(--space-xl);

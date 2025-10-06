@@ -103,7 +103,13 @@ const categorizedTechs = categorizeTechnologies(technologies);
       </div>
 
       <div class="work-title-info">
-        <h3 class="work-position-title">{position}</h3>
+        <div class="title-row">
+          <h3 class="work-position-title">{position}</h3>
+          <div class={`work-status-badge ${status}`}>
+            <i class="fas fa-circle"></i>
+            <span>{status === 'current' ? 'Current' : 'Completed'}</span>
+          </div>
+        </div>
         <h4 class="work-company-name">
           {companyInfo.website ? (
             <a href={companyInfo.website} target="_blank" rel="noopener">
@@ -128,10 +134,6 @@ const categorizedTechs = categorizeTechnologies(technologies);
             <i class="fas fa-tag"></i>
             <span>{type}</span>
           </div>
-          <div class={`work-meta-item ${status}`}>
-            <i class="fas fa-circle"></i>
-            <span>{status.charAt(0).toUpperCase() + status.slice(1)}</span>
-          </div>
         </div>
       </div>
     </div>
@@ -142,75 +144,55 @@ const categorizedTechs = categorizeTechnologies(technologies);
     <!-- Description -->
     <p class="work-description">{description}</p>
 
-    <!-- PRIORITY: Enhanced Achievements Section -->
-    {achievements.length > 0 && (
-      <div class="work-achievements">
-        <h5 class="work-section-title">
-          <i class="fas fa-trophy"></i>
-          Key Achievements & Impact
-        </h5>
-        <div class="achievements-grid">
-          {achievements.map(achievement => {
-            const { metric, description } = extractMetric(achievement);
-            return (
-              <div class="achievement-item">
-                {metric && (
-                  <div class="achievement-metric">{metric}</div>
-                )}
-                <div class="achievement-text">{description}</div>
-              </div>
-            );
-          })}
+    <!-- Compact Achievements & Responsibilities -->
+    <div class="work-details-grid">
+      <!-- Achievements Section -->
+      {achievements.length > 0 && (
+        <div class="work-achievements">
+          <h5 class="work-section-title">
+            <i class="fas fa-trophy"></i>
+            Impact
+          </h5>
+          <div class="achievements-compact">
+            {achievements.slice(0, 3).map(achievement => {
+              const { metric, description } = extractMetric(achievement);
+              return (
+                <div class="achievement-item">
+                  {metric && <span class="achievement-metric">{metric}</span>}
+                  <span class="achievement-text">{description}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-    )}
+      )}
 
-    <!-- Responsibilities Section -->
-    <div class="work-responsibilities">
-      <h5 class="work-section-title">
-        <i class="fas fa-tasks"></i>
-        Key Responsibilities
-      </h5>
-      <ul class="responsibilities-list">
-        {responsibilities.map(responsibility => (
-          <li class="responsibility-item">{responsibility}</li>
-        ))}
-      </ul>
+      <!-- Responsibilities Section -->
+      <div class="work-responsibilities">
+        <h5 class="work-section-title">
+          <i class="fas fa-tasks"></i>
+          Responsibilities
+        </h5>
+        <ul class="responsibilities-list">
+          {responsibilities.slice(0, 3).map(responsibility => (
+            <li class="responsibility-item">{responsibility}</li>
+          ))}
+        </ul>
+      </div>
     </div>
 
-    <!-- Enhanced Technologies Section -->
+    <!-- Compact Technologies Section -->
     <div class="work-technologies">
       <h5 class="work-section-title">
         <i class="fas fa-cogs"></i>
-        Technologies & Skills
+        Technologies
       </h5>
-      <div class="tech-categories">
-        {categorizedTechs.map(([category, techs]) => (
-          <div class="tech-category">
-            <div class="tech-category-title">{category}</div>
-            <div class="tech-tags-grid">
-              {techs.map(tech => (
-                <span class={`tech-tag ${getTechProficiency(tech)}`}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
+      <div class="tech-tags-compact">
+        {technologies.slice(0, 8).map(tech => (
+          <span class={`tech-tag ${getTechProficiency(tech)}`}>
+            {tech}
+          </span>
         ))}
-      </div>
-    </div>
-
-    <!-- Company Information Footer -->
-    <div class="work-company-info">
-      <div class="company-details">
-        <div class="company-detail">
-          <i class="fas fa-industry"></i>
-          <span>{companyInfo.industry}</span>
-        </div>
-        <div class="company-detail">
-          <i class="fas fa-users"></i>
-          <span>{companyInfo.size}</span>
-        </div>
       </div>
     </div>
   </div>
@@ -218,4 +200,6 @@ const categorizedTechs = categorizeTechnologies(technologies);
 
 <style>
   @import '../../styles/components/modern-work-experience.css';
+  @import '../../styles/components/work-compact.css';
+  @import '../../styles/components/work-timeline.css';
 </style>

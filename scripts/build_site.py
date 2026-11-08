@@ -390,14 +390,18 @@ def page_html(meta: dict, body_html: str, nav: str, extra_head: str = "") -> str
     desc = meta.get("description", "")
     slug = meta.get("slug", "")
     base = meta.get("base_url", "").rstrip("/")
-    canonical = f"{base}/{slug}" if slug else (base + "/" if base else "")
+    # Canonical URLs must match the served URL exactly, trailing slash included,
+    # or search engines treat the page as a duplicate of the slash variant.
+    canonical = f"{base}/{slug}/" if slug else (base + "/" if base else "")
     body_class = meta.get("body_class", "")
+    # A 404 page must never be indexed, and must not compete with the home page.
+    robots = '<meta name="robots" content="noindex, follow">\n' if meta.get("is_404") else ""
     return f"""<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{html.escape(title)}</title>
+{robots}<title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc, quote=True)}">
 <link rel="canonical" href="{html.escape(canonical, quote=True)}">
 <meta name="author" content="Ivan Weiss van der Pol">
@@ -452,7 +456,7 @@ NAV = (
 def jsonld_graph(meta: dict) -> list[dict]:
     base = meta.get("base_url", "").rstrip("/")
     slug = meta.get("slug", "")
-    url = f"{base}/{slug}" if slug else (base + "/" if base else "")
+    url = f"{base}/{slug}/" if slug else (base + "/" if base else "")
     graph: list[dict] = []
 
     if meta.get("is_home"):
@@ -575,6 +579,12 @@ def main() -> int:
 
         slug = meta["slug"]
         body_html = md_to_html(body)
+
+        # The home page lives at /, so normalise its slug before any URL is derived
+        # (canonical, JSON-LD, sitemap) — otherwise the root URL is emitted as
+        # /index/ and the page looks like a duplicate of the real home page.
+        if slug == "index":
+            meta["slug"] = ""
 
         answer = meta.get("answer")
         if answer:
@@ -759,8 +769,8 @@ def main() -> int:
             "@context": "https://schema.org",
             "@graph": [{
                 "@type": "WebPage",
-                "@id": args.base_url.rstrip("/") + "/404#webpage",
-                "url": args.base_url.rstrip("/") + "/404",
+                "@id": args.base_url.rstrip("/") + "/404/#webpage",
+                "url": args.base_url.rstrip("/") + "/404/",
                 "name": "Page not found",
                 "description": "The requested page does not exist on this site.",
                 "isPartOf": {"@id": args.base_url.rstrip("/") + "/#website"},

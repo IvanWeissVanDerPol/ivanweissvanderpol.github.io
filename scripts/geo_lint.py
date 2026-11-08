@@ -86,6 +86,10 @@ class Report:
         self.findings.append(Finding(level, rule, detail))
 
 
+PRE_RE = re.compile(r"<pre\b.*?</pre>", re.I | re.S)
+CODE_BLOCK_RE = re.compile(r"<code\b[^>]*>(.*?)</code>", re.I | re.S)
+
+
 def html_to_text(html: str) -> str:
     html = SCRIPT_STYLE_RE.sub(" ", html)
     text = TAG_RE.sub(" ", html)
@@ -241,7 +245,12 @@ def lint_html(path: Path) -> Report:
     else:
         rep.add("PASS", "geo/citations", f"{n_cites} inline citations")
 
-    bare = [u for u in BARE_URL_RE.findall(text)]
+    # Bare-URL check runs on prose only: URLs inside code examples (JSON-LD
+    # samples, llms.txt snippets, shell commands) are documentation, not
+    # uncited claims, so they must not be reported.
+    prose = CODE_BLOCK_RE.sub(" ", PRE_RE.sub(" ", html))
+    prose = html_to_text(prose)
+    bare = [u for u in BARE_URL_RE.findall(prose)]
     if bare:
         rep.add("WARN", "geo/bare-urls", f"{len(bare)} bare URL(s) in body text — use linked citations")
     else:

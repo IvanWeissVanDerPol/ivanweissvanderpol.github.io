@@ -704,6 +704,40 @@ The 2026 citation data is blunt about who gets quoted. Muck Rack and Generative 
 
 For a candidate, the operational translation is: **your own site alone will not carry you into AI answers.** The citations come from third-party sources — a conference talk page, an open-source repository, an engineering blog, a community answer, a news write-up, a university page. The site is the canonical reference; the third-party presence is what gets retrieved and quoted.
 
+### Two prompt types: name queries and discovery prompts
+
+Recruiters and assistants ask two structurally different questions, and a candidate has to win
+both.
+
+**Name queries** ("who is Ivan Weiss van der Pol", "Ivan Weiss van der Pol AI Whisperers") are
+resolved by entity presence, not by ranking. If the name is ambiguous across the corpus — two
+people, or a person and a company — the assistant has no reason to pick yours. That is why the
+playbook above insists on one canonical `Person` page with identical facts everywhere, and on a
+`sameAs` array
+([Google Search Central — Profile Page structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page)).
+
+**Discovery prompts** are where the market actually is: "senior AI engineer who has built agent
+orchestration in production", "engineer with LLM evaluation and cost-control experience", "who has
+both AI and regulated-software background". AI Overviews are **1.9x more likely on non-branded
+queries** than branded ones, and **99.9% of keywords that trigger an AI Overview are informational**
+([Ahrefs — What Triggers AI Overviews? 86 Factors and 146 Million SERPs Analyzed](https://ahrefs.com/blog/ai-overview-triggers/));
+question-form queries account for **57.9%** of AI-Overview-triggering keywords and queries of 7+ words
+for **46.4%**. A candidate who is only ever findable by name is invisible in the 98% of the space
+where nobody has heard of them yet.
+
+Two numbers to keep separate in your own tracking, because they fail differently:
+
+| Metric | What it measures | What breaks it |
+|---|---|---|
+| Name-query presence | Entity consistency across the corpus | Inconsistent bios, missing `sameAs`, no canonical `Person` page |
+| Discovery-prompt presence | Topical authority on the questions buyers ask | No page that answers the specific question with numbers |
+
+The correlation data explains why these are not interchangeable. Branded web mentions correlate
+with AI Overview brand visibility at **0.664** (Spearman) versus **0.218** for backlinks — roughly
+three times as strong
+([Ahrefs — An Analysis of AI Overview Brand Visibility Factors](https://ahrefs.com/blog/ai-overview-brand-correlation)) —
+which is why a personal site that is *consistent everywhere* beats one that merely has more pages.
+
 ### The click question — why being cited still matters
 
 Classic SEO's assumption — rank first, get the click — is weakening. Ahrefs re-ran its study on December 2025 data across 300,000 keywords and found the presence of an AI Overview correlates with a **58% lower average click-through rate** for the top-ranking page, up from the 34.5% reduction it measured in April 2025 ([Ahrefs — Update: AI Overviews reduce clicks by 58%](https://ahrefs.com/blog/ai-overviews-reduce-clicks-update)). Pew's panel analysis of 68,879 real Google searches by 900 US adults found users who encountered an AI summary clicked a traditional result link on 8% of visits, against 15% for those who did not see a summary, and that users "very rarely clicked on the sources cited" ([Pew Research Center — Do people click on links in Google AI summaries?](https://www.pewresearch.org/short-reads/2025/07/22/google-users-are-less-likely-to-click-on-links-when-an-ai-summary-appears-in-the-results/)).
@@ -800,6 +834,21 @@ A job hunt fails on execution, not on strategy. This is the plan.
 2. Never claim a metric you cannot source. If you cannot measure it, describe the mechanism instead.
 3. Every 10 applications, review the funnel: applications → screens → interviews → take-homes. If the first step is weak, the résumé is wrong; if the last step is weak, the interview story is wrong.
 4. Keep one honest, dated narrative. The résumé, the site, the LinkedIn and the interview must not contradict each other — contradictions are what an AI assistant or a careful recruiter will find first.
+
+## Related reading on this site
+
+- [AI search optimization](/writing/ai-search-optimization/) — the retrieval and citation
+  mechanics behind every candidate-side claim in this guide.
+- [Classic SEO in 2026](/writing/seo-core/) — the technical foundation: crawling, indexation,
+  structured data and measurement.
+- [The technical blueprint](/writing/technical-blueprint/) — the specification for the site this
+  guide asks you to build, including the `Person` and `ProfilePage` graph.
+- [The SEO and AI-search tooling landscape](/writing/tooling/) — the ATS parsers, job-search
+  automation and monitoring tools that make this work repeatable.
+- [The AI crawler policy](/ai-crawler-policy/) — which automated agents are allowed to read the
+  candidate's site, and why.
+
+---
 
 ## Primary sources
 

@@ -588,11 +588,18 @@ def main() -> int:
 
         answer = meta.get("answer")
         if answer:
-            body_html = (
+            # The answer block goes directly AFTER the H1: the H1 must stay the
+            # first element of the page for search engines, and the answer must
+            # still be the first thing a reader (or a retrieval system) reads.
+            answer_html = (
                 '<div class="answer" role="note" aria-label="Direct answer">'
                 f"<p><strong>Short answer.</strong> {inline(answer)}</p></div>\n"
-                + body_html
             )
+            if "</h1>" in body_html:
+                head, _, tail = body_html.partition("</h1>")
+                body_html = head + "</h1>\n" + answer_html + tail
+            else:
+                body_html = answer_html + body_html
 
         extra = ""
         if meta.get("is_article"):

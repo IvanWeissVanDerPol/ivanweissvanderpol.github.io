@@ -636,6 +636,19 @@ problem; all of them live in files the build owns.
 10. Lighthouse on the home page: Performance ≥ 95, Accessibility ≥ 95, Best
     Practices ≥ 95, SEO = 100, and the `llms.txt` audit passing.
 
+## Related reading on this site
+
+- [Classic SEO in 2026](/writing/seo-core/) — the ranking and eligibility rules this build
+  satisfies.
+- [AI search optimization](/writing/ai-search-optimization/) — the retrieval layer this build's
+  markdown twins, `llms.txt` and crawler policy serve.
+- [The SEO and AI-search tooling landscape](/writing/tooling/) — the tools that cover the gaps
+  this build deliberately leaves open.
+- [Senior job hunt and CV strategy](/writing/job-hunt-and-cv/) — what this architecture is for.
+- [The AI crawler policy](/ai-crawler-policy/) — the policy this build publishes and enforces.
+
+---
+
 ## 18. Sources
 
 Every source behind this blueprint, in raw markdown so it can be copied into

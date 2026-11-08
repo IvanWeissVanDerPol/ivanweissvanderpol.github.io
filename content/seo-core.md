@@ -581,6 +581,121 @@ directory changes and crawl them at different frequencies
 
 ---
 
+## Site architecture, topical clusters and internal linking
+
+Site structure is not a ranking feature on its own, but it decides three things that are: how
+efficiently the crawler spends its attention, which page Google treats as the representative of a
+duplicate set, and how much topical context each individual URL inherits from its neighbours.
+
+### What Google actually documents about structure
+
+Google's [SEO starter guide](https://developers.google.com/search/docs/fundamentals/seo-starter-guide)
+makes two concrete claims, and both are conditional on size:
+
+> **Group topically similar pages in directories.** If you have more than a few thousand URLs on
+> your site, how you organize your content may have effects on how Google crawls and indexes your
+> site. Specifically, using directories (or folders) to group similar topics can help Google learn
+> how often the URLs in individual directories change.
+
+> **Organize your site.** When you're setting up or redoing your site, it can be good to organize
+> your site in a logical way because it can help search engines and users understand how your pages
+> relate to the rest of your site. Don't drop everything and start reorganizing your site right now
+> though: while these suggestions can be helpful long term, search engines will likely understand
+> your pages as they are right now, regardless of how your site is organized.
+
+The second paragraph is the one practitioners skip. Google is saying a site restructure is not a
+ranking event; a correct structure that ships late beats a perfect structure that never ships.
+
+Duplicate handling is documented as a separate mechanism. During indexing, Google groups pages it
+finds with similar content into clusters and selects "the one that's most representative of the
+group" as the canonical, keeping the rest as alternate versions for contexts such as mobile or a
+more specific sub-query
+([how Search works](https://developers.google.com/search/docs/fundamentals/how-search-works)).
+Google also collects signals about the canonical page — including the language of the page and the
+country the content is local to — which are then used at serving time.
+
+### The internal-link rule that is actually enforced
+
+From Google's [link best practices](https://developers.google.com/search/docs/crawling-indexing/links-crawlable):
+
+> **Every page you care about should have a link from at least one other page on your site.**
+
+That is the whole rule. It is a crawl-discovery requirement, not an equity mechanic — Google does
+not publish a formula that converts a link into rank. What the same page does specify is the
+quality of the link: the anchor text should be "descriptive, reasonably concise, and relevant to the
+page that it's on and to the page it links to," because it "provides context for the link, and sets
+the expectation for your readers." Generic anchors ("click here", "read more") fail the test, and
+so does an anchor that is a whole sentence.
+
+The practical test: after every content change, can you name the contextual inbound link to each
+new page, and quote its anchor text? If you cannot, the page is an orphan until the next crawl.
+
+### Why passage ranking makes section-level structure a ranking concern
+
+Google's [ranking-systems guide](https://developers.google.com/search/docs/appearance/ranking-systems-guide)
+lists **passage ranking** as an active core system: it "identifies individual sections of a page
+to judge relevance." That single line changes editorial design. If a page is judged section by
+section, then a page whose sections are complete answers to single questions can win a query that
+a longer page with a vaguer structure loses.
+
+The same guide lists **BERT** ("understands how word combinations express meaning and intent") and
+**neural matching** ("matches representations of concepts in queries and pages"). Together they
+mean topical coverage — saying the thing a reader would say, in the vocabulary of the field — is
+worth more than repeating a keyword. Both are reasons the [GEO paper's](https://arxiv.org/abs/2311.09735)
+keyword-stuffing result is unsurprising in classic search as well as generative ones.
+
+### Building a topical cluster that is not a keyword list
+
+"Topic cluster" is a practitioner term, not Google's. The documented pieces it assembles are:
+directory grouping, the one-inbound-link rule, descriptive anchor text, passage-level retrievability,
+and the helpful-content question "Does the content provide a substantial, complete, or comprehensive
+description of the topic?"
+([creating helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)).
+Assembled, the method is:
+
+| Layer | What it is | Documented mechanism it relies on |
+|---|---|---|
+| Pillar | One page that defines the topic and links out to every spoke | Directory grouping; passage ranking on the pillar's own summary section |
+| Spoke | One page per sub-question, each self-contained | Passage ranking; the "substantial, complete, comprehensive description" test |
+| Link graph | Every spoke links up to the pillar and across to its siblings | The one-inbound-link rule; descriptive anchor text |
+| Vocabulary | One canonical term per concept, used consistently across the cluster | BERT and neural matching |
+
+The failure modes are specific. A cluster of spokes that all link only to the pillar is a silo: each
+spoke inherits none of its siblings' context, and the pillar becomes a list rather than a map. A
+cluster whose spokes repeat the pillar's framing in different words is a duplicate set, and Google
+clusters it and picks one representative. A cluster that covers a topic with eight variations of
+one idea is a thin cluster — the helpful-content question is about coverage of the *topic*, not
+volume of posts.
+
+### Entities: what the documentation actually says, and what it does not
+
+There is no public Google document titled "entity SEO", and no public documentation of a
+Knowledge Graph API for site owners. Claims that you can "optimise for the knowledge graph" by
+adding schema are not grounded in anything Google has published. What is published is narrower and
+more useful:
+
+- **The `sameAs` property** is the documented way to connect an entity to its other identities.
+  Google's [introduction to structured data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data)
+  states that "Google can make general use of the `sameAs` property and other schema.org structured
+  data," and that such elements "may be used to enable future Search features, if they are deemed
+  useful." Note the hedge: it is a signal of identity, not a ranking factor.
+- **Profile pages have their own type.** The [`ProfilePage` structured data guide](https://developers.google.com/search/docs/appearance/structured-data/profile-page)
+  requires `mainEntity` (a `Person` or `Organization`) and lists `sameAs` as the URL to "other
+  external profiles or home pages for the profile" — exactly the multi-profile identity problem a
+  personal site has, and exactly what a personal site's `Person` node should carry.
+- **The people-first doctrine asks for authorship.** The expertise questions in
+  [creating helpful content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+  ask whether the content presents "background about the author or the site that publishes it, such
+  as through links to an author page or a site's About page."
+
+So the honest formulation of entity work is: use `sameAs` to make your identity unambiguous across
+the web, publish an author page with a stable `Person` entity, and keep the name, title and
+one-line description identical on every third-party profile. Google may use that to understand you;
+it has not published a mechanism that turns it into rank, and any source that claims otherwise is
+selling something.
+
+---
+
 ## Structured data: eligibility, not ranking
 
 Structured data is machine-readable markup that lets Google understand and display page content.
@@ -912,6 +1027,23 @@ asking for write access to Search Console during an audit rather than read acces
 
 ---
 
+## Related reading on this site
+
+- [AI search optimization](/writing/ai-search-optimization/) — how AI answer engines retrieve and
+  quote sources, and the crawler policy that governs it. This guide covers the index; that one
+  covers the retrieval layer on top of it.
+- [The technical blueprint](/writing/technical-blueprint/) — the implementation specification for
+  the site these guides describe: static HTML from Markdown, JSON-LD graphs, markdown twins,
+  `llms.txt`, and the CI gates that block a bad publish.
+- [Senior job hunt and CV strategy](/writing/job-hunt-and-cv/) — where the same mechanics land
+  when the site is a candidate's portfolio rather than a company's.
+- [The SEO and AI-search tooling landscape](/writing/tooling/) — which tools give evidence for
+  every lever in this guide, with verified licences and dates.
+- [The AI crawler policy](/ai-crawler-policy/) — the published decision table for AI crawlers,
+  and the reasoning behind it.
+
+---
+
 ## Primary sources
 
 Every claim in this guide traces to one of the following. Dates are the "last updated" stamps the
@@ -938,6 +1070,8 @@ pages carried when they were retrieved on 8 November 2026, except where a dated 
 - [Influencing title links](https://developers.google.com/search/docs/appearance/title-link) — updated 2025-12-10
 - [Control your snippets](https://developers.google.com/search/docs/appearance/snippet) — updated 2026-04-20
 - [General structured data guidelines](https://developers.google.com/search/docs/appearance/structured-data/sd-policies) — updated 2026-07-10
+- [Introduction to structured data](https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data) — updated 2025-12-10
+- [Profile page structured data](https://developers.google.com/search/docs/appearance/structured-data/profile-page) — updated 2026-09-08
 - [Rich-result gallery](https://developers.google.com/search/docs/appearance/structured-data/search-gallery) — updated 2026-06-15
 - [Provide a site name](https://developers.google.com/search/docs/appearance/site-names) — updated 2025-12-10
 - [Influence your byline dates](https://developers.google.com/search/docs/appearance/publication-dates) — updated 2025-12-10

@@ -434,6 +434,21 @@ Weekly
 | Detector-driven editing | Google penalises low value, not machine authorship. Rewriting to beat a detector score degrades the content and does nothing for ranking. |
 | A second analytics tool | You will not look at two. Pick Umami *or* Matomo *or* GA4 and instrument AI referrals properly. |
 
+## Related reading on this site
+
+- [Classic SEO in 2026](/writing/seo-core/) — what each tool in this inventory is actually
+  measuring, and which of the levers still matter.
+- [AI search optimization](/writing/ai-search-optimization/) — the AI-visibility categories
+  explained: why the free tools cover most of the measurement gap.
+- [The technical blueprint](/writing/technical-blueprint/) — the build specification, including the
+  verification gates and CI setup this stack assumes.
+- [Senior job hunt and CV strategy](/writing/job-hunt-and-cv/) — the ATS and job-search half of
+  the inventory, in the context of an actual campaign.
+- [The machine-readable tool index](/tools.json) — the same inventory as JSON, for scripts and
+  agents.
+
+---
+
 ## 6. Method, and how to re-verify
 
 **What was verified, and how.**

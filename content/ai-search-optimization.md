@@ -586,6 +586,34 @@ The methodological pitfalls are well documented and worth stating plainly, becau
 
 Treat any single "AI visibility score" as a prompt-engineered index. Use it to compare your own panel across time, not to compare against a vendor's cross-client benchmark.
 
+### 3b. Branded vs unbranded prompts: measure both, separately
+
+Your panel needs two strata, because they behave differently and they fail in different ways.
+
+**Branded prompts** ("is X any good", "who is behind X", "X vs Y") are won by entity presence. The
+correlation data is unusually clear: branded web mentions correlate with AI Overview visibility at
+**0.664** on the Spearman scale — roughly three times the correlation of backlinks (0.218) — and
+branded anchors in hyperlink text sit at 0.527
+([Ahrefs — An Analysis of AI Overview Brand Visibility Factors](https://ahrefs.com/blog/ai-overview-brand-correlation)).
+For a personal brand this is the tractable half of the problem: the fix is consistency of name,
+title and description across every third-party profile, plus a `sameAs` array that ties them
+together.
+
+**Unbranded prompts** ("what tools do X", "how do I build Y", "who is a senior engineer who has
+done Z") are won by topical coverage, and they are where the volume is. AI Overviews are **1.9x more
+likely on non-branded queries** than branded ones, and **99.9% of keywords that trigger an AI
+Overview are informational**
+([Ahrefs — What Triggers AI Overviews? 86 Factors and 146 Million SERPs Analyzed](https://ahrefs.com/blog/ai-overview-triggers/)).
+The distribution is not cosmetic: the same study reports that question-form queries account for
+**57.9%** of AI-Overview-triggering keywords and queries of 7+ words for **46.4%**, against 9.5% for
+single-word queries. If your brand is only ever checked against its own name, you are measuring the
+2% of the space that already knew you.
+
+The operating rule: **the branded stratum measures entity consistency, the unbranded stratum measures
+topical authority, and you need both to convert a stranger's question into a shortlist.** Report
+them as two separate rates, never blended into one "AI visibility score" — the combined number hides
+precisely which of the two is broken.
+
 ### 4. Classic performance (do not stop doing this)
 
 AI-feature impressions are reported *inside* the standard Search Console Performance report under Web search type, so your existing reporting still covers them ([AI features and your website](https://developers.google.com/search/docs/appearance/ai-features)). The metric that has genuinely changed is CTR, and you should track it **split by whether a query produced an AI Overview** if your tooling allows it — because blended CTR hides the effect.
@@ -647,6 +675,21 @@ The pattern across all of these: the tactics that fail are the ones that optimis
 - Configure the GA4 AI Assistant channel and a custom regex channel group for AI referrers.
 - Build the prompt panel: 30-100 questions, three clusters, fixed competitor set. Record mentions, citations, positions and quoted text weekly from day one so you have a baseline before you change anything.
 - Set up a monthly review that reads Search Console's Generative AI performance report next to the panel results and the referral data.
+
+## Related reading on this site
+
+- [Classic SEO in 2026](/writing/seo-core/) — the crawl, index and rank systems this guide builds
+  on, with the primary sources for each.
+- [The technical blueprint](/writing/technical-blueprint/) — how the markdown twins, `llms.txt`
+  and JSON-LD graph that ship with this guide are built.
+- [Senior job hunt and CV strategy](/writing/job-hunt-and-cv/) — the candidate-side application of
+  everything above: how an assistant actually finds and quotes a person.
+- [The SEO and AI-search tooling landscape](/writing/tooling/) — the open-source tools that make
+  AI-visibility measurement possible without a vendor contract.
+- [The AI crawler policy](/ai-crawler-policy/) — the published allow/block decision table behind
+  the crawler recommendations in this guide.
+
+---
 
 ## The version of this guide you are reading
 

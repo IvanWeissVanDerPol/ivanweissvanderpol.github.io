@@ -1,0 +1,94 @@
+name: site-checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      # repo variable, set by the repo owner — never an untrusted event payload
+      SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Build static site
+        run: |
+          BASE="${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"
+          python3 scripts/build_site.py --content content --out site --base-url "$BASE"
+
+      - name: Structural + SEO verification
+        run: python3 scripts/verify_site.py --site site --base-url "${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"
+
+      - name: GEO / AEO content lint
+        run: python3 scripts/geo_lint.py site
+
+      - name: Link check (external links)
+        run: |
+          python3 - <<'PY'
+          import re, sys, urllib.request, pathlib
+          site = pathlib.Path('site')
+          # Derive the site's own base URL from the canonical link the build emitted,
+          # so self-references to the (not yet published) deployment target are skipped.
+          base = ''
+          for f in sorted(site.rglob('index.html')):
+              m = re.search(r'<link rel="canonical" href="(https?://[^/"]+)', f.read_text(errors='replace'))
+              if m:
+                  base = m.group(1)
+                  break
+          urls = set()
+          for f in site.rglob('*.html'):
+              urls.update(re.findall(r'href="(https?://[^"]+)"', f.read_text(errors='replace')))
+
+          # Hosts that deliberately block automated clients. A 403/405 from them is
+          # the expected answer for a link checker, not a broken link.
+          BOT_BLOCKED = ('linkedin.com', 'theladders.com', 'bing.com/indexnow')
+
+          def status_of(u):
+              # Some hosts (notably support.google.com) answer HEAD with 404 but serve 200 on
+              # GET, so retry with GET before trusting the status.
+              for method in ('HEAD', 'GET'):
+                  try:
+                      req = urllib.request.Request(u, method=method, headers={'User-Agent':'Mozilla/5.0 (link-check)'})
+                      with urllib.request.urlopen(req, timeout=20) as r:
+                          return r.status
+                  except urllib.error.HTTPError as e:
+                      if e.code == 404 and method == 'HEAD':
+                          continue  # HEAD 404 may be a host quirk; retry with GET
+                      return e.code
+                  except Exception:
+                      continue
+              return None
+
+          bad = []
+          blocked = []
+          skipped = 0
+          for u in sorted(urls):
+              # Self-references to the site's own base URL point at the deployment
+              # target, which does not exist until the site is published.
+              if base and u.startswith(base):
+                  skipped += 1
+                  continue
+              code = status_of(u)
+              if code is None:
+                  continue
+              if code >= 400:
+                  if code in (403, 405) and any(h in u for h in BOT_BLOCKED):
+                      blocked.append((u, code))
+                  else:
+                      bad.append((u, code))
+          print(f'{len(urls)} external links checked, {skipped} self-references skipped, '
+                f'{len(bad)} broken, {len(blocked)} bot-blocked (ignored)')
+          for u, c in bad: print(f'  BROKEN {c} {u}')
+          sys.exit(1 if bad else 0)
+          PY

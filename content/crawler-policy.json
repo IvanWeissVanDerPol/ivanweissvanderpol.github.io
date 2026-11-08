@@ -1,0 +1,33 @@
+{
+  "_comment": "Single source of truth for the AI-crawler policy. build_site.py generates robots.txt from this; verify_site.py checks robots.txt matches it AND that every token appears in content/ai-crawler-policy.md. Change a decision here, then update the policy page table.",
+  "_source": "Vendor crawler documentation: https://platform.openai.com/docs/bots, https://support.anthropic.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler, https://docs.perplexity.ai/guides/bots, https://developers.google.com/search/docs/crawling-indexing/google-common-crawlers, https://support.apple.com/en-us/119829",
+  "allowed": [
+    "OAI-SearchBot",
+    "ChatGPT-User",
+    "Claude-User",
+    "Claude-SearchBot",
+    "PerplexityBot",
+    "Perplexity-User",
+    "Google-CloudVertexBot",
+    "Google-Extended",
+    "Applebot",
+    "OAI-AdsBot"
+  ],
+  "disallowed": [
+    "GPTBot",
+    "ClaudeBot",
+    "Applebot-Extended",
+    "CCBot",
+    "anthropic-ai",
+    "Bytespider",
+    "meta-externalagent",
+    "Amazonbot",
+    "Diffbot"
+  ],
+  "notes": {
+    "Google-Extended": "Allowed as a disclosed trade-off: it governs Gemini grounding (a citation channel) as well as Gemini training. Google states it has no effect on Google Search inclusion or ranking.",
+    "Applebot-Extended": "Apple documents this token as the training opt-out; disallowing it leaves the site in Spotlight, Siri and Safari search.",
+    "ClaudeBot": "Anthropic's training crawler. Its search crawler is Claude-SearchBot, which is allowed.",
+    "OAI-AdsBot": "Only visits pages submitted as ads; this site runs no ads, so it is allowed and harmless."
+  }
+}

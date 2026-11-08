@@ -1,8 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy site to GitHub Pages
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -17,16 +17,38 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SITE_BASE_URL: ${{ vars.SITE_BASE_URL }}
     steps:
-      - name: Checkout your repository using git
-        uses: actions/checkout@v4
-      
-      - name: Install, build, and upload your site
-        uses: withastro/action@v2
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
         with:
-          path: .
-          node-version: 18
-          package-manager: npm@latest
+          python-version: '3.12'
+
+      - name: Build static site
+        run: |
+          BASE="${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"
+          python3 scripts/build_site.py --content content --out site --base-url "$BASE" --pdf
+
+      - name: Structural + SEO verification
+        run: |
+          BASE="${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"
+          python3 scripts/verify_site.py --site site --base-url "$BASE"
+
+      - name: GEO / AEO content lint
+        run: python3 scripts/geo_lint.py site
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
 
   deploy:
     environment:

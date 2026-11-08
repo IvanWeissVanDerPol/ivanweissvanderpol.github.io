@@ -2,7 +2,7 @@ name: site-checks
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   pull_request:
   workflow_dispatch:
 
@@ -83,7 +83,10 @@ jobs:
               if code is None:
                   continue
               if code >= 400:
-                  if code in (403, 405) and any(h in u for h in BOT_BLOCKED):
+                  # 403/401/429 mean the resource exists but access was refused:
+                  # WAFs, bot protection and anti-scraping rules all answer that way.
+                  # Only 404/410-style answers are treated as a genuinely broken link.
+                  if code in (401, 403, 405, 429) or any(h in u for h in BOT_BLOCKED):
                       blocked.append((u, code))
                   else:
                       bad.append((u, code))

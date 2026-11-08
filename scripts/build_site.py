@@ -393,6 +393,15 @@ def page_html(meta: dict, body_html: str, nav: str, extra_head: str = "") -> str
     # Canonical URLs must match the served URL exactly, trailing slash included,
     # or search engines treat the page as a duplicate of the slash variant.
     canonical = f"{base}/{slug}/" if slug else (base + "/" if base else "")
+    # The 404 artifact is not a canonical target for anything: it is served at
+    # /404.html, carries noindex, and is returned for unknown paths. Emitting a
+    # canonical that points at a non-existent /404/ URL would be a self-
+    # referential dead link for every crawler that reads it.
+    is_404 = bool(meta.get("is_404"))
+    if is_404 and base:
+        # GitHub Pages serves the error artifact at /404.html with a 200 status
+        # when requested directly, so that is the real, resolvable URL.
+        canonical = f"{base}/404.html"
     body_class = meta.get("body_class", "")
     # A 404 page must never be indexed, and must not compete with the home page.
     robots = '<meta name="robots" content="noindex, follow">\n' if meta.get("is_404") else ""
@@ -776,8 +785,8 @@ def main() -> int:
             "@context": "https://schema.org",
             "@graph": [{
                 "@type": "WebPage",
-                "@id": args.base_url.rstrip("/") + "/404/#webpage",
-                "url": args.base_url.rstrip("/") + "/404/",
+                "@id": args.base_url.rstrip("/") + "/404.html#webpage",
+                "url": args.base_url.rstrip("/") + "/404.html",
                 "name": "Page not found",
                 "description": "The requested page does not exist on this site.",
                 "isPartOf": {"@id": args.base_url.rstrip("/") + "/#website"},

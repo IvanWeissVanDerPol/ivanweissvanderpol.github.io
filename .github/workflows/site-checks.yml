@@ -75,7 +75,7 @@ jobs:
               # and then 200 (verified: jobscan.co returned 502 once, then 200 three
               # times in a row). A transient upstream error is not a broken link, so
               # retry before declaring the link dead.
-              code = stable_status(u)
+              code = status_of(u)
               if code is None or code < 500:
                   return code
               for attempt in range(3):

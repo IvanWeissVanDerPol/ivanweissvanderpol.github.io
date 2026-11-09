@@ -5,3 +5,5 @@ cache/
 *.pyc
 __pycache__/
 .DS_Store
+# local audit scratch (research probes, not part of the site)
+_audit/

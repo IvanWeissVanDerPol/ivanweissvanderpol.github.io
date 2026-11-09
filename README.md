@@ -77,5 +77,25 @@ breadcrumbs: [[Home, ""], [Writing, "writing"], [SEO, "writing/seo-core"]]
 This repository is Ivan van der Pol's own site. Anything about another person
 (Alexander van der Pol's CV, evidence dossier, job-search material or research)
 lives in the **private** repository `IvanWeissVanDerPol/alexander-van-der-pol`,
-never here. That private repository's `START-HERE.md` tells any new session
+not here. That private repository's `START-HERE.md` tells any new session
 which repository to work in.
+
+**History.** Between 2025 and 2026-11-09 this repository briefly carried a copy of
+another person's site material — an accidental inclusion, not a decision to publish it.
+It was removed on 2026-11-09 by rewriting `master` onto this site's own pre-existing
+history: no file about anyone else is in the current tree, and none is in any commit
+reachable from `master`, `astro-legacy` or the `astro-v1` tag. The published tree was
+left byte-identical, so nothing on the live site changed.
+
+A Git rewrite is not an erasure. GitHub keeps serving unreachable objects to anyone who
+has their SHA, and any clone or mirror made before the rewrite still holds them. The
+reachable history is clean and is kept clean — `site-checks.yml` audits every blob of
+every ref, and the `public-trunk-policy` ruleset blocks the force-push that would undo
+the cleanup. Removing what was already copied elsewhere is outside what Git can do.
+
+## Branch policy
+
+`master` is the default branch and the deployed trunk. `astro-legacy` and the `astro-v1`
+tag preserve the previous Astro portfolio. A feature branch may exist only while its
+pull request is open; the `public-trunk-policy` ruleset forbids branch deletion and
+non-fast-forward updates on `master` and `astro-legacy`.

@@ -603,10 +603,12 @@ problem; all of them live in files the build owns.
 
 | # | Item | Where | Status |
 |---|---|---|---|
-| 1 | The generated `robots.txt` still emits `Allow: /` for `ClaudeBot`, `Applebot-Extended`, `Bytespider` and `meta-externalagent`, which the documented policy disallows | `scripts/build_site.py` | Open — the policy page records the divergence so it is visible |
-| 2 | The `ProfilePage` wrapper around the existing `Person` node is not emitted on `/about/` and `/cv/` | `scripts/build_site.py` | Open — one node, no new facts |
-| 3 | The generated `404.html` fails the craft gate: it carries no citations, no statistics and no JSON-LD | `scripts/build_site.py` | Open — a 404 page is a real page and should be linted, but it is not a content page |
+| 1 | `robots.txt` and the published policy page could disagree about the same token | `scripts/build_site.py` | Closed — `robots.txt` is now generated from `content/crawler-policy.json`, and `verify_site.py` fails the build if the generated file and the policy page disagree. The four previously divergent tokens now carry the documented decision. |
+| 2 | The `ProfilePage` wrapper around the existing `Person` node was not emitted on `/about/` and `/cv/` | `scripts/build_site.py` | Closed — one page node typed `["WebPage", "ProfilePage"]` with `mainEntity` and `about` pointing at the Person, per [Google's ProfilePage guidance](https://developers.google.com/search/docs/appearance/structured-data/profile-page) |
+| 3 | The generated `404.html` failed the craft gate: it carried no citations, no statistics and no JSON-LD | `scripts/build_site.py` | Closed by decision — a 404 is an error page, not a content page, so it is exempt from the GEO craft gates (`geo_lint.py` skips it) while still emitting a valid JSON-LD graph, a canonical URL and `noindex` |
 | 4 | `geo_lint.py` now reads the `@graph` wrapper correctly, so the "JSON-LD present but no @type found" warning no longer fires | `scripts/geo_lint.py` | Closed — every page's graph carries `@context` and typed nodes |
+| 5 | The PDF export was opt-in, so a plain build shipped a `/cv.pdf` link with no file behind it | `scripts/build_site.py` | Closed — the PDF render is now on by default (`--no-pdf` opts out) and `make_pdf.py` still skips cleanly when no Chrome binary exists |
+| 6 | The verifier checked JSON-LD *syntax* but not *entity consistency*: two pages could describe the Person with different `@id`s or names and still pass | `scripts/verify_site.py` | Closed — the verifier now fails the build when one `@id` carries conflicting `@type`s, when the Person has more than one `@id` or more than one name across the site, when a `ProfilePage` has no `mainEntity` pointing at the Person, and when `cv.pdf` is missing, truncated or not a real PDF |
 
 ## 17. Definition of done
 
@@ -627,8 +629,8 @@ problem; all of them live in files the build owns.
    resolves.
 7. `robots.txt` documents the per-token AI-crawler decisions, and the same
    decisions are published at `/ai-crawler-policy/` with primary citations —
-   including the reconciliation of the four tokens where the generated file
-   still disagrees with the policy.
+   with the generated `robots.txt` checked against the same policy file so
+   the two can never drift apart.
 8. `sitemap.xml` lists canonical URLs only, and the sitemap is submitted in
    Search Console and Bing Webmaster Tools.
 9. The site is deployable as-is to any static host from the `site/`

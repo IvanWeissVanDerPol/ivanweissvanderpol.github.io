@@ -20,6 +20,7 @@ not listed here must not be asserted in markup.
 | Phone | +595 981 324 569 |
 | LinkedIn | linkedin.com/in/ivanweissvanderpol |
 | GitHub | github.com/IvanWeissVanDerPol |
+| Company (AI Whisperers) | ai-whisperers.org/en — canonical; the same site also serves at ai-whisperers.paragu-ai.com/en, which declares the .org URL canonical. GitHub org: github.com/Ai-Whisperers |
 | Portfolio (prior) | ivanweissvanderpol.github.io |
 | GitHub followers context | 685 LinkedIn followers; 50+ public repositories |
 

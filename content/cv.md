@@ -41,7 +41,7 @@ from architecture through client training.
 
 ## Experience
 
-**Founder & CEO — AI Whisperers** (Nov 2025 – present, remote)
+**Founder & CEO — [AI Whisperers](https://ai-whisperers.org/en)** (Nov 2025 – present, remote)
 
 - Architected the company technical strategy: agent fleet orchestration, MCP
   servers, LLM-provider abstraction with cost guards, audit logging and CI

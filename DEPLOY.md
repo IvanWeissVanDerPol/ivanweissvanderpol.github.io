@@ -9,7 +9,7 @@ origin for entity consistency and link equity.
 `.github/workflows/deploy.yml` runs on every push to `master`:
 
 1. `scripts/build_site.py` — Markdown -> static HTML (no dependencies, no framework)
-2. `scripts/build_site.py --pdf` — additionally renders the canonical CV page to `cv.pdf`
+2. the build renders the canonical CV page to `cv.pdf` (on by default; `--no-pdf` disables)
 3. `scripts/verify_site.py` — structural + SEO gate, exits non-zero on failure
 4. `scripts/geo_lint.py` — GEO/AEO content lint, exits non-zero on hard failures
 5. `actions/upload-pages-artifact` + `actions/deploy-pages`
@@ -44,19 +44,19 @@ To roll back the live site to it, check out `astro-legacy`, restore the Astro
 
 ```bash
 python3 scripts/build_site.py --content content --out site \
-        --base-url https://ivanweissvanderpol.github.io --pdf
+        --base-url https://ivanweissvanderpol.github.io
 python3 scripts/verify_site.py --site site
 python3 scripts/geo_lint.py site
 ```
 
-`--pdf` needs a Chrome/Chromium binary. Without one the script prints a warning and
-skips the PDF — the HTML build is unaffected.
+The PDF render needs a Chrome/Chromium binary. Without one the script prints a warning and
+skips the PDF — the HTML build is unaffected. Pass `--no-pdf` to skip it explicitly.
 
 ## Alternatives (if the canonical domain ever moves)
 
 ### Cloudflare Pages
 
-- Build command: `python3 scripts/build_site.py --content content --out site --base-url https://<domain> --pdf`
+- Build command: `python3 scripts/build_site.py --content content --out site --base-url https://<domain>`
 - Build output directory: `site`
 - Environment variable `SITE_BASE_URL` = the production origin
 - Upload `site/404.html` as the custom 404

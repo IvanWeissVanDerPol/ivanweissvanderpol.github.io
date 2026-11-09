@@ -92,6 +92,7 @@ def main() -> int:
         return report(c)
 
     # ---------------------------------------------------------- per-page checks
+    person_ids: dict[str, set] = {}
     for f in html_files:
         rel = f.relative_to(site).as_posix()
         html = f.read_text(encoding="utf-8", errors="replace")
@@ -122,6 +123,39 @@ def main() -> int:
                     c.error(f"{rel}: JSON-LD missing @context")
                 if "@graph" not in data and "@type" not in data:
                     c.error(f"{rel}: JSON-LD missing @type/@graph")
+                    continue
+                nodes = data.get("@graph") or [data]
+                # One entity per @id: two nodes sharing an @id but disagreeing on
+                # @type are two descriptions of the same thing, and search engines
+                # pick one at random.
+                by_id: dict[str, set] = {}
+                for node in nodes:
+                    nid = node.get("@id")
+                    if not nid:
+                        continue
+                    types = node.get("@type")
+                    if isinstance(types, str):
+                        types = [types]
+                    by_id.setdefault(nid, set()).update(types or [])
+                for nid, types in by_id.items():
+                    if len(types) > 1 and "WebPage" not in types:
+                        c.error(f"{rel}: @id {nid} is described with conflicting types {sorted(types)}")
+                # Entity consistency: the Person node must be the same entity
+                # everywhere, with one stable @id and one stable name.
+                for node in nodes:
+                    types = node.get("@type")
+                    types = [types] if isinstance(types, str) else (types or [])
+                    if "Person" in types:
+                        person_ids.setdefault(node.get("@id"), set()).add(node.get("name"))
+                for node in nodes:
+                    types = node.get("@type")
+                    types = [types] if isinstance(types, str) else (types or [])
+                    if "ProfilePage" in types:
+                        me = node.get("mainEntity")
+                        if not me or (isinstance(me, dict) and not me.get("@id")):
+                            c.error(f"{rel}: ProfilePage has no mainEntity pointing at the Person")
+                        elif isinstance(me, dict) and not str(me.get("@id", "")).endswith("#person"):
+                            c.error(f"{rel}: ProfilePage mainEntity does not point at the Person @id")
 
         # images have alt
         for tag in re.findall(r"<img\b[^>]*>", html, re.I):
@@ -144,6 +178,17 @@ def main() -> int:
             twin = site / (slug + ".md")
             if not twin.exists():
                 c.warn(f"{rel}: no markdown twin at {slug}.md")
+
+    # ---------------------------------------------- entity consistency across pages
+    if person_ids:
+        if len(person_ids) > 1:
+            c.error(f"the Person entity is described with more than one @id: {sorted(person_ids)}")
+        for nid, names in person_ids.items():
+            if len(names) > 1:
+                c.error(f"the Person entity {nid} has conflicting names: {sorted(n for n in names if n)}")
+        c.ok(f"Person entity: one @id ({next(iter(person_ids))}) with one name across the site")
+    else:
+        c.error("no Person entity found in any JSON-LD graph")
 
     # ------------------------------------------------------------- sitemap.xml
     sm = site / "sitemap.xml"
@@ -237,6 +282,20 @@ def main() -> int:
     # ------------------------------------------------------------ 404 + assets
     if not (site / "404.html").exists():
         c.warn("404.html is missing")
+
+    # The CV page links to /cv.pdf, so the PDF must exist and be a real PDF.
+    pdf = site / "cv.pdf"
+    if pdf.exists():
+        head = pdf.read_bytes()[:5]
+        if head != b"%PDF-":
+            c.error("cv.pdf does not start with the %PDF- magic header")
+        elif pdf.stat().st_size < 20000:
+            c.error(f"cv.pdf is suspiciously small ({pdf.stat().st_size} bytes)")
+        else:
+            c.ok(f"cv.pdf: present ({pdf.stat().st_size} bytes)")
+    else:
+        c.error("cv.pdf is missing but the CV page links to it")
+
     assets = site / "assets"
     if not assets.is_dir() or not any(assets.iterdir()):
         c.error("assets/ directory is empty")

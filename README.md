@@ -20,9 +20,9 @@ python3 scripts/geo_lint.py site                # GEO/AEO craft lint (exit 1 on 
 ```
 
 No dependencies, no framework, no build step beyond one Python script. The output in `site/`
-is plain HTML + one CSS file and can be served by anything. `--pdf` additionally renders the
+is plain HTML + one CSS file and can be served by anything. The build also renders the
 canonical CV page to `site/cv.pdf` using headless Chrome (skipped automatically when no
-Chrome binary is available).
+Chrome binary is available); pass `--no-pdf` to skip it.
 
 ## Layout
 

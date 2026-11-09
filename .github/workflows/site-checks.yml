@@ -25,7 +25,7 @@ jobs:
       - name: Build static site
         run: |
           BASE="${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"
-          python3 scripts/build_site.py --content content --out site --base-url "$BASE" --pdf
+          python3 scripts/build_site.py --content content --out site --base-url "$BASE"
 
       - name: Structural + SEO verification
         run: python3 scripts/verify_site.py --site site --base-url "${SITE_BASE_URL:-https://ivanweissvanderpol.github.io}"

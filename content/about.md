@@ -65,7 +65,7 @@ faster way to be wrong.
 
 ## The path here
 
-- **Founder & CEO, AI Whisperers** (Nov 2025 – present, remote). Architected
+- **Founder & CEO, [AI Whisperers](https://ai-whisperers.org/en)** (Nov 2025 – present, remote). Architected
   the technical strategy: agent fleet orchestration, MCP servers, LLM-provider
   abstraction with cost guards, audit logging and CI gates. Built the Hermes
   Agent runtime stack — profiles, skills, plugins, a cron fleet and a kanban

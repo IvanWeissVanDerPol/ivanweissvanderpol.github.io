@@ -59,7 +59,7 @@ credential. Nothing on this site is estimated.
 
 ## The path here
 
-- **Founder & CEO, AI Whisperers** (Nov 2025 – present) — agent orchestration,
+- **Founder & CEO, [AI Whisperers](https://ai-whisperers.org/en)** (Nov 2025 – present) — agent orchestration,
   MCP servers, LLM-provider abstraction with cost guards, audit logging and CI
   gates; client systems shipped in clinical and restaurant-operations
   contexts, plus a public-sector case-management system.

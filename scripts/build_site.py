@@ -464,7 +464,17 @@ NAV = (
 # AI Whisperers is a separate, real organisation with its own canonical URL.
 # It is published under its own @id (not under this site's origin) so the
 # entity keeps one identity no matter which page references it.
-ORG_URL = "https://ai-whisperers.paragu-ai.com/"
+# The AI Whisperers canonical home. Verified 2026-11-09 against the live site:
+# https://ai-whisperers.org/ 302 -> /en, and the page's own <link rel="canonical">
+# is https://ai-whisperers.org/en. The paragu-ai.com host serves the same content
+# but declares the .org URL canonical, so .org is the entity's canonical URL and
+# the two are listed as sameAs aliases.
+ORG_URL = "https://ai-whisperers.org/en"
+ORG_ALIASES = [
+    "https://ai-whisperers.org/en",
+    "https://ai-whisperers.paragu-ai.com/en",
+    "https://github.com/Ai-Whisperers",
+]
 ORG_ID = ORG_URL + "#organization"
 ORG_GITHUB = "https://github.com/Ai-Whisperers"
 
@@ -548,6 +558,7 @@ def jsonld_graph(meta: dict) -> list[dict]:
             "sameAs": [
                 "https://github.com/IvanWeissVanDerPol",
                 "https://linkedin.com/in/ivanweissvanderpol",
+                ORG_URL,
             ],
         })
 
@@ -559,7 +570,7 @@ def jsonld_graph(meta: dict) -> list[dict]:
             "@id": ORG_ID,
             "name": "AI Whisperers",
             "url": ORG_URL,
-            "sameAs": [ORG_URL, ORG_GITHUB],
+            "sameAs": ORG_ALIASES,
             "description": "AI engineering company building agentic systems, MCP integrations and LLM cost controls.",
             "founder": {"@id": f"{base}/#person"},
         })
@@ -727,7 +738,11 @@ def main() -> int:
 
     llms += ["", "## Machine-readable data", "",
              f"- [tools.json]({host}/tools.json): {n_tools} SEO / AEO / GEO / ATS tools with licences,",
-             "  activity dates and verdicts, extracted from the GitHub API on 2026-11-08.",
+             "  activity dates and verdicts, pulled from the GitHub API on 2026-11-08 and re-verified",
+             "  on 2026-11-09.",
+             f"- [cv.pdf]({host}/cv.pdf): the print-optimised PDF of the canonical /cv/ page.",
+             f"- [crawler-policy.json]({host}/crawler-policy.json): the machine-readable AI-crawler",
+             "  allow/block lists that robots.txt is generated from.",
              f"- [sitemap.xml]({host}/sitemap.xml): every indexable URL on this site.",
              f"- [robots.txt]({host}/robots.txt): crawler policy, including which AI crawlers are",
              "  allowed for search/retrieval and which are blocked for training.", "",

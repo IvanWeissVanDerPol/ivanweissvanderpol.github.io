@@ -71,3 +71,11 @@ breadcrumbs: [[Home, ""], [Writing, "writing"], [SEO, "writing/seo-core"]]
 - Never claim a metric that is not in `content/profile.md`.
 - The AI-crawler policy in `robots.txt` is explained publicly at `/ai-crawler-policy/` —
   if the policy changes, both change together.
+
+## Not this site
+
+This repository is Ivan van der Pol's own site. Anything about another person
+(Alexander van der Pol's CV, evidence dossier, job-search material or research)
+lives in the **private** repository `IvanWeissVanDerPol/alexander-van-der-pol`,
+never here. That private repository's `START-HERE.md` tells any new session
+which repository to work in.

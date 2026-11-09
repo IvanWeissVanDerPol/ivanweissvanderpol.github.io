@@ -461,6 +461,14 @@ NAV = (
 
 # ------------------------------------------------------------------ pipeline
 
+# AI Whisperers is a separate, real organisation with its own canonical URL.
+# It is published under its own @id (not under this site's origin) so the
+# entity keeps one identity no matter which page references it.
+ORG_URL = "https://ai-whisperers.paragu-ai.com/"
+ORG_ID = ORG_URL + "#organization"
+ORG_GITHUB = "https://github.com/Ai-Whisperers"
+
+
 
 def jsonld_graph(meta: dict) -> list[dict]:
     base = meta.get("base_url", "").rstrip("/")
@@ -479,8 +487,15 @@ def jsonld_graph(meta: dict) -> list[dict]:
             "publisher": {"@id": f"{base}/#person"},
         })
 
-    graph.append({
-        "@type": "WebPage",
+    # /about/ and /cv/ are profile pages: the person IS the subject of the
+    # page, so the page node carries the ProfilePage type and points at the
+    # Person as its mainEntity. It stays ONE node for one URL - emitting a
+    # separate ProfilePage node with the same `url` would give the same page
+    # two entities in the same graph.
+    # https://developers.google.com/search/docs/appearance/structured-data/profile-page
+    is_profile_page = slug in ("about", "cv")
+    page_node = {
+        "@type": ["WebPage", "ProfilePage"] if is_profile_page else "WebPage",
         "@id": f"{url}#webpage",
         "url": url,
         "name": meta.get("title", ""),
@@ -488,7 +503,11 @@ def jsonld_graph(meta: dict) -> list[dict]:
         "isPartOf": {"@id": f"{base}/#website"},
         "inLanguage": "en",
         "dateModified": meta.get("date", ""),
-    })
+    }
+    if is_profile_page:
+        page_node["mainEntity"] = {"@id": f"{base}/#person"}
+        page_node["about"] = {"@id": f"{base}/#person"}
+    graph.append(page_node)
 
     if meta.get("is_home") or slug in ("about", "cv"):
         graph.append({
@@ -506,6 +525,11 @@ def jsonld_graph(meta: dict) -> list[dict]:
                 "addressCountry": "PY",
             },
             "knowsLanguage": ["es", "en", "nl"],
+            # The employer is a real, separate entity with its own canonical
+            # URL and @id. That gives search engines and retrieval systems an
+            # unambiguous edge between the person and the company, instead of
+            # leaving "founder of AI Whisperers" as free text to be parsed.
+            "worksFor": {"@id": ORG_ID},
             "alumniOf": [
                 {"@type": "CollegeOrUniversity", "name": "Facultad Politécnica — Universidad Nacional de Asunción"},
                 {"@type": "CollegeOrUniversity", "name": "Wichita State University"},
@@ -525,6 +549,19 @@ def jsonld_graph(meta: dict) -> list[dict]:
                 "https://github.com/IvanWeissVanDerPol",
                 "https://linkedin.com/in/ivanweissvanderpol",
             ],
+        })
+
+    if meta.get("is_home") or slug in ("about", "cv"):
+        # The Organization the Person works for and founded. Every claim here
+        # comes from content/profile.md - the same rule applies to every node.
+        graph.append({
+            "@type": "Organization",
+            "@id": ORG_ID,
+            "name": "AI Whisperers",
+            "url": ORG_URL,
+            "sameAs": [ORG_URL, ORG_GITHUB],
+            "description": "AI engineering company building agentic systems, MCP integrations and LLM cost controls.",
+            "founder": {"@id": f"{base}/#person"},
         })
 
     if meta.get("is_article"):
@@ -568,7 +605,9 @@ def main() -> int:
     ap.add_argument("--out", default="site")
     ap.add_argument("--base-url", default="https://ivanweissvanderpol.github.io")
     ap.add_argument("--assets", default="/assets")
-    ap.add_argument("--pdf", action="store_true", help="also render the CV page to cv.pdf (needs Chrome)")
+    ap.add_argument("--pdf", action="store_true", help="render the CV page to cv.pdf (default: on; skipped when Chrome is missing)")
+    ap.add_argument("--no-pdf", dest="pdf", action="store_false", help="skip the PDF render step")
+    ap.set_defaults(pdf=True)
     args = ap.parse_args()
 
     content_dir = Path(args.content)
@@ -797,7 +836,9 @@ def main() -> int:
     (out_dir / "404.html").write_text(not_found, encoding="utf-8")
     print("  404.html")
 
-    # optional PDF export of the canonical CV page (print-optimised, same source)
+    # PDF export of the canonical CV page (print-optimised, same source).
+    # On by default: the CV page links to /cv.pdf, so a build without it ships a
+    # broken link. make_pdf.py skips cleanly when no Chrome binary exists.
     if args.pdf:
         here = Path(__file__).resolve().parent
         subprocess.run(

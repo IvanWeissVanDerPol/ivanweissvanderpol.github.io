@@ -13,10 +13,11 @@ breadcrumbs: [[Writing, writing], [Tooling landscape, writing/tooling]]
 # The SEO & AI-search tooling landscape (2026)
 
 Every GitHub number in this document — stars, licence, primary language, last push — was pulled from the
-GitHub REST API (`GET /repos/{owner}/{repo}`) on **2026-11-08**. Star counts move; licences and last-push
+GitHub REST API (`GET /repos/{owner}/{repo}`) on **2026-11-08** and re-verified on **2026-11-09**, together
+with 15 additional repositories researched for this revision. Star counts move; licences and last-push
 dates are the durable parts, so treat those as the deciding factors. Paid-tool prices were read off the
-vendor's own pricing page on the same date. The machine-readable version of this table is
-[`tools.json`](./tools.json) (98 entries).
+vendor's own pricing page on 2026-11-08 and drift. The machine-readable version of this table is
+[`tools.json`](./tools.json) (113 entries).
 
 **Read this first.** The single most important fact in the 2026 landscape is that Google says AI Overviews
 and AI Mode have **no additional technical requirements** beyond ordinary indexing and snippet eligibility
@@ -49,27 +50,31 @@ already a table-stakes check.
 
 | Category | Open-source options | Paid options | Free enough to start? |
 |---|---:|---:|---|
-| Site crawling & auditing | 6 | 3 | Yes — SiteOne Crawler + linkinator cover the Screaming Frog essentials |
+| Site crawling & auditing | 9 | 3 | Yes — SiteOne Crawler + linkinator cover the Screaming Frog essentials |
 | Core Web Vitals / performance | 5 | 0 | Yes — Lighthouse, Lighthouse CI and web-vitals are free and sufficient |
 | SERP & rank tracking | 9 | 2 | Partly — SerpBear is free, the SERP feed is not |
 | AI-answer visibility | 10 | 7 | Partly — Elmo (self-hosted) and geo-optimizer-skill are free; tracking needs API keys |
 | AI-crawler & log analytics | 4 | 0 | Yes — GEOInflow plus crawler-user-agents / isbot |
 | Schema / markup validation | 3 | 2 | Yes — Rich Results Test and validator.schema.org are free |
 | llms.txt | 4 | 0 | Yes — the spec is Apache-2.0 and generation is a small script |
-| Content & keyword research | 6 | 0 | Partly — the skill layer is free, the volume data is not |
+| Content & keyword research | 7 | 0 | Partly — the skill layer is free, the volume data is not |
 | Backlinks | 1 | 0 | No — only Common Crawl mention discovery is free |
 | Programmatic SEO | 2 | 0 | Yes — reference implementations, not tools |
-| Agent readiness (WebMCP / MCP) | 4 | 0 | Yes — specs and reference servers are open |
-| SEO-as-agent skills & MCP | 5 | 0 | Yes — the skills are MIT/Apache; the data behind them may not be |
-| Job search & ATS | 9 | 3 | Yes — career-ops, Resume-Matcher and ats-buddy are all open and local-first |
+| Agent readiness (WebMCP / MCP) | 7 | 0 | Yes — specs and reference servers are open |
+| SEO-as-agent skills & MCP | 6 | 0 | Yes — the skills are MIT/Apache; the data behind them may not be |
+| Job search & ATS | 13 | 3 | Yes — career-ops, Resume-Matcher, ATS Screener and OpenJobAutofill are open and local-first |
 | AI-content detection | 2 | 0 | Yes — lmscan is local and free |
+| Automation & scraping infra | 5 | 0 | Yes — Crawl4AI, Scrapling and Firecrawl's open parts cover it |
+| Self-hosted analytics | 3 | 0 | Yes — Umami or Matomo, one of them |
+| Curated references | 5 | 0 | Yes — CC0 and MIT lists, plus the primary-source index |
 
 Paid-tool counts include vendor APIs consumed by the open tools, which is where most of the real spend lands.
 
 ## 2. The tools, by category
 
-Columns: **Stars** (as of 2026-11-08), **Licence**, **Lang**, **Last push**, **Self-hosted**. Paid tools have
-no GitHub row, so they appear at the end of each section with a price instead of stars.
+Columns: **Stars** (as of 2026-11-08, re-verified 2026-11-09), **Licence**, **Lang**, **Last push**,
+**Self-hosted**. Paid tools have no GitHub row, so they appear at the end of each section with a price
+instead of stars.
 
 ### Site crawling & auditing (Screaming Frog alternatives)
 
@@ -86,6 +91,9 @@ The commercial default is Screaming Frog (GBP 199 per seat per year, free to 500
 | [DeepCrawl](https://www.deepcrawl.com/pricing/) | — | proprietary | — | — | no | Cloud crawler with large-scale scheduling, JavaScript rendering and bot-management-aware crawling | Skip for a personal site. Overkill until you are crawling many domains on a schedule. |
 | [Screaming Frog SEO Spider](https://www.screamingfrog.co.uk/seo-spider/pricing/) | — | proprietary | — | — | no | Desktop crawler, the de-facto technical SEO standard | Buy one seat at GBP 199 if a client ever needs a crawl you cannot do in open source. For your own site, siteone-crawler covers 80% of it for free. |
 | [Sitebulb](https://www.sitebulb.com/pricing/) | — | proprietary | — | — | no | Browser-based SaaS crawler with a spreadsheet UI, JavaScript rendering, site health, link and performance analysis | Only if you want zero-install CSV-style audits for non-technical stakeholders. Otherwise LibreCrawl + siteone-crawler. |
+| [`crawlforge`](https://github.com/mario-hernandez/crawlforge) | 9 | MIT | Python | 2026-05-06 | yes | Open-source Screaming Frog alternative built LLM-native: 269 technical SEO rules across 18 categories, a native MCP server, and DuckDB + Parquet storage instead of a UI | Watch, do not adopt yet. The MCP-plus-columnar-storage design is the right shape for agent-driven audits, but it self-describes as pre-alpha (May 2026). |
+| [`Toadstone`](https://github.com/spcaeo/toadstone) | 11 | Elastic-2.0 | Python | 2026-10-24 | yes | Crawler plus a frozen-crawl UI for SEO findings, shipped with a reproducible real crawl (141 URLs, 8,374 links) as its fixture | Interesting reference implementation, but ELv2 is not an OSI open-source licence - read it before vendoring. Small and early; use it as design reading. |
+| [`SEO Tools by Ammar Imtiaz`](https://github.com/4mmar1mtiaz/SEO-tools-by-Ammar-Imtiaz) | 5 | MIT | JavaScript | 2026-08-30 | yes | 20 zero-dependency Node CLI tools in one repo: site audit, llms.txt generator and validator, AI-crawler checker for robots.txt, meta-title pixel-width measurement, schema generation and validation, broken-link finder, keyword clustering by intent | Yes as a reference, not a dependency. The llms.txt generator plus AI-crawler checker covers exactly what this site already implements by hand - worth reading before writing more of it. |
 
 ### Core Web Vitals & performance measurement
 
@@ -187,6 +195,7 @@ Keyword *volume* data is never free — it comes from Google Ads Keyword Planner
 | [`dataforseo/mcp-server-typescript`](https://github.com/dataforseo/mcp-server-typescript) | 261 | Apache-2.0 | TypeScript | 2026-11-02 | yes | Official DataForSEO MCP server exposing SERP, keyword-data, backlinks, on-page and Labs endpoints to MCP clients | Yes if you are already paying DataForSEO. The most data-complete MCP adapter for paid SERP/keyword APIs. |
 | [`seranking/seo-skills`](https://github.com/seranking/seo-skills) | 201 | MIT | Python | 2026-11-05 | yes | Production Claude Agent Skills for the SE Ranking MCP server: content briefs, AI Search checks and reporting against SE Ranking's unified API | Yes alongside an SE Ranking subscription. Narrowest useful case of the skill repos — but it is the official pairing. |
 | [`dataseo-mcp`](https://github.com/egebese/dataseo-mcp) | 193 | NOASSERTION | Python | 2026-07-06 | yes | Free MCP server pulling backlinks, keyword difficulty, traffic estimates and keyword ideas from Ahrefs' free tools, plus AI query planning | No in production. It depends on Ahrefs' free web endpoints and captcha-solving services — that is a ToS and account-risk liability, and the repo itself says so. |
+| [`SEO Keyword Research Tool`](https://github.com/chukhraiartur/seo-keyword-research-tool) | 166 | MIT | Python | 2023-05-10 | yes | Python CLI that pulls keyword suggestions from Google Autocomplete, People Also Ask and related searches through SerpApi and exports to CSV, JSON or TXT | Skip. The data source is a paid API and the repo has not moved since 2023-05 - use a current fork or the free Google Autocomplete fallback instead. |
 
 ### Backlinks
 
@@ -215,6 +224,9 @@ Google's spam policy (last updated 2026-08-28) names **scaled content abuse** as
 | [`webmcp (spec)`](https://github.com/webmachinelearning/webmcp) | 4.9k | NOASSERTION | Bikeshed | 2026-11-06 | yes | The WebMCP specification: expose web app functionality as tools - JavaScript functions with natural-language descriptions and structured schemas - so in-browser... | Yes, as the spec to read before building agent-accessible UI. Browser support is still in progress, so treat it as forward-looking rather than ship-blocking. |
 | [`WebMCP (early implementation)`](https://github.com/MiguelsPizza/WebMCP) | 1.1k | NOASSERTION | TypeScript | 2025-10-07 | yes | Independent, earlier WebMCP implementation - TypeScript, browser-side tool exposure for agents | Reference implementation only. Last push was 2025-10-07; the webmachinelearning spec has moved on since. |
 | [`webmcp-tools`](https://github.com/GoogleChromeLabs/webmcp-tools) | 772 | Apache-2.0 | TypeScript | 2026-11-06 | yes | Chrome Labs utilities and demos supporting WebMCP adoption: developer tooling, examples and adoption aids | Yes, as the practical companion to the spec. Early but it is the reference implementation team. |
+| [`use-webmcp-tool`](https://github.com/GoogleChromeLabs/use-webmcp-tool) | 198 | Apache-2.0 | JavaScript | 2026-11-03 | yes | Chrome-maintained React hook that registers a page tool with the browser and ties its lifecycle to a component; feature-detects the experimental WebMCP API and degrades to a no-op | Yes - the reference way to ship WebMCP from a React app, with the degradation path already solved. The spec is still experimental. |
+| [`WebMCP Starter`](https://github.com/Doriandarko/webmcp-starter) | 215 | None | HTML | 2026-02-12 | yes | Single-file food-delivery demo exposing 9 WebMCP tools (search, menu, cart, checkout, order status) in both imperative and declarative styles | Read it as a worked example of the two WebMCP tool styles; do not copy code - there is no licence file, so it is all rights reserved. |
+| [`Persona`](https://github.com/runtypelabs/persona) | 263 | MIT | TypeScript | 2026-11-08 | yes | Themeable AI chat widget with zero framework dependencies: streaming responses, WebMCP and page tools, built-in client tools, voice I/O, tool-call visualisation, approval gates, artifact rendering and a plugin system, over any SSE backend | Yes if you want a drop-in assistant on a static site. The WebMCP and page-tool support is the relevant part; it needs an SSE backend. |
 
 ### SEO-as-agent skills & MCP servers
 
@@ -227,6 +239,7 @@ The 2026 pattern: instead of a dashboard, an MCP server that hands your **own fi
 | [`SEOMonster`](https://github.com/avansaber/seo-monster) | 491 | MIT | Python | 2026-11-06 | yes | Local, user-credential-driven MCP server for SEO workflows over Google Search Console, Google Analytics and PageSpeed, running on your machine via uvx | Yes. The closest thing to 'the SEO analyst that lives in your assistant' without handing credentials to a SaaS. |
 | [`Suganthans-GSC-MCP`](https://github.com/Suganthan-Mohanadasan/Suganthans-GSC-MCP) | 185 | Apache-2.0 | TypeScript | 2026-09-27 | yes | Focused MCP server for Google Search Console: ask your assistant questions about your search data and get answers | Yes, as the minimal GSC-only server. Redundant if you already run seo-monster or iannuttall/seo. |
 | [`seo-audit`](https://github.com/houtini-ai/seo-audit) | 98 | Apache-2.0 | TypeScript | 2026-11-03 | yes | Free SEO Audit MCP server for Claude that captures and stores all the raw data needed for a complete technical audit, so the agent reasons over evidence rather... | Yes, paired with a crawler skill. Raw-evidence-first is the correct design for agent-driven audits. |
+| [`Suede Creator Skills`](https://github.com/JasonColapietro/suede-creator-skills) | 121 | MIT | JavaScript | 2026-11-09 | yes | AI agent skills scored 0-99 with the numeric score, the source link and the browsing path attached; installable as a Python package and also shipped as an MCP server | Yes as a skill-pack pattern. The scores are self-published and the README says a quality score does not certify security - judge the skills, not the number. |
 
 ### Job search & ATS workflows
 
@@ -246,6 +259,10 @@ Two distinct problems, two distinct toolchains. **Finding and filtering**: caree
 | [Jobscan](https://www.jobscan.co/pricing) | — | proprietary | — | — | no | Paid ATS resume scanner: compares your resume against a job description, counts keyword matches against the employer's ATS, flags formatting issues, and provides... | Skip it if you run ats-buddy or Resume-Matcher locally; the matching logic is the same and the price is not. |
 | [Simplify.jobs](https://simplify.jobs/) | — | proprietary | — | — | no | AI job-search platform (free registration plus a Simplify+ subscription): proactive role matching, resume tailoring, browser-form autofill and an Autopilot that... | Useful for breadth of listings. Verify each posting on the employer's own ATS - aggregator data ages badly, and Autopilot carries the same policy risk as any auto-applier. |
 | [Teal](https://www.tealhq.com/pricing) | — | proprietary | — | — | no | AI job search suite (free tier plus a Teal+ paid tier): resume builder, ATS keyword matching against a JD, real-time resume feedback, unlimited job tracking,... | Good tracker and keyword UI. The trade-off is that the free tier uploads your resume — ats-buddy gives the same signal with nothing leaving the machine. |
+| [`LLM Intern Skill`](https://github.com/wanyichen06/LLMInternSkill) | 343 | MIT | Markdown | 2026-08-04 | yes | Evidence-bound resume toolkit: resume polish, JD matching, a materials-folder audit (code, notes, logs, awards), an explicit can-write / needs-evidence / cannot-write verdict per claim, interviewer-style probing, and PDF-ready output | Yes - the evidence-contract idea (every line must survive an interview probe) is the discipline a senior profile needs, and it generalises past internships. Renamed from `couragec/llm-intern-skill`. |
+| [`Autopilot Job Hunt`](https://github.com/tarunlnmiit/autopilot-jobhunt) | 219 | MIT | Python | 2026-09-20 | yes | AI job agent that scans 130+ company careers pages nightly, scores each role against your resume with an LLM, sends top matches to Telegram and drafts a tailored resume and cover letter. Drafts only - it never submits | Yes for the search-and-draft stage. The never-applies-by-default boundary is the right design; direct-company postings also age better than aggregator listings. |
+| [`ATS Screener`](https://github.com/sunnypatell/ats-screener) | 191 | MIT | Svelte | 2026-11-02 | yes | Free open-source resume screener that simulates how six real enterprise ATS platforms parse, filter and score a resume - Workday, Oracle Taleo, iCIMS, Greenhouse, Lever, SuccessFactors - instead of inventing one generic score | Yes - the per-ATS parsing simulation is the useful part, since one generic ATS score is meaningless. Free and MIT, unlike the paid checkers that paywall the real output. |
+| [`OpenJobAutofill`](https://github.com/Br1an67/OpenJobAutofill) | 127 | MIT | JavaScript | 2026-05-13 | yes | Browser extension that scans a job-application page and fills the fields it can resolve from a locally stored profile (personal details, education, internships, projects, certificates, awards). An optional OpenAI-compatible API reads field meanings only, never your CV values | Yes if you apply through many portals. The privacy boundary (AI sees field names, not values) is the correct design; you still review and submit. Chinese-language README. |
 
 ### AI-content detection risk
 
@@ -266,6 +283,7 @@ The glue layer. n8n for scheduled workflows, crawl4ai for scraping pages into cl
 | [`markitdown`](https://github.com/microsoft/markitdown) | 194.5k | MIT | Python | 2026-11-07 | yes | Converts files and office documents (including PDF, DOCX, XLSX, PPTX) into Markdown for LLM consumption | Yes — the boring dependency that makes any document pipeline LLM-ready. |
 | [`browser-use`](https://github.com/browser-use/browser-use) | 120.3k | MIT | Python | 2026-11-08 | yes | Open-source Python library for AI browser agents, plus a cloud with stealth browsers, driving real Chrome through an LLM | Yes when a site needs JavaScript or a login. Heavyweight for anything a plain HTTP client can reach. |
 | [`crawl4ai`](https://github.com/unclecode/crawl4ai) | 87.1k | Apache-2.0 | Python | 2026-11-04 | yes | Open-source LLM-friendly web crawler and scraper that emits clean Markdown | Yes for scraping competitor/AI-answer pages into Markdown for analysis. The hosted API is a fast path; self-host to keep it free. |
+| [`MetaSearchMCP`](https://github.com/gefsikatsinelou/MetaSearchMCP) | 57 | MIT | Python | 2026-10-19 | yes | Metasearch backend for agents and LLM workflows: aggregates several search providers, normalises results into one stable JSON schema, deduplicates, and exposes an HTTP API and an MCP server with provider-level metadata and partial-failure tolerance | Yes as the search layer under an agent - predictable JSON and per-provider metadata are what agent workflows need, and MCP-native beats a browser-first aggregator. |
 
 ### Self-hosted analytics
 
@@ -286,6 +304,8 @@ Reading lists, kept separate from tools because they age differently. `awesome-s
 | [`awesome-seo`](https://github.com/i365dev/awesome-seo) | 2.8k | MIT | None | 2026-10-21 | yes | Curated SEO guides, tools and references maintained since 2019, with an explicit policy of refusing vendor and self-promotional listings | Yes, as a reading list with editorial standards. The no-vendor-listing policy makes it more trustworthy than most awesome lists. |
 | [`awesome-generative-engine-optimization`](https://github.com/amplifying-ai/awesome-generative-engine-optimization) | 539 | None | None | 2026-04-14 | yes | Curated GEO resource list covering guides, case studies, tools, research papers, technical documentation, agentic commerce, monitoring and analytics | Yes as a map of the field. No license file and it has not been pushed since 2026-04 — treat it as a snapshot, not a live index. |
 | [`awesome-geo`](https://github.com/luka2chat/awesome-geo) | 132 | CC0-1.0 | None | 2026-10-14 | yes | Extensive GEO list with research papers (including the Princeton GEO paper), tools and platforms, AI search engines, strategies, analytics and monitoring, plus a... | Yes — the most current and comprehensive GEO reading list I verified. |
+| [`Awesome Answer Engine Optimization`](https://github.com/elmohq/awesome-answer-engine-optimization) | 6 | CC0-1.0 | Python | 2026-10-20 | yes | CC0 curated list of official documentation, crawler user agents, specifications, research and tools for AEO and GEO in 2026 | Yes as a reference index. Small, but CC0 and maintained - check any crawler claim against the vendor docs before repeating it. |
+| [`Awesome AI Search`](https://github.com/estevecastells/awesome-ai-search) | 7 | CC0-1.0 | None | 2026-09-26 | yes | CC0 curated list of tools, first-party docs, research and datasets for how brands appear in AI-generated search and answer experiences. Accepts only entries with a live canonical URL and public evidence; no paid or affiliate placements | Yes as a reading list. Those editorial rules are the reason to trust it over a vendor directory. |
 
 ### Research & primary sources
 
@@ -367,6 +387,8 @@ AI answers, with a budget of roughly $50-150/month and a preference for owning i
 | Audit-only GEO score | [geo-optimizer-skill](https://github.com/Auriti-Labs/geo-optimizer-skill) | `uvx geo audit --url ...` — 0-100 score, no key, no account, seconds to run |
 | Ongoing AI visibility | [Elmo](https://github.com/elmohq/elmo) self-hosted | The most complete open tracker: visibility, share of voice, sentiment, citations, query fan-out |
 | SERP data | [SerpApi](https://serpapi.com/pricing) $25/mo | Only mainstream API with a first-class Google AI Overview endpoint; 250 free searches/mo to start |
+| Search for agents | [MetaSearchMCP](https://github.com/gefsikatsinelou/MetaSearchMCP) | One stable JSON schema across several providers, with per-provider metadata and partial-failure tolerance — that is what an agent workflow can actually consume |
+| SEO CLI reference set | [SEO Tools by Ammar Imtiaz](https://github.com/4mmar1mtiaz/SEO-tools-by-Ammar-Imtiaz) | 20 zero-dependency Node CLIs in one repo, including an llms.txt generator/validator and an AI-crawler robots.txt checker — read before writing a second one |
 
 ### Tier 2 — spend only when the free tier is not enough
 
@@ -418,6 +440,19 @@ Weekly
 6. **Do not publish at scale without per-page value.** Google's scaled-content-abuse policy applies
    "no matter how it's created" — pSEO pages need real data per page or they are a liability.
 
+### Job-hunt layer (the ATS half)
+
+These do not belong to a content site's stack, but they are the tools that answer "will a recruiter system
+read this résumé", so they sit next to the SEO inventory deliberately.
+
+| Need | Pick | Why this one |
+|---|---|---|
+| ATS parsing simulation | [ATS Screener](https://github.com/sunnypatell/ats-screener) | Six real enterprise parsers rather than one invented score; free and MIT |
+| Evidence-checked résumé | [LLM Intern Skill](https://github.com/wanyichen06/LLMInternSkill) | Forces a can-write / needs-evidence / cannot-write verdict per claim — the discipline generalises past internships |
+| Find and draft, never apply | [Autopilot Job Hunt](https://github.com/tarunlnmiit/autopilot-jobhunt) | 130+ company careers pages scored nightly against your résumé; drafts only, by design |
+| Fill forms, keep control | [OpenJobAutofill](https://github.com/Br1an67/OpenJobAutofill) | Local profile store; the optional AI reads field names only, never your CV values |
+| Agent-readable site | [use-webmcp-tool](https://github.com/GoogleChromeLabs/use-webmcp-tool) + [Persona](https://github.com/runtypelabs/persona) | Chrome's own React hook for registering page tools, and a dependency-free widget that already speaks WebMCP |
+
 ## 5. What to skip
 
 | Skip | Because |
@@ -433,6 +468,12 @@ Weekly
 | `AIHawk` for unattended mass apply | It works, but auto-apply has drawn recruiter scrutiny and platform-policy friction. Use it for search and filtering, apply by hand. |
 | Detector-driven editing | Google penalises low value, not machine authorship. Rewriting to beat a detector score degrades the content and does nothing for ranking. |
 | A second analytics tool | You will not look at two. Pick Umami *or* Matomo *or* GA4 and instrument AI referrals properly. |
+| `SEO Keyword Research Tool` | Last push 2023-05-10 and its data source is the paid SerpApi. Use a maintained fork or query Google Autocomplete directly. |
+| `crawlforge` as a production crawler | It self-describes as pre-alpha (May 2026, 9 stars). Read the design — MCP server plus DuckDB/Parquet — and wait for a stable release. |
+| Vendoring `Toadstone` | Elastic License 2.0 is not an OSI open-source licence. Reading the code is fine; shipping it inside a product needs a licence review. |
+| Copying `WebMCP Starter` | No licence file at all, so there is no permission to reuse the code. Use it only as a description of the imperative/declarative tool styles. |
+| A paid ATS checker as the only signal | The free MIT `ATS Screener` simulates six real ATS parsers (Workday, Taleo, iCIMS, Greenhouse, Lever, SuccessFactors). A single generic vendor score tells you nothing about how a specific system will parse your résumé. |
+| Unattended auto-apply | `AIHawk` and similar tools work but draw recruiter scrutiny and platform-policy friction. Use `Autopilot Job Hunt` for search and drafting; `OpenJobAutofill` for filling forms you are looking at. You still press submit. |
 
 ## Related reading on this site
 
@@ -455,7 +496,7 @@ Weekly
 
 | Claim type | Method |
 |---|---|
-| Stars, licence, language, last push | `gh api repos/{owner}/{repo}` per repo, 2026-11-08. 84 repos fetched individually, no search-result estimates used. |
+| Stars, licence, language, last push | `gh api repos/{owner}/{repo}` per repo, fetched 2026-11-08 and re-verified 2026-11-09. 96 repos fetched individually, no search-result estimates used. |
 | Repo descriptions and features | The repo's own README, fetched via `GET /repos/{o}/{r}/readme`. |
 | Paid-tool prices | Each vendor's own pricing page, fetched 2026-11-08 (Screaming Frog, Ahrefs, Semrush, SE Ranking, SerpApi, DataForSEO, Profound, Peec AI, Otterly). |
 | Google's AI-features policy | [developers.google.com/search/docs/appearance/ai-features](https://developers.google.com/search/docs/appearance/ai-features) |

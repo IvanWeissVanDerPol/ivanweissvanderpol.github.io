@@ -36,7 +36,7 @@ jobs:
       - name: Link check (external links)
         run: |
           python3 - <<'PY'
-          import re, sys, urllib.request, pathlib
+          import re, sys, time, urllib.request, pathlib
           site = pathlib.Path('site')
           # Derive the site's own base URL from the canonical link the build emitted,
           # so self-references to the (not yet published) deployment target are skipped.
@@ -70,6 +70,21 @@ jobs:
                       continue
               return None
 
+          def stable_status(u):
+              # A third-party origin behind a CDN/WAF can answer 5xx for a few seconds
+              # and then 200 (verified: jobscan.co returned 502 once, then 200 three
+              # times in a row). A transient upstream error is not a broken link, so
+              # retry before declaring the link dead.
+              code = stable_status(u)
+              if code is None or code < 500:
+                  return code
+              for attempt in range(3):
+                  time.sleep(5)
+                  retry_code = status_of(u)
+                  if retry_code is None or retry_code < 500:
+                      return retry_code
+              return code
+
           bad = []
           blocked = []
           skipped = 0
@@ -79,7 +94,7 @@ jobs:
               if base and u.startswith(base):
                   skipped += 1
                   continue
-              code = status_of(u)
+              code = stable_status(u)
               if code is None:
                   continue
               if code >= 400:
